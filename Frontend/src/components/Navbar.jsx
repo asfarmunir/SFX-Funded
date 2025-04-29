@@ -13,7 +13,8 @@ export default function Navbar() {
     { name: 'Affiliate', path: '/affiliate' },
     { name: 'Programs', path: '/instant-funding' },
     { name: 'FAQS', path: '/graphic' },
-    { name: 'Blogs', path: '/blogs' }
+    { name: 'Blogs', path: '/blogs' },
+    { name: 'Contact Us', path: '/contact' }
   ];
 
   // Update active link based on current URL

@@ -493,7 +493,7 @@ export default function RapidChallenge() {
           <div className="flex-[5] text-center py-3">
             <span className="text-fuchsia-600 font-medium">Phase 1</span>
           </div>
-          <div className="flex-1 text-center py-3">
+          <div className="flex-1 text-center py-3 px-4">
             <span className="text-fuchsia-600 font-medium">Funded</span>
           </div>
         </div>
@@ -504,49 +504,49 @@ export default function RapidChallenge() {
           <div className="flex border-b border-gray-200">
             <div className="flex-1 py-3 pl-4 font-medium">Trading Period</div>
             <div className="flex-[5] text-center py-3">7</div>
-            <div className="flex-1 text-center py-3">Indefinite</div>
+            <div className="flex-1 text-center py-3 px-4">Indefinite</div>
           </div>
 
           {/* Maximum Daily Loss */}
           <div className="flex border-b border-gray-200 bg-fuchsia-50">
             <div className="flex-1 py-3 pl-4 font-medium">Maximum Daily Loss</div>
             <div className="flex-[5] text-center py-3">3%</div>
-            <div className="flex-1 text-center py-3">3%</div>
+            <div className="flex-1 text-center py-3 px-4">3%</div>
           </div>
 
           {/* Maximum Loss */}
           <div className="flex border-b border-gray-200">
             <div className="flex-1 py-3 pl-4 font-medium">Maximum Loss</div>
             <div className="flex-[5] text-center py-3">4%</div>
-            <div className="flex-1 text-center py-3">4%</div>
+            <div className="flex-1 text-center py-3 px-4">4%</div>
           </div>
 
           {/* Profit Target */}
           <div className="flex border-b border-gray-200 bg-fuchsia-50">
             <div className="flex-1 py-3 pl-4 font-medium">Profit Target</div>
             <div className="flex-[5] text-center py-3">5%</div>
-            <div className="flex-1 text-center py-3">-</div>
+            <div className="flex-1 text-center py-3 px-4">-</div>
           </div>
 
           {/* Leverage */}
           <div className="flex border-b border-gray-200">
             <div className="flex-1 py-3 pl-4 font-medium">Leverage</div>
             <div className="flex-[5] text-center py-3">1:30</div>
-            <div className="flex-1 text-center py-3">1:30</div>
+            <div className="flex-1 text-center py-3 px-4">1:30</div>
           </div>
 
           {/* Reward Schedule */}
           <div className="flex border-b border-gray-200 bg-fuchsia-50">
             <div className="flex-1 py-3 pl-4 font-medium">Reward Schedule</div>
             <div className="flex-[5] text-center py-3">-</div>
-            <div className="flex-1 text-center py-3">On demand/Bi-weekly</div>
+            <div className="flex-1 text-center py-3 px-4">On demand/Bi-weekly</div>
           </div>
 
           {/* Profit Split */}
           <div className="flex border-b border-gray-200">
             <div className="flex-1 py-3 pl-4 font-medium">Profit Split</div>
             <div className="flex-[5] text-center py-3">-</div>
-            <div className="flex-1 text-center py-3">up to 100%</div>
+            <div className="flex-1 text-center py-3 px-4">up to 100%</div>
           </div>
         </div>
       </div>

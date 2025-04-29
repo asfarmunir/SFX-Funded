@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Additional custom styles if needed */
+:root {
+  --primary-blue: #2563eb;
+}
+
+/* Optional: Add some global styles */
+body {
+  @apply antialiased text-gray-800 bg-gray-50;
+}
+
+/* Optional: Add custom animations */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in;
+}
+/* Add these styles to your global CSS file */
+
+/* For Webkit browsers (Chrome, Safari) */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #4B5563;
+  border-radius: 20px;
+}
+
+/* For Firefox */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #4B5563 transparent;
+}
+
+/* For the textarea scrollbar */
+textarea {
+  scrollbar-width: thin;
+  scrollbar-color: #4B5563 transparent;
+}
+
+textarea::-webkit-scrollbar {
+  width: 4px;
+}
+
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: #4B5563;
+  border-radius: 10px;
+}
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}

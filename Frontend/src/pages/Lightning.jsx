@@ -1,0 +1,436 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { Rocket, Banknote, Clock, Users, Shield, Star } from "lucide-react";
+import Newsletter from '../components/Newsletter';
+import Navbar from '../components/Navbar';
+
+export default function LightningChallenge() {
+  return (
+    <div className="font-inter w-full overflow-x-hidden">
+      
+
+      <div className="w-full mx-0 px-2 sm:px-6 py-8 sm:py-2 md:py-4 lg:py-5 rounded-[40px] my-6 sm:my-8 relative overflow-hidden"
+  style={{
+    background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
+  }}
+>
+  {/* Navbar */}
+  <Navbar />
+
+  {/* Main Content */}
+  <div className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center mt-8 sm:mt-12 md:mt-16 lg:mt-20">
+    {/* Small Tagline */}
+    <div className="bg-black text-white mb-6 sm:mb-8 md:mb-10 border-2 border-white rounded-full px-6 py-3 sm:px-8 sm:py-4 font-semibold text-base sm:text-lg w-max font-inter">
+      The Fastest Evaluation
+    </div>
+
+    {/* Hero Heading */}
+    <div className="text-center mb-6 sm:mb-8 md:mb-10">
+      {/* Main Heading */}
+      <h1 className="text-white uppercase font-oswald font-bold 
+        text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
+        leading-none tracking-tight">
+        <span>LIGHTNING</span>{" "}
+        <span className="text-[#DE00DE]">CHALLENGE</span>
+      </h1>
+
+      {/* Subheading */}
+      <h2 className="text-white uppercase font-oswald font-bold 
+        text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
+        leading-none tracking-tight mt-3 sm:mt-4 md:mt-5">
+        <span className="text-[#DE00DE]">SIMPLE .</span>{" "}
+        <span className="text-white">FAST .</span>{" "}
+        <span className="text-[#DE00DE]">ACCESSIBLE .</span>
+      </h2>
+    </div>
+
+    {/* Description */}
+    <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl font-inter mb-8 sm:mb-10 md:mb-12">
+      Designed for confident traders seeking the fastest and most accessible track to prove their skills and get funded.
+    </p>
+
+    {/* CTA Button */}
+    <div className="mt-4 sm:mt-6 mb-8 sm:mb-10">
+      <button className="text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center justify-center mx-auto font-inter text-base sm:text-lg md:text-xl">
+        Trade With SFX Funded
+        <svg
+          className="ml-3"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+            fill="white"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+      {/* Process Steps Section */}
+      <div className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
+            <div className="lg:w-2/5 xl:w-1/3">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
+                ONE STEP. 5% TARGET.
+                <br />
+                <span className="text-[#DE00DE] font-semibold">7 DAYS TO PASS.</span>
+              </h2>
+              <p className="mt-3 text-base sm:text-lg text-gray-600">
+                Prove your skills, get funded — all in record time.
+              </p>
+              <button className="mt-6 text-white px-6 py-3 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center">
+                Get Started
+                <svg className="ml-2" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="lg:w-3/5 xl:w-2/3 space-y-6">
+              {/* Step 1 */}
+              <div className="p-6 sm:p-8 rounded-xl bg-[#F8EAF8] relative">
+                <div className="w-12 h-12 rounded-full bg-[#DE00DE] flex items-center justify-center mb-4">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
+                  </svg>
+                </div>
+                <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-[#DE00DE] flex items-center justify-center text-xs font-bold">
+                  1
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">SIGN UP</h3>
+                <p className="text-base text-gray-600">Choose from account sizes up to $100,000</p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="p-6 sm:p-8 rounded-xl bg-blue-50 relative">
+                <div className="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center mb-4">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                  </svg>
+                </div>
+                <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-blue-800 flex items-center justify-center text-xs font-bold">
+                  2
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">PASS</h3>
+                <p className="text-base text-gray-600">Prove your skills by meeting the trading objective in just 7 days.</p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="p-6 sm:p-8 rounded-xl bg-green-50 relative">
+                <div className="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center mb-4">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
+                  </svg>
+                </div>
+                <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-green-600 flex items-center justify-center text-xs font-bold">
+                  3
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">GET FUNDED</h3>
+                <p className="text-base text-gray-600">Trade our funds and start earning up to 90% performance split.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Comparison Cards Section */}
+      <div className="py-12 sm:py-16 px-4 sm:px-6 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+            {/* 1-Step Evaluation Card */}
+            <div className="w-full md:w-1/2 p-6 sm:p-8 rounded-2xl bg-gray-100 text-center">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+                1 - Step<br />Evaluation
+              </h2>
+              <div className="mb-3 sm:mb-4 font-semibold text-lg sm:text-xl">
+                10% Profit Target
+              </div>
+              <div className="mb-3 sm:mb-4 font-semibold text-lg sm:text-xl">
+                Start from $59 / $5K Evaluation
+              </div>
+              <div className="mb-0 sm:mb-2 text-base sm:text-lg">
+                <span className="font-semibold">Experienced traders</span> seeking the conventional route to funding
+              </div>
+            </div>
+
+            {/* Lightning Challenge Card */}
+            <div className="w-full md:w-1/2 p-6 sm:p-8 rounded-2xl text-center bg-[#FFE6FD] border border-[#F8EAF8]">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+                Lightning<br />Challenge
+              </h2>
+              <div className="mb-3 sm:mb-4 font-semibold text-lg sm:text-xl">
+                5% Profit Target
+              </div>
+              <div className="mb-3 sm:mb-4 font-semibold text-lg sm:text-xl">
+                Start from $59 / <span className="text-[#DE00DE]">$10K Evaluation</span>
+              </div>
+              <div className="mb-0 sm:mb-2 text-base sm:text-lg">
+                <span className="text-[#DE00DE] font-bold">Confident traders</span> seeking a faster and more accessible evaluation program
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Advantages Grid Section */}
+      <div className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 bg-gray-100">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-center font-semibold text-3xl sm:text-4xl md:text-5xl mb-6">
+              SFX LIGHTNING<br />
+              <span className="text-[#DE00DE]">ADVANTAGE</span>
+            </h2>
+            <p className="text-center font-semibold text-xl sm:text-2xl">
+              Prove your skills, get funded — all in record time.
+            </p>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
+            {/* First Column - Single Card */}
+            <div className="w-full lg:w-1/3">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 flex flex-col h-full min-h-[280px] sm:min-h-[315px]">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4">
+                  Low Target
+                </h3>
+                <p className="text-lg sm:text-xl mb-6 flex-grow">
+                  Hit 5% in your evaluation to get funded
+                </p>
+                <div className="flex justify-end">
+                  <Rocket 
+                    size={100}
+                    className="w-20 h-20 sm:w-32 sm:h-32 text-[#DE00DE]"
+                    strokeWidth={1.5}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Second Column - Two Cards */}
+            <div className="w-full lg:w-1/3 flex flex-col gap-6 sm:gap-8">
+              {/* First Card */}
+              <div className="bg-green-50 rounded-3xl p-6 sm:p-8 relative h-full min-h-[200px] sm:min-h-[225px]">
+                <div className="absolute top-6 right-6">
+                  <Banknote 
+                    size={40}
+                    className="text-green-600"
+                    strokeWidth={2}
+                  />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-green-600">
+                  Upto 90% Performance Split
+                </h3>
+                <p className="text-lg sm:text-xl text-green-600">
+                  Choose Account sizes up to $100k and earn up to 90% performance split.
+                </p>
+              </div>
+
+              {/* Second Card */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 relative h-full min-h-[200px] sm:min-h-[216px]">
+                <div className="absolute top-6 right-6 w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-800 rounded-full flex items-center justify-center">
+                  <Clock 
+                    size={24}
+                    className="text-gray-800"
+                    strokeWidth={2}
+                  />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-2">
+                  Faster Process Evaluation
+                </h3>
+                <p className="text-lg sm:text-xl">
+                  Prove your skills just once by meeting all the trading objective in 7 days.
+                </p>
+              </div>
+            </div>
+
+            {/* Third Column - Two Cards */}
+            <div className="w-full lg:w-1/3 flex flex-col gap-6 sm:gap-8">
+              {/* First Card */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 relative h-full min-h-[180px] sm:min-h-[195px]">
+                <div className="absolute top-6 right-6">
+                  <img 
+                    src="/users.png" 
+                    alt="Users" 
+                    className="w-12 h-12 sm:w-14 sm:h-14"
+                  />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-2">
+                  Tailored Accounts
+                </h3>
+                <p className="text-lg sm:text-xl max-w-[80%]">
+                  Customize your account for the best experience with your unique add-ons at checkout.
+                </p>
+              </div>
+
+              {/* Second Card */}
+              <div className="bg-blue-50 rounded-3xl p-6 sm:p-8 relative h-full min-h-[180px] sm:min-h-[195px]">
+                <div className="absolute top-6 right-6">
+                  <Shield 
+                    size={36}
+                    className="text-[#DE00DE]"
+                    strokeWidth={2}
+                  />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-[#DE00DE]">
+                  Platform 5
+                </h3>
+                <p className="text-lg sm:text-xl text-[#DE00DE]">
+                  Trade on the most popular platform in the industry. Stick to what you are comfortable with.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Account Table Section */}
+      <div className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 font-sans text-[#21001E]">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6">
+            Choose Your Lightning Account
+          </h2>
+
+          <div className="w-full flex justify-center my-6 sm:my-8">
+            <div className="bg-[#FFEFFE] rounded-full px-4 py-2 sm:px-6 sm:py-2 border border-[#D90BC6]">
+              <p className="text-center text-black font-semibold text-base sm:text-lg md:text-xl">
+                Trade Forex, Indices, Metals & Crypto
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 sm:mt-12 bg-white rounded-3xl overflow-hidden mb-8 sm:mb-12 border border-[#D90BC6]">
+            {/* Mobile Account Selector */}
+            <div className="block sm:hidden p-4">
+              <select className="w-full p-3 rounded-lg bg-[#F001E1] text-white font-medium text-center">
+                <option>Select Account Size</option>
+                {['$10k', '$25k', '$50k', '$100k'].map((size, idx) => (
+                  <option key={idx}>{size}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Desktop Account Tabs */}
+            <div className="hidden sm:block px-4 mt-6 sm:mt-8">
+              <div className="max-w-7xl mx-auto bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 flex flex-wrap justify-center gap-2">
+                <div className="w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] bg-[#F001E1] rounded-md flex items-center justify-center text-white font-medium text-sm sm:text-base">
+                  Account Size
+                </div>
+                {['$10k', '$25k', '$50k', '$100k'].map((size, idx) => (
+                  <div 
+                    key={idx}
+                    className="w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] bg-[#FFDBFD] rounded-md flex items-center justify-center text-black font-medium text-sm sm:text-base"
+                  >
+                    {size}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="w-full">
+              {[
+                { label: 'Target', value: '5%' },
+                { label: 'Max Drawdown', value: '4% Trailing' },
+                { label: 'Daily Drawdown', value: '3% EOD Balance' },
+                { label: 'Leverage', value: 'Up to 1:30' },
+                { label: 'Performance Split', value: 'Up to 90%' },
+                { label: 'Max Trading Days', value: '7 days (Evaluation)' },
+                { label: 'Initial Payout Timeframe', value: '7 days' },
+                { label: 'Stop Loss Required?', value: 'Yes' },
+                { label: '30% Consistency Rule', value: 'Evaluation & Funded' },
+                { label: 'Fee', value: ['$59', '$119', '$209', '$399'] },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className={`flex flex-col sm:flex-row w-full ${idx % 2 === 0 ? 'bg-white' : 'bg-[#FFEFFE]'} border-t border-[#E5E7EB]`}
+                >
+                  <div className="p-3 sm:p-4 w-full sm:w-[165px] font-medium text-black pl-4 sm:pl-6">
+                    {item.label}
+                  </div>
+                  {Array.isArray(item.value) ? (
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-0 w-full p-2 sm:p-0">
+                      {item.value.map((val, i) => (
+                        <div 
+                          key={i} 
+                          className="p-2 sm:p-4 text-center text-black flex items-center justify-center text-sm sm:text-base"
+                        >
+                          {val}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="p-3 sm:p-4 flex-1 text-center text-black">
+                      {item.value}
+                    </div>
+                  )}
+                </div>
+              ))}
+
+<div className="flex flex-nowrap justify-center sm:justify-between gap-4 p-4 sm:px-6 sm:py-6 w-full overflow-x-auto">
+  <div className="w-[165px] hidden sm:block"></div>
+  {Array(4).fill(0).map((_, idx) => (
+    <button
+      key={idx}
+      className="w-[140px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] text-white rounded-lg bg-[#F001E1] hover:bg-[#D900D1] transition-colors font-medium text-sm sm:text-base flex items-center justify-center"
+    >
+      Start Trading
+    </button>
+  ))}
+</div>
+
+            </div>
+          </div>
+
+          {/* Pricing Box */}
+          <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+              <div className="flex flex-col items-center md:items-start gap-2">
+                <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
+                  <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
+                    $69
+                  </div>
+                  <div className="text-[#F001E1] font-bold text-xl sm:text-2xl md:text-3xl">
+                    $34
+                  </div>
+                  <div className="text-[#F001E1] font-medium text-lg sm:text-xl">
+                    $7,500 Ascend
+                  </div>
+                </div>
+                <div className="text-[#F001E1] font-medium text-base sm:text-lg text-center md:text-left">
+                  One-Time Fee • 100% Refundable
+                </div>
+              </div>
+
+              <button
+                className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
+              >
+                Start Challenge →
+              </button>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
+              {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
+                <img 
+                  key={img} 
+                  src={`/${img}.png`} 
+                  alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)} 
+                  className="h-6 sm:h-8" 
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Newsletter Section */}
+      <Newsletter />
+
+      
+    </div>
+  );
+}

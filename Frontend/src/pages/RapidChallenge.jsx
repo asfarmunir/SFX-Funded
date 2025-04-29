@@ -249,48 +249,67 @@ export default function RapidChallenge() {
              </div>
  
              <div className="lg:w-3/5 xl:w-2/3 space-y-6">
-               {/* Step 1 */}
-               <div className="p-6 sm:p-8 rounded-xl bg-[#F8EAF8] relative">
-                 <div className="w-12 h-12 rounded-full bg-[#DE00DE] flex items-center justify-center mb-4">
-                   <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                     <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
-                   </svg>
-                 </div>
-                 <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-[#DE00DE] flex items-center justify-center text-xs font-bold">
-                   1
-                 </div>
-                 <h3 className="text-xl sm:text-2xl font-bold mb-2">SIGN UP</h3>
-                 <p className="text-base text-gray-600">Choose from account sizes up to $120,0000</p>
-               </div>
+              {/* Step 1 */}
+<div className="p-6 sm:p-8 rounded-xl bg-[#F8EAF8] relative">
+  <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+    {/* Icon */}
+    <img
+      src="/step1.svg"
+      alt="Step 1 Icon"
+      className="w-[60px] h-[80px] sm:w-[80px] sm:h-[100px] mb-4"
+    />
+
+    {/* Text Content */}
+    <h3 className="text-2xl sm:text-3xl font-bold mb-2">SIGN UP</h3>
+    <p className="text-base sm:text-lg text-gray-600">
+      Choose from account sizes up to $120,000
+    </p>
+  </div>
+
+  {/* Step Number Badge */}
+  <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-[#DE00DE] flex items-center justify-center text-xs font-bold">
+    1
+  </div>
+</div>
+
+
  
                {/* Step 2 */}
-               <div className="p-6 sm:p-8 rounded-xl bg-blue-50 relative">
-                 <div className="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center mb-4">
-                   <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                   </svg>
-                 </div>
-                 <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-blue-800 flex items-center justify-center text-xs font-bold">
-                   2
-                 </div>
-                 <h3 className="text-xl sm:text-2xl font-bold mb-2">PASS</h3>
-                 <p className="text-base text-gray-600">Meet the 5% profit target with zero minimum trading 
-                 days required.</p>
-               </div>
- 
-               {/* Step 3 */}
-               <div className="p-6 sm:p-8 rounded-xl bg-green-50 relative">
-                 <div className="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center mb-4">
-                   <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                     <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
-                   </svg>
-                 </div>
-                 <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-green-600 flex items-center justify-center text-xs font-bold">
-                   3
-                 </div>
-                 <h3 className="text-xl sm:text-2xl font-bold mb-2">GET FUNDED</h3>
-                 <p className="text-base text-gray-600">Trade our funds and earn your first payout on demand with up to 100% performance split.</p>
-               </div>
+<div className="p-6 sm:p-8 rounded-xl bg-blue-50 relative">
+  <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+    <img
+      src="/step3.svg"
+      alt="Step 2 Icon"
+      className="w-[60px] h-[80px] sm:w-[80px] sm:h-[100px] mb-4"
+    />
+    <h3 className="text-2xl sm:text-3xl font-bold mb-2">PASS</h3>
+    <p className="text-base sm:text-lg text-gray-600">
+      Meet the 5% profit target with zero minimum trading days required.
+    </p>
+  </div>
+  <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-blue-800 flex items-center justify-center text-xs font-bold">
+    2
+  </div>
+</div>
+
+{/* Step 3 */}
+<div className="p-6 sm:p-8 rounded-xl bg-green-50 relative">
+  <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+    <img
+      src="/step2.svg"
+      alt="Step 3 Icon"
+      className="w-[60px] h-[80px] sm:w-[80px] sm:h-[100px] mb-4"
+    />
+    <h3 className="text-2xl sm:text-3xl font-bold mb-2">GET FUNDED</h3>
+    <p className="text-base sm:text-lg text-gray-600">
+      Trade our funds and earn your first payout on demand with up to 100% performance split.
+    </p>
+  </div>
+  <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-green-600 flex items-center justify-center text-xs font-bold">
+    3
+  </div>
+</div>
+
              </div>
            </div>
          </div>

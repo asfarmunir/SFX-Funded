@@ -8,6 +8,7 @@ import About from './pages/About';
 import Affiliate from './pages/Affiliate';
 import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
+import Hero from './pages/Hero';
 import Graphic12 from './pages/Graphic12';
 import InstantFunding from './pages/InstantFunding';
 import RapidChallenge from './pages/RapidChallenge';
@@ -36,6 +37,7 @@ function App() {
     <Route path="/graphic" element={<Graphic12 />} />
     <Route path="/instant-funding" element={<InstantFunding />} />
     <Route path="/affiliate" element={<RapidChallenge />} />
+    <Route path="/hero" element={<Hero />} />
     <Route path="*" element={<Lightning />} />
   </Routes>
 </div>

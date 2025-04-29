@@ -35,24 +35,24 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-black text-white py-8 rounded-[50px] mx-4 sm:mx-6 md:mx-8 lg:mx-12 mb-4 sm:mb-6 md:mb-8 lg:mb-12">
+    <footer className="bg-black text-white p-[3px] rounded-[50px] mx-4 sm:mx-6 md:mx-8 lg:mx-12 mb-4 sm:mb-6 md:mb-8 lg:mb-12">
 
 
 
       <div className="container mx-auto max-w-7xl">
         {/* Social Media Icons */}
-        <div className="flex justify-center space-x-4 mb-8">
-          {socialIcons.map((social, index) => (
-            <div 
-              key={index} 
-              className="bg-white rounded-full w-12 h-12 flex items-center justify-center cursor-pointer hover:bg-gray-200 transition-colors"
-            >
-              <div className="text-black">
-                {React.cloneElement(social.icon, { fill: '#ff00ff', width: 20, height: 20 })}
-              </div>
-            </div>
-          ))}
-        </div>
+<div className="flex justify-center space-x-4 my-5 mx-4 sm:my-6 sm:mx-5 md:my-7 md:mx-6 lg:my-8 lg:mx-8">
+  {socialIcons.map((social, index) => (
+    <div 
+      key={index} 
+      className="bg-white rounded-full w-12 h-12 flex items-center justify-center cursor-pointer hover:bg-gray-200 transition-colors"
+    >
+      <div className="text-black">
+        {React.cloneElement(social.icon, { fill: '#ff00ff', width: 20, height: 20 })}
+      </div>
+    </div>
+  ))}
+</div>
   
         {/* Main Content */}
         <div className="max-w-6xl mx-auto px-4">
@@ -124,7 +124,7 @@ export default function Footer() {
         </div>
   
         {/* Copyright */}
-        <div className="max-w-6xl mx-auto px-4 mt-8">
+        <div className="max-w-6xl mx-auto px-4 py-4 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-xs md:text-sm text-gray-400">
             <div className="mb-4 md:mb-0">© 2025 AquaFunded. All rights reserved.</div>
             <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">

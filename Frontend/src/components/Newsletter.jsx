@@ -97,15 +97,15 @@ export default function Newsletter() {
 </div>
 
         
-        {/* Email Form */}
-        <form onSubmit={handleSubmit}>
+       {/* Email Form */}
+<form onSubmit={handleSubmit} className="w-full max-w-3xl mx-auto">
   <div 
     className="flex flex-col md:flex-row items-center w-full"
     style={{
-      height: '87px',
+      minHeight: '64px',
       borderRadius: '15px',
       backgroundColor: 'rgba(255, 230, 253, 1)',
-      padding: '0 20px'
+      padding: '12px 16px'
     }}
   >
     <input
@@ -113,22 +113,23 @@ export default function Newsletter() {
       value={email}
       onChange={(e) => setEmail(e.target.value)}
       placeholder="Enter Your Email Address"
-      className="flex-grow bg-transparent outline-none text-black placeholder-gray-600 mb-4 md:mb-0"
+      className="flex-grow w-full bg-transparent outline-none text-black placeholder-gray-600 mb-3 md:mb-0 md:mr-4 px-2 py-2"
       style={{
         fontFamily: "'Inter', sans-serif",
         fontWeight: 600,
-        fontSize: '16px',
+        fontSize: 'clamp(14px, 2vw, 16px)',
         lineHeight: '100%'
       }}
       required
     />
     <button 
       type="submit"
-      className="flex items-center px-6 py-3 ml-2 bg-pink-500 rounded-lg text-black font-semibold"
+      className="w-full md:w-auto flex items-center justify-center px-5 py-3 bg-pink-500 rounded-lg text-black font-semibold transition-colors hover:bg-pink-600"
       style={{
         backgroundColor: 'rgba(255, 0, 255, 1)',
         fontFamily: "'Inter', sans-serif",
-        fontWeight: 600
+        fontWeight: 600,
+        fontSize: 'clamp(14px, 2vw, 16px)'
       }}
     >
       <svg 
@@ -148,116 +149,83 @@ export default function Newsletter() {
       </div>
       
       {/* Discord Community Section */}
-      <div 
-        className="w-full lg:w-2/5 mt-8 lg:mt-0 relative overflow-hidden"
-        style={{
-          minHeight: '391px',
-          borderRadius: '43.7px',
-          backgroundColor: 'rgba(6, 6, 15, 1)',
-          padding: '40px',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        {/* Discord background SVG - positioned exactly as specified */}
-        <div 
-          className="absolute"
-          style={{
-            left: '9.95%',
-            right: '-53.44%',
-            top: '18.3%',
-            bottom: '-42.26%',
-            border: '3.3px solid #FF00FF',
-            transform: 'rotate(-15deg)',
-            opacity: '0.1'
-          }}
-        >
-          {/* Discord logo SVG with exact positioning */}
-          <svg 
-            width="177.5px" 
-            height="34.1px" 
-            viewBox="0 0 177.5 34.1"
-            style={{
-              position: 'absolute',
-              left: 'calc(50% - 88.75px)',
-              top: 'calc(50% - 17.05px)'
-            }}
-          >
-            {/* Discord logo paths */}
-            <path 
-              d="M107.5 7.1h-62c-3.4 0-6.1 2.7-6.1 6.1v14.7c0 3.4 2.7 6.1 6.1 6.1h42.4l-1.5-5.1 3.6 3.4 3.4 3.1 6.1 5.5V13.2c0-3.4-2.7-6.1-6.1-6.1zm-31.1 15.6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm16.2 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" 
-              fill="#FFFFFF"
-            />
-            <path 
-              d="M91.9 19.7c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z" 
-              fill="#FFFFFF"
-            />
-            <path 
-              d="M108.1 19.7c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z" 
-              fill="#FFFFFF"
-            />
-          </svg>
-        </div>
-        
-        <div 
-          className="text-white text-center mb-8 relative z-10"
-          style={{
-            maxWidth: '307px'
-          }}
-        >
-          <p style={{
-            fontFamily: "'Inter', sans-serif",
-            fontWeight: 400,
-            fontSize: '21px',
-            lineHeight: '30.6px'
-          }}>
-            We're bringing the <span style={{ fontWeight: 700 }}>best</span> and<br/>
-            <span style={{ fontWeight: 700 }}>brightest</span> traders <span style={{ fontWeight: 700 }}>together</span>.
-          </p>
-        </div>
-        
-        <div className="flex items-center justify-center mb-8 relative z-10">
-          <span className="text-white mr-2" style={{ fontFamily: "'Inter', sans-serif" }}>on</span>
-          <div className="flex items-center bg-transparent rounded-full px-4 py-2">
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="white"
-            >
-              <path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.39-.444.898-.608 1.296a19.82 19.82 0 0 0-5.69 0 12.28 12.28 0 0 0-.617-1.296.077.077 0 0 0-.079-.036c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055c1.999 1.464 3.936 2.355 5.831 2.945a.077.077 0 0 0 .084-.026c.462-.63.874-1.295 1.226-1.995a.076.076 0 0 0-.041-.106c-.632-.237-1.235-.52-1.807-.836a.077.077 0 0 1-.008-.127c.126-.094.252-.193.372-.292a.074.074 0 0 1 .078-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.099.246.198.373.292a.077.077 0 0 1-.006.127c-.573.316-1.175.599-1.808.836a.076.076 0 0 0-.041.106c.36.698.772 1.362 1.225 1.995a.076.076 0 0 0 .084.026c1.904-.589 3.84-1.481 5.84-2.945a.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.442a.061.061 0 0 0-.031-.027z"/>
-            </svg>
-            <span 
-              className="ml-2 text-white font-bold" 
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              Discord
-            </span>
-          </div>
-        </div>
-        
-        <a 
-          href="#"
-          className="text-black text-center font-bold relative z-10 hover:opacity-90 transition-opacity"
-          style={{
-            width: '100%',
-            maxWidth: '299px',
-            height: '57px',
-            borderRadius: '96px',
-            backgroundColor: 'rgba(255, 0, 255, 1)',
-            boxShadow: '0px 0px 35px 0px rgba(0, 0, 0, 0.5)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '18px',
-            fontFamily: "'Inter', sans-serif"
-          }}
-        >
-          Join The Community
-        </a>
-      </div>
+<div 
+  className="w-full lg:w-2/5 mt-8 lg:mt-0 relative overflow-hidden"
+  style={{
+    minHeight: '391px',
+    borderRadius: '43.7px',
+    backgroundColor: 'rgba(6, 6, 15, 1)',
+    padding: '40px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }}
+>
+  {/* Discord background SVG - replaced with dbg.svg */}
+  <div 
+    className="absolute inset-0 overflow-hidden opacity-10"
+  >
+    <img 
+      src="/dbg.svg" 
+      alt="Discord background"
+      className="w-full h-full object-cover"
+      style={{
+        transform: 'rotate(-15deg)',
+        border: '3.3px solid #FF00FF'
+      }}
+    />
+  </div>
+  
+  <div 
+    className="text-white text-center mb-8 relative z-10"
+    style={{
+      maxWidth: '307px'
+    }}
+  >
+    <p style={{
+      fontFamily: "'Inter', sans-serif",
+      fontWeight: 400,
+      fontSize: '21px',
+      lineHeight: '30.6px'
+    }}>
+      We're bringing the <span style={{ fontWeight: 700 }}>best</span> and<br/>
+      <span style={{ fontWeight: 700 }}>brightest</span> traders <span style={{ fontWeight: 700 }}>together</span>.
+    </p>
+  </div>
+  
+  <div className="flex items-center justify-center mb-8 relative z-10">
+    <span className="text-white mr-2" style={{ fontFamily: "'Inter', sans-serif" }}>on</span>
+    <div className="flex items-center bg-transparent rounded-full px-4 py-2">
+      <img 
+        src="/d.svg" 
+        alt="Discord logo"
+        className="w-50 h-50"
+      />
+      
+    </div>
+  </div>
+  
+  <a 
+    href="#"
+    className="text-black text-center font-bold relative z-10 hover:opacity-90 transition-opacity"
+    style={{
+      width: '100%',
+      maxWidth: '299px',
+      height: '57px',
+      borderRadius: '96px',
+      backgroundColor: 'rgba(255, 0, 255, 1)',
+      boxShadow: '0px 0px 35px 0px rgba(0, 0, 0, 0.5)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: '18px',
+      fontFamily: "'Inter', sans-serif"
+    }}
+  >
+    Join The Community
+  </a>
+</div>
     </div>
   );
 }

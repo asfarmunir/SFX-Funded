@@ -788,7 +788,101 @@ export default function Graphic() {
 </div>
 
 
+<div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
+      <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
+        Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
+      </h1>
+      
+      {/* Brands/Media section */}
+      <div className="flex flex-wrap justify-center items-center gap-6 mb-12">
+        <div className="h-8">
+          <img src="/mw.png" alt="Marketwatch" className="h-full" />
+        </div>
+        <div className="h-8">
+          <img src="/ms.png" alt="MSN" className="h-full" />
+        </div>
+        <div className="h-8">
+          <img src="/bb.png" alt="Bloomberg" className="h-full" />
+        </div>
+        <div className="h-8">
+          <img src="/nd.png" alt="Nasdaq" className="h-full" />
+        </div>
+        <div className="h-8">
+          <img src="/bz.png" alt="Benzinga" className="h-full" />
+        </div>
+      </div>
+      
+      {/* Stats Cards Container */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+  {/* LEFT COLUMN */}
+  <div className="flex flex-col gap-6">
+    {/* Graph Card */}
+    <div className="bg-white rounded-3xl p-6 shadow-sm w-full">
+      <p className="text-center text-lg font-normal mb-2">Highest Paid Trader:</p>
+      <h2 className="text-center text-4xl md:text-5xl font-semibold mb-6">$39,183</h2>
 
+     {/* Graph */}
+<div className="w-full h-30 relative">
+  <img 
+    src="/graph.svg" 
+    alt="Trading performance graph" 
+    className="w-full h-full object-cover" 
+  />
+</div> </div>
+
+    {/* Country Stats Card */}
+    <div className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col">
+      <p className="text-left text-lg font-inter mb-2">Total Rewards:</p>
+      <h2 className="text-left text-4xl md:text-5xl font-semibold mb-6">$829,00+</h2>
+
+
+    {/* Info containers */}
+<div className="flex flex-col sm:flex-row gap-3 mb-6">
+  <div className="inline-flex border border-fuchsia-600 rounded-full px-3 py-1">
+    <p className="text-fuchsia-600 font-medium text-xs">Average Rewards: $1132</p>
+  </div>
+  <div className="inline-flex bg-fuchsia-600 rounded-full px-3 py-1">
+    <p className="text-white font-medium text-xs">Avg Payout Time: &lt; 8 hours</p>
+  </div>
+</div>
+
+
+
+      {/* Country bars */}
+      <div className="space-y-3">
+        {countryData.map((country, index) => (
+          <div key={index} className="flex items-center gap-3">
+            <span className="text-xl">{country.flag}</span>
+            <div className="flex-1 bg-gray-200 rounded-full h-4 overflow-hidden">
+              <div 
+                className="bg-fuchsia-600 h-full rounded-full" 
+                style={{ width: `${country.percent}%` }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* RIGHT COLUMN */}
+  <div className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col justify-between h-full">
+    <div>
+      <p className="text-left text-lg font-normal mb-1">Countries:</p>
+      <h2 className="text-left text-4xl md:text-5xl font-semibold mb-4">130+</h2>
+    </div>
+
+    <div className="relative w-full flex-1 flex items-end justify-start mt-auto">
+    <img 
+  src="/globe.svg" 
+  alt="World map with connection points" 
+  className="w-full h-200 object-contain" 
+/>
+    </div>
+  </div>
+</div>
+
+    </div>
 
 
 
@@ -888,9 +982,7 @@ export default function Graphic() {
                         <div className="flex justify-center">
                             <img src="/phone.png" alt="Trading Platform Mobile App" className="max-w-full md:max-w-lg" />
                         </div>
-                    </div>
-
-                    {/* Firm Badge Section */}
+                        {/* Firm Badge Section */}
                     <div style={{ background: 'rgba(245, 245, 247, 1)', borderRadius: '20px', padding: '16px' }}>
                         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-12">
                             <span className="text-black">A </span>
@@ -915,6 +1007,9 @@ export default function Graphic() {
                             </button>
                         </div>
                     </div>
+                    </div>
+
+                    
                 </div>
             </div>
             <div className="w-full font-inter bg-white py-16 px-4 sm:px-6 lg:px-8 relative">

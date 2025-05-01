@@ -3,6 +3,11 @@ import { Rocket, Banknote, Clock, Users, CheckCircle, Shield, ArrowRight, Star }
 import Newsletter from '../components/Newsletter';
 import Navbar from '../components/Navbar';
 import FAQ from '../components/FAQ';
+import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
 
 export default function Graphic() {
     const payments = [
@@ -17,6 +22,23 @@ export default function Graphic() {
         { country: "🇨🇦", percentage: 35 },
         { country: "🇳🇴", percentage: 20 }
     ];
+    const [mounted, setMounted] = useState(false);
+       
+       useEffect(() => {
+         setMounted(true);
+       }, []);
+       const badges = [
+         "/badge1.png",
+         "/badge2.png",
+         "/badge3.png",
+         // If you want more badges later, just add paths here
+       ];
+       const traders = [
+         { src: "/p1.png", alt: "Karim" },
+         { src: "/p2.png", alt: "Chad" },
+         { src: "/p3.png", alt: "Alex" },
+         { src: "/p4.png", alt: "Preet" },
+       ];
     const socialIcons = [
         {
             name: 'Instagram',
@@ -177,56 +199,86 @@ export default function Graphic() {
                 <Navbar />
 
                 {/* Main Content */}
-                <div className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center mt-8 sm:mt-12 md:mt-16 lg:mt-20">
-                    {/* Small Tagline */}
-                    <div className="bg-black text-white mb-6 sm:mb-8 md:mb-10 border-2 border-white rounded-full px-6 py-3 sm:px-8 sm:py-4 font-semibold text-base sm:text-lg w-max font-inter">
-                        2-Phase Challenge
-                    </div>
+                
+<div className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center mt-8 sm:mt-12 md:mt-16 lg:mt-20">
+    {/* Small Tagline */}
+    <motion.div 
+        className="bg-black text-white mb-6 sm:mb-8 md:mb-10 border-2 border-white rounded-full px-6 py-3 sm:px-8 sm:py-4 font-semibold text-base sm:text-lg w-max font-inter"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        
+        transition={{ duration: 0.6 }}
+    >
+        2-Phase Challenge
+    </motion.div>
 
-                    {/* Hero Heading */}
-                    <div className="text-center mb-6 sm:mb-8 md:mb-10">
-                        {/* Main Heading */}
-                        <h1 className="text-white uppercase font-oswald font-bold
-   text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px]
-   leading-none tracking-tight">
-                            GET FUNDED BY OUR 2-STEP
-                        </h1>
+    {/* Hero Heading */}
+    <div className="text-center mb-6 sm:mb-8 md:mb-10">
+        {/* Main Heading */}
+        <motion.h1 
+            className="text-white uppercase font-oswald font-bold
+            text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px]
+            leading-none tracking-tight"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            
+            transition={{ duration: 0.4, delay: 0.2 }}
+        >
+            GET FUNDED BY OUR 2-STEP
+        </motion.h1>
 
-                        {/* Second Line as Part of the Main Heading */}
-                        <h1 className="text-[#DE00DE] uppercase font-oswald font-bold
-   text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px]
-   leading-none tracking-tight">
-                            PROP FIRM CHALLENGE
-                        </h1>
+        {/* Second Line as Part of the Main Heading */}
+        <motion.h1 
+            className="text-[#DE00DE] uppercase font-oswald font-bold
+            text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px]
+            leading-none tracking-tight"
+            initial={{ opacity: 0, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+           
+            transition={{ duration: 0.4, delay: 0.4 }}
+        >
+            PROP FIRM CHALLENGE
+        </motion.h1>
+    </div>
 
-                    </div>
+    {/* Description */}
+    <motion.p 
+        className="text-white text-base sm:text-lg md:text-xl lg:text-2xl max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl font-inter mb-8 sm:mb-10 md:mb-12"
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        
+        transition={{ duration: 0.4, delay: 0.4 }}
+    >
+        Pass two simple phases and access up to $3.2M in capital - with no time limits, flexible rules, and up to
+        100% profit split.
+    </motion.p>
 
-                    {/* Description */}
-                    <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl font-inter mb-8 sm:mb-10 md:mb-12">
-                        Pass two simple phases and access up to $3.2M in capital - with no time limits, flexible rules, and up to
-                        100% profit split.
-                    </p>
-
-                    {/* CTA Button */}
-                    <div className="mt-4 sm:mt-6 mb-8 sm:mb-10">
-                        <button className="text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center justify-center mx-auto font-inter text-base sm:text-lg md:text-xl">
-                            Pick Your Challenge
-                            <svg
-                                className="ml-3"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
-                                    fill="white"
-                                />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+    {/* CTA Button */}
+    <motion.div 
+        className="mt-4 sm:mt-6 mb-8 sm:mb-10"
+        initial={{ opacity: 0, y: 90 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        
+        transition={{ duration: 0.4, delay: 0.4 }}
+    >
+        <button className="text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center justify-center mx-auto font-inter text-base sm:text-lg md:text-xl">
+            Pick Your Challenge
+            <svg
+                className="ml-3"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+                    fill="white"
+                />
+            </svg>
+        </button>
+    </motion.div>
+</div>
             </div>
 
             <div className="flex justify-center w-full p-4">
@@ -245,179 +297,248 @@ export default function Graphic() {
       </div>
     </div>
 
-    {/* Unified Certificates and Payment Details Container */}
-    <div className="flex items-center overflow-x-auto no-scrollbar bg-[rgba(245,245,247,1)] rounded-[20px] w-full h-[116px] p-4 gap-8">
-      {payments.map((payment, index) => (
-        <div key={index} className="flex items-center gap-4 flex-shrink-0">
-          
-          {/* Price and Name */}
-          <div className="flex flex-col justify-center">
-            <p className="font-bold text-base">{payment.amount}</p>
-            <p className="text-sm text-gray-600">{payment.name}</p>
+    <div className="relative w-full">
+      {/* Blurred Left Overlay */}
+      <div className="absolute left-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-r from-white via-white/80 to-transparent" />
+      
+      {/* Enhanced Blurred Right Overlay with Border */}
+      <div className="absolute right-0 top-0 w-16 h-full z-10 pointer-events-none" style={{
+        background: 'linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 30%, transparent 100%)',
+        boxShadow: '-5px 0 15px rgba(255,255,255,0.7)',
+      }} />
+      
+      {/* Scrolling Container */}
+      <div className="overflow-hidden rounded-[20px] bg-[rgba(245,245,247,1)] h-[116px]">
+        {mounted && (
+          <div className="flex items-center h-full px-2 whitespace-nowrap" style={{
+            animation: 'scrollLeftToRight 30s linear infinite'
+          }}>
+            {/* First set of payment items */}
+            {payments.map((payment, index) => (
+              <div key={index} className="flex items-center gap-3 flex-shrink-0 h-full px-4">
+                {/* Price and Name */}
+                <div className="flex flex-col justify-center h-full">
+                  <p className="font-bold text-xl">{payment.amount}</p>
+                  <p className="text-base text-gray-600">{payment.name}</p>
+                </div>
+                {/* Certificate */}
+                <div className="w-20 h-full flex items-center py-2">
+                  <img
+                    src={`/${payment.certificate}`}
+                    alt="Payment Certificate"
+                    className="w-full h-full object-contain rounded-md"
+                  />
+                </div>
+              </div>
+            ))}
+            
+            {/* Duplicated set for seamless loop */}
+            {payments.map((payment, index) => (
+              <div key={`loop-${index}`} className="flex items-center gap-3 flex-shrink-0 h-full px-4">
+                <div className="flex flex-col justify-center h-full">
+                  <p className="font-bold text-xl">{payment.amount}</p>
+                  <p className="text-base text-gray-600">{payment.name}</p>
+                </div>
+                <div className="w-20 h-full flex items-center py-2">
+                  <img
+                    src={`/${payment.certificate}`}
+                    alt="Payment Certificate"
+                    className="w-full h-full object-contain rounded-md"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
-
-          {/* Certificate */}
-          <div className="w-16 md:w-20 h-auto">
-            <img
-              src={`/${payment.certificate}`}
-              alt="Payment Certificate"
-              className="w-full h-auto object-contain rounded-md"
-            />
-          </div>
-
-        </div>
-      ))}
+        )}
+      </div>
+      
+      {/* Animation keyframes */}
+      <style jsx>{`
+        @keyframes scrollLeftToRight {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
     </div>
 
   </div>
 </div>
 
+{/* Process Steps Section */}
+<div className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 bg-gray-50">
+    <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
+            <motion.div 
+                className="lg:w-2/5 xl:w-1/3"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+            >
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
+                    HOW TO GET FUNDED WITH OUR
+                    <br />
+                    <span className="text-[#DE00DE] font-semibold"> 2-STEP CHALLENGE</span>
+                </h2>
 
+                <button className="mt-6 text-white px-6 py-3 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center">
+                    Start Trading
+                    <svg className="ml-2" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
+                    </svg>
+                </button>
+            </motion.div>
 
-            {/* Process Steps Section */}
-            <div className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
-                        <div className="lg:w-2/5 xl:w-1/3">
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
-                                HOW TO GET FUNDED WITH OUR
-                                <br />
-                                <span className="text-[#DE00DE] font-semibold"> 2-STEP CHALLENGE</span>
-                            </h2>
-
-                            <button className="mt-6 text-white px-6 py-3 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center">
-                                Start Trading
-                                <svg className="ml-2" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        <div className="lg:w-3/5 xl:w-2/3 space-y-6">
-                           {/* Step 1 */}
-<div className="p-6 sm:p-8 rounded-xl bg-[#F8EAF8] relative">
-  <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-    <img
-      src="/step1.svg"
-      alt="Step 1 Icon"
-      className="w-[60px] h-[80px] sm:w-[80px] sm:h-[100px] mb-4"
-    />
-    <h3 className="text-2xl sm:text-3xl font-bold mb-2">CHOOSE YOU CHALLENGE</h3>
-    <p className="text-base sm:text-lg text-gray-600">
-    Pick the evaluation that fits your trading style.
-    </p>
-  </div>
-  <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-[#DE00DE] flex items-center justify-center text-xs font-bold">
-    1
-  </div>
-</div>
-
-{/* Step 2 */}
-<div className="p-6 sm:p-8 rounded-xl bg-blue-50 relative">
-  <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-    <img
-      src="/step3.svg"
-      alt="Step 2 Icon"
-      className="w-[60px] h-[80px] sm:w-[80px] sm:h-[100px] mb-4"
-    />
-    <h3 className="text-2xl sm:text-3xl font-bold mb-2">PASS THE 2-STEP EVALUATION</h3>
-    <p className="text-base sm:text-lg text-gray-600">
-    Complete two phases - simple target, fair rules.
-    </p>
-  </div>
-  <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-blue-800 flex items-center justify-center text-xs font-bold">
-    2
-  </div>
-</div>
-
-{/* Step 3 */}
-<div className="p-6 sm:p-8 rounded-xl bg-green-50 relative">
-  <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-    <img
-      src="/step2.svg"
-      alt="Step 3 Icon"
-      className="w-[60px] h-[80px] sm:w-[80px] sm:h-[100px] mb-4"
-    />
-    <h3 className="text-2xl sm:text-3xl font-bold mb-2">GET FUNDED & START EARNING</h3>
-    <p className="text-base sm:text-lg text-gray-600">
-    Scale to $3.2 million in capital with up to 100% profit split
-    </p>
-  </div>
-  <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-green-600 flex items-center justify-center text-xs font-bold">
-    3
-  </div>
-</div>
-
-                        </div>
+            <div className="lg:w-3/5 xl:w-2/3 space-y-6">
+                {/* Step 1 */}
+                <motion.div 
+                    className="p-6 sm:p-8 rounded-xl bg-[#F8EAF8] relative"
+                    initial={{ opacity: 0, y: 60 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.1 }}
+                >
+                    <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                        <img
+                            src="/step1.svg"
+                            alt="Step 1 Icon"
+                            className="w-[60px] h-[80px] sm:w-[80px] sm:h-[100px] mb-4"
+                        />
+                        <h3 className="text-2xl sm:text-3xl font-bold mb-2">CHOOSE YOU CHALLENGE</h3>
+                        <p className="text-base sm:text-lg text-gray-600">
+                            Pick the evaluation that fits your trading style.
+                        </p>
                     </div>
-                </div>
+                    <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-[#DE00DE] flex items-center justify-center text-xs font-bold">
+                        1
+                    </div>
+                </motion.div>
+
+                {/* Step 2 */}
+                <motion.div 
+                    className="p-6 sm:p-8 rounded-xl bg-blue-50 relative"
+                    initial={{ opacity: 0, y: 70 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.3 }}
+                >
+                    <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                        <img
+                            src="/step3.svg"
+                            alt="Step 2 Icon"
+                            className="w-[60px] h-[80px] sm:w-[80px] sm:h-[100px] mb-4"
+                        />
+                        <h3 className="text-2xl sm:text-3xl font-bold mb-2">PASS THE 2-STEP EVALUATION</h3>
+                        <p className="text-base sm:text-lg text-gray-600">
+                            Complete two phases - simple target, fair rules.
+                        </p>
+                    </div>
+                    <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-blue-800 flex items-center justify-center text-xs font-bold">
+                        2
+                    </div>
+                </motion.div>
+
+                {/* Step 3 */}
+                <motion.div 
+                    className="p-6 sm:p-8 rounded-xl bg-green-50 relative"
+                    initial={{ opacity: 0, y: 80 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.4 }}
+                >
+                    <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                        <img
+                            src="/step2.svg"
+                            alt="Step 3 Icon"
+                            className="w-[60px] h-[80px] sm:w-[80px] sm:h-[100px] mb-4"
+                        />
+                        <h3 className="text-2xl sm:text-3xl font-bold mb-2">GET FUNDED & START EARNING</h3>
+                        <p className="text-base sm:text-lg text-gray-600">
+                            Scale to $3.2 million in capital with up to 100% profit split
+                        </p>
+                    </div>
+                    <div className="absolute top-4 right-4 w-6 h-6 rounded-full bg-white text-green-600 flex items-center justify-center text-xs font-bold">
+                        3
+                    </div>
+                </motion.div>
             </div>
+        </div>
+    </div>
+</div>
 
-            <div className="font-sans max-w-5xl mx-auto px-4 py-8">
-                {/* Header */}
-                <div className="text-center mb-8">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                        Compare our <span className="text-fuchsia-500">2-Step Prop Firm Challenge </span>
-                    </h1>
-                    <p className="text-xl">Choose the evaluation style that fits your strategy.</p>
-                </div>
+<div className="font-sans max-w-5xl mx-auto px-4 py-8">
+    {/* Header */}
+    <motion.div 
+        className="text-center mb-8"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+    >
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Compare our <span className="text-fuchsia-500">2-Step Prop Firm Challenge </span>
+        </h1>
+        <p className="text-xl">Choose the evaluation style that fits your strategy.</p>
+    </motion.div>
 
-                {/* Comparison Cards */}
-                <div className="flex flex-col md:flex-row gap-6">
-                    {/* 1-Step Evaluation Card */}
-                    <div className="w-full md:w-1/2 bg-black rounded-2xl p-8 text-center">
-                        <h2 className="text-3xl font-bold" style={{ color: 'rgba(248, 0, 234, 1)' }} mb-12>
-                            Ascend
-                        </h2>
+    {/* Comparison Cards */}
+    <div className="flex flex-col md:flex-row gap-6">
+        {/* 1-Step Evaluation Card */}
+        <motion.div 
+            className="w-full md:w-1/2 bg-black rounded-2xl p-8 text-center"
+            initial={{ opacity: 0, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+        >
+            <h2 className="text-3xl font-bold mb-6" style={{ color: 'rgba(248, 0, 234, 1)' }}>
+                Ascend
+            </h2>
 
-
-                        <div className="space-y-6 text-lg text-white font-inter">
-                            <p className="font-semibold">
-                                Max account size <span className="font-normal">120K</span>
-                            </p>
-                            <p className="font-semibold">
-                                Phase 1 & 2 Target: <span className="font-normal">8% & 5%</span>
-                            </p>
-                            <p className="font-semibold">
-                                Max Drawdown <span className="font-normal">8%</span>
-                            </p>
-                            <p className="font-semibold">
-                                Daily Drawdown <span className="font-normal">4%</span>
-                            </p>
-                            <p className="font-semibold">
-                                Payout On Demand
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Rapid Challenge Card */}
-                    <div className="w-full md:w-1/2 bg-black rounded-2xl p-8 text-center">
-                        <h2 className="text-3xl font-bold" style={{ color: 'rgba(248, 0, 234, 1)' }} mb-12>
-                            Ignite
-                        </h2>
-
-
-                        <div className="space-y-6 text-lg text-white font-inter">
-                            <p className="font-semibold">
-                                Max account size <span className="font-normal">100K</span>
-                            </p>
-                            <p className="font-semibold">
-                                Phase 1 & 2 Target: <span className="font-normal">7% & 6%</span>
-                            </p>
-                            <p className="font-semibold">
-                                Max Drawdown <span className="font-normal">8%</span>
-                            </p>
-                            <p className="font-semibold">
-                                Daily Drawdown <span className="font-normal">3%</span>
-                            </p>
-                            <p className="font-semibold">
-                                Bi-weekly Payouts
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
+            <div className="space-y-6 text-lg text-white font-inter">
+                <p className="font-semibold">
+                    Max account size <span className="font-normal">120K</span>
+                </p>
+                <p className="font-semibold">
+                    Phase 1 & 2 Target: <span className="font-normal">8% & 5%</span>
+                </p>
+                <p className="font-semibold">
+                    Max Drawdown <span className="font-normal">8%</span>
+                </p>
+                <p className="font-semibold">
+                    Daily Drawdown <span className="font-normal">4%</span>
+                </p>
+                <p className="font-semibold">
+                    Payout On Demand
+                </p>
             </div>
+        </motion.div>
+
+        {/* Rapid Challenge Card */}
+        <motion.div 
+            className="w-full md:w-1/2 bg-black rounded-2xl p-8 text-center"
+            initial={{ opacity: 0, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
+        >
+            <h2 className="text-3xl font-bold mb-6" style={{ color: 'rgba(248, 0, 234, 1)' }}>
+                Ignite
+            </h2>
+
+            <div className="space-y-6 text-lg text-white font-inter">
+                <p className="font-semibold">
+                    Max account size <span className="font-normal">100K</span>
+                </p>
+                <p className="font-semibold">
+                    Phase 1 & 2 Target: <span className="font-normal">7% & 6%</span>
+                </p>
+                <p className="font-semibold">
+                    Max Drawdown <span className="font-normal">8%</span>
+                </p>
+                <p className="font-semibold">
+                    Daily Drawdown <span className="font-normal">3%</span>
+                </p>
+                <p className="font-semibold">
+                    Bi-weekly Payouts
+                </p>
+            </div>
+        </motion.div>
+    </div>
+</div>
 
             <div className="font-sans max-w-6xl mx-auto px-4 py-12">
                 {/* Header */}
@@ -588,565 +709,850 @@ export default function Graphic() {
 
 
 
-                <div className="font-['Inter'] max-w-6xl mx-auto px-4 py-12">
-                    {/* Header */}
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-10">
-                        Why Traders Choose the <span className="text-fuchsia-500">SFX 2-Step Challenge</span>
-                    </h2>
+            <div className="font-['Inter'] max-w-6xl mx-auto px-4 py-12 sm:py-16">
+    {/* Header */}
+    <motion.h2 
+        className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-10 sm:mb-16"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+    >
+        Why Traders Choose the <span className="text-fuchsia-500">SFX 2-Step Challenge</span>
+    </motion.h2>
 
-                    {/* Cards Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {/* First Column - 3 Cards */}
-                        <div className="flex flex-col gap-6">
-                            {/* SFX Reward Guarantee */}
-                            <div className="bg-[rgba(245,245,247,1)] rounded-xl p-6 shadow-sm h-[180px]">
-                                <h3 className="text-xl font-semibold mb-1">SFX Reward Guarantee</h3>
-                                <p className="text-gray-700 text-sm">
-                                    Get paid in 48-HRS or we pay you $300 extra
-                                </p>
-                                <div className="flex justify-center mt-4">
-                                    <img src="/shield.svg" alt="Shield" className="w-16 h-16" />
-                                </div>
-                            </div>
-
-                            {/* Realistic Profit Targets */}
-                            <div className="bg-[rgba(245,245,247,1)] rounded-xl p-6 shadow-sm h-[180px]">
-                                <div className="flex justify-between">
-                                    <h3 className="text-xl font-semibold mb-1">Realistic Profit<br />Targets from 5-8%</h3>
-                                    <img src="/profit.svg" alt="Profit" className="w-8 h-8" />
-                                </div>
-                            </div>
-
-                            {/* Scale Up To */}
-                            <div className="bg-[rgba(245,245,247,1)] rounded-xl p-6 shadow-sm h-[180px]">
-                                <div className="flex justify-between">
-                                    <h3 className="text-xl font-semibold mb-1">Scale Up To $3.2<br />Million Capital</h3>
-                                    <img src="/profit2.svg" alt="Scale" className="w-8 h-8" />
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Second Column - 3 Cards */}
-                        <div className="flex flex-col gap-6">
-                            {/* 100% Profit Splits */}
-                            <div className="bg-green-50 rounded-xl p-6 shadow-sm h-[180px]">
-                                <div className="flex justify-between items-start mb-1">
-                                    <h3 className="text-xl font-semibold text-green-700">100% Profit Splits</h3>
-                                    <img src="/dollar.svg" alt="Dollar" className="w-6 h-6" />
-                                </div>
-                                <p className="text-green-700 text-sm">
-                                    Scale your Profit from a standard 80% to 100%
-                                </p>
-                            </div>
-
-                            {/* Account Resets */}
-                            <div className="bg-[rgba(245,245,247,1)] rounded-xl p-6 shadow-sm h-[180px]">
-                                <div className="flex justify-between items-start mb-1">
-                                    <h3 className="text-xl font-semibold">Account Resets</h3>
-                                    <img src="/users.png" alt="Users" className="w-6 h-6" />
-                                </div>
-                                <p className="text-gray-700 text-sm">
-                                    With this feature, reset your evaluation in phase 1 or phase 2 and even once a SFX Funded trader.
-                                </p>
-                            </div>
-
-                            {/* No Time Limits */}
-                            <div className="bg-[rgba(245,245,247,1)] rounded-xl p-6 shadow-sm h-[110px]">
-                                <div className="flex justify-between items-start mb-1">
-                                    <h3 className="text-xl font-semibold">No time Limits</h3>
-                                    <img src="/stop.svg" alt="Stop" className="w-6 h-6" />
-                                </div>
-                            </div>
-                            {/* CTA Button */}
-                            <div className="mt-12 flex justify-center">
-                                <button className="bg-[#F800EA] text-black px-8 py-3 rounded-full font-medium flex items-center">
-                                    Start Trading
-                                    <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* Third Column - 4 Cards */}
-                        <div className="flex flex-col gap-6">
-                            {/* No Restrictions */}
-                            <div className="bg-[rgba(245,245,247,1)] rounded-xl p-6 shadow-sm h-[180px]">
-                                <div className="flex justify-between items-start mb-1">
-                                    <h3 className="text-xl font-semibold">No Restrictions</h3>
-                                    <img src="/timer.svg" alt="Timer" className="w-6 h-6" />
-                                </div>
-                                <p className="text-gray-700 text-sm">
-                                    Trade your way! We don't limit your strategies, allowing you to use your preferred trading style and EAs freely.
-                                </p>
-                            </div>
-
-                            {/* Get Your First Reward On Demand! */}
-                            <div className="bg-fuchsia-50 rounded-xl p-6 shadow-sm h-[110px]">
-                                <div className="flex justify-between items-start">
-                                    <h3 className="text-xl font-semibold text-fuchsia-500">
-                                        Get Your First Reward<br />On Demand!
-                                    </h3>
-                                    <img src="/badge.svg" alt="Badge" className="w-6 h-6" />
-                                </div>
-                            </div>
-
-                            {/* 100% Refundable Evaluation Fees */}
-                            <div className="bg-[rgba(245,245,247,1)] rounded-xl p-6 shadow-sm h-[110px]">
-                                <div className="flex justify-between items-start">
-                                    <h3 className="text-xl font-semibold">
-                                        100% Refundable<br />Evaluation Fees
-                                    </h3>
-                                    <img src="/refund.svg" alt="Refund" className="w-6 h-6" />
-                                </div>
-                            </div>
-
-                            {/* No Hidden Rules! */}
-                            <div className="bg-[rgba(245,245,247,1)] rounded-xl p-6 shadow-sm h-[110px]">
-                                <div className="flex justify-between items-start">
-                                    <h3 className="text-xl font-semibold">No Hidden Rules!</h3>
-                                    <img src="/documents.svg" alt="Documents" className="w-6 h-6" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
+    {/* Cards Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        {/* First Column - 3 Cards */}
+        <div className="flex flex-col gap-6 md:gap-8">
+            {/* SFX Reward Guarantee */}
+            <motion.div 
+                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.05 }}
+            >
+                <h3 className="text-xl sm:text-2xl font-semibold mb-2">SFX Reward Guarantee</h3>
+                <p className="text-gray-700 text-sm sm:text-base">
+                    Get paid in 48-HRS or we pay you $300 extra
+                </p>
+                <div className="flex justify-center mt-6">
+                    <img src="/shield.svg" alt="Shield" className="w-20 h-20 sm:w-24 sm:h-24" />
                 </div>
+            </motion.div>
+
+            {/* Realistic Profit Targets */}
+            <motion.div 
+                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+            >
+                <div className="flex justify-between items-start">
+                    <h3 className="text-xl sm:text-2xl font-semibold mb-2">Realistic Profit<br />Targets from 5-8%</h3>
+                    <img src="/profit.svg" alt="Profit" className="w-12 h-12 sm:w-14 sm:h-14" />
+                </div>
+            </motion.div>
+
+            {/* Scale Up To */}
+            <motion.div 
+                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+            >
+                <div className="flex justify-between items-start">
+                    <h3 className="text-xl sm:text-2xl font-semibold mb-2">Scale Up To $3.2<br />Million Capital</h3>
+                    <img src="/profit2.svg" alt="Scale" className="w-12 h-12 sm:w-14 sm:h-14" />
+                </div>
+            </motion.div>
+        </div>
+
+        {/* Second Column - 3 Cards */}
+        <div className="flex flex-col gap-6 md:gap-8">
+            {/* 100% Profit Splits */}
+            <motion.div 
+                className="bg-green-50 rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.05 }}
+            >
+                <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-green-700">100% Profit Splits</h3>
+                    <img src="/dollar.svg" alt="Dollar" className="w-10 h-10 sm:w-12 sm:h-12" />
+                </div>
+                <p className="text-green-700 text-sm sm:text-base">
+                    Scale your Profit from a standard 80% to 100%
+                </p>
+            </motion.div>
+
+            {/* Account Resets */}
+            <motion.div 
+                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+            >
+                <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl sm:text-2xl font-semibold">Account Resets</h3>
+                    <img src="/users.png" alt="Users" className="w-10 h-10 sm:w-12 sm:h-12" />
+                </div>
+                <p className="text-gray-700 text-sm sm:text-base">
+                    With this feature, reset your evaluation in phase 1 or phase 2 and even once a SFX Funded trader.
+                </p>
+            </motion.div>
+
+            {/* No Time Limits */}
+            <motion.div 
+                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[140px] sm:h-[160px]"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+            >
+                <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl sm:text-2xl font-semibold">No time Limits</h3>
+                    <img src="/stop.svg" alt="Stop" className="w-10 h-10 sm:w-12 sm:h-12" />
+                </div>
+            </motion.div>
+            
+            {/* CTA Button */}
+            <motion.div 
+                className="mt-6 sm:mt-8 flex justify-center"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+            >
+                <button className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-medium text-base sm:text-lg flex items-center">
+                    Start Trading
+                    <svg className="ml-3 w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+                    </svg>
+                </button>
+            </motion.div>
+        </div>
+
+        {/* Third Column - 4 Cards */}
+        <div className="flex flex-col gap-6 md:gap-8">
+            {/* No Restrictions */}
+            <motion.div 
+                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.05 }}
+            >
+                <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl sm:text-2xl font-semibold">No Restrictions</h3>
+                    <img src="/timer.svg" alt="Timer" className="w-10 h-10 sm:w-12 sm:h-12" />
+                </div>
+                <p className="text-gray-700 text-sm sm:text-base">
+                    Trade your way! We don't limit your strategies, allowing you to use your preferred trading style and EAs freely.
+                </p>
+            </motion.div>
+
+            {/* Get Your First Reward On Demand! */}
+            <motion.div 
+                className="bg-fuchsia-50 rounded-xl p-6 sm:p-8 shadow-sm h-[140px] sm:h-[160px]"
+                style={{
+                    background: "rgba(229, 242, 255, 1)",
+                    backdropFilter: "blur(73px)",
+                  }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+            >
+                <div className="flex justify-between items-start">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-fuchsia-500">
+                        Get Your First Reward<br />On Demand!
+                    </h3>
+                    <img src="/badge.svg" alt="Badge" className="w-10 h-10 sm:w-12 sm:h-12" />
+                </div>
+            </motion.div>
+
+            {/* 100% Refundable Evaluation Fees */}
+            <motion.div 
+                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[140px] sm:h-[160px]"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+            >
+                <div className="flex justify-between items-start">
+                    <h3 className="text-xl sm:text-2xl font-semibold">
+                        100% Refundable<br />Evaluation Fees
+                    </h3>
+                    <img src="/refund.svg" alt="Refund" className="w-10 h-10 sm:w-12 sm:h-12" />
+                </div>
+            </motion.div>
+
+            {/* No Hidden Rules! */}
+            <motion.div 
+                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[140px] sm:h-[160px]"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+            >
+                <div className="flex justify-between items-start">
+                    <h3 className="text-xl sm:text-2xl font-semibold">No Hidden Rules!</h3>
+                    <img src="/documents.svg" alt="Documents" className="w-10 h-10 sm:w-12 sm:h-12" />
+                </div>
+            </motion.div>
+        </div>
+    </div>
+</div>
             </div>
 
 
 
            
-            <div className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 flex flex-col md:flex-row items-center justify-between" 
-  style={{ 
-    backgroundColor: '#000000',
-    borderRadius: '24px',
-    fontFamily: 'Inter, sans-serif'
-  }}
->
-  {/* Big Pink Glow at Top-Left */}
-  <div 
-    className="absolute top-0 left-0 w-[500px] h-[500px]" 
-    style={{ 
-      background: 'radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)', 
-      borderTopLeftRadius: '24px' 
-    }}
-  />
-
-  {/* Text Content - Left Side */}
-  <div className="text-white md:w-1/2 z-10 mb-10 md:mb-0">
-    <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
-      SFX Payout <span className="text-fuchsia-500">Guarantee!</span>
-    </h2>
-    <p className="text-lg sm:text-xl mb-4">
-      Get paid within 48 hours or we add an extra $500 to your withdrawal!
-    </p>
-    <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-8 max-w-md">
-      At SFX Funded, we stand by our commitment to fast payouts and trader-first policies. You focus on trading, and we ensure you get rewarded on time — every time.
-    </p>
-    <button className="bg-fuchsia-600 text-white rounded-full px-8 py-4 flex items-center gap-3 text-base sm:text-lg hover:bg-fuchsia-700 transition-colors">
-      Read More
-      <ArrowRight size={20} />
-    </button>
-  </div>
-
-  {/* Clock Image - Right Side */}
-  <div className="relative md:w-1/2 flex justify-center items-center">
-    {/* Clock SVG */}
-    <img src="/clock.svg" alt="Clock" className="h-56 sm:h-72 md:h-80 relative z-10" />
-    
-    {/* Decorations around clock */}
-    <img 
-      src="/diamond.svg" 
-      alt="Diamond" 
-      className="absolute right-10 top-0 w-10 h-10 z-0" 
-    />
-    <img 
-      src="/elipse.svg" 
-      alt="Elipse" 
-      className="absolute right-0 bottom-10 w-16 h-16 opacity-70 z-0" 
-    />
-    <img 
-      src="/elipse21.svg" 
-      alt="Elipse21" 
-      className="absolute bottom-0 right-24 w-20 h-20 opacity-70 z-0" 
-    />
-  </div>
-
-  {/* Extra Floating Elements */}
-  <img 
-    src="/elipse.svg" 
-    alt="Floating Elipse" 
-    className="absolute bottom-10 left-1/4 w-16 h-16 opacity-40 z-0" 
-  />
-  <img 
-    src="/diamond.svg" 
-    alt="Floating Diamond" 
-    className="absolute top-1/3 left-1/4 w-8 h-8 opacity-50 z-0" 
-  />
-</div>
+       <div
+                      className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 flex flex-col md:flex-row items-center justify-between"
+                      style={{
+                        backgroundColor: "#000000",
+                        borderRadius: "24px",
+                        fontFamily: "Inter, sans-serif"
+                      }}
+                    >
+                      {/* Big Pink Glow at Top-Left */}
+                      <div
+                        className="absolute top-0 left-0 w-[500px] h-[500px]"
+                        style={{
+                          background: "radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)",
+                          borderTopLeftRadius: "24px"
+                        }}
+                      />
+                    
+                      {/* Text Content - Left Side */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: false }}
+                        className="text-white md:w-1/2 z-10 mb-10 md:mb-0"
+                      >
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                          SFX Payout <span className="text-fuchsia-500">Guarantee!</span>
+                        </h2>
+                        <p className="text-lg sm:text-xl mb-4">
+                          Get paid within 48 hours or we add an extra $500 to your withdrawal!
+                        </p>
+                        <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-8 max-w-md">
+                          At SFX Funded, we stand by our commitment to fast payouts and trader-first policies. You focus on trading, and we ensure you get rewarded on time — every time.
+                        </p>
+                        <button className="bg-fuchsia-600 text-white rounded-full px-8 py-4 flex items-center gap-3 text-base sm:text-lg hover:bg-fuchsia-700 transition-colors">
+                          Read More
+                          <ArrowRight size={20} />
+                        </button>
+                      </motion.div>
+                    
+                      {/* Clock Image - Right Side */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: false }}
+                        className="relative md:w-1/2 flex justify-center items-center"
+                      >
+                        <img src="/clock.svg" alt="Clock" className="h-56 sm:h-72 md:h-80 relative z-10" />
+                    
+                        {/* Decorations */}
+                        <motion.img
+                          src="/diamond.svg"
+                          alt="Diamond"
+                          animate={{ y: [0, -10, 0] }}
+                          transition={{ duration: 4, repeat: Infinity }}
+                          className="absolute right-10 top-0 w-10 h-10 z-0"
+                        />
+                        <motion.img
+                          src="/elipse.svg"
+                          alt="Elipse"
+                          animate={{ x: [0, 8, 0] }}
+                          transition={{ duration: 5, repeat: Infinity }}
+                          className="absolute right-0 bottom-10 w-16 h-16 opacity-70 z-0"
+                        />
+                        <motion.img
+                          src="/elipse21.svg"
+                          alt="Elipse21"
+                          animate={{ y: [0, 12, 0] }}
+                          transition={{ duration: 6, repeat: Infinity }}
+                          className="absolute bottom-0 right-24 w-20 h-20 opacity-70 z-0"
+                        />
+                      </motion.div>
+                    
+                      {/* Floating Extra Decorations */}
+                      <motion.img
+                        src="/elipse.svg"
+                        alt="Floating Elipse"
+                        animate={{ y: [0, -10, 0] }}
+                        transition={{ duration: 6, repeat: Infinity }}
+                        className="absolute bottom-10 left-1/4 w-16 h-16 opacity-40 z-0"
+                      />
+                      <motion.img
+                        src="/diamond.svg"
+                        alt="Floating Diamond"
+                        animate={{ y: [0, 6, 0] }}
+                        transition={{ duration: 5, repeat: Infinity }}
+                        className="absolute top-1/3 left-1/4 w-8 h-8 opacity-50 z-0"
+                      />
+                    </div>
 
 
 <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
-      <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
-        Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
-      </h1>
-      
-      {/* Brands/Media section */}
-      <div className="flex flex-wrap justify-center items-center gap-6 mb-12">
-        <div className="h-8">
-          <img src="/mw.png" alt="Marketwatch" className="h-full" />
-        </div>
-        <div className="h-8">
-          <img src="/ms.png" alt="MSN" className="h-full" />
-        </div>
-        <div className="h-8">
-          <img src="/bb.png" alt="Bloomberg" className="h-full" />
-        </div>
-        <div className="h-8">
-          <img src="/nd.png" alt="Nasdaq" className="h-full" />
-        </div>
-        <div className="h-8">
-          <img src="/bz.png" alt="Benzinga" className="h-full" />
-        </div>
-      </div>
-      
-      {/* Stats Cards Container */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-  {/* LEFT COLUMN */}
-  <div className="flex flex-col gap-6">
-    {/* Graph Card */}
-    <div className="bg-white rounded-3xl p-6 shadow-sm w-full">
-      <p className="text-center text-lg font-normal mb-2">Highest Paid Trader:</p>
-      <h2 className="text-center text-4xl md:text-5xl font-semibold mb-6">$39,183</h2>
-
-     {/* Graph */}
-<div className="w-full h-30 relative">
-  <img 
-    src="/graph.svg" 
-    alt="Trading performance graph" 
-    className="w-full h-full object-cover" 
-  />
-</div> </div>
-
-    {/* Country Stats Card */}
-    <div className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col">
-      <p className="text-left text-lg font-inter mb-2">Total Rewards:</p>
-      <h2 className="text-left text-4xl md:text-5xl font-semibold mb-6">$829,00+</h2>
-
-
-    {/* Info containers */}
-<div className="flex flex-col sm:flex-row gap-3 mb-6">
-  <div className="inline-flex border border-fuchsia-600 rounded-full px-3 py-1">
-    <p className="text-fuchsia-600 font-medium text-xs">Average Rewards: $1132</p>
-  </div>
-  <div className="inline-flex bg-fuchsia-600 rounded-full px-3 py-1">
-    <p className="text-white font-medium text-xs">Avg Payout Time: &lt; 8 hours</p>
-  </div>
-</div>
-
-
-
-      {/* Country bars */}
-      <div className="space-y-3">
-        {countryData.map((country, index) => (
-          <div key={index} className="flex items-center gap-3">
-            <span className="text-xl">{country.flag}</span>
-            <div className="flex-1 bg-gray-200 rounded-full h-4 overflow-hidden">
-              <div 
-                className="bg-fuchsia-600 h-full rounded-full" 
-                style={{ width: `${country.percent}%` }}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-
-  {/* RIGHT COLUMN */}
-  <div className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col justify-between h-full">
-    <div>
-      <p className="text-left text-lg font-normal mb-1">Countries:</p>
-      <h2 className="text-left text-4xl md:text-5xl font-semibold mb-4">130+</h2>
-    </div>
-
-    <div className="relative w-full flex-1 flex items-end justify-start mt-auto">
-    <img 
-  src="/globe.svg" 
-  alt="World map with connection points" 
-  className="w-full h-200 object-contain" 
-/>
-    </div>
-  </div>
-</div>
-
-    </div>
+               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
+                 Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
+               </h1>
+               
+               <div className="relative overflow-hidden w-full mb-12">
+          {/* Blur Overlays */}
+         <div
+           className="absolute left-0 top-0 h-full w-24 z-10 pointer-events-none"
+           style={{
+             background: "linear-gradient(to right, rgba(255,255,255,0.6), transparent)"
+           }}
+         />
+         <div
+           className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none"
+           style={{
+             background: "linear-gradient(to left, rgba(255,255,255,0.6), transparent)"
+           }}
+         />
+         
+         
+          {/* Scrolling Container */}
+         <div className="whitespace-nowrap animate-scroll flex items-center gap-12">
+           {[...Array(2)].map((_, index) => (
+             <div key={index} className="flex items-center gap-12 px-4">
+               {[
+                 { src: "/mw.png", alt: "Marketwatch" },
+                 { src: "/ms.png", alt: "MSN" },
+                 { src: "/bb.png", alt: "Bloomberg" },
+                 { src: "/nd.png", alt: "Nasdaq" },
+                 { src: "/bz.png", alt: "Benzinga" }
+               ].map((brand, i) => (
+                 <div key={i} className="h-10 w-32 flex items-center justify-center">
+                   <img
+                     src={brand.src}
+                     alt={brand.alt}
+                     className="h-full max-w-full object-contain"
+                   />
+                 </div>
+               ))}
+             </div>
+           ))}
+         </div>
+         
+         
+           {/* Tailwind custom animation */}
+           <style jsx>{`
+             @keyframes scroll {
+               0% { transform: translateX(0); }
+               100% { transform: translateX(-50%); }
+             }
+             .animate-scroll {
+               animation: scroll 20s linear infinite;
+             }
+           `}</style>
+         </div>
+         
+               
+               {/* Stats Cards Container */}
+         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+           {/* LEFT COLUMN */}
+           <div className="flex flex-col gap-6">
+             
+             {/* Graph Card */}
+             <motion.div
+               initial={{ opacity: 0, y: 50 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: false, amount: 0.2 }}
+               transition={{ duration: 0.6, ease: "easeOut" }}
+               className="bg-white rounded-3xl p-6 shadow-sm w-full"
+             >
+               <p className="text-center text-lg font-normal mb-2">Highest Paid Trader:</p>
+               <h2 className="text-center text-4xl md:text-5xl font-semibold mb-6">$39,183</h2>
+         
+               {/* Graph */}
+               <div className="w-full h-30 relative">
+                 <img 
+                   src="/graph.svg" 
+                   alt="Trading performance graph" 
+                   className="w-full h-full object-cover" 
+                 />
+               </div>
+             </motion.div>
+         
+             {/* Country Stats Card */}
+             <motion.div
+               initial={{ opacity: 0, y: 50 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: false, amount: 0.2 }}
+               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+               className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col"
+             >
+               <p className="text-left text-lg font-inter mb-2">Total Rewards:</p>
+               <h2 className="text-left text-4xl md:text-5xl font-semibold mb-6">$829,00+</h2>
+         
+               {/* Info containers */}
+               <div className="flex flex-col sm:flex-row gap-3 mb-6">
+                 <div className="inline-flex border border-fuchsia-600 rounded-full px-3 py-1">
+                   <p className="text-fuchsia-600 font-medium text-xs">Average Rewards: $1132</p>
+                 </div>
+                 <div className="inline-flex bg-fuchsia-600 rounded-full px-3 py-1">
+                   <p className="text-white font-medium text-xs">Avg Payout Time: &lt; 8 hours</p>
+                 </div>
+               </div>
+         
+               {/* Country bars */}
+               <div className="space-y-3">
+                 {countryData.map((country, index) => (
+                   <div key={index} className="flex items-center gap-3">
+                     <span className="text-xl">{country.flag}</span>
+                     <div className="flex-1 bg-gray-200 rounded-full h-4 overflow-hidden">
+                       <div 
+                         className="bg-fuchsia-600 h-full rounded-full" 
+                         style={{ width: `${country.percent}%` }}
+                       />
+                     </div>
+                   </div>
+                 ))}
+               </div>
+             </motion.div>
+           </div>
+         
+           {/* RIGHT COLUMN */}
+           <motion.div
+             initial={{ opacity: 0, y: 50 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: false, amount: 0.2 }}
+             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+             className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col justify-between h-full"
+           >
+             <div>
+               <p className="text-left text-lg font-normal mb-1">Countries:</p>
+               <h2 className="text-left text-4xl md:text-5xl font-semibold mb-4">130+</h2>
+             </div>
+         
+             <div className="relative w-full flex-1 flex items-end justify-start mt-auto">
+               <img 
+                 src="/globe.svg" 
+                 alt="World map with connection points" 
+                 className="w-full h-200 object-contain" 
+               />
+             </div>
+           </motion.div>
+         </div>
+         
+             </div>
 
 
 
             <div className="w-full font-inter bg-white">
-                {/* Real Traders, Real Success Section */}
-                <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
-                    <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
-                        <span className="text-black">Real Traders, </span>
-                        <span className="text-[#F800EA]">Real Success</span>
-                    </h2>
-                    <p className="text-center text-gray-800 mb-8">Empowering Traders Globally</p>
-
-                    {/* Trader Cards - Responsive Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                        {/* Trader Card 1 */}
-                        <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-                            <div className="relative">
-                                <img src="/p1.png" alt="Karim" className="w-full object-cover" />
-
-                            </div>
-                        </div>
-
-                        {/* Trader Card 2 */}
-                        <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-                            <div className="relative">
-                                <img src="/p2.png" alt="Chad" className="w-full object-cover" />
-
-                            </div>
-                        </div>
-
-                        {/* Trader Card 3 */}
-                        <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-                            <div className="relative">
-                                <img src="/p3.png" alt="Alex" className="w-full object-cover" />
-
-                            </div>
-                        </div>
-
-                        {/* Trader Card 4 */}
-                        <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-                            <div className="relative">
-                                <img src="/p4.png" alt="Preet" className="w-full object-cover" />
-
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Start Trading Button */}
-                    <div className="flex justify-center mb-16">
-                        <button className="bg-[#F800EA] text-black px-8 py-3 rounded-full font-medium flex items-center">
-                            Start Trading
-                            <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        {/* Real Traders, Real Success Section */}
+                        <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
+                          <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
+                            <span className="text-black">Real Traders, </span>
+                            <span className="text-[#F800EA]">Real Success</span>
+                          </h2>
+                          <p className="text-center text-gray-800 mb-8">Empowering Traders Globally</p>
+                          
+                          {/* Trader Cards - Responsive Grid */}
+                          <div className="mb-8">
+                        <Swiper
+                          modules={[Autoplay]}
+                          autoplay={{ delay: 2000, disableOnInteraction: false }}
+                          loop={true}
+                          slidesPerView={1}
+                          spaceBetween={16}
+                          breakpoints={{
+                            640: { slidesPerView: 1 },
+                            768: { slidesPerView: 2 },
+                            1024: { slidesPerView: 3 },
+                          }}
+                        >
+                          {traders.map((trader, index) => (
+                            <SwiperSlide key={index}>
+                              <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+                                <div className="relative">
+                                  <img src={trader.src} alt={trader.alt} className="w-full object-cover" />
+                                </div>
+                              </div>
+                            </SwiperSlide>
+                          ))}
+                        </Swiper>
+                      </div>
+                          
+                          {/* Start Trading Button */}
+                          <div className="flex justify-center mb-16">
+                            <button className="bg-[#F800EA] text-black px-8 py-3 rounded-full font-medium flex items-center">
+                              Start Trading
+                              <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
-                            </svg>
-                        </button>
-                    </div>
-
-                    {/* Platform Section */}
-                    <div className="mb-16">
-                        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                            <span className="text-black">Trade On Our</span><br />
-                            <span className="text-black">Leading </span>
-                            <span className="text-[#F800EA]">Platform 5</span>
-                        </h2>
-
-                        <p className="text-center text-gray-800 max-w-3xl mx-auto mb-8">
-                            Experience our user-friendly prop trading platform, designed to help you execute, track and
-                            manage your trades effortlessly. We simulate real market conditions with spreads from 0 pips and
-                            with the lowest commission.
-                        </p>
-
+                              </svg>
+                            </button>
+                          </div>
+                          
+                          {/* Platform Section */}
+                          <div className="mb-16 px-4">
+                        {/* Heading */}
+                        <motion.h2
+                          className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+                          initial={{ opacity: 0, y: 50 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.1 }}
+                        >
+                          <span className="text-black">Trade On Our</span>
+                          <br />
+                          <span className="text-black">Leading </span>
+                          <span className="text-[#F800EA]">Platform 5</span>
+                        </motion.h2>
+                  
+                        {/* Description */}
+                        <motion.p
+                          className="text-center text-gray-800 max-w-3xl mx-auto mb-8"
+                          initial={{ opacity: 0, y: 50 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.2 }}
+                        >
+                          Experience our user-friendly prop trading platform, designed to help you execute, track and 
+                          manage your trades effortlessly. We simulate real market conditions with spreads from 0 pips and 
+                          with the lowest commission.
+                        </motion.p>
+                  
                         {/* Feature Icons */}
                         <div className="flex flex-col md:flex-row justify-center gap-4 mb-12">
-                            <div className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center">
-                                <div className="w-4 h-4 rounded-full bg-[#F800EA] mr-2 flex items-center justify-center">
-                                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                                </div>
-                                <span className="font-medium">True Market Pricing</span>
+                          <motion.div
+                            className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
+                          >
+                            <div className="w-4 h-4 rounded-full bg-[#F800EA] mr-2 flex items-center justify-center">
+                              <div className="w-2 h-2 bg-white rounded-full"></div>
                             </div>
-
-                            <div className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center">
-                                <div className="w-4 h-4 rounded-full bg-[#F800EA] mr-2 flex items-center justify-center">
-                                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                                </div>
-                                <span className="font-medium">Lightning Fast Trade Execution</span>
+                            <span className="font-medium">True Market Pricing</span>
+                          </motion.div>
+                  
+                          <motion.div
+                            className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                          >
+                            <div className="w-4 h-4 rounded-full bg-[#F800EA] mr-2 flex items-center justify-center">
+                              <div className="w-2 h-2 bg-white rounded-full"></div>
                             </div>
-
-                            <div className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center">
-                                <div className="w-4 h-4 rounded-full bg-[#F800EA] mr-2 flex items-center justify-center">
-                                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                                </div>
-                                <span className="font-medium">Industry Leading Spreads 0.0 pips</span>
+                            <span className="font-medium">Lightning Fast Trade Execution</span>
+                          </motion.div>
+                  
+                          <motion.div
+                            className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.5 }}
+                          >
+                            <div className="w-4 h-4 rounded-full bg-[#F800EA] mr-2 flex items-center justify-center">
+                              <div className="w-2 h-2 bg-white rounded-full"></div>
                             </div>
+                            <span className="font-medium">Industry Leading Spreads 0.0 pips</span>
+                          </motion.div>
                         </div>
-
+                  
                         {/* Mobile App Screenshot */}
-                        <div className="flex justify-center">
-                            <img src="/phone.png" alt="Trading Platform Mobile App" className="max-w-full md:max-w-lg" />
-                        </div>
+                        <div
+                          className="flex justify-center"
+                          
+                        >
+                          <img
+                            src="/phone.png"
+                            alt="Trading Platform Mobile App"
+                            className="max-w-full md:max-w-lg"
+                          />
+                       </div>
+                  
                         {/* Firm Badge Section */}
-                    <div style={{ background: 'rgba(245, 245, 247, 1)', borderRadius: '20px', padding: '16px' }}>
-                        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-12">
+                        <div
+                          style={{
+                            background: "rgba(245, 245, 247, 1)",
+                            borderRadius: "20px",
+                            padding: "16px",
+                          }}
+                        >
+                          <motion.h2
+                            className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-12"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.2, delay: 0.7 }}
+                          >
                             <span className="text-black">A </span>
                             <span className="text-[#F800EA]">Firm </span>
                             <span className="text-black">You Can Rely On</span>
-                        </h2>
-
-                        {/* Badges */}
-                        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
-                            <img src="/badge1.png" alt="Achievement Badge" className="h-24 md:h-32" />
-                            <img src="/badge2.png" alt="Achievement Badge" className="h-24 md:h-32" />
-                            <img src="/badge3.png" alt="Achievement Badge" className="h-24 md:h-32" />
+                          </motion.h2>
+                  
+                          {/* Swiper for Badges */}
+                          <div className="w-full px-4">
+                    {mounted && (
+                      <Swiper
+                        modules={[Autoplay]}
+                        autoplay={{
+                          delay: 2000,
+                          disableOnInteraction: false,
+                        }}
+                        loop={true}
+                        slidesPerView={1}
+                        spaceBetween={16}
+                        breakpoints={{
+                          640: { slidesPerView: 1 },
+                          768: { slidesPerView: 2 },
+                          1024: { slidesPerView: 3 },
+                        }}
+                        className="mb-8"
+                      >
+                        {badges.map((src, index) => (
+                          <SwiperSlide key={index}>
+                            <div className="flex justify-center items-center p-4 rounded-lg shadow-sm">
+                              <img
+                                src={src}
+                                alt={`Badge ${index + 1}`}
+                                className="h-24 md:h-32 object-contain"
+                                onError={(e) => {
+                                  console.log(`Error loading badge: ${src}`);
+                                  e.target.onerror = null;
+                                  e.target.src = "/api/placeholder/200/150";
+                                }}
+                              />
+                            </div>
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
+                    )}
+                  </div>
+                  
+                  
+                          {/* Start Trading Button */}
+                         
+                          <div className="flex justify-center items-center">
+                    <button className="bg-[#F800EA] text-black px-8 py-3 rounded-full font-medium flex items-center">
+                      Start Trading
+                      <svg
+                        className="ml-2 w-5 h-5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                          
                         </div>
-
-                        {/* Start Trading Button */}
-                        <div className="flex justify-center">
-                            <button className="bg-[#F800EA] text-black px-8 py-3 rounded-full font-medium flex items-center">
-                                Start Trading
-                                <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
-                                </svg>
-                            </button>
+                      </div>
+                          
                         </div>
-                    </div>
-                    </div>
-
-                    
-                </div>
-            </div>
+                      </div>
             <div className="w-full font-inter bg-white py-16 px-4 sm:px-6 lg:px-8 relative">
-                <div className="max-w-7xl mx-auto">
-                    {/* Purple diamond decoration */}
-                    <div className="absolute left-16 top-16 md:left-24 md:top-24 w-16 h-16 md:w-24 md:h-24">
-                        <div className="w-full h-full bg-gradient-to-br from-purple-500 to-fuchsia-500 rotate-45 rounded-md opacity-80"></div>
-                    </div>
-
-                    <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 relative z-10">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
+                     <div className="max-w-7xl mx-auto">
+                        {/* Purple diamond decoration */}
+                        {/* Floating diamond.svg decoration */}
+            <motion.img
+              src="/diamond.svg"
+              alt="Floating Diamond"
+              className="absolute left-16 top-16 md:left-24 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            />
+            
+                        
+                        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 relative z-10">
+                          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
                             What Our Traders Have To Say
-                        </h2>
-
-                        <button className="bg-[#F800EA] text-black px-6 py-3 rounded-full font-medium flex items-center">
+                          </h2>
+                          
+                          <button className="bg-[#F800EA] text-black px-6 py-3 rounded-full font-medium flex items-center">
                             Start Trading
                             <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+                              <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
                             </svg>
-                        </button>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {testimonials.map((testimonial) => (
-                            <div
-                                key={testimonial.id}
-                                className="bg-white p-6 rounded-lg"
+                          </button>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                          {testimonials.map((testimonial, index) => (
+                            <motion.div 
+                              key={testimonial.id} 
+                              className="bg-white p-6 rounded-lg"
+                              initial={{ opacity: 0, y: 50 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered animation
+                              
+                              viewport={{ once: false }}
                             >
-                                {renderStars(testimonial.rating)}
-                                <div className="mb-4">
-                                    {highlightText(testimonial.text)}
-                                </div>
-                                <div className="flex items-center">
-                                    <span className="font-medium mr-2">{testimonial.name}</span>
-                                    <span className="text-xl">{testimonial.flag}</span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Circle decoration */}
-                    <div className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 bg-gradient-to-br from-pink-300 to-fuchsia-500 rounded-full opacity-10 -mr-24 -mb-24"></div>
-                </div>
-            </div>
+                              {renderStars(testimonial.rating)}
+                              <div className="mb-4">
+                                {highlightText(testimonial.text)}
+                              </div>
+                              <div className="flex items-center">
+                                <span className="font-medium mr-2">{testimonial.name}</span>
+                                <span className="text-xl">{testimonial.flag}</span>
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+                        
+                        <motion.img
+              src="/elipse.svg"
+              alt="Floating Elipse"
+              className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-10"
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+                      </div>
+                  </div>
 
             {/* FAQ Section */}
             <FAQ />
             <div className="flex flex-col items-center w-full font-['Inter']">
-  {/* Hero Section */}
-  <div
-    className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 sm:mb-14 md:mb-20 lg:mb-24 flex flex-col items-center justify-center text-white"
-    style={{
-      backgroundColor: '#000000', // Pure black
-      borderRadius: '24px',
-    }}
-  >
-    {/* Big Pink Glow at Top-Left */}
-    <div
-      className="absolute top-0 left-0 w-[500px] h-[500px]"
-      style={{
-        background: 'radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)',
-        borderTopLeftRadius: '24px'
-      }}
-    ></div>
-
-    {/* Diamond left of "TURN" */}
-    <img
-      src="/diamond.svg"
-      alt="Diamond Left of Turn"
-      className="absolute left-[10%] top-[30%] w-40 h-40"
-    />
-
-    {/* Diamond blurred near logo */}
-    <img
-      src="/diamond.svg"
-      alt="Diamond Near Logo"
-      className="absolute right-[20%] top-[15%] w-10 h-10 opacity-50 blur-sm"
-    />
-
-    {/* elipse.svg - bottom right */}
-    <img
-      src="/elipse.svg"
-      alt="Elipse Bottom Right"
-      className="absolute bottom-8 right-8 w-32 h-32 opacity-60"
-    />
-
-    {/* elipse21.svg - bottom left */}
-    <img
-      src="/elipse21.svg"
-      alt="Elipse21 Bottom Left"
-      className="absolute bottom-8 left-8 w-40 h-40 opacity-70"
-    />
-
-    {/* elipse21.svg - mid right */}
-    <img
-      src="/elipse21.svg"
-      alt="Elipse21 Mid Right"
-      className="absolute top-1/2 right-4 transform -translate-y-1/2 w-36 h-36 opacity-70"
-    />
-
-    {/* Logo */}
-    <div className="mb-10">
-      <img src="/sfx-funded-2.png" alt="SFX Funded" className="h-14 sm:h-16" />
-    </div>
-
-    {/* Main Heading */}
-    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4">
-      TURN STRATEGY INTO CAPITAL
-    </h1>
-    <h2 className="text-2xl sm:text-3xl md:text-4xl text-center mb-12">
-      Pass 2 Steps, Earn Up To 100% Profit Split.
-    </h2>
-
-    {/* CTA Button */}
-    <div className="mb-12">
-      <button
-        className="py-4 px-12 rounded-full bg-fuchsia-600 text-white font-medium text-lg hover:bg-fuchsia-700 transition-colors"
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        viewport={{ once: false }}
+        className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 sm:mb-14 md:mb-20 lg:mb-24 flex flex-col items-center justify-center text-white"
+        style={{
+          backgroundColor: '#000000',
+          borderRadius: '24px',
+        }}
       >
-        Start Trading
-      </button>
-    </div>
+        {/* Big Pink Glow at Top-Left */}
+        <div
+          className="absolute top-0 left-0 w-[500px] h-[500px]"
+          style={{
+            background: 'radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)',
+            borderTopLeftRadius: '24px'
+          }}
+        ></div>
 
-    {/* Social Media Icons */}
-    <div className="flex gap-3 mb-4">
-      {socialIcons.slice(0, 6).map((social, index) => (
-        <a href="#" key={index} className="bg-white p-2 rounded-full">
-          {React.cloneElement(social.icon, {
-            width: 20,
-            height: 20,
-            fill: 'rgba(248, 0, 234, 1)',
-          })}
-        </a>
-      ))}
-    </div>
+        {/* Diamond left of "TURN" */}
+        <motion.img
+          src="/diamond.svg"
+          alt="Diamond Left of Turn"
+          className="absolute left-[10%] top-[30%] w-40 h-40"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: false }}
+        />
 
-  </div>
-</div>
+        {/* Diamond blurred near logo */}
+        <motion.img
+          src="/diamond.svg"
+          alt="Diamond Near Logo"
+          className="absolute right-[20%] top-[15%] w-10 h-10 opacity-50 blur-sm"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: false }}
+        />
+
+        {/* elipse.svg - bottom right */}
+        <motion.img
+          src="/elipse.svg"
+          alt="Elipse Bottom Right"
+          className="absolute bottom-8 right-8 w-32 h-32 opacity-60"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: false }}
+        />
+
+        {/* elipse21.svg - bottom left */}
+        <motion.img
+          src="/elipse21.svg"
+          alt="Elipse21 Bottom Left"
+          className="absolute bottom-8 left-8 w-40 h-40 opacity-70"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          viewport={{ once: false }}
+        />
+
+        {/* elipse21.svg - mid right */}
+        <motion.img
+          src="/elipse21.svg"
+          alt="Elipse21 Mid Right"
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 w-36 h-36 opacity-70"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          viewport={{ once: false }}
+        />
+
+        {/* Logo */}
+        <motion.div
+          className="mb-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          viewport={{ once: false }}
+        >
+          <img src="/sfx-funded-2.png" alt="SFX Funded" className="h-14 sm:h-16" />
+        </motion.div>
+
+        {/* Main Heading */}
+        <motion.h1
+          className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.5 }}
+          viewport={{ once: false }}
+        >
+          TURN STRATEGY INTO CAPITAL
+        </motion.h1>
+
+        <motion.h2
+          className="text-2xl sm:text-3xl md:text-4xl text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
+          viewport={{ once: false }}
+        >
+          Pass 2 Steps, Earn Up To 100% Profit Split.
+        </motion.h2>
+
+        {/* CTA Button */}
+        <motion.div
+          className="mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.0 }}
+          viewport={{ once: false }}
+        >
+          <button
+            className="py-4 px-12 rounded-full bg-fuchsia-600 text-white font-medium text-lg hover:bg-fuchsia-700 transition-colors"
+          >
+            Start Trading
+          </button>
+        </motion.div>
+
+        {/* Social Media Icons */}
+        <motion.div
+          className="flex gap-3 mb-4"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.1 }}
+          viewport={{ once: false }}
+        >
+          {socialIcons.slice(0, 6).map((social, index) => (
+            <a href="#" key={index} className="bg-white p-2 rounded-full">
+              {React.cloneElement(social.icon, {
+                width: 20,
+                height: 20,
+                fill: 'rgba(248, 0, 234, 1)',
+              })}
+            </a>
+          ))}
+        </motion.div>
+      </motion.div>
+    </div>
 
 
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   const socialIcons = [
@@ -34,106 +35,205 @@ export default function Footer() {
     )}
   ];
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
+  const socialIconVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: index => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, delay: 0.1 * index }
+    })
+  };
+
   return (
     <footer className="bg-black text-white p-[3px] rounded-[50px] mx-4 sm:mx-6 md:mx-8 lg:mx-12 mb-4 sm:mb-6 md:mb-8 lg:mb-12">
-
-
-
       <div className="container mx-auto max-w-7xl">
         {/* Social Media Icons */}
-<div className="flex justify-center space-x-4 my-5 mx-4 sm:my-6 sm:mx-5 md:my-7 md:mx-6 lg:my-8 lg:mx-8">
-  {socialIcons.map((social, index) => (
-    <div 
-      key={index} 
-      className="bg-white rounded-full w-12 h-12 flex items-center justify-center cursor-pointer hover:bg-gray-200 transition-colors"
-    >
-      <div className="text-black">
-        {React.cloneElement(social.icon, { fill: '#ff00ff', width: 20, height: 20 })}
-      </div>
-    </div>
-  ))}
-</div>
+        <motion.div 
+          className="flex justify-center space-x-4 my-5 mx-4 sm:my-6 sm:mx-5 md:my-7 md:mx-6 lg:my-8 lg:mx-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ margin: "-100px" }}
+        >
+          {socialIcons.map((social, index) => (
+            <motion.div 
+              key={index} 
+              custom={index}
+              variants={socialIconVariants}
+              className="bg-white rounded-full w-12 h-12 flex items-center justify-center cursor-pointer hover:bg-gray-200 transition-colors"
+            >
+              <div className="text-black">
+                {React.cloneElement(social.icon, { fill: '#ff00ff', width: 20, height: 20 })}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
   
         {/* Main Content */}
         <div className="max-w-6xl mx-auto px-4">
           {/* Logo and Contact Info */}
-          <div className="flex flex-col items-center md:items-start mb-10">
-            <div className="mb-6">
+          <motion.div 
+            className="flex flex-col items-center md:items-start mb-10"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ margin: "-100px" }}
+          >
+            <motion.div 
+              className="mb-6"
+              variants={fadeInUp}
+            >
               <img 
                 src="/sfx-funded-2.png" 
                 alt="SFX Funded Logo" 
                 className="h-16 object-contain"
               />
-            </div>
+            </motion.div>
             
-            <div className="flex flex-col items-center md:items-start">
-              <div className="flex items-center space-x-2 mb-2">
+            <motion.div 
+              className="flex flex-col items-center md:items-start"
+              variants={fadeInUp}
+            >
+              <motion.div 
+                className="flex items-center space-x-2 mb-2"
+                variants={fadeInUp}
+              >
                 <div className="flex space-x-1">
                   {[1, 2, 3, 4, 5].map((dot) => (
                     <div key={dot} className="w-2 h-2 rounded-full bg-fuchsia-500"></div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="flex items-center mb-3">
+              <motion.div 
+                className="flex items-center mb-3"
+                variants={fadeInUp}
+              >
                 <svg className="w-5 h-5 mr-2 text-white" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" />
                 </svg>
                 <span className="text-base">support@sfxfunded.com</span>
-              </div>
+              </motion.div>
               
-              <div className="flex items-start">
+              <motion.div 
+                className="flex items-start"
+                variants={fadeInUp}
+              >
                 <svg className="w-5 h-5 mr-2 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" />
                 </svg>
                 <span className="text-base">23691-001, A2 Building IFZA Business Park, DDP, DSO, Dubai, UAE</span>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
   
           {/* Resources Columns */}
-          <div className="grid grid-cols-2 gap-4 md:gap-8 lg:gap-16 mb-10">
-            <div className="flex flex-col items-start">
-              <h3 className="text-lg font-bold mb-4">Resources</h3>
+          <motion.div 
+            className="grid grid-cols-2 gap-4 md:gap-8 lg:gap-16 mb-10"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ margin: "-100px" }}
+          >
+            <motion.div 
+              className="flex flex-col items-start"
+              variants={fadeInUp}
+            >
+              <motion.h3 
+                className="text-lg font-bold mb-4"
+                variants={fadeInUp}
+              >
+                Resources
+              </motion.h3>
               <ul className="space-y-2">
-                <li className="hover:text-gray-300 cursor-pointer">Join Discord</li>
-                <li className="hover:text-gray-300 cursor-pointer">Dashboard</li>
+                <motion.li 
+                  className="hover:text-gray-300 cursor-pointer"
+                  variants={fadeInUp}
+                >
+                  Join Discord
+                </motion.li>
+                <motion.li 
+                  className="hover:text-gray-300 cursor-pointer"
+                  variants={fadeInUp}
+                >
+                  Dashboard
+                </motion.li>
               </ul>
-            </div>
+            </motion.div>
             
-            <div className="flex flex-col items-start">
-              <h3 className="text-lg font-bold mb-4">Resources</h3>
+            <motion.div 
+              className="flex flex-col items-start"
+              variants={fadeInUp}
+            >
+              <motion.h3 
+                className="text-lg font-bold mb-4"
+                variants={fadeInUp}
+              >
+                Resources
+              </motion.h3>
               <ul className="space-y-2">
-                <li className="hover:text-gray-300 cursor-pointer">FAQs</li>
-                <li className="hover:text-gray-300 cursor-pointer">Contact Us</li>
+                <motion.li 
+                  className="hover:text-gray-300 cursor-pointer"
+                  variants={fadeInUp}
+                >
+                  FAQs
+                </motion.li>
+                <motion.li 
+                  className="hover:text-gray-300 cursor-pointer"
+                  variants={fadeInUp}
+                >
+                  Contact Us
+                </motion.li>
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
   
         {/* Disclaimer */}
-        <div className="mx-4 md:mx-auto mt-8 p-6 rounded-2xl border border-gray-700 bg-zinc-800 bg-opacity-50 max-w-6xl">
-          <p className="text-center text-xs md:text-sm">
+        <motion.div 
+          className="mx-4 md:mx-auto mt-8 p-6 rounded-2xl border border-gray-700 bg-zinc-800 bg-opacity-50 max-w-6xl"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ margin: "-100px" }}
+          variants={fadeInUp}
+        >
+          <motion.p 
+            className="text-center text-xs md:text-sm"
+            variants={fadeInUp}
+          >
             All content published and distributed by SFX International FZCO (i.e SFX Funded), and its affiliates (collectively, the Company) is to be treated as general information only. None of the 
             information provided by the Company or contained herein is intended as investment advice, an offer or solicitation of an offer to buy or sell, or a recommendation, endorsement, or 
             sponsorship of any security, company, or fund. SFX Funded does not act as or conduct services as a broker. SFX Funded does not act as or conduct services as a custodian. People who 
             register for our programs do so at their own volition, purchases of programs should not be considered deposits. All program fees are used for operation costs including, but not limited to, staff, 
             technology and other business related expenses. Nothing contained herein is a solicitation or an offer to buy or sell futures, options, or forex. Past performance is not necessarily indicative of 
             future results. Applicable law under the laws of The United Arab Emirates.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
   
+      
         {/* Copyright */}
-        <div className="max-w-6xl mx-auto px-4 py-4 mt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center text-xs md:text-sm text-gray-400">
-            <div className="mb-4 md:mb-0">© 2025 AquaFunded. All rights reserved.</div>
-            <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
-              <span className="hover:text-white cursor-pointer">Refund Policy</span>
-              <span className="hover:text-white cursor-pointer">Privacy Policy</span>
-              <span className="hover:text-white cursor-pointer">Terms of Service</span>
-            </div>
-          </div>
-        </div>
+<div className="max-w-6xl mx-auto px-4 py-4 mt-8">
+  <div className="flex flex-col md:flex-row justify-between items-center text-xs md:text-sm text-gray-400">
+    <div className="mb-4 md:mb-0">
+      © 2025 AquaFunded. All rights reserved.
+    </div>
+    <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
+      <span className="hover:text-white cursor-pointer">
+        Refund Policy
+      </span>
+      <span className="hover:text-white cursor-pointer">
+        Privacy Policy
+      </span>
+      <span className="hover:text-white cursor-pointer">
+        Terms of Service
+      </span>
+    </div>
+  </div>
+</div>
+
       </div>
     </footer>
   );

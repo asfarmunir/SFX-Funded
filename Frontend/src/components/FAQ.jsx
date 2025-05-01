@@ -1,7 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 export default function FAQ() {
   const [activeQuestion, setActiveQuestion] = useState(null);
+  
+  // Create refs for scroll animation
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { amount: 0.2 });
   
   const faqItems = [
     {
@@ -30,8 +35,54 @@ export default function FAQ() {
     setActiveQuestion(activeQuestion === index ? null : index);
   };
   
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+  
+  const questionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut"
+      }
+    }
+  };
+  
+  const textVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+  
+  const answerVariants = {
+    hidden: { opacity: 0, height: 0 },
+    visible: { 
+      opacity: 1, 
+      height: "auto",
+      transition: {
+        duration: 0.3
+      }
+    }
+  };
+  
   return (
-    <div className="relative w-full max-w-6xl mx-auto py-16 px-4" style={{ fontFamily: 'Inter, sans-serif' }}>
+    <div ref={sectionRef} className="relative w-full max-w-6xl mx-auto py-16 px-4" style={{ fontFamily: 'Inter, sans-serif' }}>
       {/* Decorative floating elements */}
       <img
         src="/diamond.svg"
@@ -60,43 +111,73 @@ export default function FAQ() {
       />
       
       <div className="flex flex-col md:flex-row gap-8 relative z-10">
-        {/* Left Section */}
+        {/* Left Section with text sliding from below */}
         <div className="w-full md:w-2/5">
-          <div className="mb-6">
+          <motion.div 
+            className="mb-6"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={textVariants}
+          >
             <h2 className="text-4xl font-bold leading-tight text-gray-900">
               Our Most Asked Questions
             </h2>
-          </div>
+          </motion.div>
           
-          <p className="text-gray-700 mb-6">
+          <motion.p 
+            className="text-gray-700 mb-6"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={textVariants}
+            transition={{ delay: 0.2 }}
+          >
             Check out our most frequently asked questions here or click the link below to see all of our frequently asked questions.
-          </p>
+          </motion.p>
           
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+          <motion.div 
+            className="bg-white p-6 rounded-lg shadow-sm border border-gray-100"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={textVariants}
+            transition={{ delay: 0.4 }}
+          >
             <h3 className="text-xl font-semibold mb-2">Still have questions?</h3>
             <p className="text-gray-600 mb-6">
               Can't find the answer you're looking for?<br/>
               Please chat to our friendly team!
             </p>
-            <button 
+            <motion.button 
               className="w-full py-3 text-white font-medium rounded-full text-center"
               style={{ backgroundColor: '#F800EA' }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               Contact us
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
         
-        {/* Right Section (Accordion) */}
-        <div className="w-full md:w-3/5">
+        {/* Right Section (Accordion) with staggered appearance */}
+        <motion.div 
+          className="w-full md:w-3/5"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {faqItems.map((item, index) => (
-            <div key={index} className="mb-4">
-              <button
+            <motion.div 
+              key={index} 
+              className="mb-4"
+              variants={questionVariants}
+            >
+              <motion.button
                 className="w-full flex items-center justify-between bg-white p-4 rounded-md shadow-sm text-left focus:outline-none"
                 onClick={() => toggleQuestion(index)}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <span className="font-medium">{item.question}</span>
-                <svg 
+                <motion.svg 
                   width="20" 
                   height="20" 
                   viewBox="0 0 24 24" 
@@ -105,20 +186,26 @@ export default function FAQ() {
                   strokeWidth="2" 
                   strokeLinecap="round" 
                   strokeLinejoin="round"
-                  className={`transition-transform ${activeQuestion === index ? 'rotate-180' : ''}`}
+                  animate={{ rotate: activeQuestion === index ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </button>
+                </motion.svg>
+              </motion.button>
               
               {activeQuestion === index && (
-                <div className="bg-white p-4 rounded-b-md shadow-sm mt-[-1px]">
+                <motion.div 
+                  className="bg-white p-4 rounded-b-md shadow-sm mt-[-1px]"
+                  variants={answerVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
                   <p className="text-gray-600">{item.answer}</p>
-                </div>
+                </motion.div>
               )}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

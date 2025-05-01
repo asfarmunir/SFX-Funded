@@ -13,11 +13,16 @@ import 'swiper/css/autoplay';
 
 export default function RapidChallenge() {
   const countryData = [
-    { flag: "🇩🇪", percent: 85 },
-    { flag: "🇬🇧", percent: 70 },
-    { flag: "🇨🇦", percent: 55 },
-    { flag: "🇳🇴", percent: 30 }
+    { flag: "USA", percent: 85 },
+    { flag: "GERMANY", percent: 70 },
+    { flag: "GB", percent: 55 },
+    { flag: "FRANCE", percent: 30 }
   ];
+  const [isLoaded, setIsLoaded] = useState(false);
+  
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
   const [mounted, setMounted] = useState(false);
   
   useEffect(() => {
@@ -96,55 +101,55 @@ export default function RapidChallenge() {
 
   const testimonials = [
     {
-      id: 1,
-      name: "Pierre L.",
-      flag: "🇫🇷",
-      rating: 5,
-      text: "This is by far the best prop firm I have used; they are trustworthy and have excellent customer service. Since being with AquaFunded I have completed both evaluation and just received my first payout. The process was fast without any issues, I cannot recommend this company enough. It's clear they care about their traders."
+        id: 1,
+        name: "Pierre L.",
+        flag: "FRANCE",
+        rating: 5,
+        text: "This is by far the best prop firm I have used; they are trustworthy and have excellent customer service. Since being with AquaFunded I have completed both evaluation and just received my first payout. The process was fast without any issues, I cannot recommend this company enough. It's clear they care about their traders."
     },
     {
-      id: 2,
-      name: "John S.",
-      flag: "🇺🇸",
-      rating: 5,
-      text: "Customer service is 10/10, the moment you put a ticket in you get a reply immediately. Their spreads are amazing. The prices are very affordable. This is hands down the best prop firm I have ever stumbled across!"
+        id: 2,
+        name: "John S.",
+        flag: "USA",
+        rating: 5,
+        text: "Customer service is 10/10, the moment you put a ticket in you get a reply immediately. Their spreads are amazing. The prices are very affordable. This is hands down the best prop firm I have ever stumbled across!"
     },
     {
-      id: 3,
-      name: "Emily T.",
-      flag: "🇬🇧",
-      rating: 5,
-      text: "I purchased the Two Step Challenge 10k from AquaFunded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with AquaFunded."
+        id: 3,
+        name: "Emily T.",
+        flag: "GB",
+        rating: 5,
+        text: "I purchased the Two Step Challenge 10k from AquaFunded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with AquaFunded."
     },
     {
-      id: 4,
-      name: "James R.",
-      flag: "🇦🇺",
-      rating: 5,
-      text: "I have just received my first reward of over $13k. AquaFunded is the real deal. Their rules are fair and easy to follow. The customer support is 2nd to none and I'm happy to recommend them to anyone. Trust is key in this industry and these guys have my full trust."
+        id: 4,
+        name: "James R.",
+        flag: "AUS",
+        rating: 5,
+        text: "I have just received my first reward of over $13k. AquaFunded is the real deal. Their rules are fair and easy to follow. The customer support is 2nd to none and I'm happy to recommend them to anyone. Trust is key in this industry and these guys have my full trust."
     },
     {
-      id: 5,
-      name: "Ravi K.",
-      flag: "🇮🇳",
-      rating: 5,
-      text: "AquaFunded is one of the best funding companies, there are no hidden rules that harm traders, there is a 2 step and lot rules. Rewards are fast and the support service is very friendly and responds quickly. AquaFunded is the best, I love it"
+        id: 5,
+        name: "Ravi K.",
+        flag: "IND",
+        rating: 5,
+        text: "AquaFunded is one of the best funding companies, there are no hidden rules that harm traders, there is a 2 step and lot rules. Rewards are fast and the support service is very friendly and responds quickly. AquaFunded is the best, I love it"
     },
     {
-      id: 6,
-      name: "Ahmed M.",
-      flag: "🇦🇪",
-      rating: 5,
-      text: "Honestly, I've tried so many funded companies but what always disappointed me was their support team. Since I joined AquaFunded, I have had no complaints from the first day. What I love most about them is their hardworking team. WOW, WHAT A TEAM THEY ARE. Very quick, supportive and responsive. They will become the best funded company very soon."
+        id: 6,
+        name: "Ahmed M.",
+        flag: "UAE",
+        rating: 5,
+        text: "Honestly, I've tried so many funded companies but what always disappointed me was their support team. Since I joined AquaFunded, I have had no complaints from the first day. What I love most about them is their hardworking team. WOW, WHAT A TEAM THEY ARE. Very quick, supportive and responsive. They will become the best funded company very soon."
     },
     {
-      id: 7,
-      name: "Hans W.",
-      flag: "🇩🇪",
-      rating: 5,
-      text: "Great firm, no nonsense rules! Support super-fast and clear. Had no problems with my Reward. Already got my second reward. I encourage people to be part of Aqua"
+        id: 7,
+        name: "Hans W.",
+        flag: "GERMANY",
+        rating: 5,
+        text: "Great firm, no nonsense rules! Support super-fast and clear. Had no problems with my Reward. Already got my second reward. I encourage people to be part of Aqua"
     }
-  ];
+];
 
   // Render star rating (always 5 stars in this case)
   const renderStars = (rating) => {
@@ -1090,18 +1095,22 @@ export default function RapidChallenge() {
 
       {/* Country bars */}
       <div className="space-y-3">
-        {countryData.map((country, index) => (
-          <div key={index} className="flex items-center gap-3">
-            <span className="text-xl">{country.flag}</span>
-            <div className="flex-1 bg-gray-200 rounded-full h-4 overflow-hidden">
-              <div 
-                className="bg-fuchsia-600 h-full rounded-full" 
-                style={{ width: `${country.percent}%` }}
-              />
-            </div>
-          </div>
-        ))}
+  {countryData.map((country, index) => (
+    <div key={index} className="flex items-center gap-3">
+      <img 
+        src={`/${country.flag}.svg`} 
+        alt={`${country.name} flag`} 
+        className="w-6 h-6 object-contain" 
+      />
+      <div className="flex-1 bg-gray-200 rounded-full h-4 overflow-hidden">
+        <div 
+          className="bg-fuchsia-600 h-full rounded-full" 
+          style={{ width: `${country.percent}%` }}
+        />
       </div>
+    </div>
+  ))}
+</div>
     </motion.div>
   </div>
 
@@ -1253,27 +1262,25 @@ export default function RapidChallenge() {
         />
      </div>
 
-      {/* Firm Badge Section */}
-      <div
-        style={{
-          background: "rgba(245, 245, 247, 1)",
-          borderRadius: "20px",
-          padding: "16px",
-        }}
-      >
-        <motion.h2
-          className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-12"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, delay: 0.7 }}
-        >
-          <span className="text-black">A </span>
-          <span className="text-[#F800EA]">Firm </span>
-          <span className="text-black">You Can Rely On</span>
-        </motion.h2>
+     {/* Firm Badge Section */}
+<div style={{
+  background: "rgba(245, 245, 247, 1)",
+  borderRadius: "20px",
+  padding: "16px",
+}}>
+  <motion.h2
+    className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-12"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.2, delay: 0.7 }}
+  >
+    <span className="text-black">A </span>
+    <span className="text-[#F800EA]">Firm </span>
+    <span className="text-black">You Can Rely On</span>
+  </motion.h2>
 
-        {/* Swiper for Badges */}
-        <div className="w-full px-4">
+  {/* Fixed Badge Swiper */}
+  <div className="w-full px-4 max-w-6xl mx-auto">
   {mounted && (
     <Swiper
       modules={[Autoplay]}
@@ -1287,21 +1294,21 @@ export default function RapidChallenge() {
       breakpoints={{
         640: { slidesPerView: 1 },
         768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
+        1024: { slidesPerView: 3}
       }}
-      className="mb-8"
+     // slidesPerGroup={1} // Important: slides move one by one
     >
-      {badges.map((src, index) => (
+      {/* Duplicate badges for smoother looping */}
+      {[...badges, ...badges].map((src, index) => (
         <SwiperSlide key={index}>
-          <div className="flex justify-center items-center p-4 rounded-lg shadow-sm">
+          <div className="flex justify-center items-center p-4 h-full">
             <img
               src={src}
-              alt={`Badge ${index + 1}`}
-              className="h-24 md:h-32 object-contain"
-              onError={(e) => {
-                console.log(`Error loading badge: ${src}`);
-                e.target.onerror = null;
-                e.target.src = "/api/placeholder/200/150";
+              alt={`Badge ${(index % badges.length) + 1}`}
+              className="h-24 md:h-32 w-full object-contain"
+              style={{ 
+                maxWidth: "100%",
+                aspectRatio: "1/1"
               }}
             />
           </div>
@@ -1311,27 +1318,16 @@ export default function RapidChallenge() {
   )}
 </div>
 
-
-        {/* Start Trading Button */}
-       
-        <div className="flex justify-center items-center">
-  <button className="bg-[#F800EA] text-black px-8 py-3 rounded-full font-medium flex items-center">
-    Start Trading
-    <svg
-      className="ml-2 w-5 h-5"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
-        fill="currentColor"
-      />
-    </svg>
-  </button>
+  {/* Start Trading Button */}
+  <div className="flex justify-center items-center">
+    <button className="bg-[#F800EA] text-black px-8 py-3 rounded-full font-medium flex items-center">
+      Start Trading
+      <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+      </svg>
+    </button>
+  </div>
 </div>
-        
-      </div>
     </div>
         
       </div>
@@ -1379,7 +1375,11 @@ export default function RapidChallenge() {
                     </div>
                     <div className="flex items-center">
                       <span className="font-medium mr-2">{testimonial.name}</span>
-                      <span className="text-xl">{testimonial.flag}</span>
+                      <img 
+  src={`/${testimonial.flag}.svg`} 
+  alt={`${testimonial.flag} flag`} 
+  className="w-6 h-6 object-contain" 
+/>
                     </div>
                   </motion.div>
                 ))}
@@ -1530,6 +1530,60 @@ export default function RapidChallenge() {
     ))}
   </motion.div>
 </motion.div>
+
+<motion.div 
+      className="flex flex-col items-center justify-center py-16 px-4 text-center"
+      initial={{ opacity: 0, y: 40 }}
+      animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, margin: "-100px" }}
+    >
+      <motion.h1 
+        className="text-5xl md:text-6xl font-bold mb-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+      >
+        Trade, Connect, And Win Together
+      </motion.h1>
+      
+      <motion.p 
+        className="text-lg md:text-xl mb-12 font-medium text-gray-800"
+        initial={{ opacity: 0, y: 20 }}
+        animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+      >
+        Join a thriving community of trades, share insights, and grow together.
+      </motion.p>
+      
+      <motion.div 
+        className="flex flex-col sm:flex-row gap-4 w-full max-w-lg"
+        initial={{ opacity: 0, y: 20 }}
+        animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+      >
+        <motion.button 
+          className="flex items-center justify-center gap-2 py-3 px-6 rounded-full font-medium text-white text-lg w-full"
+          style={{ background: "rgba(248, 0, 234, 1)" }}
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          <img src="/discord.svg" alt="Discord" className="w-6 h-6" />
+          Join Discord Community
+        </motion.button>
+        
+        <motion.button 
+          className="flex items-center justify-center gap-2 py-3 px-6 rounded-full font-medium text-white text-lg w-full"
+          style={{ background: "rgba(146, 0, 138, 1)" }}
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          <img src="/X.svg" alt="X" className="w-6 h-6" />
+          Join X Community
+        </motion.button>
+      </motion.div>
+    </motion.div>
 
           </div>
        

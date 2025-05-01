@@ -88,7 +88,7 @@ export default function Footer() {
               variants={fadeInUp}
             >
               <img 
-                src="/sfx-funded-2.png" 
+                src="/sfxnew.svg" 
                 alt="SFX Funded Logo" 
                 className="h-16 object-contain"
               />
@@ -102,11 +102,10 @@ export default function Footer() {
                 className="flex items-center space-x-2 mb-2"
                 variants={fadeInUp}
               >
-                <div className="flex space-x-1">
-                  {[1, 2, 3, 4, 5].map((dot) => (
-                    <div key={dot} className="w-2 h-2 rounded-full bg-fuchsia-500"></div>
-                  ))}
-                </div>
+                <div className="flex items-center justify-center">
+  <img src="/5star.svg" alt="5 Star Rating" className="w-28 h-auto" />
+</div>
+
               </motion.div>
               
               <motion.div 

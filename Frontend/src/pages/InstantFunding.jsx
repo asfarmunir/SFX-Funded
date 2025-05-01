@@ -1602,6 +1602,9 @@ export default function InstantFunding() {
     <motion.h1
       className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4"
       initial={{ opacity: 0, y: 30 }}
+      style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}
       transition={{ delay: 0.2, duration: 0.6 }}
@@ -1613,6 +1616,9 @@ export default function InstantFunding() {
       className="text-2xl sm:text-3xl md:text-4xl text-center mb-12"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
+      style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}
       viewport={{ once: false }}
       transition={{ delay: 0.3, duration: 0.6 }}
     >
@@ -1627,7 +1633,9 @@ export default function InstantFunding() {
       viewport={{ once: false }}
       transition={{ delay: 0.4, duration: 0.6 }}
     >
-      <button className="py-4 px-12 rounded-full bg-fuchsia-600 text-white font-medium text-lg hover:bg-fuchsia-700 transition-colors">
+      <button className="py-4 px-12 rounded-full bg-fuchsia-600 text-white font-medium text-lg hover:bg-fuchsia-700 transition-colors"style={{ 
+            fontFamily: "'Inter', sans-serif"
+           }}>
         Start Trading
       </button>
     </motion.div>

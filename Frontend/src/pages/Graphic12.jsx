@@ -291,8 +291,12 @@ export default function Graphic() {
         </svg>
       </div>
       <div className="text-center">
-        <p className="font-semibold text-xs leading-tight">Recent Verified</p>
-        <p className="font-semibold text-xs leading-tight">Payouts</p>
+        <p className="font-semibold text-xs leading-tight"style={{ 
+            fontFamily: "'Inter', sans-serif"
+           }}>Recent Verified</p>
+        <p className="font-semibold text-xs leading-tight"style={{ 
+            fontFamily: "'Inter', sans-serif"
+           }}>Payouts</p>
       </div>
     </div>
 
@@ -314,8 +318,12 @@ export default function Graphic() {
               <div key={index} className="flex items-center gap-3 flex-shrink-0 h-full px-4">
                 {/* Price and Name */}
                 <div className="flex flex-col justify-center h-full">
-                  <p className="font-bold text-xl">{payment.amount}</p>
-                  <p className="text-base text-gray-600">{payment.name}</p>
+                  <p className="font-bold text-xl"style={{ 
+            fontFamily: "'Inter', sans-serif"
+           }}>{payment.amount}</p>
+                  <p className="text-base text-gray-600"style={{ 
+            fontFamily: "'Inter', sans-serif"
+           }}>{payment.name}</p>
                 </div>
                 {/* Certificate */}
                 <div className="w-20 h-full flex items-center py-2">
@@ -1515,6 +1523,9 @@ export default function Graphic() {
           className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
+          style={{ 
+            fontFamily: "'Inter', sans-serif"
+           }}
           transition={{ duration: 0.3, delay: 0.5 }}
           viewport={{ once: false }}
         >
@@ -1526,6 +1537,9 @@ export default function Graphic() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9 }}
+          style={{ 
+            fontFamily: "'Inter', sans-serif"
+           }}
           viewport={{ once: false }}
         >
           Pass 2 Steps, Earn Up To 100% Profit Split.
@@ -1541,7 +1555,9 @@ export default function Graphic() {
         >
           <button
             className="py-4 px-12 rounded-full bg-fuchsia-600 text-white font-medium text-lg hover:bg-fuchsia-700 transition-colors"
-          >
+            style={{
+              fontFamily: "'Inter', sans-serif"
+             }}>
             Start Trading
           </button>
         </motion.div>

@@ -1484,6 +1484,9 @@ export default function RapidChallenge() {
   <motion.h1
     className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4"
     initial={{ opacity: 0, y: 50 }}
+    style={{ 
+      fontFamily: "'Inter', sans-serif"
+     }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: false }}
     transition={{ duration: 0.3, delay: 0.2 }}
@@ -1494,6 +1497,9 @@ export default function RapidChallenge() {
   <motion.h2
     className="text-2xl sm:text-3xl md:text-4xl text-center mb-12"
     initial={{ opacity: 0, y: 50 }}
+    style={{ 
+      fontFamily: "'Inter', sans-serif"
+     }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: false }}
     transition={{ duration: 0.3, delay: 0.3 }}
@@ -1509,10 +1515,13 @@ export default function RapidChallenge() {
     viewport={{ once: false }}
     transition={{ duration: 0.3, delay: 0.4 }}
   >
-    <button className="py-3 px-6 rounded-full bg-fuchsia-500 text-white font-medium hover:bg-fuchsia-600 transition-colors">
+    <button className="py-3 px-6 rounded-full bg-fuchsia-500 text-white font-medium hover:bg-fuchsia-600 transition-colors"style={{ 
+            fontFamily: "'Inter', sans-serif"
+           }}>
       Get Funded Now
     </button>
-    <button className="py-3 px-6 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-colors">
+    <button className="py-3 px-6 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-colors"style={{  fontFamily: "'Inter', sans-serif"
+           }}>
       Sign Up
     </button>
   </motion.div>
@@ -1546,8 +1555,10 @@ export default function RapidChallenge() {
       viewport={{ once: false, margin: "-100px" }}
     >
       <motion.h1 
-        className="text-5xl md:text-6xl font-bold mb-6"
+        className="text-5xl md:text-6xl font-bold mb-6 "
         initial={{ opacity: 0, y: 20 }}
+        style={{ fontFamily: "'Inter', sans-serif"
+         }}
         animate={isLoaded ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
       >
@@ -1555,8 +1566,10 @@ export default function RapidChallenge() {
       </motion.h1>
       
       <motion.p 
-        className="text-lg md:text-xl mb-12 font-medium text-gray-800"
+        className="text-lg md:text-xl mb-12 font-medium text-gray-800 "
         initial={{ opacity: 0, y: 20 }}
+        style={{ fontFamily: "'Inter', sans-serif"
+         }}
         animate={isLoaded ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
       >
@@ -1570,8 +1583,10 @@ export default function RapidChallenge() {
         transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
       >
         <motion.button 
-          className="flex items-center justify-center gap-2 py-3 px-6 rounded-full font-medium text-white text-lg w-full"
-          style={{ background: "rgba(248, 0, 234, 1)" }}
+          className="flex items-center justify-center gap-2 py-3 px-6 rounded-full font-medium text-white text-lg w-full "
+          style={{ background: "rgba(248, 0, 234, 1)",
+            fontFamily: "'Inter', sans-serif"
+           }}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -1580,8 +1595,10 @@ export default function RapidChallenge() {
         </motion.button>
         
         <motion.button 
-          className="flex items-center justify-center gap-2 py-3 px-6 rounded-full font-medium text-white text-lg w-full"
-          style={{ background: "rgba(146, 0, 138, 1)" }}
+          className="flex items-center justify-center gap-2 py-3 px-6 rounded-full font-medium text-white text-lg w-full "
+          style={{ background: "rgba(146, 0, 138, 1)",
+            fontFamily: "'Inter', sans-serif"
+           }}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
         >

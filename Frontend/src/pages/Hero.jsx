@@ -305,8 +305,12 @@ export default function Hero() {
         </svg>
       </div>
       <div className="text-center">
-        <p className="font-semibold text-xs leading-tight">Recent Verified</p>
-        <p className="font-semibold text-xs leading-tight">Payouts</p>
+        <p className="font-semibold text-xs leading-tight"style={{ 
+            fontFamily: "'Inter', sans-serif"
+           }}>Recent Verified</p>
+        <p className="font-semibold text-xs leading-tight"style={{ 
+            fontFamily: "'Inter', sans-serif"
+           }}>Payouts</p>
       </div>
     </div>
 
@@ -328,8 +332,12 @@ export default function Hero() {
               <div key={index} className="flex items-center gap-3 flex-shrink-0 h-full px-4">
                 {/* Price and Name */}
                 <div className="flex flex-col justify-center h-full">
-                  <p className="font-bold text-xl">{payment.amount}</p>
-                  <p className="text-base text-gray-600">{payment.name}</p>
+                  <p className="font-bold text-xl"style={{ 
+            fontFamily: "'Inter', sans-serif"
+           }}>{payment.amount}</p>
+                  <p className="text-base text-gray-600"style={{ 
+            fontFamily: "'Inter', sans-serif"
+           }}>{payment.name}</p>
                 </div>
                 {/* Certificate */}
                 <div className="w-20 h-full flex items-center py-2">

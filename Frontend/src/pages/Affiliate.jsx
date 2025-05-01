@@ -311,495 +311,543 @@ export default function RapidChallenge() {
 
 
       <div className="font-['Inter'] max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        {/* Hero Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-10 mb-20">
-      {/* Left side */}
-      <motion.div 
-        className="w-full lg:w-2/5"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+  {/* Hero Section */}
+  <div className="flex flex-col lg:flex-row justify-between items-start gap-10 mb-20">
+    {/* Left side */}
+    <motion.div 
+      className="w-full lg:w-2/5"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.3 }}
+    >
+      <motion.h1 
+        className="text-4xl sm:text-5xl font-bold mb-4 "
+        variants={slideUp}
+        custom={0}
+        style={{ 
+          fontFamily: "'Inter', sans-serif"
+         }}
       >
-        <motion.h1 
-          className="text-4xl sm:text-5xl font-bold mb-4"
-          variants={slideUp}
-          custom={0}
-        >
-          Affiliate <span style={{ color: 'rgba(248, 0, 234, 1)' }}>Program</span>
-        </motion.h1>
-        
-        <motion.p 
-          className="text-gray-700 mb-6 max-w-lg"
-          variants={slideUp}
-          custom={1}
-        >
-          Unmatched earning potential and the best partnership opportunities in the industry await you!
-        </motion.p>
-        
-        <motion.button
-          className="flex items-center gap-2 rounded-full px-6 py-3 text-white font-medium"
-          style={{ backgroundColor: 'rgba(248, 0, 234, 1)' }}
-          variants={slideUp}
-          custom={2}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Get Started
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M12 5l7 7-7 7" />
+        Affiliate <span style={{ color: 'rgba(248, 0, 234, 1)' }}>Program</span>
+      </motion.h1>
+      
+      <motion.p 
+        className="text-gray-700 mb-6 max-w-lg "
+        variants={slideUp}
+        custom={1}
+        style={{ 
+          fontFamily: "'Inter', sans-serif"
+         }}
+      >
+        Unmatched earning potential and the best partnership opportunities in the industry await you!
+      </motion.p>
+      
+      <motion.button
+        className="flex items-center gap-2 rounded-full px-6 py-3 text-white font-medium font-['Inter']"
+        style={{ backgroundColor: 'rgba(248, 0, 234, 1)', fontFamily: "'Inter', sans-serif" }}
+
+        variants={slideUp}
+        custom={2}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        Get Started
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </motion.button>
+    </motion.div>
+
+    {/* Right side - 3 Steps with staggered animation */}
+    <motion.div 
+      className="w-full lg:w-3/5 flex flex-col gap-4"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }}
+      style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}
+    >
+      <motion.div 
+        className="rounded-full border p-4 flex items-center gap-4 " 
+        style={{ border: '2px solid rgba(248, 0, 234, 1)', fontFamily: "'Inter', sans-serif"}}
+        variants={slideUp}
+        custom={3}
+        whileHover="hover"
+      >
+        <img src="/image 46.svg" alt="Commission" className="w-8 h-8" />
+        <p className="text-gray-700">Get paid 10% commission when a new customer opens an account.</p>
+      </motion.div>
+
+      <motion.div 
+        className="rounded-full border border-gray-200 p-4 flex items-center gap-4 font-['Inter']" 
+        style={{ border: '2px solid rgba(217, 217, 217, 1)', fontFamily: "'Inter', sans-serif" }}
+        variants={slideUp}
+        custom={4}
+        whileHover="hover"
+      >
+        <img src="/image 47.svg" alt="Dashboard" className="w-8 h-8" />
+        <p className="text-gray-700">Easily keep tabs on your revenue using our affiliate dashboard.</p>
+      </motion.div>
+
+      <motion.div 
+        className="rounded-full border border-gray-200 p-4 flex items-center gap-4 font-['Inter']" 
+        style={{ border: '2px solid rgba(217, 217, 217, 1)' , fontFamily: "'Inter', sans-serif"}}
+        variants={slideUp}
+        custom={5}
+        whileHover="hover"
+      >
+        <img src="/image 48.svg" alt="Link" className="w-8 h-8" />
+        <p className="text-gray-700">Simply use your special link to promote using any methods</p>
+      </motion.div>
+    </motion.div>
+  </div>
+
+  {/* Main Section - Commission Tiers */}
+  <div className="text-center mb-10">
+    <h2 className="text-3xl sm:text-4xl font-bold mb-2 font-['Inter']"style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}>
+      Earn With The <span style={{ color: 'rgba(248, 0, 234, 1)' }}>SFX Affiliate</span> Program
+    </h2>
+    <p className="text-gray-700 mb-10 font-['Inter']"style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}>
+      Earn up to 17.5% lifetime commissions in our top affiliate program.
+    </p>
+  </div>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {/* Starter Tier */}
+    <div className="rounded-3xl p-6 flex flex-col items-center h-full font-['Inter']" style={{ border: '2px solid rgba(248, 0, 234, 1)' }}>
+      <img src="/image 49.svg" alt="Starter" className="w-8 h-8 mb-2" />
+      <h3 className="text-lg font-semibold"style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}>Starter</h3>
+
+      <div className="my-6 text-center">
+        <span style={{ color: 'rgba(248, 0, 234, 1)', fontFamily: "'Inter', sans-serif" }} className="text-5xl font-bold">10%</span>
+        <p className="font-medium mt-2" style={{
+          fontWeight: 600,
+          fontSize: '19.51px',
+          lineHeight: '29.26px',
+          fontFamily: "'Inter', sans-serif"
+        }}>Lifetime Commission</p>
+      </div>
+
+      <p className="text-sm text-center text-gray-600 mb-6"style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}>
+        Grab 10% commission on every referred purchase - credited to your account instantly!
+      </p>
+
+      <div className="w-full border-b border-gray-200 mb-6"></div>
+
+      <div className="w-full mb-6 flex-grow">
+        <div className="flex items-start gap-2 mb-2">
+          <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
           </svg>
-        </motion.button>
-      </motion.div>
-
-      {/* Right side - 3 Steps with staggered animation */}
-      <motion.div 
-        className="w-full lg:w-3/5 flex flex-col gap-4"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-      >
-        <motion.div 
-          className="rounded-full border p-4 flex items-center gap-4" 
-          style={{ border: '2px solid rgba(248, 0, 234, 1)' }}
-          variants={slideUp}
-          custom={3}
-          whileHover="hover"
-        >
-          <img src="/image 46.svg" alt="Commission" className="w-8 h-8" />
-          <p className="text-gray-700">Get paid 10% commission when a new customer opens an account.</p>
-        </motion.div>
-
-        <motion.div 
-          className="rounded-full border border-gray-200 p-4 flex items-center gap-4" 
-          style={{ border: '2px solid rgba(217, 217, 217, 1)' }}
-          variants={slideUp}
-          custom={4}
-          whileHover="hover"
-        >
-          <img src="/image 47.svg" alt="Dashboard" className="w-8 h-8" />
-          <p className="text-gray-700">Easily keep tabs on your revenue using our affiliate dashboard.</p>
-        </motion.div>
-
-        <motion.div 
-          className="rounded-full border border-gray-200 p-4 flex items-center gap-4" 
-          style={{ border: '2px solid rgba(217, 217, 217, 1)' }}
-          variants={slideUp}
-          custom={5}
-          whileHover="hover"
-        >
-          <img src="/image 48.svg" alt="Link" className="w-8 h-8" />
-          <p className="text-gray-700">Simply use your special link to promote using any methods</p>
-        </motion.div>
-      </motion.div>
-    </div>
-
-
-        {/* Main Section - Commission Tiers */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-2">
-            Earn With The <span style={{ color: 'rgba(248, 0, 234, 1)' }}>SFX Affiliate</span> Program
-          </h2>
-          <p className="text-gray-700 mb-10">
-            Earn up to 17.5% lifetime commissions in our top affiliate program.
-          </p>
+          <span className="text-sm"style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}>Earn 10% Commission Per Sale</span>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Starter Tier */}
-          <div className=" rounded-3xl p-6 flex flex-col items-center h-full" style={{ border: '2px solid rgba(248, 0, 234, 1)' }}>
-            <img src="/image 49.svg" alt="Starter" className="w-8 h-8 mb-2" />
-            <h3 className="text-lg font-semibold">Starter</h3>
-
-            <div className="my-6 text-center">
-              <span style={{ color: 'rgba(248, 0, 234, 1)' }} className="text-5xl font-bold">10%</span>
-              <p className="font-medium mt-2" style={{
-                fontFamily: 'Inter',
-                fontWeight: 600,
-                fontSize: '19.51px',
-                lineHeight: '29.26px'
-              }}>Lifetime Commission</p>
-            </div>
-
-            <p className="text-sm text-center text-gray-600 mb-6">
-              Grab 10% commission on every referred purchase - credited to your account instantly!
-            </p>
-
-            <div className="w-full border-b border-gray-200 mb-6"></div>
-
-            <div className="w-full mb-6 flex-grow">
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">Earn 10% Commission Per Sale</span>
-              </div>
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">Monthly Payouts</span>
-              </div>
-            </div>
-
-            <button
-              className="w-full rounded-full border border-pink-500 py-2 font-medium mt-auto"
-              style={{ color: 'rgba(248, 0, 234, 1)' }}
-            >
-              Become An Affiliate
-            </button>
-          </div>
-
-          {/* Builder Tier */}
-          <div className=" rounded-3xl p-6 flex flex-col items-center h-full" style={{ border: '2px solid rgba(248, 0, 234, 1)' }}>
-            <img src="/image 50.svg" alt="Builder" className="w-8 h-8 mb-2" />
-            <h3 className="text-lg font-semibold">Builder</h3>
-
-            <div className="my-6 text-center flex flex-col items-center">
-              <span style={{ color: 'rgba(248, 0, 234, 1)' }} className="text-5xl font-bold">12%</span>
-
-              <div className="bg-fuchsia-500 rounded-full py-1 px-3 flex items-center gap-1 mt-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shopping-cart text-white">
-                  <circle cx="8" cy="21" r="1"></circle>
-                  <circle cx="19" cy="21" r="1"></circle>
-                  <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
-                </svg>
-                <span className="text-xs text-white">50+ Sales</span>
-              </div>
-
-              <p className="font-medium mt-2" style={{
-                fontFamily: 'Inter',
-                fontWeight: 600,
-                fontSize: '19.51px',
-                lineHeight: '29.26px'
-              }}>Lifetime Commission</p>
-            </div>
-
-
-            <p className="text-sm text-center text-gray-600 mb-6">
-              Grab 12% commission on every referred purchase - credited to your account instantly!
-            </p>
-
-            <div className="w-full border-b border-gray-200 mb-6"></div>
-
-            <div className="w-full mb-6 flex-grow">
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">Earn 12% Commission Per Sale</span>
-              </div>
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">Monthly Payouts</span>
-              </div>
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">Monthly Free 15k Challenge Account*</span>
-              </div>
-            </div>
-
-            <button
-              className="w-full rounded-full border border-pink-500 py-2 font-medium mt-auto"
-              style={{ color: 'rgba(248, 0, 234, 1)' }}
-            >
-              Become An Affiliate
-            </button>
-          </div>
-
-          {/* Leader Tier */}
-          <div className=" rounded-3xl p-6 flex flex-col items-center h-full" style={{ border: '2px solid rgba(248, 0, 234, 1)' }}>
-            <img src="/image 51.svg" alt="Leader" className="w-8 h-8 mb-2" />
-            <h3 className="text-lg font-semibold">Leader</h3>
-
-            <div className="my-6 text-center flex flex-col items-center">
-              <span style={{ color: 'rgba(248, 0, 234, 1)' }} className="text-5xl font-bold">15%</span>
-              <div className="bg-fuchsia-500 rounded-full py-1 px-3 flex items-center gap-1 mt-2">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shopping-cart text-white">
-                  <circle cx="8" cy="21" r="1"></circle>
-                  <circle cx="19" cy="21" r="1"></circle>
-                  <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
-                </svg>
-                <span className="text-xs text-white">150+ Sales</span>
-              </div>
-              <p className="font-medium mt-2" style={{
-                fontFamily: 'Inter',
-                fontWeight: 600,
-                fontSize: '19.51px',
-                lineHeight: '29.26px'
-              }}>Lifetime Commission</p>
-            </div>
-
-            <p className="text-sm text-center text-gray-600 mb-6">
-              Grab 15% commission on every referred purchase - credited to your account instantly!
-            </p>
-
-            <div className="w-full border-b border-gray-200 mb-6"></div>
-
-            <div className="w-full mb-6 flex-grow">
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">Earn 15% Commission Per Sale</span>
-              </div>
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">Bi-Weekly Payouts</span>
-              </div>
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">Monthly Free 30k Challenge Account*</span>
-              </div>
-            </div>
-
-            <button
-              className="w-full rounded-full border border-pink-500 py-2 font-medium mt-auto"
-              style={{ color: 'rgba(248, 0, 234, 1)' }}
-            >
-              Become An Affiliate
-            </button>
-          </div>
-
-          {/* Elite Tier */}
-          <div className=" rounded-3xl p-6 flex flex-col items-center h-full" style={{ border: '2px solid rgba(248, 0, 234, 1)' }}>
-            <img src="/image 52.svg" alt="Elite" className="w-8 h-8 mb-2" />
-            <h3 className="text-lg font-semibold">Elite</h3>
-
-            <div className="my-6 text-center flex flex-col items-center">
-              <span style={{ color: 'rgba(248, 0, 234, 1)' }} className="text-5xl font-bold">17.5%</span>
-              <div className="bg-fuchsia-500 rounded-full py-1 px-3 flex items-center gap-1 mt-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shopping-cart text-white">
-                  <circle cx="8" cy="21" r="1"></circle>
-                  <circle cx="19" cy="21" r="1"></circle>
-                  <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
-                </svg>
-                <span className="text-xs text-white">300+ Sales</span>
-              </div>
-              <p className="font-medium mt-2" style={{
-                fontFamily: 'Inter',
-                fontWeight: 600,
-                fontSize: '19.51px',
-                lineHeight: '29.26px'
-              }}>Lifetime Commission</p>
-            </div>
-
-            <p className="text-sm text-center text-gray-600 mb-6">
-              Grab 17.5% commission on every referred purchase - credited to your account instantly!
-            </p>
-
-            <div className="w-full border-b border-gray-200 mb-6"></div>
-
-            <div className="w-full mb-6 flex-grow">
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">Earn 17.5% Commission Per Sale</span>
-              </div>
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">Monthly Payouts</span>
-              </div>
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm">Monthly Free 60k Challenge Account*</span>
-              </div>
-            </div>
-
-            <button
-              className="w-full rounded-full border border-pink-500 py-2 font-medium mt-auto"
-              style={{ color: 'rgba(248, 0, 234, 1)' }}
-            >
-              Become An Affiliate
-            </button>
-          </div>
+        <div className="flex items-start gap-2 mb-2">
+          <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          <span className="text-sm"style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}>Monthly Payouts</span>
         </div>
       </div>
 
-
-
-
-      <div className="flex flex-col items-center w-full font-['Inter']">
-      {/* Hero Section */}
-      <motion.div
-        className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 sm:mb-14 md:mb-20 lg:mb-24 flex flex-col items-center justify-center text-white"
-        style={{
-          backgroundColor: '#000000',
-          borderRadius: '24px',
-        }}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
+      <button
+        className="w-full rounded-full border border-pink-500 py-2 font-medium mt-auto font-['Inter']"
+        style={{ color: 'rgba(248, 0, 234, 1)', 
+          fontFamily: "'Inter', sans-serif"
+         }} 
       >
-        {/* Big Pink Glow at Top-Left */}
-        <div
-          className="absolute top-0 left-0 w-[500px] h-[500px]"
-          style={{
-            background: 'radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)',
-            borderTopLeftRadius: '24px'
-          }}
-        ></div>
-
-        {/* Diamond left of "TURN" - floating */}
-        <motion.img
-          src="/diamond.svg"
-          alt="Diamond Left of Turn"
-          className="absolute left-[10%] top-[30%] w-40 h-40"
-          variants={floatAnimation}
-          custom={{ 
-            yStart: 0, 
-            yEnd: -20, 
-            xStart: 0, 
-            xEnd: 10, 
-            rotStart: 0, 
-            rotEnd: 5, 
-            duration: 6 
-          }}
-          initial="initial"
-          animate="animate"
-        />
-
-        {/* Diamond blurred near logo - floating */}
-        <motion.img
-          src="/diamond.svg"
-          alt="Diamond Near Logo"
-          className="absolute right-[20%] top-[15%] w-10 h-10 opacity-50 blur-sm"
-          variants={floatAnimation}
-          custom={{ 
-            yStart: 0, 
-            yEnd: -15, 
-            xStart: 0, 
-            xEnd: -10, 
-            rotStart: 0, 
-            rotEnd: -8, 
-            duration: 4.5 
-          }}
-          initial="initial"
-          animate="animate"
-        />
-
-        {/* elipse.svg - bottom right - floating */}
-        <motion.img
-          src="/elipse.svg"
-          alt="Elipse Bottom Right"
-          className="absolute bottom-8 right-8 w-32 h-32 opacity-60"
-          variants={floatAnimation}
-          custom={{ 
-            yStart: 0, 
-            yEnd: 15, 
-            xStart: 0, 
-            xEnd: -5, 
-            rotStart: 0, 
-            rotEnd: 10, 
-            duration: 7 
-          }}
-          initial="initial"
-          animate="animate"
-        />
-
-        {/* elipse21.svg - bottom left - floating */}
-        <motion.img
-          src="/elipse21.svg"
-          alt="Elipse21 Bottom Left"
-          className="absolute bottom-8 left-8 w-40 h-40 opacity-70"
-          variants={floatAnimation}
-          custom={{ 
-            yStart: 0, 
-            yEnd: 20, 
-            xStart: 0, 
-            xEnd: 10, 
-            rotStart: 0, 
-            rotEnd: -5, 
-            duration: 8 
-          }}
-          initial="initial"
-          animate="animate"
-        />
-
-        {/* elipse21.svg - mid right - floating */}
-        <motion.img
-          src="/elipse21.svg"
-          alt="Elipse21 Mid Right"
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 w-36 h-36 opacity-70"
-          variants={floatAnimation}
-          custom={{ 
-            yStart: 0, 
-            yEnd: -25, 
-            xStart: 0, 
-            xEnd: -15, 
-            rotStart: 0, 
-            rotEnd: 15, 
-            duration: 9 
-          }}
-          initial="initial"
-          animate="animate"
-        />
-
-        {/* Logo - slide up */}
-        <motion.div 
-          className="mb-10 relative z-10"
-          variants={slideUp}
-          custom={0}
-        >
-          <img src="/sfx-funded-2.png" alt="SFX Funded" className="h-14 sm:h-16" />
-        </motion.div>
-
-        {/* Main Heading - slide up */}
-        <motion.h1 
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 relative z-10"
-          variants={slideUp}
-          custom={1}
-        >
-          Are You an Expert
-        </motion.h1>
-        
-        <motion.h1 
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 relative z-10"
-          variants={slideUp}
-          custom={2}
-        >
-          Affiliate Marketer?
-        </motion.h1>
-
-        {/* CTA Button - slide up */}
-        <motion.div 
-          className="flex flex-col sm:flex-row gap-4 mb-10 w-full max-w-md justify-center relative z-10"
-          variants={slideUp}
-          custom={3}
-        >
-          <motion.button
-            className="py-3 px-6 rounded-full bg-fuchsia-500 text-white font-medium hover:bg-fuchsia-600 transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Contact SFX Funded
-          </motion.button>
-        </motion.div>
-      </motion.div>
+        Become An Affiliate
+      </button>
     </div>
+
+    {/* Builder Tier */}
+    <div className="rounded-3xl p-6 flex flex-col items-center h-full font-['Inter']" style={{ border: '2px solid rgba(248, 0, 234, 1)' }}>
+      <img src="/image 50.svg" alt="Builder" className="w-8 h-8 mb-2" />
+      <h3 className="text-lg font-semibold"style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}>Builder</h3>
+
+      <div className="my-6 text-center flex flex-col items-center">
+        <span style={{ color: 'rgba(248, 0, 234, 1)' ,  
+        fontFamily: "'Inter', sans-serif"
+       }} className="text-5xl font-bold">12%</span>
+
+        <div className="bg-fuchsia-500 rounded-full py-1 px-3 flex items-center gap-1 mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shopping-cart text-white">
+            <circle cx="8" cy="21" r="1"></circle>
+            <circle cx="19" cy="21" r="1"></circle>
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+          </svg>
+          <span className="text-xs text-white"style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}>50+ Sales</span>
+        </div>
+
+        <p className="font-medium mt-2" style={{
+          fontWeight: 600,
+          fontSize: '19.51px',
+          lineHeight: '29.26px', 
+            fontFamily: "'Inter', sans-serif"
+           
+        }}>Lifetime Commission</p>
+      </div>
+
+      <p className="text-sm text-center text-gray-600 mb-6"style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}>
+        Grab 12% commission on every referred purchase - credited to your account instantly!
+      </p>
+
+      <div className="w-full border-b border-gray-200 mb-6"></div>
+
+      <div className="w-full mb-6 flex-grow">
+        <div className="flex items-start gap-2 mb-2">
+          <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          <span className="text-sm"style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}>Earn 12% Commission Per Sale</span>
+        </div>
+        <div className="flex items-start gap-2 mb-2">
+          <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          <span className="text-sm"style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}>Monthly Payouts</span>
+        </div>
+        <div className="flex items-start gap-2 mb-2">
+          <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          <span className="text-sm"style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}>Monthly Free 15k Challenge Account*</span>
+        </div>
+      </div>
+
+      <button
+        className="w-full rounded-full border border-pink-500 py-2 font-medium mt-auto font-['Inter']"
+        style={{ color: 'rgba(248, 0, 234, 1)',
+           
+            fontFamily: "'Inter', sans-serif"
+           
+         }}
+      >
+        Become An Affiliate
+      </button>
+    </div>
+
+    {/* Leader Tier */}
+    <div className="rounded-3xl p-6 flex flex-col items-center h-full font-['Inter']" style={{ border: '2px solid rgba(248, 0, 234, 1)' }}>
+      <img src="/image 51.svg" alt="Leader" className="w-8 h-8 mb-2" />
+      <h3 className="text-lg font-semibold"style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}>Leader</h3>
+
+      <div className="my-6 text-center flex flex-col items-center">
+        <span style={{ color: 'rgba(248, 0, 234, 1)', fontFamily: "'Inter', sans-serif" }} className="text-5xl font-bold">15%</span>
+        <div className="bg-fuchsia-500 rounded-full py-1 px-3 flex items-center gap-1 mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shopping-cart text-white">
+            <circle cx="8" cy="21" r="1"></circle>
+            <circle cx="19" cy="21" r="1"></circle>
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+          </svg>
+          <span className="text-xs text-white"style={{ 
+        fontFamily: "'Inter', sans-serif"
+       }}>150+ Sales</span>
+        </div>
+        <p className="font-medium mt-2" style={{
+          fontWeight: 600,
+          fontSize: '19.51px',
+          lineHeight: '29.26px',
+          fontFamily: "'Inter', sans-serif"
+        }}>Lifetime Commission</p>
+      </div>
+
+      <p className="text-sm text-center text-gray-600 mb-6"style={{fontFamily: "'Inter',sans-serif"}}>
+        Grab 15% commission on every referred purchase - credited to your account instantly!
+      </p>
+
+      <div className="w-full border-b border-gray-200 mb-6"></div>
+
+      <div className="w-full mb-6 flex-grow">
+        <div className="flex items-start gap-2 mb-2">
+          <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          <span className="text-sm"style={{fontFamily: "'Inter',sans-serif"}}>Earn 15% Commission Per Sale</span>
+        </div>
+        <div className="flex items-start gap-2 mb-2">
+          <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          <span className="text-sm"style={{fontFamily: "'Inter',sans-serif"}}>Bi-Weekly Payouts</span>
+        </div>
+        <div className="flex items-start gap-2 mb-2">
+          <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          <span className="text-sm"style={{fontFamily: "'Inter',sans-serif"}}>Monthly Free 30k Challenge Account*</span>
+        </div>
+      </div>
+
+      <button
+        className="w-full rounded-full border border-pink-500 py-2 font-medium mt-auto font-['Inter']"
+        style={{ color: 'rgba(248, 0, 234, 1)' ,
+          fontFamily: "'Inter', sans-serif"
+        }}
+      >
+        Become An Affiliate
+      </button>
+    </div>
+
+    {/* Elite Tier */}
+    <div className="rounded-3xl p-6 flex flex-col items-center h-full font-['Inter']" style={{ border: '2px solid rgba(248, 0, 234, 1)' }}>
+      <img src="/image 52.svg" alt="Elite" className="w-8 h-8 mb-2" />
+      <h3 className="text-lg font-semibold"style={{fontFamily: "'Inter',sans-serif"}}>Elite</h3>
+
+      <div className="my-6 text-center flex flex-col items-center">
+        <span style={{ color: 'rgba(248, 0, 234, 1)' }} className="text-5xl font-bold">17.5%</span>
+        <div className="bg-fuchsia-500 rounded-full py-1 px-3 flex items-center gap-1 mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shopping-cart text-white">
+            <circle cx="8" cy="21" r="1"></circle>
+            <circle cx="19" cy="21" r="1"></circle>
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+          </svg>
+          <span className="text-xs text-white"style={{fontFamily: "'Inter',sans-serif"}}>300+ Sales</span>
+        </div>
+        <p className="font-medium mt-2" style={{
+          fontWeight: 600,
+          fontSize: '19.51px',
+          lineHeight: '29.26px',
+          fontFamily: "'Inter',sans-serif"
+        }}>Lifetime Commission</p>
+      </div>
+
+      <p className="text-sm text-center text-gray-600 mb-6"style={{fontFamily: "'Inter',sans-serif"}}>
+        Grab 17.5% commission on every referred purchase - credited to your account instantly!
+      </p>
+
+      <div className="w-full border-b border-gray-200 mb-6"></div>
+
+      <div className="w-full mb-6 flex-grow">
+        <div className="flex items-start gap-2 mb-2">
+          <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          <span className="text-sm"style={{fontFamily: "'Inter',sans-serif"}}>Earn 17.5% Commission Per Sale</span>
+        </div>
+        <div className="flex items-start gap-2 mb-2">
+          <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          <span className="text-sm"style={{fontFamily: "'Inter',sans-serif"}}>Monthly Payouts</span>
+        </div>
+        <div className="flex items-start gap-2 mb-2">
+          <svg className="w-4 h-4 text-green-500 mt-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          <span className="text-sm"style={{fontFamily: "'Inter',sans-serif"}}>Monthly Free 60k Challenge Account*</span>
+        </div>
+      </div>
+
+      <button
+        className="w-full rounded-full border border-pink-500 py-2 font-medium mt-auto font-['Inter']"
+        style={{ color: 'rgba(248, 0, 234, 1)',
+          fontFamily: "'Inter',sans-serif"
+         }}
+      >
+        Become An Affiliate
+      </button>
+    </div>
+  </div>
+</div>
+
+<div className="flex flex-col items-center w-full font-['Inter']">
+  {/* Hero Section */}
+  <motion.div
+    className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 sm:mb-14 md:mb-20 lg:mb-24 flex flex-col items-center justify-center text-white"
+    style={{
+      backgroundColor: '#000000',
+      borderRadius: '24px',
+    }}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: false, amount: 0.2 }}
+  >
+    {/* Big Pink Glow at Top-Left */}
+    <div
+      className="absolute top-0 left-0 w-[500px] h-[500px]"
+      style={{
+        background: 'radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)',
+        borderTopLeftRadius: '24px'
+      }}
+    ></div>
+
+    {/* Diamond left of "TURN" - floating */}
+    <motion.img
+      src="/diamond.svg"
+      alt="Diamond Left of Turn"
+      className="absolute left-[10%] top-[30%] w-40 h-40"
+      variants={floatAnimation}
+      custom={{ 
+        yStart: 0, 
+        yEnd: -20, 
+        xStart: 0, 
+        xEnd: 10, 
+        rotStart: 0, 
+        rotEnd: 5, 
+        duration: 6 
+      }}
+      initial="initial"
+      animate="animate"
+    />
+
+    {/* Diamond blurred near logo - floating */}
+    <motion.img
+      src="/diamond.svg"
+      alt="Diamond Near Logo"
+      className="absolute right-[20%] top-[15%] w-10 h-10 opacity-50 blur-sm"
+      variants={floatAnimation}
+      custom={{ 
+        yStart: 0, 
+        yEnd: -15, 
+        xStart: 0, 
+        xEnd: -10, 
+        rotStart: 0, 
+        rotEnd: -8, 
+        duration: 4.5 
+      }}
+      initial="initial"
+      animate="animate"
+    />
+
+    {/* elipse.svg - bottom right - floating */}
+    <motion.img
+      src="/elipse.svg"
+      alt="Elipse Bottom Right"
+      className="absolute bottom-8 right-8 w-32 h-32 opacity-60"
+      variants={floatAnimation}
+      custom={{ 
+        yStart: 0, 
+        yEnd: 15, 
+        xStart: 0, 
+        xEnd: -5, 
+        rotStart: 0, 
+        rotEnd: 10, 
+        duration: 7 
+      }}
+      initial="initial"
+      animate="animate"
+    />
+
+    {/* elipse21.svg - bottom left - floating */}
+    <motion.img
+      src="/elipse21.svg"
+      alt="Elipse21 Bottom Left"
+      className="absolute bottom-8 left-8 w-40 h-40 opacity-70"
+      variants={floatAnimation}
+      custom={{ 
+        yStart: 0, 
+        yEnd: 20, 
+        xStart: 0, 
+        xEnd: 10, 
+        rotStart: 0, 
+        rotEnd: -5, 
+        duration: 8 
+      }}
+      initial="initial"
+      animate="animate"
+    />
+
+    {/* elipse21.svg - mid right - floating */}
+    <motion.img
+      src="/elipse21.svg"
+      alt="Elipse21 Mid Right"
+      className="absolute top-1/2 right-4 transform -translate-y-1/2 w-36 h-36 opacity-70"
+      variants={floatAnimation}
+      custom={{ 
+        yStart: 0, 
+        yEnd: -25, 
+        xStart: 0, 
+        xEnd: -15, 
+        rotStart: 0, 
+        rotEnd: 15, 
+        duration: 9 
+      }}
+      initial="initial"
+      animate="animate"
+    />
+
+    {/* Logo - slide up */}
+    <motion.div 
+      className="mb-10 relative z-10"
+      variants={slideUp}
+      custom={0}
+    >
+      <img src="/sfx-funded-2.png" alt="SFX Funded" className="h-14 sm:h-16" />
+    </motion.div>
+
+    {/* Main Heading - slide up */}
+    <motion.h1 
+      className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 relative z-10 font-['Inter']"
+      variants={slideUp}
+      custom={1}
+      style={{fontFamily: "'Inter',sans-serif"}}
+    >
+      Are You an Expert
+    </motion.h1>
+    
+    <motion.h1 
+      className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 relative z-10 font-['Inter']"
+      variants={slideUp}
+      custom={2}
+      style={{fontFamily: "'Inter',sans-serif"}}
+    >
+      Affiliate Marketer?
+    </motion.h1>
+
+    {/* CTA Button - slide up */}
+    <motion.div 
+      className="flex flex-col sm:flex-row gap-4 mb-10 w-full max-w-md justify-center relative z-10"
+      variants={slideUp}
+      custom={3}
+    >
+      <motion.button
+        className="py-3 px-6 rounded-full bg-fuchsia-500 text-white font-medium hover:bg-fuchsia-600 transition-colors font-['Inter']"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        style={{fontFamily: "'Inter',sans-serif"}}
+      >
+        Contact SFX Funded
+      </motion.button>
+    </motion.div>
+  </motion.div>
+</div>
 
 
 
       <div className="font-sans max-w-6xl mx-auto px-4 py-8">
         {/* Calculator Section */}
         <div className="text-center mb-6">
-          <h2 className="text-4xl font-bold">
+          <h2 className="text-4xl font-bold"style={{fontFamily: "'Inter',sans-serif"}}>
             Calculate Your <span className="text-[#F800EA]">Future Earnings</span>
           </h2>
-          <p className="mt-2 text-gray-700">
+          <p className="mt-2 text-gray-700"style={{fontFamily: "'Inter',sans-serif"}}>
             Estimate earnings based on a $120k Challenge purchase.
           </p>
         </div>

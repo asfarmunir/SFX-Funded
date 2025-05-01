@@ -15,6 +15,11 @@ export default function LightningChallenge() {
       }
     }
   };
+
+
+  const [selectedFeeOption, setSelectedFeeOption] = useState(0);
+ 
+
   const container = {
     hidden: {},
     show: {
@@ -25,6 +30,9 @@ export default function LightningChallenge() {
     },
   };
   
+  const [selectedAccountIndex, setSelectedAccountIndex] = useState(0);
+const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
+
   const item = {
     hidden: { opacity: 0, y: 50 },
     show: {
@@ -461,73 +469,169 @@ export default function LightningChallenge() {
           </div>
 
           <div className="mt-8 sm:mt-12 bg-white rounded-3xl overflow-hidden mb-8 sm:mb-12 border border-[#D90BC6]">
-            {/* Mobile Account Selector */}
-            <div className="block sm:hidden p-4">
-              <select className="w-full p-3 rounded-lg bg-[#F001E1] text-white font-medium text-center">
-                <option>Select Account Size</option>
-                {['$10k', '$25k', '$50k', '$100k'].map((size, idx) => (
-                  <option key={idx}>{size}</option>
-                ))}
-              </select>
-            </div>
+  {/* Mobile Account Selector */}
+  <div className="block sm:hidden p-4">
+    <select 
+      className="w-full p-3 rounded-lg bg-[#F001E1] text-white font-medium text-center"
+      onChange={(e) => setSelectedAccountIndex(parseInt(e.target.value))}
+    >
+      <option value="" disabled>Select Account Size</option>
+      {['$10k', '$25k', '$50k', '$100k'].map((size, idx) => (
+        <option key={idx} value={idx}>{size}</option>
+      ))}
+    </select>
+  </div>
 
-            {/* Desktop Account Tabs */}
-            <div className="hidden sm:block px-4 mt-6 sm:mt-8">
-              <div className="max-w-7xl mx-auto bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 flex flex-wrap justify-center gap-2">
-                <div className="w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] bg-[#F001E1] rounded-md flex items-center justify-center text-white font-medium text-sm sm:text-base">
-                  Account Size
-                </div>
-                {['$10k', '$25k', '$50k', '$100k'].map((size, idx) => (
-                  <div 
-                    key={idx}
-                    className="w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] bg-[#FFDBFD] rounded-md flex items-center justify-center text-black font-medium text-sm sm:text-base"
+  {/* Desktop Account Tabs */}
+  <div className="hidden sm:block px-4 mt-6 sm:mt-8">
+    <div className="max-w-7xl mx-auto bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-2 flex flex-wrap justify-center gap-2">
+      <div className="w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] bg-[#F001E1] rounded-md flex items-center justify-center text-white font-medium text-sm sm:text-base">
+        Account Size
+      </div>
+      {['$10k', '$25k', '$50k', '$100k'].map((size, idx) => (
+        <div 
+          key={idx}
+          className={`w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] ${selectedAccountIndex === idx ? 'bg-[#F001E1] text-white' : 'bg-[#FFDBFD] text-black'} rounded-md flex items-center justify-center font-medium text-sm sm:text-base cursor-pointer`}
+          onClick={() => setSelectedAccountIndex(idx)}
+        >
+          {size}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div className="w-full">
+    {[
+      { 
+        label: 'Target',
+        values: ['5%', '5%', '5%', '5%']
+      },
+      { 
+        label: 'Max Drawdown',
+        values: ['4% Trailing', '4% Trailing', '4% Trailing', '4% Trailing']
+      },
+      { 
+        label: 'Daily Drawdown',
+        values: ['3% EOD Balance', '3% EOD Balance', '3% EOD Balance', '3% EOD Balance']
+      },
+      { 
+        label: 'Leverage',
+        values: ['Up to 1:30', 'Up to 1:30', 'Up to 1:30', 'Up to 1:30']
+      },
+      { 
+        label: 'Performance Split',
+        values: ['Up to 80%', 'Up to 85%', 'Up to 88%', 'Up to 90%']
+      },
+      { 
+        label: 'Max Trading Days',
+        values: ['7 days (Evaluation)', '7 days (Evaluation)', '7 days (Evaluation)', '7 days (Evaluation)']
+      },
+      { 
+        label: 'Initial Payout Timeframe',
+        values: ['7 days', '7 days', '7 days', '7 days']
+      },
+      { 
+        label: 'Stop Loss Required?',
+        values: ['Yes', 'Yes', 'Yes', 'Yes']
+      },
+      { 
+        label: '30% Consistency Rule',
+        values: ['Evaluation & Funded', 'Evaluation & Funded', 'Evaluation & Funded', 'Evaluation & Funded']
+      },
+      { 
+        label: 'Fee',
+        values: [
+          ['$59 (Monthly)', '$99 (One-time)', '$149 (Quarterly)', '$199 (Yearly)'],
+          ['$119 (Monthly)', '$199 (One-time)', '$299 (Quarterly)', '$399 (Yearly)'],
+          ['$209 (Monthly)', '$349 (One-time)', '$499 (Quarterly)', '$699 (Yearly)'],
+          ['$399 (Monthly)', '$599 (One-time)', '$899 (Quarterly)', '$1199 (Yearly)']
+        ],
+        special: true
+      },
+    ].map((item, idx) => (
+      <div
+        key={idx}
+        className={`flex flex-col sm:flex-row w-full ${idx % 2 === 0 ? 'bg-white' : 'bg-[#FFEFFE]'} border-t border-[#E5E7EB]`}
+      >
+        <div className="p-3 sm:p-4 w-full sm:w-[165px] font-medium text-black pl-4 sm:pl-6">
+          {item.label}
+        </div>
+        
+        {item.special ? (
+          <>
+            {/* Mobile fee view with dropdown */}
+            <div className="block sm:hidden p-3 flex-1">
+              {showFeesOnMobile ? (
+                <div className="space-y-3">
+                  {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0].map((val, i) => (
+                    <div 
+                      key={i} 
+                      className="flex items-center justify-between p-2 bg-[#FFDBFD] rounded-md"
+                      onClick={() => {
+                        setSelectedFeeOption(i);
+                        setShowFeesOnMobile(false);
+                      }}
+                    >
+                      <span className="font-medium">{val}</span>
+                      {selectedFeeOption === i && (
+                        <svg className="w-5 h-5 text-[#F001E1]" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      )}
+                    </div>
+                  ))}
+                  <button 
+                    className="w-full p-2 text-center text-[#F001E1] font-medium border border-[#F001E1] rounded-md mt-2"
+                    onClick={() => setShowFeesOnMobile(false)}
                   >
-                    {size}
-                  </div>
-                ))}
-              </div>
+                    Close
+                  </button>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-2">
+                  <button 
+                    className="w-full p-2 bg-[#F001E1] text-white rounded-md font-medium"
+                    onClick={() => setShowFeesOnMobile(true)}
+                  >
+                    {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0][selectedFeeOption !== null ? selectedFeeOption : 0]}
+                  </button>
+                  <p className="text-xs text-gray-500 text-center">Tap to change fee option</p>
+                </div>
+              )}
             </div>
-
-            <div className="w-full">
-              {[
-                { label: 'Target', value: '5%' },
-                { label: 'Max Drawdown', value: '4% Trailing' },
-                { label: 'Daily Drawdown', value: '3% EOD Balance' },
-                { label: 'Leverage', value: 'Up to 1:30' },
-                { label: 'Performance Split', value: 'Up to 90%' },
-                { label: 'Max Trading Days', value: '7 days (Evaluation)' },
-                { label: 'Initial Payout Timeframe', value: '7 days' },
-                { label: 'Stop Loss Required?', value: 'Yes' },
-                { label: '30% Consistency Rule', value: 'Evaluation & Funded' },
-                { label: 'Fee', value: ['$59', '$119', '$209', '$399'] },
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className={`flex flex-col sm:flex-row w-full ${idx % 2 === 0 ? 'bg-white' : 'bg-[#FFEFFE]'} border-t border-[#E5E7EB]`}
+            
+            {/* Desktop fees view - always show all options */}
+            <div className="hidden sm:grid sm:grid-cols-4 gap-2 sm:gap-0 w-full">
+              {item.values.map((feeOptions, accountIdx) => (
+                <div 
+                  key={accountIdx} 
+                  className="p-2 sm:p-4 text-center text-black flex flex-col items-center justify-center text-sm sm:text-base font-medium"
                 >
-                  <div className="p-3 sm:p-4 w-full sm:w-[165px] font-medium text-black pl-4 sm:pl-6">
-                    {item.label}
-                  </div>
-                  {Array.isArray(item.value) ? (
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-0 w-full p-2 sm:p-0">
-                      {item.value.map((val, i) => (
-                        <div 
-                          key={i} 
-                          className="p-2 sm:p-4 text-center text-black flex items-center justify-center text-sm sm:text-base"
-                        >
-                          {val}
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="p-3 sm:p-4 flex-1 text-center text-black">
-                      {item.value}
-                    </div>
-                  )}
+                  {feeOptions[0]} {/* Only showing the first fee option for each account size in desktop */}
                 </div>
               ))}
+            </div>
+          </>
+        ) : (
+          <>
+            {/* Mobile view - show only selected account value */}
+            <div className="block sm:hidden p-3 flex-1 text-center text-black">
+              {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0]}
+            </div>
+            
+            {/* Desktop view - show only selected account value (except for fee row) */}
+            <div className="hidden sm:flex sm:flex-1">
+              <div className="p-2 sm:p-4 text-center text-black flex items-center justify-center text-sm sm:text-base font-medium flex-1">
+                {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0]}
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    ))}
 
-<div className="flex flex-nowrap justify-center sm:justify-between gap-4 p-4 sm:px-6 sm:py-6 w-full overflow-x-auto">
+    {/* Desktop - always show all buttons */}
+    <div className="hidden sm:flex sm:flex-nowrap sm:justify-between gap-4 p-4 sm:px-6 sm:py-6 w-full overflow-x-auto">
   <div className="w-[165px] hidden sm:block"></div>
   {Array(4).fill(0).map((_, idx) => (
     <button
@@ -538,9 +642,17 @@ export default function LightningChallenge() {
     </button>
   ))}
 </div>
-
-            </div>
-          </div>
+    
+    {/* Mobile - show only selected button */}
+    <div className="flex sm:hidden justify-center p-4">
+      <button
+        className="w-[200px] h-[40px] text-white rounded-lg bg-[#F001E1] hover:bg-[#D900D1] transition-colors font-medium text-sm flex items-center justify-center"
+      >
+        Start Trading - {selectedAccountIndex !== null ? ['$10k', '$25k', '$50k', '$100k'][selectedAccountIndex] : '$10k'}
+      </button>
+    </div>
+  </div>
+</div>
 
           {/* Pricing Box */}
           <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">

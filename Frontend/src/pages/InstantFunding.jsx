@@ -11,6 +11,151 @@ import 'swiper/css/autoplay';
 
 export default function InstantFunding() {
   
+   // Define account sizes
+   const accountSizes = [1000, 2500, 5000, 10000, 25000, 50000];
+  
+   // Define table data for each account size
+   const tableData = {
+     1000: {
+       phase1: {
+         tradingPeriod: "Unlimited",
+         maxDailyLoss: "4%",
+         maxLoss: "8%",
+         profitTarget: "8%",
+         leverage: "1:30",
+         rewardSchedule: "-",
+         profitSplit: "-"
+       },
+       phase2: {
+         tradingPeriod: "Unlimited",
+         maxDailyLoss: "4%",
+         maxLoss: "8%",
+         profitTarget: "5%",
+         leverage: "1:30",
+         rewardSchedule: "-",
+         profitSplit: "-"
+       }
+     },
+     2500: {
+       phase1: {
+         tradingPeriod: "Unlimited",
+         maxDailyLoss: "4%",
+         maxLoss: "8%",
+         profitTarget: "7%",
+         leverage: "1:30",
+         rewardSchedule: "-",
+         profitSplit: "-"
+       },
+       phase2: {
+         tradingPeriod: "Unlimited",
+         maxDailyLoss: "4%",
+         maxLoss: "8%",
+         profitTarget: "5%",
+         leverage: "1:30",
+         rewardSchedule: "-",
+         profitSplit: "-"
+       }
+     },
+     5000: {
+       phase1: {
+         tradingPeriod: "Unlimited",
+         maxDailyLoss: "4%",
+         maxLoss: "8%",
+         profitTarget: "6%",
+         leverage: "1:30",
+         rewardSchedule: "-",
+         profitSplit: "-"
+       },
+       phase2: {
+         tradingPeriod: "Unlimited",
+         maxDailyLoss: "4%",
+         maxLoss: "8%",
+         profitTarget: "5%",
+         leverage: "1:30",
+         rewardSchedule: "-",
+         profitSplit: "-"
+       }
+     },
+     10000: {
+       phase1: {
+         tradingPeriod: "Unlimited",
+         maxDailyLoss: "4%",
+         maxLoss: "8%",
+         profitTarget: "5%",
+         leverage: "1:30",
+         rewardSchedule: "-",
+         profitSplit: "-"
+       },
+       phase2: {
+         tradingPeriod: "Unlimited",
+         maxDailyLoss: "4%",
+         maxLoss: "8%",
+         profitTarget: "4%",
+         leverage: "1:30",
+         rewardSchedule: "-",
+         profitSplit: "-"
+       }
+     },
+     25000: {
+       phase1: {
+         tradingPeriod: "Unlimited",
+         maxDailyLoss: "3%",
+         maxLoss: "7%",
+         profitTarget: "4%",
+         leverage: "1:30",
+         rewardSchedule: "-",
+         profitSplit: "-"
+       },
+       phase2: {
+         tradingPeriod: "Unlimited",
+         maxDailyLoss: "3%",
+         maxLoss: "7%",
+         profitTarget: "3%",
+         leverage: "1:30",
+         rewardSchedule: "-",
+         profitSplit: "-"
+       }
+     },
+     50000: {
+       phase1: {
+         tradingPeriod: "Unlimited",
+         maxDailyLoss: "2%",
+         maxLoss: "6%",
+         profitTarget: "3%",
+         leverage: "1:30",
+         rewardSchedule: "-",
+         profitSplit: "-"
+       },
+       phase2: {
+         tradingPeriod: "Unlimited",
+         maxDailyLoss: "2%",
+         maxLoss: "6%",
+         profitTarget: "2%",
+         leverage: "1:30",
+         rewardSchedule: "-",
+         profitSplit: "-"
+       }
+     }
+   };
+ 
+   // Funded column data stays the same regardless of account size
+   const fundedData = {
+     tradingPeriod: "Indefinite",
+     maxDailyLoss: "4%",
+     maxLoss: "8%",
+     profitTarget: "-",
+     leverage: "1:30",
+     rewardSchedule: "On demand/Bi-weekly",
+     profitSplit: "up to 100%"
+   };
+ 
+   // State to track selected account size
+   const [selectedSize, setSelectedSize] = useState(1000);
+ 
+   // Handler for tab selection
+   const handleTabClick = (size) => {
+     setSelectedSize(size);
+   };
   
   const countryData = [
     { flag: "USA", percent: 85 },
@@ -146,42 +291,111 @@ export default function InstantFunding() {
       }
   ];
   
-    // Render star rating (always 5 stars in this case)
-    const renderStars = (rating) => {
-      return (
-        <div className="flex text-pink-500 mb-2">
-          {[...Array(rating)].map((_, i) => (
-            <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-            </svg>
-          ))}
-        </div>
-      );
-    };
-  
-    // Function to highlight key phrases in testimonials
+   
+   // Split testimonials for different columns
+   // Replace your current column arrays with these:
+   const leftColumnTestimonials = [...testimonials.slice(0, 2), ...testimonials.slice(0, 2), ...testimonials.slice(0, 2)];
+   const centerColumnTestimonials = [...testimonials.slice(2, 5), ...testimonials.slice(2, 5), ...testimonials.slice(2, 5)];
+   const rightColumnTestimonials = [...testimonials.slice(5, 7), ...testimonials.slice(5, 7), ...testimonials.slice(5, 7)];
+   const mobileTestimonials = [...testimonials, ...testimonials, ...testimonials];
+   
+   // Animation controls
+   const [scrollPosition, setScrollPosition] = useState(0);
+   const animationRef = useRef(null);
+   
+   const [isMobile, setIsMobile] = useState(false);
+   
+   // Add this useEffect to detect mobile screens
+   useEffect(() => {
+     const checkMobile = () => {
+       setIsMobile(window.innerWidth < 768);
+     };
+     
+     // Check initially
+     checkMobile();
+     
+     // Add resize listener
+     window.addEventListener('resize', checkMobile);
+     
+     // Cleanup
+     return () => window.removeEventListener('resize', checkMobile);
+   }, []);
+   // Animation loop
+   useEffect(() => {
+     const animate = () => {
+       setScrollPosition(prev => (prev + (isMobile ? 0.05 : 0.05)) % 100);
+       animationRef.current = requestAnimationFrame(animate);
+     };
+   
+     animationRef.current = requestAnimationFrame(animate);
+     
+     return () => {
+       if (animationRef.current) {
+         cancelAnimationFrame(animationRef.current);
+       }
+     };
+   }, []);
+   
+   const slideUp = {
+     hidden: { opacity: 0, y: 50 },
+     visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+   };
+   
+   // Render stars based on rating
+   const renderStars = (rating) => {
+     return (
+       <div className="flex mb-2">
+         {[...Array(5)].map((_, i) => (
+           <svg
+             key={i}
+             className={`w-5 h-5 ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}
+             fill="currentColor"
+             viewBox="0 0 20 20"
+           >
+             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+           </svg>
+         ))}
+       </div>
+     );
+   };
+   
+    // Highlight keywords in testimonial text
     const highlightText = (text) => {
-      const keyPhrases = [
-        "trustworthy", "excellent customer service", "first payout", "best prop firm",
-        "10/10", "immediately", "best prop firm", "great conditions", "unbeatable price",
-        "90% profit split", "very fast & reliable", "first reward", "real deal", "fair and easy",
-        "full trust", "best funding companies", "no hidden rules", "rewards are fast",
-        "no complaints", "hardworking team", "best funded company", "no nonsense rules",
-        "second reward"
-      ];
-      
-      let highlightedText = text;
-      keyPhrases.forEach(phrase => {
-        if (text.includes(phrase)) {
-          highlightedText = highlightedText.replace(
-            new RegExp(phrase, 'gi'), 
-            match => `<span class="font-semibold">${match}</span>`
-          );
-        }
-      });
-      
-      return <p dangerouslySetInnerHTML={{ __html: highlightedText }} />;
-    };
+     // Keywords to highlight
+     const keywords = ['best', 'excellent', 'trustworthy', 'fast', 'reliable', 'great'];
+     
+     // Split text by spaces to find words
+     const words = text.split(' ');
+     
+     return (
+       <p className="text-gray-700">
+         {words.map((word, index) => {
+           // Check if the word (without punctuation) is a keyword
+           const cleanWord = word.replace(/[.,!?;:]/g, '').toLowerCase();
+           const isKeyword = keywords.includes(cleanWord);
+           
+           return (
+             <span 
+               key={index} 
+               className={isKeyword ? 'font-semibold text-[#F800EA]' : ''}
+             >
+               {word}{index < words.length - 1 ? ' ' : ''}
+             </span>
+           );
+         })}
+       </p>
+     );
+   };
+   
+   // Calculate transform for each column based on scroll position
+   // Update your getTransform function
+   const getTransform = (columnIndex) => {
+     const offset = (scrollPosition + columnIndex * 15) % 100;
+     
+     // This ensures the animation is seamless by showing 200% of the content
+     return `translateY(-${offset}%)`;
+   };
+     
     return (
        <div className="font-inter w-full overflow-x-hidden">
          
@@ -861,108 +1075,100 @@ export default function InstantFunding() {
         </div>
       </div>
       
-      {/* Account Table */}
       <div className="mt-8 border border-fuchsia-500 rounded-2xl overflow-hidden bg-white">
-        {/* Account Size Tabs */}
-        <div className="p-4 border-b border-fuchsia-200">
-          <div className="flex flex-wrap justify-center gap-2">
-            <div className="w-24 sm:w-28 md:w-32 h-10 bg-fuchsia-600 rounded-md flex items-center justify-center text-white font-medium text-sm sm:text-base">
-              Account Size
-            </div>
-            <div className="w-24 sm:w-28 md:w-32 h-10 bg-fuchsia-100 rounded-md flex items-center justify-center text-black font-medium text-sm sm:text-base">
-              $1,000
-            </div>
-            <div className="w-24 sm:w-28 md:w-32 h-10 bg-fuchsia-100 rounded-md flex items-center justify-center text-black font-medium text-sm sm:text-base">
-              $2,500
-            </div>
-            <div className="w-24 sm:w-28 md:w-32 h-10 bg-fuchsia-100 rounded-md flex items-center justify-center text-black font-medium text-sm sm:text-base">
-              $5,000
-            </div>
-            <div className="w-24 sm:w-28 md:w-32 h-10 bg-fuchsia-100 rounded-md flex items-center justify-center text-black font-medium text-sm sm:text-base">
-              $10,000
-            </div>
-            <div className="w-24 sm:w-28 md:w-32 h-10 bg-fuchsia-100 rounded-md flex items-center justify-center text-black font-medium text-sm sm:text-base">
-              $25,000
-            </div>
-            <div className="w-24 sm:w-28 md:w-32 h-10 bg-fuchsia-100 rounded-md flex items-center justify-center text-black font-medium text-sm sm:text-base">
-              $50,000
-            </div>
+      {/* Account Size Tabs */}
+      <div className="p-4 border-b border-fuchsia-200">
+        <div className="flex flex-wrap justify-center gap-2">
+          <div className="w-24 sm:w-28 md:w-32 h-10 bg-fuchsia-500 rounded-md flex items-center justify-center text-white font-medium text-sm sm:text-base">
+            Account Size
           </div>
-        </div>
-
-        {/* Phase Headers */}
-        <div className="grid grid-cols-4 border-b border-gray-200">
-          <div className="py-3 pl-6"></div>
-          <div className="py-3 text-center">
-            <span className="text-fuchsia-600 font-medium">Phase 1</span>
-          </div>
-          <div className="py-3 text-center">
-            <span className="text-fuchsia-600 font-medium">Phase 2</span>
-          </div>
-          <div className="py-3 text-center">
-            <span className="text-fuchsia-600 font-medium">Funded</span>
-          </div>
-        </div>
-
-        {/* Table Content */}
-        <div>
-          {/* Trading Period */}
-          <div className="grid grid-cols-4 border-b border-gray-200">
-            <div className="py-3 pl-6 font-medium">Trading Period</div>
-            <div className="py-3 text-center">Unlimited</div>
-            <div className="py-3 text-center">Unlimited</div>
-            <div className="py-3 text-center">Indefinite</div>
-          </div>
-
-          {/* Maximum Daily Loss */}
-          <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
-            <div className="py-3 pl-6 font-medium">Maximum Daily Loss</div>
-            <div className="py-3 text-center">4%</div>
-            <div className="py-3 text-center">4%</div>
-            <div className="py-3 text-center">4%</div>
-          </div>
-
-          {/* Maximum Loss */}
-          <div className="grid grid-cols-4 border-b border-gray-200">
-            <div className="py-3 pl-6 font-medium">Maximum Loss</div>
-            <div className="py-3 text-center">8%</div>
-            <div className="py-3 text-center">8%</div>
-            <div className="py-3 text-center">8%</div>
-          </div>
-
-          {/* Profit Target */}
-          <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
-            <div className="py-3 pl-6 font-medium">Profit Target</div>
-            <div className="py-3 text-center">8%</div>
-            <div className="py-3 text-center">5%</div>
-            <div className="py-3 text-center">-</div>
-          </div>
-
-          {/* Leverage */}
-          <div className="grid grid-cols-4 border-b border-gray-200">
-            <div className="py-3 pl-6 font-medium">Leverage</div>
-            <div className="py-3 text-center">1:30</div>
-            <div className="py-3 text-center">1:30</div>
-            <div className="py-3 text-center">1:30</div>
-          </div>
-
-          {/* Reward Schedule */}
-          <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
-            <div className="py-3 pl-6 font-medium">Reward Schedule</div>
-            <div className="py-3 text-center">-</div>
-            <div className="py-3 text-center">-</div>
-            <div className="py-3 text-center">On demand/Bi-weekly</div>
-          </div>
-
-          {/* Profit Split */}
-          <div className="grid grid-cols-4 border-b border-gray-200">
-            <div className="py-3 pl-6 font-medium">Profit Split</div>
-            <div className="py-3 text-center">-</div>
-            <div className="py-3 text-center">-</div>
-            <div className="py-3 text-center">up to 100%</div>
-          </div>
+          {accountSizes.map((size) => (
+            <button
+              key={size}
+              className={`w-24 sm:w-28 md:w-32 h-10 ${
+                selectedSize === size ? "bg-fuchsia-500 text-white" : "bg-fuchsia-100 text-black"
+              } rounded-md flex items-center justify-center font-medium text-sm sm:text-base`}
+              onClick={() => handleTabClick(size)}
+            >
+              ${size.toLocaleString()}
+            </button>
+          ))}
         </div>
       </div>
+
+      {/* Phase Headers */}
+      <div className="grid grid-cols-4 border-b border-gray-200">
+        <div className="py-3 pl-6"></div>
+        <div className="py-3 text-center">
+          <span className="text-fuchsia-500 font-medium">Phase 1</span>
+        </div>
+        <div className="py-3 text-center">
+          <span className="text-fuchsia-500 font-medium">Phase 2</span>
+        </div>
+        <div className="py-3 text-center">
+          <span className="text-fuchsia-500 font-medium">Funded</span>
+        </div>
+      </div>
+
+      {/* Table Content */}
+      <div>
+        {/* Trading Period */}
+        <div className="grid grid-cols-4 border-b border-gray-200">
+          <div className="py-3 pl-6 font-medium">Trading Period</div>
+          <div className="py-3 text-center">{tableData[selectedSize].phase1.tradingPeriod}</div>
+          <div className="py-3 text-center">{tableData[selectedSize].phase2.tradingPeriod}</div>
+          <div className="py-3 text-center">{fundedData.tradingPeriod}</div>
+        </div>
+
+        {/* Maximum Daily Loss */}
+        <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
+          <div className="py-3 pl-6 font-medium">Maximum Daily Loss</div>
+          <div className="py-3 text-center">{tableData[selectedSize].phase1.maxDailyLoss}</div>
+          <div className="py-3 text-center">{tableData[selectedSize].phase2.maxDailyLoss}</div>
+          <div className="py-3 text-center">{fundedData.maxDailyLoss}</div>
+        </div>
+
+        {/* Maximum Loss */}
+        <div className="grid grid-cols-4 border-b border-gray-200">
+          <div className="py-3 pl-6 font-medium">Maximum Loss</div>
+          <div className="py-3 text-center">{tableData[selectedSize].phase1.maxLoss}</div>
+          <div className="py-3 text-center">{tableData[selectedSize].phase2.maxLoss}</div>
+          <div className="py-3 text-center">{fundedData.maxLoss}</div>
+        </div>
+
+        {/* Profit Target */}
+        <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
+          <div className="py-3 pl-6 font-medium">Profit Target</div>
+          <div className="py-3 text-center">{tableData[selectedSize].phase1.profitTarget}</div>
+          <div className="py-3 text-center">{tableData[selectedSize].phase2.profitTarget}</div>
+          <div className="py-3 text-center">{fundedData.profitTarget}</div>
+        </div>
+
+        {/* Leverage */}
+        <div className="grid grid-cols-4 border-b border-gray-200">
+          <div className="py-3 pl-6 font-medium">Leverage</div>
+          <div className="py-3 text-center">{tableData[selectedSize].phase1.leverage}</div>
+          <div className="py-3 text-center">{tableData[selectedSize].phase2.leverage}</div>
+          <div className="py-3 text-center">{fundedData.leverage}</div>
+        </div>
+
+        {/* Reward Schedule */}
+        <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
+          <div className="py-3 pl-6 font-medium">Reward Schedule</div>
+          <div className="py-3 text-center">{tableData[selectedSize].phase1.rewardSchedule}</div>
+          <div className="py-3 text-center">{tableData[selectedSize].phase2.rewardSchedule}</div>
+          <div className="py-3 text-center">{fundedData.rewardSchedule}</div>
+        </div>
+
+        {/* Profit Split */}
+        <div className="grid grid-cols-4 border-b border-gray-200">
+          <div className="py-3 pl-6 font-medium">Profit Split</div>
+          <div className="py-3 text-center">{tableData[selectedSize].phase1.profitSplit}</div>
+          <div className="py-3 text-center">{tableData[selectedSize].phase2.profitSplit}</div>
+          <div className="py-3 text-center">{fundedData.profitSplit}</div>
+        </div>
+      </div>
+    </div>
     </div>
         
    
@@ -1461,68 +1667,190 @@ export default function InstantFunding() {
               
             </div>
           </div>
-      <div className="w-full font-inter bg-white py-16 px-4 sm:px-6 lg:px-8 relative">
-         <div className="max-w-7xl mx-auto">
-            {/* Purple diamond decoration */}
-            {/* Floating diamond.svg decoration */}
-<motion.img
-  src="/diamond.svg"
-  alt="Floating Diamond"
-  className="absolute left-16 top-16 md:left-24 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
-  animate={{ y: [0, -12, 0] }}
-  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-/>
-
-            
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 relative z-10">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
-                What Our Traders Have To Say
-              </h2>
-              
-              <button className="bg-[#F800EA] text-black px-6 py-3 rounded-full font-medium flex items-center">
-                Start Trading
-                <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
-                </svg>
-              </button>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <motion.div 
-                  key={testimonial.id} 
-                  className="bg-white p-6 rounded-lg"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered animation
-                  
-                  viewport={{ once: false }}
-                >
-                  {renderStars(testimonial.rating)}
-                  <div className="mb-4">
-                    {highlightText(testimonial.text)}
-                  </div>
-                  <div className="flex items-center">
-                    <span className="font-medium mr-2">{testimonial.name}</span>
-                    <img 
-  src={`/${testimonial.flag}.svg`} 
-  alt={`${testimonial.flag} flag`} 
-  className="w-6 h-6 object-contain" 
-/>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            
-            <motion.img
-  src="/elipse.svg"
-  alt="Floating Elipse"
-  className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-10"
-  animate={{ y: [0, -15, 0] }}
-  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-/>
-          </div>
+      <div className="w-full font-sans bg-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+            <div className="max-w-7xl mx-auto">
+              {/* Purple diamond decoration */}
+              <div 
+                className="absolute left-16 top-16 md:left-24 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
+                style={{
+                  animation: 'float 3s infinite ease-in-out',
+                }}
+              >
+           
+                {/* Diamond SVG */}
+      <div>
+        <img src="/diamond.svg" alt="Diamond Icon" className="w-20 h-20" />
       </div>
+      
+              </div>
+              
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 relative z-10">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
+                  What Our Traders Have To Say
+                </h2>
+                
+                <button className="bg-[#F800EA] text-black px-6 py-3 rounded-full font-medium flex items-center">
+                  Start Trading
+                  <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+                  </svg>
+                </button>
+              </div>
+              
+              {/* Mobile Testimonial Column (Visible on small screens) */}
+              <div className="block md:hidden relative h-96 overflow-hidden">
+                <div className="absolute w-full space-y-6" style={{ transform: getTransform(0) }}>
+                  {mobileTestimonials.map((testimonial, index) => (
+                    <div 
+                      key={`mobile-${testimonial.id}-${index}`} 
+                      className="bg-white p-6 rounded-lg shadow-lg"
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.8)',
+                        backdropFilter: 'blur(24px)'
+                      }}
+                    >
+                      {renderStars(testimonial.rating)}
+                      <div className="mb-4">
+                        {highlightText(testimonial.text)}
+                      </div>
+                      <div className="flex items-center">
+                        <span className="font-medium mr-2">{testimonial.name}</span>
+                        <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded">
+                        <img
+          src={`/${testimonial.flag}.svg`}
+          alt={testimonial.flag}
+          className="w-full h-full object-cover"
+        />
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Desktop 3-Column Testimonial Layout (Hidden on small screens) */}
+              <div className="hidden md:grid md:grid-cols-3 gap-8 relative">
+                {/* Left Column */}
+                <div className="relative h-[32rem] overflow-hidden">
+                  <div className="absolute w-full space-y-6" style={{ transform: getTransform(0) }}>
+                    {leftColumnTestimonials.map((testimonial, index) => (
+                      <div 
+                        key={`left-${testimonial.id}-${index}`} 
+                        className="bg-white p-6 rounded-lg shadow-lg"
+                        style={{
+                          background: 'rgba(255, 255, 255, 0.8)',
+                          backdropFilter: 'blur(24px)'
+                        }}
+                      >
+                        {renderStars(testimonial.rating)}
+                        <div className="mb-4">
+                          {highlightText(testimonial.text)}
+                        </div>
+                        <div className="flex items-center">
+                          <span className="font-medium mr-2">{testimonial.name}</span>
+                          <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+        <img
+          src={`/${testimonial.flag}.svg`}
+          alt={testimonial.flag}
+          className="w-full h-full object-cover"
+        />
+      </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Center Column */}
+                <div className="relative h-[32rem] overflow-hidden">
+                  <div className="absolute w-full space-y-6" style={{ transform: getTransform(1) }}>
+                    {centerColumnTestimonials.map((testimonial, index) => (
+                      <div 
+                        key={`center-${testimonial.id}-${index}`} 
+                        className="bg-white p-6 rounded-lg shadow-lg"
+                        style={{
+                          background: 'rgba(255, 255, 255, 0.8)',
+                          backdropFilter: 'blur(24px)'
+                        }}
+                      >
+                        {renderStars(testimonial.rating)}
+                        <div className="mb-4">
+                          {highlightText(testimonial.text)}
+                        </div>
+                        <div className="flex items-center">
+                          <span className="font-medium mr-2">{testimonial.name}</span>
+                          <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+        <img
+          src={`/${testimonial.flag}.svg`}
+          alt={testimonial.flag}
+          className="w-full h-full object-cover"
+        />
+      </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Right Column */}
+                <div className="relative h-[32rem] overflow-hidden">
+                  <div className="absolute w-full space-y-6" style={{ transform: getTransform(2) }}>
+                    {rightColumnTestimonials.map((testimonial, index) => (
+                      <div 
+                        key={`right-${testimonial.id}-${index}`} 
+                        className="bg-white p-6 rounded-lg shadow-lg"
+                        style={{
+                          background: 'rgba(255, 255, 255, 0.8)',
+                          backdropFilter: 'blur(24px)'
+                        }}
+                      >
+                        {renderStars(testimonial.rating)}
+                        <div className="mb-4">
+                          {highlightText(testimonial.text)}
+                        </div>
+                        <div className="flex items-center">
+                          <span className="font-medium mr-2">{testimonial.name}</span>
+                          <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+        <img
+          src={`/${testimonial.flag}.svg`}
+          alt={testimonial.flag}
+          className="w-full h-full object-cover"
+        />
+      </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              {/* Floating ellipse decoration */}
+              <div
+                className="absolute right-0 bottom-10 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-10"
+                style={{
+                  animation: 'float 4s infinite ease-in-out',
+                }}
+              >
+                  {/* Floating ellipse decoration */}
+      <motion.img
+        src="/elipse.svg"
+        alt="Floating Elipse"
+        className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-30 z-10"
+        animate={{ y: [0, -15, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+      
+              </div>
+            </div>
+            
+            {/* Animation keyframes */}
+            <style jsx>{`
+              @keyframes float {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-15px); }
+              }
+            `}</style>
+          </div>
   
       {/* FAQ Section */}
       <FAQ />

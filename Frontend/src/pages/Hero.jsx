@@ -28,9 +28,454 @@ export default function Hero() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Determine if we're on mobile view
-  const isMobile = windowWidth < 768;
+  const [isMobile, setIsMobile] = useState(false);
 
+   // State to track selected funding program and account size
+   const [selectedProgram, setSelectedProgram] = useState("ascend");
+   const [selectedSize, setSelectedSize] = useState(7500);
+   
+   // Define account sizes for each program
+   const accountSizes = {
+     rapid: [7500, 15000, 30000, 60000, 120000],
+     ignite: [7500, 15000, 30000, 60000, 120000],
+     ascend: [7500, 15000, 30000, 60000, 120000],
+     instant: [5000, 10000, 25000, 50000, 100000]
+   };
+   
+   // Handler for funding program selection
+   const handleProgramClick = (program) => {
+     setSelectedProgram(program);
+     setSelectedSize(accountSizes[program][0]); // Set default size for the program
+   };
+   
+   // Handler for account size selection
+   const handleSizeClick = (size) => {
+     setSelectedSize(size);
+   };
+   
+   // Define table data for each program and account size
+   const tableData = {
+     rapid: {
+       7500: {
+         phase1: {
+           tradingPeriod: "5 days",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "6%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "5 days",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "4%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       15000: {
+         phase1: {
+           tradingPeriod: "5 days",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "5%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "5 days",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "3%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       30000: {
+         phase1: {
+           tradingPeriod: "7 days",
+           maxDailyLoss: "3%",
+           maxLoss: "6%",
+           profitTarget: "5%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "7 days",
+           maxDailyLoss: "3%",
+           maxLoss: "6%",
+           profitTarget: "3%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       60000: {
+         phase1: {
+           tradingPeriod: "10 days",
+           maxDailyLoss: "3%",
+           maxLoss: "6%",
+           profitTarget: "4%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "10 days",
+           maxDailyLoss: "3%",
+           maxLoss: "6%",
+           profitTarget: "3%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       120000: {
+         phase1: {
+           tradingPeriod: "14 days",
+           maxDailyLoss: "2%",
+           maxLoss: "5%",
+           profitTarget: "3%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "14 days",
+           maxDailyLoss: "2%",
+           maxLoss: "5%",
+           profitTarget: "2%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       }
+     },
+     ignite: {
+       7500: {
+         phase1: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "8%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "5%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       15000: {
+         phase1: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "7%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "5%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       30000: {
+         phase1: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "4%",
+           maxLoss: "7%",
+           profitTarget: "6%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "4%",
+           maxLoss: "7%",
+           profitTarget: "4%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       60000: {
+         phase1: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "3%",
+           maxLoss: "6%",
+           profitTarget: "5%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "3%",
+           maxLoss: "6%",
+           profitTarget: "3%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       120000: {
+         phase1: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "2%",
+           maxLoss: "5%",
+           profitTarget: "4%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "2%",
+           maxLoss: "5%",
+           profitTarget: "2%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       }
+     },
+     ascend: {
+       7500: {
+         phase1: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "8%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "5%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       15000: {
+         phase1: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "7%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "5%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       30000: {
+         phase1: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "3%",
+           maxLoss: "7%",
+           profitTarget: "6%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "3%",
+           maxLoss: "7%",
+           profitTarget: "4%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       60000: {
+         phase1: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "3%",
+           maxLoss: "6%",
+           profitTarget: "5%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "3%",
+           maxLoss: "6%",
+           profitTarget: "3%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       120000: {
+         phase1: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "2%",
+           maxLoss: "5%",
+           profitTarget: "4%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "Unlimited",
+           maxDailyLoss: "2%",
+           maxLoss: "5%",
+           profitTarget: "2%",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       }
+     },
+     instant: {
+       5000: {
+         phase1: {
+           tradingPeriod: "None",
+           maxDailyLoss: "5%",
+           maxLoss: "10%",
+           profitTarget: "-",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "None",
+           maxDailyLoss: "5%",
+           maxLoss: "10%",
+           profitTarget: "-",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       10000: {
+         phase1: {
+           tradingPeriod: "None",
+           maxDailyLoss: "5%",
+           maxLoss: "10%",
+           profitTarget: "-",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "None",
+           maxDailyLoss: "5%",
+           maxLoss: "10%",
+           profitTarget: "-", 
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       25000: {
+         phase1: {
+           tradingPeriod: "None",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "-",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "None",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "-",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       50000: {
+         phase1: {
+           tradingPeriod: "None",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "-",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "None",
+           maxDailyLoss: "4%",
+           maxLoss: "8%",
+           profitTarget: "-",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       },
+       100000: {
+         phase1: {
+           tradingPeriod: "None",
+           maxDailyLoss: "3%",
+           maxLoss: "6%",
+           profitTarget: "-",
+           leverage: "1:30",
+           rewardSchedule: "-",
+           profitSplit: "-"
+         },
+         phase2: {
+           tradingPeriod: "None",
+           maxDailyLoss: "3%",
+           maxLoss: "6%",
+           profitTarget: "-",
+           leverage: "1:30", 
+           rewardSchedule: "-",
+           profitSplit: "-"
+         }
+       }
+     }
+   };
+ 
+   // Funded data is the same for all programs
+   const fundedData = {
+     tradingPeriod: "Indefinite",
+     maxDailyLoss: "4%",
+     maxLoss: "8%",
+     profitTarget: "-",
+     leverage: "1:30",
+     rewardSchedule: "On demand/Bi-weekly",
+     profitSplit: "up to 100%"
+   };
+ 
       const badges = [
         "/badge1.png",
         "/badge2.png",
@@ -159,47 +604,118 @@ export default function Hero() {
     { amount: '$423.49', name: 'Kenia S.', certificate: 'c2.svg' }
   ];
 
-  // Render star rating (always 5 stars in this case)
-  const renderStars = (rating) => {
-    return (
-      <div className="flex text-pink-500 mb-2">
-        {[...Array(rating)].map((_, i) => (
-          <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-          </svg>
-        ))}
-      </div>
-    );
-  };
+ 
   const [mounted, setMounted] = useState(false);
   
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Function to highlight key phrases in testimonials
-  const highlightText = (text) => {
-    const keyPhrases = [
-      "trustworthy", "excellent customer service", "first payout", "best prop firm",
-      "10/10", "immediately", "best prop firm", "great conditions", "unbeatable price",
-      "90% profit split", "very fast & reliable", "first reward", "real deal", "fair and easy",
-      "full trust", "best funding companies", "no hidden rules", "rewards are fast",
-      "no complaints", "hardworking team", "best funded company", "no nonsense rules",
-      "second reward"
-    ];
+  
+  // Split testimonials for different columns
+  // Replace your current column arrays with these:
+  const leftColumnTestimonials = [...testimonials.slice(0, 2), ...testimonials.slice(0, 2), ...testimonials.slice(0, 2)];
+  const centerColumnTestimonials = [...testimonials.slice(2, 5), ...testimonials.slice(2, 5), ...testimonials.slice(2, 5)];
+  const rightColumnTestimonials = [...testimonials.slice(5, 7), ...testimonials.slice(5, 7), ...testimonials.slice(5, 7)];
+  const mobileTestimonials = [...testimonials, ...testimonials, ...testimonials];
+  
+  // Animation controls
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const animationRef = useRef(null);
+  
+  
+  
+  // Add this useEffect to detect mobile screens
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
     
-    let highlightedText = text;
-    keyPhrases.forEach(phrase => {
-      if (text.includes(phrase)) {
-        highlightedText = highlightedText.replace(
-          new RegExp(phrase, 'gi'), 
-          match => `<span class="font-semibold">${match}</span>`
-        );
+    // Check initially
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  // Animation loop
+  useEffect(() => {
+    const animate = () => {
+      setScrollPosition(prev => (prev + (isMobile ? 0.05 : 0.05)) % 100);
+      animationRef.current = requestAnimationFrame(animate);
+    };
+  
+    animationRef.current = requestAnimationFrame(animate);
+    
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
       }
-    });
-    
-    return <p dangerouslySetInnerHTML={{ __html: highlightedText }} />;
+    };
+  }, []);
+  
+  const slideUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
   };
+  
+  // Render stars based on rating
+  const renderStars = (rating) => {
+    return (
+      <div className="flex mb-2">
+        {[...Array(5)].map((_, i) => (
+          <svg
+            key={i}
+            className={`w-5 h-5 ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+        ))}
+      </div>
+    );
+  };
+  
+   // Highlight keywords in testimonial text
+   const highlightText = (text) => {
+    // Keywords to highlight
+    const keywords = ['best', 'excellent', 'trustworthy', 'fast', 'reliable', 'great'];
+    
+    // Split text by spaces to find words
+    const words = text.split(' ');
+    
+    return (
+      <p className="text-gray-700">
+        {words.map((word, index) => {
+          // Check if the word (without punctuation) is a keyword
+          const cleanWord = word.replace(/[.,!?;:]/g, '').toLowerCase();
+          const isKeyword = keywords.includes(cleanWord);
+          
+          return (
+            <span 
+              key={index} 
+              className={isKeyword ? 'font-semibold text-[#F800EA]' : ''}
+            >
+              {word}{index < words.length - 1 ? ' ' : ''}
+            </span>
+          );
+        })}
+      </p>
+    );
+  };
+  
+  // Calculate transform for each column based on scroll position
+  // Update your getTransform function
+  const getTransform = (columnIndex) => {
+    const offset = (scrollPosition + columnIndex * 15) % 100;
+    
+    // This ensures the animation is seamless by showing 200% of the content
+    return `translateY(-${offset}%)`;
+  };
+    
   return (
      <div className="font-inter w-full overflow-x-hidden">
        
@@ -636,134 +1152,161 @@ export default function Hero() {
 
                 
                 <div className="px-4 sm:px-6 max-w-full overflow-hidden">
-      {/* Ignite and Ascend Tiles */}
+      
+      {/* Funding Program Tiles */}
       <div className={`
         flex flex-wrap justify-center gap-4 mt-6
         ${isMobile ? 'gap-y-3' : ''}
       `}>
-        <div className="w-[160px] sm:w-[180px] bg-white rounded-lg py-3 px-4 sm:px-6 text-fuchsia-500 font-medium flex items-center justify-center cursor-pointer border border-[rgba(217,11,198,1)]">
+        <button
+          className={`w-[160px] sm:w-[180px] ${
+            selectedProgram === 'rapid' 
+              ? 'bg-fuchsia-500 text-white' 
+              : 'bg-white text-fuchsia-500 border border-[rgba(217,11,198,1)]'
+          } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
+          onClick={() => handleProgramClick('rapid')}
+        >
           <img src="/thunder.svg" alt="Rapid" className="w-5 h-5 mr-2" />
           <span>Rapid</span>
-        </div>
+        </button>
         
-        <div className="w-[160px] sm:w-[180px] bg-white rounded-lg py-3 px-4 sm:px-6 text-fuchsia-500 font-medium flex items-center justify-center cursor-pointer border border-[rgba(217,11,198,1)]">
+        <button
+          className={`w-[160px] sm:w-[180px] ${
+            selectedProgram === 'ignite' 
+              ? 'bg-fuchsia-500 text-white' 
+              : 'bg-white text-fuchsia-500 border border-[rgba(217,11,198,1)]'
+          } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
+          onClick={() => handleProgramClick('ignite')}
+        >
           <img src="/ignite1.svg" alt="Ignite" className="w-5 h-5 mr-2" />
           <span>Ignite</span>
-        </div>
+        </button>
         
-        <div className="w-[160px] sm:w-[180px] bg-fuchsia-500 rounded-lg py-3 px-4 sm:px-6 text-white font-medium flex items-center justify-center cursor-pointer">
+        <button
+          className={`w-[160px] sm:w-[180px] ${
+            selectedProgram === 'ascend' 
+              ? 'bg-fuchsia-500 text-white' 
+              : 'bg-white text-fuchsia-500 border border-[rgba(217,11,198,1)]'
+          } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
+          onClick={() => handleProgramClick('ascend')}
+        >
           <img src="/ascend.svg" alt="Ascend" className="w-5 h-5 mr-2" />
           <span>Ascend</span>
-        </div>
+        </button>
         
-        <div className="w-[160px] sm:w-[180px] bg-white rounded-lg py-3 px-4 sm:px-6 text-fuchsia-500 font-medium flex items-center justify-center cursor-pointer border border-[rgba(217,11,198,1)]">
+        <button
+          className={`w-[160px] sm:w-[180px] ${
+            selectedProgram === 'instant' 
+              ? 'bg-fuchsia-500 text-white' 
+              : 'bg-white text-fuchsia-500 border border-[rgba(217,11,198,1)]'
+          } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
+          onClick={() => handleProgramClick('instant')}
+        >
           <img src="/rocket.svg" alt="Instant Funding" className="w-5 h-5 mr-2" />
           <span className="whitespace-nowrap text-sm sm:text-base">Instant Funding</span>
-        </div>
+        </button>
       </div>
       
       
     </div>
 
-                {/* Account Table */}
-                <div className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
-                    {/* Account Size Tabs */}
-                    <div className="p-4">
-                        <div className="flex justify-center gap-2">
-                            <div className="w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] bg-fuchsia-500 rounded-md flex items-center justify-center text-white font-medium text-sm sm:text-base">
-                                $7,500
-                            </div>
-                            <div className="w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] bg-fuchsia-100 rounded-md flex items-center justify-center text-black font-medium text-sm sm:text-base">
-                                $15,000
-                            </div>
-                            <div className="w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] bg-fuchsia-100 rounded-md flex items-center justify-center text-black font-medium text-sm sm:text-base">
-                                $30,000
-                            </div>
-                            <div className="w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] bg-fuchsia-100 rounded-md flex items-center justify-center text-black font-medium text-sm sm:text-base">
-                                $60,000
-                            </div>
-                            <div className="w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] bg-fuchsia-100 rounded-md flex items-center justify-center text-black font-medium text-sm sm:text-base">
-                                $120,000
-                            </div>
-                        </div>
-                    </div>
+                 {/* Account Table */}
+      <div className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
+        {/* Account Size Tabs */}
+        <div className="p-4">
+          <div className="flex justify-center gap-2">
+            {accountSizes[selectedProgram].map((size) => (
+              <button
+                key={size}
+                className={`w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] ${
+                  selectedSize === size ? 'bg-fuchsia-500' : 'bg-fuchsia-100'
+                } rounded-md flex items-center justify-center ${
+                  selectedSize === size ? 'text-white' : 'text-black'
+                } font-medium text-sm sm:text-base`}
+                onClick={() => handleSizeClick(size)}
+              >
+                ${size.toLocaleString()}
+              </button>
+            ))}
+          </div>
+        </div>
 
-                    {/* Phase Headers */}
-                    <div className="grid grid-cols-4 border-b border-gray-200">
-                        <div className="invisible"></div> {/* Empty space for alignment */}
-                        <div className="text-center py-3">
-                            <span className="text-fuchsia-600 font-medium">Phase 1</span>
-                        </div>
-                        <div className="text-center py-3">
-                            <span className="text-fuchsia-600 font-medium">Phase 2</span>
-                        </div>
-                        <div className="text-center py-3">
-                            <span className="text-fuchsia-600 font-medium">Funded</span>
-                        </div>
-                    </div>
+        {/* Phase Headers */}
+        <div className="grid grid-cols-4 border-b border-gray-200">
+          <div className="invisible"></div> {/* Empty space for alignment */}
+          <div className="text-center py-3">
+            <span className="text-fuchsia-600 font-medium">Phase 1</span>
+          </div>
+          <div className="text-center py-3">
+            <span className="text-fuchsia-600 font-medium">Phase 2</span>
+          </div>
+          <div className="text-center py-3">
+            <span className="text-fuchsia-600 font-medium">Funded</span>
+          </div>
+        </div>
 
-                    {/* Table Content */}
-                    <div>
-                        {/* Trading Period */}
-                        <div className="grid grid-cols-4 border-b border-gray-200">
-                            <div className="py-3 pl-4 font-medium">Trading Period</div>
-                            <div className="text-center py-3">Unlimited</div>
-                            <div className="text-center py-3">Unlimited</div>
-                            <div className="text-center py-3">Indefinite</div>
-                        </div>
+        {/* Table Content */}
+        <div>
+          {/* Trading Period */}
+          <div className="grid grid-cols-4 border-b border-gray-200">
+            <div className="py-3 pl-4 font-medium">Trading Period</div>
+            <div className="text-center py-3">{tableData[selectedProgram][selectedSize].phase1.tradingPeriod}</div>
+            <div className="text-center py-3">{tableData[selectedProgram][selectedSize].phase2.tradingPeriod}</div>
+            <div className="text-center py-3">{fundedData.tradingPeriod}</div>
+          </div>
 
-                        {/* Maximum Daily Loss */}
-                        <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
-                            <div className="py-3 pl-4 font-medium">Maximum Daily Loss</div>
-                            <div className="text-center py-3">4%</div>
-                            <div className="text-center py-3">4%</div>
-                            <div className="text-center py-3">4%</div>
-                        </div>
+          {/* Maximum Daily Loss */}
+          <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
+            <div className="py-3 pl-4 font-medium">Maximum Daily Loss</div>
+            <div className="text-center py-3">{tableData[selectedProgram][selectedSize].phase1.maxDailyLoss}</div>
+            <div className="text-center py-3">{tableData[selectedProgram][selectedSize].phase2.maxDailyLoss}</div>
+            <div className="text-center py-3">{fundedData.maxDailyLoss}</div>
+          </div>
 
-                        {/* Maximum Loss */}
-                        <div className="grid grid-cols-4 border-b border-gray-200">
-                            <div className="py-3 pl-4 font-medium">Maximum Loss</div>
-                            <div className="text-center py-3">8%</div>
-                            <div className="text-center py-3">8%</div>
-                            <div className="text-center py-3">8%</div>
-                        </div>
+          {/* Maximum Loss */}
+          <div className="grid grid-cols-4 border-b border-gray-200">
+            <div className="py-3 pl-4 font-medium">Maximum Loss</div>
+            <div className="text-center py-3">{tableData[selectedProgram][selectedSize].phase1.maxLoss}</div>
+            <div className="text-center py-3">{tableData[selectedProgram][selectedSize].phase2.maxLoss}</div>
+            <div className="text-center py-3">{fundedData.maxLoss}</div>
+          </div>
 
-                        {/* Profit Target */}
-                        <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
-                            <div className="py-3 pl-4 font-medium">Profit Target</div>
-                            <div className="text-center py-3">8%</div>
-                            <div className="text-center py-3">5%</div>
-                            <div className="text-center py-3">-</div>
-                        </div>
+          {/* Profit Target */}
+          <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
+            <div className="py-3 pl-4 font-medium">Profit Target</div>
+            <div className="text-center py-3">{tableData[selectedProgram][selectedSize].phase1.profitTarget}</div>
+            <div className="text-center py-3">{tableData[selectedProgram][selectedSize].phase2.profitTarget}</div>
+            <div className="text-center py-3">{fundedData.profitTarget}</div>
+          </div>
 
-                        {/* Leverage */}
-                        <div className="grid grid-cols-4 border-b border-gray-200">
-                            <div className="py-3 pl-4 font-medium">Leverage</div>
-                            <div className="text-center py-3">1:30</div>
-                            <div className="text-center py-3">1:30</div>
-                            <div className="text-center py-3">1:30</div>
-                        </div>
+          {/* Leverage */}
+          <div className="grid grid-cols-4 border-b border-gray-200">
+            <div className="py-3 pl-4 font-medium">Leverage</div>
+            <div className="text-center py-3">{tableData[selectedProgram][selectedSize].phase1.leverage}</div>
+            <div className="text-center py-3">{tableData[selectedProgram][selectedSize].phase2.leverage}</div>
+            <div className="text-center py-3">{fundedData.leverage}</div>
+          </div>
 
-                        {/* Reward Schedule */}
-                        <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
-                            <div className="py-3 pl-4 font-medium">Reward Schedule</div>
-                            <div className="text-center py-3">-</div>
-                            <div className="text-center py-3">-</div>
-                            <div className="text-center py-3">
-                                <span className="whitespace-nowrap">On demand/Bi-weekly</span>
-                            </div>
-                        </div>
+          {/* Reward Schedule */}
+          <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
+            <div className="py-3 pl-4 font-medium">Reward Schedule</div>
+            <div className="text-center py-3">{tableData[selectedProgram][selectedSize].phase1.rewardSchedule}</div>
+            <div className="text-center py-3">{tableData[selectedProgram][selectedSize].phase2.rewardSchedule}</div>
+            <div className="text-center py-3">
+              <span className="whitespace-nowrap">{fundedData.rewardSchedule}</span>
+            </div>
+          </div>
 
-                        {/* Profit Split */}
-                        <div className="grid grid-cols-4 border-b border-gray-200">
-                            <div className="py-3 pl-4 font-medium">Profit Split</div>
-                            <div className="text-center py-3">-</div>
-                            <div className="text-center py-3">-</div>
-                            <div className="text-center py-3">up to 100%</div>
-                        </div>
-                    </div>
-                </div>
-
+          {/* Profit Split */}
+          <div className="grid grid-cols-4 border-b border-gray-200">
+            <div className="py-3 pl-4 font-medium">Profit Split</div>
+            <div className="text-center py-3">{tableData[selectedProgram][selectedSize].phase1.profitSplit}</div>
+            <div className="text-center py-3">{tableData[selectedProgram][selectedSize].phase2.profitSplit}</div>
+            <div className="text-center py-3">{fundedData.profitSplit}</div>
+          </div>
+        </div>
+      </div>
+    
 
 
                 {/* Pricing Box */}
@@ -1345,68 +1888,190 @@ export default function Hero() {
       </div>
     </div>
 
-       <div className="w-full font-inter bg-white py-16 px-4 sm:px-6 lg:px-8 relative">
-                            <div className="max-w-7xl mx-auto">
-                               {/* Purple diamond decoration */}
-                               {/* Floating diamond.svg decoration */}
-                   <motion.img
-                     src="/diamond.svg"
-                     alt="Floating Diamond"
-                     className="absolute left-16 top-16 md:left-24 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
-                     animate={{ y: [0, -12, 0] }}
-                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                   />
-                   
-                               
-                               <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 relative z-10">
-                                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
-                                   What Our Traders Have To Say
-                                 </h2>
-                                 
-                                 <button className="bg-[#F800EA] text-black px-6 py-3 rounded-full font-medium flex items-center">
-                                   Start Trading
-                                   <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                     <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
-                                   </svg>
-                                 </button>
-                               </div>
-                               
-                               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                 {testimonials.map((testimonial, index) => (
-                                   <motion.div 
-                                     key={testimonial.id} 
-                                     className="bg-white p-6 rounded-lg"
-                                     initial={{ opacity: 0, y: 50 }}
-                                     whileInView={{ opacity: 1, y: 0 }}
-                                     transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered animation
-                                     
-                                     viewport={{ once: false }}
-                                   >
-                                     {renderStars(testimonial.rating)}
-                                     <div className="mb-4">
-                                       {highlightText(testimonial.text)}
-                                     </div>
-                                     <div className="flex items-center">
-                                       <span className="font-medium mr-2">{testimonial.name}</span>
-                                       <img 
-  src={`/${testimonial.flag}.svg`} 
-  alt={`${testimonial.flag} flag`} 
-  className="w-6 h-6 object-contain" 
-/>
-                                     </div>
-                                   </motion.div>
-                                 ))}
-                               </div>
-                               
-                               <motion.img
-                     src="/elipse.svg"
-                     alt="Floating Elipse"
-                     className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-10"
-                     animate={{ y: [0, -15, 0] }}
-                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                   />
-                             </div>
+       <div className="w-full font-sans bg-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+             <div className="max-w-7xl mx-auto">
+               {/* Purple diamond decoration */}
+               <div 
+                 className="absolute left-16 top-16 md:left-24 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
+                 style={{
+                   animation: 'float 3s infinite ease-in-out',
+                 }}
+               >
+            
+                 {/* Diamond SVG */}
+       <div>
+         <img src="/diamond.svg" alt="Diamond Icon" className="w-20 h-20" />
+       </div>
+       
+               </div>
+               
+               <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 relative z-10">
+                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
+                   What Our Traders Have To Say
+                 </h2>
+                 
+                 <button className="bg-[#F800EA] text-black px-6 py-3 rounded-full font-medium flex items-center">
+                   Start Trading
+                   <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+                   </svg>
+                 </button>
+               </div>
+               
+               {/* Mobile Testimonial Column (Visible on small screens) */}
+               <div className="block md:hidden relative h-96 overflow-hidden">
+                 <div className="absolute w-full space-y-6" style={{ transform: getTransform(0) }}>
+                   {mobileTestimonials.map((testimonial, index) => (
+                     <div 
+                       key={`mobile-${testimonial.id}-${index}`} 
+                       className="bg-white p-6 rounded-lg shadow-lg"
+                       style={{
+                         background: 'rgba(255, 255, 255, 0.8)',
+                         backdropFilter: 'blur(24px)'
+                       }}
+                     >
+                       {renderStars(testimonial.rating)}
+                       <div className="mb-4">
+                         {highlightText(testimonial.text)}
+                       </div>
+                       <div className="flex items-center">
+                         <span className="font-medium mr-2">{testimonial.name}</span>
+                         <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded">
+                         <img
+           src={`/${testimonial.flag}.svg`}
+           alt={testimonial.flag}
+           className="w-full h-full object-cover"
+         />
+                         </span>
+                       </div>
+                     </div>
+                   ))}
+                 </div>
+               </div>
+               
+               {/* Desktop 3-Column Testimonial Layout (Hidden on small screens) */}
+               <div className="hidden md:grid md:grid-cols-3 gap-8 relative">
+                 {/* Left Column */}
+                 <div className="relative h-[32rem] overflow-hidden">
+                   <div className="absolute w-full space-y-6" style={{ transform: getTransform(0) }}>
+                     {leftColumnTestimonials.map((testimonial, index) => (
+                       <div 
+                         key={`left-${testimonial.id}-${index}`} 
+                         className="bg-white p-6 rounded-lg shadow-lg"
+                         style={{
+                           background: 'rgba(255, 255, 255, 0.8)',
+                           backdropFilter: 'blur(24px)'
+                         }}
+                       >
+                         {renderStars(testimonial.rating)}
+                         <div className="mb-4">
+                           {highlightText(testimonial.text)}
                          </div>
+                         <div className="flex items-center">
+                           <span className="font-medium mr-2">{testimonial.name}</span>
+                           <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+         <img
+           src={`/${testimonial.flag}.svg`}
+           alt={testimonial.flag}
+           className="w-full h-full object-cover"
+         />
+       </span>
+                         </div>
+                       </div>
+                     ))}
+                   </div>
+                 </div>
+                 
+                 {/* Center Column */}
+                 <div className="relative h-[32rem] overflow-hidden">
+                   <div className="absolute w-full space-y-6" style={{ transform: getTransform(1) }}>
+                     {centerColumnTestimonials.map((testimonial, index) => (
+                       <div 
+                         key={`center-${testimonial.id}-${index}`} 
+                         className="bg-white p-6 rounded-lg shadow-lg"
+                         style={{
+                           background: 'rgba(255, 255, 255, 0.8)',
+                           backdropFilter: 'blur(24px)'
+                         }}
+                       >
+                         {renderStars(testimonial.rating)}
+                         <div className="mb-4">
+                           {highlightText(testimonial.text)}
+                         </div>
+                         <div className="flex items-center">
+                           <span className="font-medium mr-2">{testimonial.name}</span>
+                           <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+         <img
+           src={`/${testimonial.flag}.svg`}
+           alt={testimonial.flag}
+           className="w-full h-full object-cover"
+         />
+       </span>
+                         </div>
+                       </div>
+                     ))}
+                   </div>
+                 </div>
+                 
+                 {/* Right Column */}
+                 <div className="relative h-[32rem] overflow-hidden">
+                   <div className="absolute w-full space-y-6" style={{ transform: getTransform(2) }}>
+                     {rightColumnTestimonials.map((testimonial, index) => (
+                       <div 
+                         key={`right-${testimonial.id}-${index}`} 
+                         className="bg-white p-6 rounded-lg shadow-lg"
+                         style={{
+                           background: 'rgba(255, 255, 255, 0.8)',
+                           backdropFilter: 'blur(24px)'
+                         }}
+                       >
+                         {renderStars(testimonial.rating)}
+                         <div className="mb-4">
+                           {highlightText(testimonial.text)}
+                         </div>
+                         <div className="flex items-center">
+                           <span className="font-medium mr-2">{testimonial.name}</span>
+                           <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+         <img
+           src={`/${testimonial.flag}.svg`}
+           alt={testimonial.flag}
+           className="w-full h-full object-cover"
+         />
+       </span>
+                         </div>
+                       </div>
+                     ))}
+                   </div>
+                 </div>
+               </div>
+               
+               {/* Floating ellipse decoration */}
+               <div
+                 className="absolute right-0 bottom-10 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-10"
+                 style={{
+                   animation: 'float 4s infinite ease-in-out',
+                 }}
+               >
+                   {/* Floating ellipse decoration */}
+       <motion.img
+         src="/elipse.svg"
+         alt="Floating Elipse"
+         className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-30 z-10"
+         animate={{ y: [0, -15, 0] }}
+         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+       />
+       
+               </div>
+             </div>
+             
+             {/* Animation keyframes */}
+             <style jsx>{`
+               @keyframes float {
+                 0%, 100% { transform: translateY(0); }
+                 50% { transform: translateY(-15px); }
+               }
+             `}</style>
+           </div>
         
             {/* FAQ Section */}
             <FAQ />

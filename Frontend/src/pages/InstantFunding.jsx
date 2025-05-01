@@ -1149,7 +1149,7 @@ export default function InstantFunding() {
                100% { transform: translateX(-50%); }
              }
              .animate-scroll {
-               animation: scroll 20s linear infinite;
+               animation: scroll 5s linear infinite;
              }
            `}</style>
          </div>
@@ -1322,42 +1322,48 @@ export default function InstantFunding() {
       
             {/* Feature Icons */}
             <div className="flex flex-col md:flex-row justify-center gap-4 mb-12">
-              <motion.div
-                className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <div className="w-4 h-4 rounded-full bg-[#F800EA] mr-2 flex items-center justify-center">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                </div>
-                <span className="font-medium">True Market Pricing</span>
-              </motion.div>
+      <motion.div
+        className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <img 
+          src="/blue.svg" 
+          alt="Feature icon" 
+          className="w-4 h-4 mr-2"
+        />
+        <span className="font-medium">True Market Pricing</span>
+      </motion.div>
       
-              <motion.div
-                className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <div className="w-4 h-4 rounded-full bg-[#F800EA] mr-2 flex items-center justify-center">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                </div>
-                <span className="font-medium">Lightning Fast Trade Execution</span>
-              </motion.div>
+      <motion.div
+        className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
+        <img 
+          src="/blue.svg" 
+          alt="Feature icon" 
+          className="w-4 h-4 mr-2"
+        />
+        <span className="font-medium">Lightning Fast Trade Execution</span>
+      </motion.div>
       
-              <motion.div
-                className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-              >
-                <div className="w-4 h-4 rounded-full bg-[#F800EA] mr-2 flex items-center justify-center">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                </div>
-                <span className="font-medium">Industry Leading Spreads 0.0 pips</span>
-              </motion.div>
-            </div>
+      <motion.div
+        className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <img 
+          src="/blue.svg" 
+          alt="Feature icon" 
+          className="w-4 h-4 mr-2"
+        />
+        <span className="font-medium">Industry Leading Spreads 0.0 pips</span>
+      </motion.div>
+    </div>
       
             {/* Mobile App Screenshot */}
             <div

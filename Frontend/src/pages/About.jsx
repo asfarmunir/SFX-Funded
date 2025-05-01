@@ -220,203 +220,223 @@ export default function About() {
 
       {/* Four Feature Cards Grid - Mobile First Approach */}
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false }}
+      className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 sm:px-6"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false }}
+    >
+      {/* Card 1 - Rapid Resolve */}
+      <motion.div 
+        className="bg-gray-100 rounded-3xl p-6 md:p-8" 
+        style={{ borderRadius: '25px', height: 'auto', minHeight: '20rem' }}
+        variants={slideUp}
       >
-        {/* Card 1 - Rapid Resolve */}
         <motion.div 
-          className="bg-gray-100 rounded-3xl p-6 md:p-8" 
-          style={{ borderRadius: '25px', height: 'auto', minHeight: '20rem' }}
+          className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6"
           variants={slideUp}
         >
           <motion.div 
-            className="flex items-start gap-6 mb-6"
+            className="bg-white rounded-full flex items-center justify-center aspect-square"
+            style={{ width: 'clamp(60px, 15vw, 80px)' }}
             variants={slideUp}
+            whileHover={{ scale: 1.1, rotate: 5 }}
           >
-            <motion.div 
-      className="bg-white p-3 rounded-full flex items-center justify-center"
-      variants={slideUp}
-      whileHover={{ scale: 1.1, rotate: 5 }}
-    >
-      <img src="/about1.svg" alt="Rapid Resolve Icon" className="w-14 h-14 sm:w-16 sm:h-16" />
-    </motion.div>
-            <motion.h3
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: 600,
-                fontSize: 'clamp(2rem, 5vw, 3.75rem)',
-                lineHeight: '1.9em',
-                letterSpacing: '0%',
-                color: 'rgba(248, 0, 234, 1)'
-              }}
-              className="leading-tight text-[clamp(2rem, 5vw, 3.75rem)]"
-              variants={slideUp}
-            >
-              Rapid Resolve
-            </motion.h3>
+            <img 
+              src="/about1.svg" 
+              alt="Rapid Resolve Icon" 
+              className="w-2/3 h-2/3 object-contain" 
+            />
           </motion.div>
-          <motion.p
+          <motion.h3
             style={{
               fontFamily: 'Inter, sans-serif',
-              fontWeight: 400,
-              fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-              lineHeight: '1.5em',
-              letterSpacing: '5%',
-              color: 'rgba(32, 36, 43, 1)'
+              fontWeight: 600,
+              fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+              lineHeight: '1.2',
+              letterSpacing: '0%',
+              color: 'rgba(248, 0, 234, 1)'
             }}
-            className="text-justify"
+            className="mt-2 sm:mt-0"
             variants={slideUp}
           >
-            Need help? We've got your back! Our streamlined support means you'll get solutions quickly and get back to trading in no time.
-          </motion.p>
+            Rapid Resolve
+          </motion.h3>
         </motion.div>
-
-        {/* Card 2 - Empowering */}
-        <motion.div 
-          className="bg-gray-100 rounded-3xl p-6 md:p-8" 
-          style={{ borderRadius: '25px', height: 'auto', minHeight: '20rem' }}
+        <motion.p
+          style={{
+            fontFamily: 'Inter, sans-serif',
+            fontWeight: 400,
+            fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+            lineHeight: '1.5em',
+            letterSpacing: '5%',
+            color: 'rgba(32, 36, 43, 1)'
+          }}
+          className="text-justify"
           variants={slideUp}
         >
-          <motion.div 
-            className="flex items-start gap-6 mb-6"
-            variants={slideUp}
-          >
-            <motion.div 
-      className="bg-white p-3 rounded-full flex items-center justify-center"
-      variants={slideUp}
-      whileHover={{ scale: 1.1, rotate: 5 }}
-    >
-      <img src="/rocket.svg" alt="Empowering Icon" className="w-14 h-14 sm:w-16 sm:h-16" />
-    </motion.div>
-            <motion.h3
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: 600,
-                fontSize: 'clamp(2rem, 5vw, 3.75rem)',
-                lineHeight: '1.9em',
-                letterSpacing: '0%',
-                color: 'rgba(248, 0, 234, 1)'
-              }}
-              className="leading-tight text-[clamp(2rem, 5vw, 3.75rem)]"
-              variants={slideUp}
-            >
-              Empowering
-            </motion.h3>
-          </motion.div>
-          <motion.p
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 400,
-              fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-              lineHeight: '1.5em',
-              letterSpacing: '5%',
-              color: 'rgba(32, 36, 43, 1)'
-            }}
-            className="text-justify"
-            variants={slideUp}
-          >
-            Your Skills, Your Profits. SFX Funded empowers you with a trading environment that mirrors the real deal. Showcase your skills and earn a performance fee that is paid as a share of the profits you generate.
-          </motion.p>
-        </motion.div>
-
-        {/* Card 3 - Transparency - With pink background */}
-        <motion.div 
-          className="rounded-3xl p-6 md:p-8" 
-          style={{ background: 'rgba(255, 230, 253, 1)', borderRadius: '25px', height: 'auto', minHeight: '20rem' }}
-          variants={slideUp}
-        >
-          <motion.div 
-            className="flex items-start gap-6 mb-6"
-            variants={slideUp}
-          >
-            <motion.div 
-      className="bg-white p-3 rounded-full flex items-center justify-center"
-      variants={slideUp}
-      whileHover={{ scale: 1.1, rotate: 5 }}
-    >
-      <img src="/about3.svg" alt="Transparency Icon" className="w-16 h-16 sm:w-20 sm:h-20" />
-    </motion.div>
-            <motion.h3
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: 600,
-                fontSize: 'clamp(2rem, 5vw, 3.75rem)',
-                lineHeight: '1.9em',
-                letterSpacing: '0%',
-                color: 'rgba(0, 0, 0, 1)'
-              }}
-              className="leading-tight text-[clamp(2rem, 5vw, 3.75rem)]"
-              variants={slideUp}
-            >
-              Transparency
-            </motion.h3>
-          </motion.div>
-          <motion.p
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 400,
-              fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-              lineHeight: '1.5em',
-              letterSpacing: '5%',
-              color: 'rgba(32, 36, 43, 1)'
-            }}
-            className="text-justify"
-            variants={slideUp}
-          >
-            SFX Funded is all about open communication. We're transparent in our dealings because we value your trust. Think of us as your trading partner, not just a prop firm.
-          </motion.p>
-        </motion.div>
-
-        {/* Card 4 - Integrity - With pink background */}
-        <motion.div 
-          className="rounded-3xl p-6 md:p-8" 
-          style={{ background: 'rgba(255, 230, 253, 1)', borderRadius: '25px', height: 'auto', minHeight: '20rem' }}
-          variants={slideUp}
-        >
-          <motion.div 
-            className="flex items-start gap-6 mb-6"
-            variants={slideUp}
-          >
-            <motion.div 
-      className="bg-white p-3 rounded-full flex items-center justify-center"
-      variants={slideUp}
-      whileHover={{ scale: 1.1, rotate: 5 }}
-    >
-      <img src="/about4.svg" alt="Integrity Icon" className="w-16 h-16 sm:w-20 sm:h-20" />
-    </motion.div>
-            <motion.h3
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: 600,
-                fontSize: 'clamp(2rem, 5vw, 3.75rem)',
-                lineHeight: '1.9em',
-                letterSpacing: '0%',
-                color: 'rgba(0, 0, 0, 1)'
-              }}
-              className="leading-tight text-[clamp(2rem, 5vw, 3.75rem)]"
-              variants={slideUp}
-            >
-              Integrity
-            </motion.h3>
-          </motion.div>
-          <motion.p
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 400,
-              fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-              lineHeight: '1.5em',
-              letterSpacing: '5%',
-              color: 'rgba(32, 36, 43, 1)'
-            }}
-            className="text-justify"
-            variants={slideUp}
-          >
-            We know trading can be tough. That's why we do things the right way - guidelines and rules you can trust that have your back.
-          </motion.p>
-        </motion.div>
+          Need help? We've got your back! Our streamlined support means you'll get solutions quickly and get back to trading in no time.
+        </motion.p>
       </motion.div>
+
+      {/* Card 2 - Empowering */}
+      <motion.div 
+        className="bg-gray-100 rounded-3xl p-6 md:p-8" 
+        style={{ borderRadius: '25px', height: 'auto', minHeight: '20rem' }}
+        variants={slideUp}
+      >
+        <motion.div 
+          className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6"
+          variants={slideUp}
+        >
+          <motion.div 
+            className="bg-white rounded-full flex items-center justify-center aspect-square"
+            style={{ width: 'clamp(60px, 15vw, 80px)' }}
+            variants={slideUp}
+            whileHover={{ scale: 1.1, rotate: 5 }}
+          >
+            <img 
+              src="/rocket.svg" 
+              alt="Empowering Icon" 
+              className="w-2/3 h-2/3 object-contain" 
+            />
+          </motion.div>
+          <motion.h3
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 600,
+              fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+              lineHeight: '1.2',
+              letterSpacing: '0%',
+              color: 'rgba(248, 0, 234, 1)'
+            }}
+            className="mt-2 sm:mt-0"
+            variants={slideUp}
+          >
+            Empowering
+          </motion.h3>
+        </motion.div>
+        <motion.p
+          style={{
+            fontFamily: 'Inter, sans-serif',
+            fontWeight: 400,
+            fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+            lineHeight: '1.5em',
+            letterSpacing: '5%',
+            color: 'rgba(32, 36, 43, 1)'
+          }}
+          className="text-justify"
+          variants={slideUp}
+        >
+          Your Skills, Your Profits. SFX Funded empowers you with a trading environment that mirrors the real deal. Showcase your skills and earn a performance fee that is paid as a share of the profits you generate.
+        </motion.p>
+      </motion.div>
+
+      {/* Card 3 - Transparency - With pink background */}
+      <motion.div 
+        className="rounded-3xl p-6 md:p-8" 
+        style={{ background: 'rgba(255, 230, 253, 1)', borderRadius: '25px', height: 'auto', minHeight: '20rem' }}
+        variants={slideUp}
+      >
+        <motion.div 
+          className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6"
+          variants={slideUp}
+        >
+          <motion.div 
+            className="bg-white rounded-full flex items-center justify-center aspect-square"
+            style={{ width: 'clamp(60px, 15vw, 80px)' }}
+            variants={slideUp}
+            whileHover={{ scale: 1.1, rotate: 5 }}
+          >
+            <img 
+              src="/about3.svg" 
+              alt="Transparency Icon" 
+              className="w-2/3 h-2/3 object-contain" 
+            />
+          </motion.div>
+          <motion.h3
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 600,
+              fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+              lineHeight: '1.2',
+              letterSpacing: '0%',
+              color: 'rgba(0, 0, 0, 1)'
+            }}
+            className="mt-2 sm:mt-0"
+            variants={slideUp}
+          >
+            Transparency
+          </motion.h3>
+        </motion.div>
+        <motion.p
+          style={{
+            fontFamily: 'Inter, sans-serif',
+            fontWeight: 400,
+            fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+            lineHeight: '1.5em',
+            letterSpacing: '5%',
+            color: 'rgba(32, 36, 43, 1)'
+          }}
+          className="text-justify"
+          variants={slideUp}
+        >
+          SFX Funded is all about open communication. We're transparent in our dealings because we value your trust. Think of us as your trading partner, not just a prop firm.
+        </motion.p>
+      </motion.div>
+
+      {/* Card 4 - Integrity - With pink background */}
+      <motion.div 
+        className="rounded-3xl p-6 md:p-8" 
+        style={{ background: 'rgba(255, 230, 253, 1)', borderRadius: '25px', height: 'auto', minHeight: '20rem' }}
+        variants={slideUp}
+      >
+        <motion.div 
+          className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6"
+          variants={slideUp}
+        >
+          <motion.div 
+            className="bg-white rounded-full flex items-center justify-center aspect-square"
+            style={{ width: 'clamp(60px, 15vw, 80px)' }}
+            variants={slideUp}
+            whileHover={{ scale: 1.1, rotate: 5 }}
+          >
+            <img 
+              src="/about4.svg" 
+              alt="Integrity Icon" 
+              className="w-2/3 h-2/3 object-contain" 
+            />
+          </motion.div>
+          <motion.h3
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 600,
+              fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+              lineHeight: '1.2',
+              letterSpacing: '0%',
+              color: 'rgba(0, 0, 0, 1)'
+            }}
+            className="mt-2 sm:mt-0"
+            variants={slideUp}
+          >
+            Integrity
+          </motion.h3>
+        </motion.div>
+        <motion.p
+          style={{
+            fontFamily: 'Inter, sans-serif',
+            fontWeight: 400,
+            fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+            lineHeight: '1.5em',
+            letterSpacing: '5%',
+            color: 'rgba(32, 36, 43, 1)'
+          }}
+          className="text-justify"
+          variants={slideUp}
+        >
+          We know trading can be tough. That's why we do things the right way - guidelines and rules you can trust that have your back.
+        </motion.p>
+      </motion.div>
+    </motion.div>
 
     </motion.div>
   

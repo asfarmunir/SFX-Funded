@@ -36,6 +36,22 @@ export default function LightningChallenge() {
       },
     },
   };
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    
+    // Check initially
+    checkIfMobile();
+    
+    // Add event listener
+    window.addEventListener("resize", checkIfMobile);
+    
+    // Clean up
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
   return (
     <div className="font-inter w-full overflow-x-hidden">
       
@@ -288,8 +304,7 @@ export default function LightningChallenge() {
     </motion.div>
 
     {/* Grid Cards */}
-    <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
-
+    <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 p-4">
       {/* First Column - Rocket Card */}
       <motion.div
         className="w-full lg:w-1/3"
@@ -298,18 +313,20 @@ export default function LightningChallenge() {
         transition={{ duration: 0.6 }}
         viewport={{ once: false }}
       >
-        <div className="bg-white rounded-3xl p-6 sm:p-8 flex flex-col h-full min-h-[280px] sm:min-h-[315px]">
-          <h3 className="text-xl sm:text-2xl font-semibold mb-4">
-            Low Target
-          </h3>
-          <p className="text-lg sm:text-xl mb-6 flex-grow">
-            Hit 5% in your evaluation to get funded
-          </p>
-          <div className="flex justify-end">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 flex flex-col h-full min-h-[280px] sm:min-h-[315px] relative">
+          <div className="pr-16"> {/* Add padding to prevent text overlap with icon */}
+            <h3 className="text-xl sm:text-2xl font-semibold mb-4">
+              Low Target
+            </h3>
+            <p className="text-lg sm:text-xl mb-6">
+              Hit 5% in your evaluation to get funded
+            </p>
+          </div>
+          <div className="absolute bottom-6 right-6">
             <img
               src="/rocket.svg"
               alt="Rocket"
-              className="w-20 h-20 sm:w-32 sm:h-32 ml-auto"
+              className="w-20 h-20 sm:w-32 sm:h-32"
             />
           </div>
         </div>
@@ -317,7 +334,6 @@ export default function LightningChallenge() {
 
       {/* Second Column - Two Cards */}
       <div className="w-full lg:w-1/3 flex flex-col gap-6 sm:gap-8">
-
         {/* Performance Split Card */}
         <motion.div
           className="bg-green-50 rounded-3xl p-6 sm:p-8 relative h-full min-h-[200px] sm:min-h-[225px]"
@@ -326,6 +342,14 @@ export default function LightningChallenge() {
           transition={{ duration: 0.6 }}
           viewport={{ once: false }}
         >
+          <div className="pr-14"> {/* Add padding to prevent text overlap with icon */}
+            <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-green-600">
+              Upto 90% Performance Split
+            </h3>
+            <p className="text-lg sm:text-xl text-green-600">
+              Choose Account sizes up to $100k and earn up to 90% performance split.
+            </p>
+          </div>
           <div className="absolute top-6 right-6">
             <img
               src="/dollar.svg"
@@ -333,12 +357,6 @@ export default function LightningChallenge() {
               className="w-10 h-10"
             />
           </div>
-          <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-green-600">
-            Upto 90% Performance Split
-          </h3>
-          <p className="text-lg sm:text-xl text-green-600">
-            Choose Account sizes up to $100k and earn up to 90% performance split.
-          </p>
         </motion.div>
 
         {/* Timer Card */}
@@ -349,6 +367,14 @@ export default function LightningChallenge() {
           transition={{ duration: 0.6 }}
           viewport={{ once: false }}
         >
+          <div className="pr-16"> {/* Add padding to prevent text overlap with icon */}
+            <h3 className="text-xl sm:text-2xl font-semibold mb-2">
+              Faster Process Evaluation
+            </h3>
+            <p className="text-lg sm:text-xl">
+              Prove your skills just once by meeting all the trading objective in 7 days.
+            </p>
+          </div>
           <div className="absolute top-6 right-6">
             <img
               src="/timer.svg"
@@ -356,18 +382,11 @@ export default function LightningChallenge() {
               className="w-12 h-12 sm:w-14 sm:h-14"
             />
           </div>
-          <h3 className="text-xl sm:text-2xl font-semibold mb-2">
-            Faster Process Evaluation
-          </h3>
-          <p className="text-lg sm:text-xl">
-            Prove your skills just once by meeting all the trading objective in 7 days.
-          </p>
         </motion.div>
       </div>
 
       {/* Third Column - Two Cards */}
       <div className="w-full lg:w-1/3 flex flex-col gap-6 sm:gap-8">
-
         {/* Tailored Accounts Card */}
         <motion.div
           className="bg-white rounded-3xl p-6 sm:p-8 relative h-full min-h-[180px] sm:min-h-[195px]"
@@ -376,6 +395,14 @@ export default function LightningChallenge() {
           transition={{ duration: 0.6 }}
           viewport={{ once: false }}
         >
+          <div className="pr-16"> {/* Add padding to prevent text overlap with icon */}
+            <h3 className="text-xl sm:text-2xl font-semibold mb-2">
+              Tailored Accounts
+            </h3>
+            <p className="text-lg sm:text-xl">
+              Customize your account for the best experience with your unique add-ons at checkout.
+            </p>
+          </div>
           <div className="absolute top-6 right-6">
             <img
               src="/users.png"
@@ -383,12 +410,6 @@ export default function LightningChallenge() {
               className="w-12 h-12 sm:w-14 sm:h-14"
             />
           </div>
-          <h3 className="text-xl sm:text-2xl font-semibold mb-2">
-            Tailored Accounts
-          </h3>
-          <p className="text-lg sm:text-xl max-w-[80%]">
-            Customize your account for the best experience with your unique add-ons at checkout.
-          </p>
         </motion.div>
 
         {/* Platform Badge Card */}
@@ -403,6 +424,14 @@ export default function LightningChallenge() {
             backdropFilter: "blur(73px)",
           }}
         >
+          <div className="pr-16"> {/* Add padding to prevent text overlap with icon */}
+            <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-fuchsia-500">
+              Platform 5
+            </h3>
+            <p className="text-lg sm:text-xl text-fuchsia-500">
+              Trade on the most popular platform in the industry. Stick to what you are comfortable with.
+            </p>
+          </div>
           <div className="absolute top-6 right-6">
             <img
               src="/badge.svg"
@@ -410,12 +439,6 @@ export default function LightningChallenge() {
               className="w-10 h-10 sm:w-12 sm:h-12"
             />
           </div>
-          <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-[#DE00DE]">
-            Platform 5
-          </h3>
-          <p className="text-lg sm:text-xl text-[#DE00DE]">
-            Trade on the most popular platform in the industry. Stick to what you are comfortable with.
-          </p>
         </motion.div>
       </div>
     </div>

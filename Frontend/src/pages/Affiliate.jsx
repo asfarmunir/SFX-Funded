@@ -234,9 +234,15 @@ export default function RapidChallenge() {
         viewport={{ once: false, amount: 0.3 }}
       >
         <motion.h1 
-          className="font-inter font-bold text-white uppercase 
+          className=" font-bold text-white 
             text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
             leading-tight tracking-tight"
+            style={{
+              fontFamily: "Oswald, sans-serif",
+              fontWeight: 600,
+              fontSize: "125.22px",
+              letterSpacing: "-7.64px",
+            }}
           variants={slideUp}
           custom={0}
         >

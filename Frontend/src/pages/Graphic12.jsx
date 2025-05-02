@@ -395,7 +395,12 @@ const getTransform = (columnIndex) => {
             leading-none tracking-tight"
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            
+            style={{
+              fontFamily: "Oswald, sans-serif",
+              fontWeight: 600,
+              fontSize: "125.22px",
+              letterSpacing: "-7.64px",
+            }}
             transition={{ duration: 0.4, delay: 0.2 }}
         >
             GET FUNDED BY OUR 2-STEP
@@ -408,7 +413,12 @@ const getTransform = (columnIndex) => {
             leading-none tracking-tight"
             initial={{ opacity: 0, y: 70 }}
             whileInView={{ opacity: 1, y: 0 }}
-           
+            style={{
+              fontFamily: "Oswald, sans-serif",
+              fontWeight: 600,
+              fontSize: "125.22px",
+              letterSpacing: "-7.64px",
+            }}
             transition={{ duration: 0.4, delay: 0.4 }}
         >
             PROP FIRM CHALLENGE

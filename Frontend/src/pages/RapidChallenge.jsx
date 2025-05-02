@@ -385,16 +385,32 @@ const getTransform = (columnIndex) => {
       }
     }}
   >
-    <h1 className="text-white uppercase font-oswald font-bold 
-      text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
-      leading-none tracking-tight">
-      <span>RAPID</span>{" "}
+      <h1
+  className="
+    font-oswald font-semibold 
+    text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl
+    leading-tight tracking-tighter
+    uppercase text-center
+  "
+  style={{
+    fontFamily: "Oswald, sans-serif",
+    fontWeight: 600,
+    fontSize: "125.22px",
+    letterSpacing: "-7.64px",
+  }}
+>
+      <span className="text-[#fcfbfc]">RAPID</span>{" "}
       <span className="text-[#fcfbfc]">CHALLENGE</span>
     </h1>
 
     <h2 className="text-white uppercase font-oswald font-bold 
       text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
-      leading-none tracking-tight mt-3 sm:mt-4 md:mt-5">
+      leading-none tracking-tight mt-3 sm:mt-4 md:mt-5" style={{
+        fontFamily: "Oswald, sans-serif",
+        fontWeight: 600,
+        fontSize: "125.22px",
+        letterSpacing: "-7.64px",
+      }}>
       <span className="text-[#DE00DE]">PAST FAST. </span>{" "}
       <span className="text-[#DE00DE]">GET FUNDED .</span>
     </h2>

@@ -459,16 +459,29 @@ export default function InstantFunding() {
     {/* Main Heading */}
     <h1 className="text-white uppercase font-oswald font-bold 
       text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
-      leading-none tracking-tight">
-      <span>FASTEST WAY TO A </span>{" "}
-      <span className="text-[#fcfbfc]">FUNDED TRADING ACCOUNT</span>
+      leading-none tracking-tight"style={{
+        fontFamily: "Oswald, sans-serif",
+        fontWeight: 600,
+        fontSize: "125.22px",
+        letterSpacing: "-7.64px",
+      }}>
+      <span className="text-[#DE00DE]">FASTEST </span> <span className="text-[#fcfbfc]"> WAY TO A </span>{" "}
+      <span className="text-[#DE00DE]">FUNDED </span>
+      <span className="text-[#fcfbfc]"> TRADING</span>
+      <span className="text-[#DE00DE]"> ACCOUNT</span>
+      
     </h1>
 
     {/* Subheading */}
     <h2 className="text-white uppercase font-oswald font-bold 
       text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
-      leading-none tracking-tight mt-3 sm:mt-4 md:mt-5">
-      <span className="text-[#DE00DE]">CAPITAL IN MINUTES. REWARD IN DAYS. </span>{" "}
+      leading-none tracking-tight mt-3 sm:mt-4 md:mt-5"style={{
+        fontFamily: "Oswald, sans-serif",
+        fontWeight: 600,
+        fontSize: "60.22px",
+        letterSpacing: "-3.64px",
+      }}>
+      <span >CAPITAL IN </span> <span className="text-[#DE00DE]">MINUTES. </span> <span> REWARD IN </span> <span className="text-[#DE00DE]">DAYS. </span>{" "}
     </h2>
   </motion.div>
 

@@ -88,27 +88,38 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
     The Fastest Evaluation
   </motion.div>
 
-  {/* Hero Heading */}
-  <motion.div variants={item} className="text-center mb-6 sm:mb-8 md:mb-10">
-    <h1 className="text-white uppercase font-oswald font-bold 
-      text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
-      leading-none tracking-tight">
-      <span>LIGHTNING</span>{" "}
-      <span className="text-[#DE00DE]">CHALLENGE</span>
-    </h1>
-  </motion.div>
-
-  {/* Subheading */}
-  <motion.h2
-    variants={item}
-    className="text-white uppercase font-oswald font-bold 
-      text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
-      leading-none tracking-tight mt-3 sm:mt-4 md:mt-5"
-  >
-    <span className="text-[#DE00DE]">SIMPLE .</span>{" "}
-    <span className="text-white">FAST .</span>{" "}
-    <span className="text-[#DE00DE]">ACCESSIBLE .</span>
-  </motion.h2>
+  <div className="flex flex-col items-center justify-center w-full overflow-visible px-4">
+      {/* Hero Heading */}
+      <motion.div variants={item} className="text-center w-full">
+      <h1
+  className="
+    font-oswald font-semibold 
+    text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl
+    leading-tight tracking-tighter
+    uppercase text-center
+  "
+  style={{
+    fontFamily: "Oswald, sans-serif",
+    fontWeight: 600,
+    fontSize: "125.22px",
+    letterSpacing: "-7.64px",
+  }}
+>
+          {/* First line - Lightning Challenge */}
+          <div className="block">
+            <span className="text-white">LIGHTNING</span>{" "}
+            <span className="text-[#DE00DE]">CHALLENGE</span>
+          </div>
+          
+          {/* Second line - Simple Fast Accessible */}
+          <div className="block mt-2 sm:mt-3 md:mt-4 lg:mt-5">
+            <span className="text-[#DE00DE]">SIMPLE.</span>{" "}
+            <span className="text-white">FAST.</span>{" "}
+            <span className="text-[#DE00DE]">ACCESSIBLE.</span>
+          </div>
+        </h1>
+      </motion.div>
+    </div>
 
   {/* Description */}
   <motion.p

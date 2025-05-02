@@ -93,11 +93,16 @@ export default function Blogs() {
           className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center mt-8 sm:mt-12 md:mt-16 lg:mt-20"
         >
           <div className="text-center mb-6 sm:mb-8 md:mb-10">
-            <h1 className="text-white uppercase font-oswald font-bold 
+            <h1 className="text-white  font-oswald font-bold 
               text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
-              leading-none tracking-tight">
-              <span>FOREX TRADING</span>{" "}
-              <span className="text-[#fcfbfc]">INSIGHTS</span>
+              leading-none tracking-tight" style={{
+                fontFamily: "Oswald, sans-serif",
+                fontWeight: 600,
+                fontSize: "125.22px",
+                letterSpacing: "-7.64px",
+              }}>
+              <span>Forex Trading</span>{" "}
+              <span className="text-[#fcfbfc]">Insights</span>
             </h1>
           </div>
 

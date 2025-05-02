@@ -42,11 +42,13 @@ export default function About() {
     <div className="font-inter w-full overflow-x-hidden">
 
 
-      <div className="w-full mx-0 px-2 sm:px-6 py-8 sm:py-2 md:py-4 lg:py-5 rounded-[40px] my-6 sm:my-8 relative overflow-hidden"
-        style={{
-          background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
-        }}
-      >
+<div
+  className="w-full mx-0 px-2 sm:px-6 py-8 sm:py-2 md:py-4 lg:py-5 rounded-[40px] my-6 sm:my-8 relative overflow-hidden
+             h-[350px] sm:h-[325px] md:h-[400px] lg:h-[450px] xl:h-[500px]"
+  style={{
+    background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)',
+  }}
+>
         {/* Navbar */}
         <Navbar />
 
@@ -62,7 +64,13 @@ export default function About() {
   <div className="text-center mb-6 sm:mb-8 md:mb-10">
     <h1 className="text-white uppercase font-oswald font-bold 
      text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
-     leading-none tracking-tight">
+     leading-none tracking-tight"
+     style={{
+      fontFamily: "Oswald, sans-serif",
+      fontWeight: 600,
+      fontSize: "125.22px",
+      letterSpacing: "-7.64px",
+    }}>
       <span>ABOUT</span>{" "}
       <span style={{ color: 'rgba(248, 0, 234, 1)' }}>SFX FUNDED</span>
     </h1>

@@ -865,9 +865,22 @@ export default function Hero() {
         {/* Account Table */}
       {selectedProgram !== 'instant' ? (
         <div className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
+           {/* Mobile Account Selector */}
+<div className="block sm:hidden px-4 py-3">
+  <select 
+    className="w-full p-3 rounded-lg bg-[#D90BC6] text-white font-medium text-center"
+    onChange={(e) => handleSizeClick(parseInt(e.target.value))}
+    value={selectedSize}
+  >
+    <option value="" disabled>Select Account Size</option>
+    {accountSizes[selectedProgram].map((size, idx) => (
+      <option key={idx} value={size}>${size.toLocaleString()}</option>
+    ))}
+  </select>
+</div>
           {/* Account Size Tabs */}
           <div className="p-4">
-          <div className="max-w-7xl  bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7 flex flex-wrap justify-center gap-2">
+          <div className="hidden sm:flex max-w-7xl  bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7  flex-wrap justify-center gap-2">
               {accountSizes[selectedProgram].map((size) => (
                 <button
                   key={size}
@@ -923,10 +936,23 @@ export default function Hero() {
       ) : (
         // Instant Funding Program View (simpler version)
         <div className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
+          {/* Mobile Account Selector */}
+<div className="block sm:hidden px-4 py-3">
+  <select 
+    className="w-full p-3 rounded-lg bg-[#D90BC6] text-white font-medium text-center"
+    onChange={(e) => handleSizeClick(parseInt(e.target.value))}
+    value={selectedSize}
+  >
+    <option value="" disabled>Select Account Size</option>
+    {accountSizes[selectedProgram].map((size, idx) => (
+      <option key={idx} value={size}>${size.toLocaleString()}</option>
+    ))}
+  </select>
+</div>
           {/* Account Size Tabs */}
   <div className="p-4">
-  <div className="max-w-7xl  bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7 flex flex-wrap justify-center gap-2">
-      {accountSizes[selectedProgram].map((size) => (
+  <div className="hidden sm:flex max-w-7xl bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7 flex-wrap justify-center gap-2">
+  {accountSizes[selectedProgram].map((size) => (
         <button
           key={size}
           className={`w-[120px]  sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] mx-1 sm:mx-2 ${

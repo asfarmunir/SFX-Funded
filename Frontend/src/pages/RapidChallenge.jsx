@@ -21,6 +21,7 @@ export default function RapidChallenge() {
   const [isLoaded, setIsLoaded] = useState(false);
   
   const accountSizes = [7500, 15000, 30000, 60000, 120000];
+  const [activeAccountSize, setActiveAccountSize] = useState("7500");
   
   // Define table data for each account size
   const tableData = {
@@ -919,87 +920,119 @@ const getTransform = (columnIndex) => {
         </div>
       </div>
 
-      <div className="mt-8 border border-fuchsia-500 rounded-2xl overflow-hidden bg-white">
-      {/* Account Size Tabs */}
-      <div className="p-4">
-        <div className="flex justify-center gap-2">
-          {accountSizes.map((size) => (
-            <button
-              key={size}
-              className={`w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] ${
-                selectedSize === size ? "bg-[#F001E1] text-white" : "bg-[#FFDBFD] text-black"
-              } rounded-md flex items-center justify-center font-medium text-sm sm:text-base`}
-              onClick={() => handleTabClick(size)}
-            >
-              ${size.toLocaleString()}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Phase Headers */}
-      <div className="flex border-b border-gray-200">
-        <div className="flex-1 invisible"></div> {/* Empty space for alignment */}
-        <div className="flex-[5] text-center py-3">
-          <span className="text-fuchsia-600 font-medium">Phase 1</span>
-        </div>
-        <div className="flex-1 text-center py-3 px-4">
-          <span className="text-fuchsia-600 font-medium">Funded</span>
-        </div>
-      </div>
-
-      {/* Table Content */}
-      <div>
-        {/* Trading Period */}
-        <div className="flex border-b border-gray-200">
-          <div className="flex-1 py-3 pl-4 font-medium">Trading Period</div>
-          <div className="flex-[5] text-center py-3">{tableData[selectedSize].tradingPeriod}</div>
-          <div className="flex-1 text-center py-3 px-4">{fundedData.tradingPeriod}</div>
-        </div>
-
-        {/* Maximum Daily Loss */}
-        <div className="flex border-b border-gray-200 bg-fuchsia-50">
-          <div className="flex-1 py-3 pl-4 font-medium">Maximum Daily Loss</div>
-          <div className="flex-[5] text-center py-3">{tableData[selectedSize].maxDailyLoss}</div>
-          <div className="flex-1 text-center py-3 px-4">{fundedData.maxDailyLoss}</div>
-        </div>
-
-        {/* Maximum Loss */}
-        <div className="flex border-b border-gray-200">
-          <div className="flex-1 py-3 pl-4 font-medium">Maximum Loss</div>
-          <div className="flex-[5] text-center py-3">{tableData[selectedSize].maxLoss}</div>
-          <div className="flex-1 text-center py-3 px-4">{fundedData.maxLoss}</div>
-        </div>
-
-        {/* Profit Target */}
-        <div className="flex border-b border-gray-200 bg-fuchsia-50">
-          <div className="flex-1 py-3 pl-4 font-medium">Profit Target</div>
-          <div className="flex-[5] text-center py-3">{tableData[selectedSize].profitTarget}</div>
-          <div className="flex-1 text-center py-3 px-4">{fundedData.profitTarget}</div>
-        </div>
-
-        {/* Leverage */}
-        <div className="flex border-b border-gray-200">
-          <div className="flex-1 py-3 pl-4 font-medium">Leverage</div>
-          <div className="flex-[5] text-center py-3">{tableData[selectedSize].leverage}</div>
-          <div className="flex-1 text-center py-3 px-4">{fundedData.leverage}</div>
-        </div>
-
-        {/* Reward Schedule */}
-        <div className="flex border-b border-gray-200 bg-fuchsia-50">
-          <div className="flex-1 py-3 pl-4 font-medium">Reward Schedule</div>
-          <div className="flex-[5] text-center py-3">{tableData[selectedSize].rewardSchedule}</div>
-          <div className="flex-1 text-center py-3 px-4">{fundedData.rewardSchedule}</div>
-        </div>
-
-        {/* Profit Split */}
-        <div className="flex border-b border-gray-200">
-          <div className="flex-1 py-3 pl-4 font-medium">Profit Split</div>
-          <div className="flex-[5] text-center py-3">{tableData[selectedSize].profitSplit}</div>
-          <div className="flex-1 text-center py-3 px-4">{fundedData.profitSplit}</div>
-        </div>
-      </div>
+      <div className="mt-8 border border-[#D90BC6] rounded-2xl overflow-hidden bg-white">
+  {/* Mobile Account Selector */}
+  <div className="block sm:hidden px-4 py-3">
+    <select 
+      className="w-full p-3 rounded-lg bg-[#F001E1] text-white font-medium text-center"
+      onChange={(e) => setSelectedSize(e.target.value)}
+      value={selectedSize}
+    >
+      <option value="" disabled>Select Account Size</option>
+      {accountSizes.map((size, idx) => (
+        <option key={idx} value={size}>${size.toLocaleString()}</option>
+      ))}
+    </select>
+  </div>
+  
+  {/* Account Size Tabs */}
+  <div className="hidden sm:block max-w-7xl bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7">
+    <div className="flex flex-wrap justify-center gap-2">
+      {accountSizes.map((size) => (
+        <button
+          key={size}
+          className={`w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] mx-3 sm:mx-4 ${
+            selectedSize === size ? "bg-[#F001E1] text-white" : "bg-[#FFDBFD] text-black"
+          } rounded-md flex items-center justify-center font-medium text-sm sm:text-base transition-all duration-200`}
+          onClick={() => handleTabClick(size)}
+        >
+          ${size.toLocaleString()}
+        </button>
+      ))}
     </div>
+  </div>
+
+  {/* Phase Headers (Desktop only) */}
+  <div className="hidden md:flex border-b border-gray-200">
+    <div className="flex-1 invisible"></div> {/* Empty space for alignment */}
+    <div className="flex-[5] text-center py-3">
+      <span className="text-fuchsia-600 font-medium">Phase 1</span>
+    </div>
+    <div className="flex-1 text-center py-3 px-4">
+      <span className="text-fuchsia-600 font-medium">Funded</span>
+    </div>
+  </div>
+
+  {/* Table Content */}
+  <div>
+    {[
+      {
+        label: "Trading Period",
+        phase1: tableData[selectedSize].tradingPeriod,
+        funded: fundedData.tradingPeriod
+      },
+      {
+        label: "Maximum Daily Loss",
+        phase1: tableData[selectedSize].maxDailyLoss,
+        funded: fundedData.maxDailyLoss,
+        bg: "bg-fuchsia-50"
+      },
+      {
+        label: "Maximum Loss",
+        phase1: tableData[selectedSize].maxLoss,
+        funded: fundedData.maxLoss
+      },
+      {
+        label: "Profit Target",
+        phase1: tableData[selectedSize].profitTarget,
+        funded: fundedData.profitTarget,
+        bg: "bg-fuchsia-50"
+      },
+      {
+        label: "Leverage",
+        phase1: tableData[selectedSize].leverage,
+        funded: fundedData.leverage
+      },
+      {
+        label: "Reward Schedule",
+        phase1: tableData[selectedSize].rewardSchedule,
+        funded: fundedData.rewardSchedule,
+        bg: "bg-fuchsia-50"
+      },
+      {
+        label: "Profit Split",
+        phase1: tableData[selectedSize].profitSplit,
+        funded: fundedData.profitSplit
+      }
+    ].map((row, idx) => (
+      <div
+        key={idx}
+        className={`border-b border-gray-200 ${row.bg || ""}`}
+      >
+        {/* Mobile view: stacked with inline phase labels */}
+        <div className="flex flex-col md:hidden">
+          <div className="py-3 pl-6 font-medium">{row.label}</div>
+          <div className="py-3 flex justify-between px-6">
+            <span className="text-sm font-medium text-fuchsia-500">Phase 1</span>
+            <span>{row.phase1}</span>
+          </div>
+          <div className="py-3 flex justify-between px-6">
+            <span className="text-sm font-medium text-fuchsia-500">Funded</span>
+            <span>{row.funded}</span>
+          </div>
+        </div>
+        
+        {/* Desktop view: horizontal layout */}
+        <div className="hidden md:flex w-full">
+          <div className="flex-1 py-3 pl-6 font-medium">{row.label}</div>
+          <div className="flex-[5] text-center py-3">{row.phase1}</div>
+          <div className="flex-1 text-center py-3 px-4">{row.funded}</div>
+        </div>
+      </div>
+      
+    ))}
+  </div>
+</div>
       
  
            {/* Pricing Box */}

@@ -494,16 +494,22 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
     </select>
   </div>
 
-  {/* Desktop Account Tabs */}
-  <div className="hidden sm:block px-4 mt-6 sm:mt-8">
-    <div className="max-w-7xl mx-auto bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-2 flex flex-wrap justify-center gap-2">
-      <div className="w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] bg-[#F001E1] rounded-md flex items-center justify-center text-white font-medium text-sm sm:text-base">
-        Account Size
-      </div>
+ {/* Desktop Account Tabs */}
+<div className="hidden sm:block px-4 mt-6 sm:mt-8">
+  <div className="max-w-7xl mx-7 bg-white rounded-2xl border border-[#D90BC6] px-4 py-2 my-7 flex flex-wrap items-center justify-between gap-2">
+    {/* Left-aligned static tile */}
+    <div className="w-[120px] sm:w-[140px] md:w-[220px] h-[40px] sm:h-[47px] bg-[#F001E1] rounded-md flex items-center justify-center text-white font-medium text-sm sm:text-base">
+      Account Size
+    </div>
+
+    {/* Right-aligned selectable tiles */}
+    <div className="flex flex-wrap justify-end gap-2 ml-auto">
       {['$10k', '$25k', '$50k', '$100k'].map((size, idx) => (
         <div 
           key={idx}
-          className={`w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] ${selectedAccountIndex === idx ? 'bg-[#F001E1] text-white' : 'bg-[#FFDBFD] text-black'} rounded-md flex items-center justify-center font-medium text-sm sm:text-base cursor-pointer`}
+          className={`w-[120px] sm:w-[140px] md:w-[220px] h-[40px] sm:h-[47px] ${
+            selectedAccountIndex === idx ? 'bg-[#D90BC6] text-white' : 'bg-[#FFDBFD] text-black'
+          } rounded-md flex items-center justify-center font-medium text-sm sm:text-base cursor-pointer`}
           onClick={() => setSelectedAccountIndex(idx)}
         >
           {size}
@@ -511,159 +517,162 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
       ))}
     </div>
   </div>
+</div>
 
-  <div className="w-full">
-    {[
-      { 
-        label: 'Target',
-        values: ['5%', '5%', '5%', '5%']
-      },
-      { 
-        label: 'Max Drawdown',
-        values: ['4% Trailing', '4% Trailing', '4% Trailing', '4% Trailing']
-      },
-      { 
-        label: 'Daily Drawdown',
-        values: ['3% EOD Balance', '3% EOD Balance', '3% EOD Balance', '3% EOD Balance']
-      },
-      { 
-        label: 'Leverage',
-        values: ['Up to 1:30', 'Up to 1:30', 'Up to 1:30', 'Up to 1:30']
-      },
-      { 
-        label: 'Performance Split',
-        values: ['Up to 80%', 'Up to 85%', 'Up to 88%', 'Up to 90%']
-      },
-      { 
-        label: 'Max Trading Days',
-        values: ['7 days (Evaluation)', '7 days (Evaluation)', '7 days (Evaluation)', '7 days (Evaluation)']
-      },
-      { 
-        label: 'Initial Payout Timeframe',
-        values: ['7 days', '7 days', '7 days', '7 days']
-      },
-      { 
-        label: 'Stop Loss Required?',
-        values: ['Yes', 'Yes', 'Yes', 'Yes']
-      },
-      { 
-        label: '30% Consistency Rule',
-        values: ['Evaluation & Funded', 'Evaluation & Funded', 'Evaluation & Funded', 'Evaluation & Funded']
-      },
-      { 
-        label: 'Fee',
-        values: [
-          ['$59 (Monthly)', '$99 (One-time)', '$149 (Quarterly)', '$199 (Yearly)'],
-          ['$119 (Monthly)', '$199 (One-time)', '$299 (Quarterly)', '$399 (Yearly)'],
-          ['$209 (Monthly)', '$349 (One-time)', '$499 (Quarterly)', '$699 (Yearly)'],
-          ['$399 (Monthly)', '$599 (One-time)', '$899 (Quarterly)', '$1199 (Yearly)']
-        ],
-        special: true
-      },
-    ].map((item, idx) => (
-      <div
-        key={idx}
-        className={`flex flex-col sm:flex-row w-full ${idx % 2 === 0 ? 'bg-white' : 'bg-[#FFEFFE]'} border-t border-[#E5E7EB]`}
-      >
-        <div className="p-3 sm:p-4 w-full sm:w-[165px] font-medium text-black pl-4 sm:pl-6">
-          {item.label}
-        </div>
-        
-        {item.special ? (
-          <>
-            {/* Mobile fee view with dropdown */}
-            <div className="block sm:hidden p-3 flex-1">
-              {showFeesOnMobile ? (
-                <div className="space-y-3">
-                  {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0].map((val, i) => (
-                    <div 
-                      key={i} 
-                      className="flex items-center justify-between p-2 bg-[#FFDBFD] rounded-md"
-                      onClick={() => {
-                        setSelectedFeeOption(i);
-                        setShowFeesOnMobile(false);
-                      }}
-                    >
-                      <span className="font-medium">{val}</span>
-                      {selectedFeeOption === i && (
-                        <svg className="w-5 h-5 text-[#F001E1]" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      )}
-                    </div>
-                  ))}
-                  <button 
-                    className="w-full p-2 text-center text-[#F001E1] font-medium border border-[#F001E1] rounded-md mt-2"
-                    onClick={() => setShowFeesOnMobile(false)}
+<div className="w-full">
+  {[
+    { 
+      label: 'Target',
+      values: ['5%', '5%', '5%', '5%']
+    },
+    { 
+      label: 'Max Drawdown',
+      values: ['4% Trailing', '4% Trailing', '4% Trailing', '4% Trailing']
+    },
+    { 
+      label: 'Daily Drawdown',
+      values: ['3% EOD Balance', '3% EOD Balance', '3% EOD Balance', '3% EOD Balance']
+    },
+    { 
+      label: 'Leverage',
+      values: ['Up to 1:30', 'Up to 1:30', 'Up to 1:30', 'Up to 1:30']
+    },
+    { 
+      label: 'Performance Split',
+      values: ['Up to 80%', 'Up to 85%', 'Up to 88%', 'Up to 90%']
+    },
+    { 
+      label: 'Max Trading Days',
+      values: ['7 days (Evaluation)', '7 days (Evaluation)', '7 days (Evaluation)', '7 days (Evaluation)']
+    },
+    { 
+      label: 'Initial Payout Timeframe',
+      values: ['7 days', '7 days', '7 days', '7 days']
+    },
+    { 
+      label: 'Stop Loss Required?',
+      values: ['Yes', 'Yes', 'Yes', 'Yes']
+    },
+    { 
+      label: '30% Consistency Rule',
+      values: ['Evaluation & Funded', 'Evaluation & Funded', 'Evaluation & Funded', 'Evaluation & Funded']
+    },
+    { 
+      label: 'Fee',
+      values: [
+        ['$59', '$99 ', '$149 ', '$199 '],
+        ['$119', '$199', '$299', '$399 '],
+        ['$209 ', '$349 ', '$499 ', '$699 '],
+        ['$399 ', '$599 ', '$899 ', '$1199 ']
+      ],
+      special: true
+    },
+  ].map((item, idx) => (
+    <div
+      key={idx}
+      className={`flex flex-col sm:flex-row w-full ${idx % 2 === 0 ? 'bg-white' : 'bg-[#FFEFFE]'} border-t border-[#E5E7EB]`}
+    >
+      <div className="p-3 sm:p-4 w-full sm:w-[165px] font-medium text-black pl-4 sm:pl-6">
+        {item.label}
+      </div>
+      
+      {item.special ? (
+        <>
+          {/* Mobile fee view with dropdown */}
+          <div className="block sm:hidden p-3 flex-1">
+            {showFeesOnMobile ? (
+              <div className="space-y-3">
+                {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0].map((val, i) => (
+                  <div 
+                    key={i} 
+                    className="flex items-center justify-between p-2 bg-[#FFDBFD] rounded-md"
+                    onClick={() => {
+                      setSelectedFeeOption(i);
+                      setShowFeesOnMobile(false);
+                    }}
                   >
-                    Close
-                  </button>
-                </div>
-              ) : (
-                <div className="flex flex-col gap-2">
-                  <button 
-                    className="w-full p-2 bg-[#F001E1] text-white rounded-md font-medium"
-                    onClick={() => setShowFeesOnMobile(true)}
-                  >
-                    {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0][selectedFeeOption !== null ? selectedFeeOption : 0]}
-                  </button>
-                  <p className="text-xs text-gray-500 text-center">Tap to change fee option</p>
-                </div>
-              )}
-            </div>
-            
-            {/* Desktop fees view - always show all options */}
-            <div className="hidden sm:grid sm:grid-cols-4 gap-2 sm:gap-0 w-full">
-              {item.values.map((feeOptions, accountIdx) => (
-                <div 
-                  key={accountIdx} 
-                  className="p-2 sm:p-4 text-center text-black flex flex-col items-center justify-center text-sm sm:text-base font-medium"
+                    <span className="font-medium">{val}</span>
+                    {selectedFeeOption === i && (
+                      <svg className="w-5 h-5 text-[#F001E1]" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                  </div>
+                ))}
+                <button 
+                  className="w-full p-2 text-center text-[#F001E1] font-medium border border-[#F001E1] rounded-md mt-2"
+                  onClick={() => setShowFeesOnMobile(false)}
                 >
-                  {feeOptions[0]} {/* Only showing the first fee option for each account size in desktop */}
-                </div>
-              ))}
-            </div>
-          </>
-        ) : (
-          <>
-            {/* Mobile view - show only selected account value */}
-            <div className="block sm:hidden p-3 flex-1 text-center text-black">
+                  Close
+                </button>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-2">
+                <button 
+                  className="w-full p-2 bg-[#F001E1] text-white rounded-md font-medium"
+                  onClick={() => setShowFeesOnMobile(true)}
+                >
+                  {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0][selectedFeeOption !== null ? selectedFeeOption : 0]}
+                </button>
+                <p className="text-xs text-gray-500 text-center">Tap to change fee option</p>
+              </div>
+            )}
+          </div>
+          
+          {/* Desktop fees view - show all 4 fee options for the SELECTED account */}
+          <div className="hidden sm:grid sm:grid-cols-4 gap-2 sm:gap-0 w-full">
+            {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0].map((fee, feeIdx) => (
+              <div 
+                key={feeIdx} 
+                className={`p-2 sm:p-4 text-center text-black flex flex-col items-center justify-center text-sm sm:text-base ${
+                  selectedFeeOption === feeIdx ? 'font-base text-[#F001E1]' : 'font-base'
+                }`}
+              >
+                {fee}
+              </div>
+            ))}
+          </div>
+        </>
+      ) : (
+        <>
+          {/* Mobile view - show only selected account value */}
+          <div className="block sm:hidden p-3 flex-1 text-center text-black">
+            {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0]}
+          </div>
+          
+          {/* Desktop view - show selected account values in a row */}
+          <div className="hidden sm:flex sm:flex-1">
+            <div className="p-2 sm:p-4 text-center text-black flex items-center justify-center text-sm sm:text-base font-base flex-1">
               {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0]}
             </div>
-            
-            {/* Desktop view - show only selected account value (except for fee row) */}
-            <div className="hidden sm:flex sm:flex-1">
-              <div className="p-2 sm:p-4 text-center text-black flex items-center justify-center text-sm sm:text-base font-medium flex-1">
-                {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0]}
-              </div>
-            </div>
-          </>
-        )}
+          </div>
+        </>
+      )}
+    </div>
+  ))}
+
+  {/* Desktop - show 4 buttons aligned with fee options */}
+  <div className="hidden sm:grid sm:grid-cols-4 gap-4 p-4 ml-[165px] w-[calc(100%-165px)]">
+    {['Monthly', 'One-time', 'Quarterly', 'Yearly'].map((plan, idx) => (
+      <div key={idx} className="flex justify-center">
+        <button
+          className="w-[140px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] text-white rounded-lg bg-[#F001E1] hover:bg-[#D900D1] transition-colors font-medium text-sm sm:text-base flex items-center justify-center"
+        >
+          Start Trading
+        </button>
       </div>
     ))}
-
-    {/* Desktop - always show all buttons */}
-    <div className="hidden sm:flex sm:flex-nowrap sm:justify-between gap-4 p-4 sm:px-6 sm:py-6 w-full overflow-x-auto">
-  <div className="w-[165px] hidden sm:block"></div>
-  {Array(4).fill(0).map((_, idx) => (
-    <button
-      key={idx}
-      className="w-[140px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] text-white rounded-lg bg-[#F001E1] hover:bg-[#D900D1] transition-colors font-medium text-sm sm:text-base flex items-center justify-center"
-    >
-      Start Trading
-    </button>
-  ))}
-</div>
-    
-    {/* Mobile - show only selected button */}
-    <div className="flex sm:hidden justify-center p-4">
-      <button
-        className="w-[200px] h-[40px] text-white rounded-lg bg-[#F001E1] hover:bg-[#D900D1] transition-colors font-medium text-sm flex items-center justify-center"
-      >
-        Start Trading - {selectedAccountIndex !== null ? ['$10k', '$25k', '$50k', '$100k'][selectedAccountIndex] : '$10k'}
-      </button>
-    </div>
   </div>
+  
+  {/* Mobile - show only selected button */}
+  <div className="flex sm:hidden justify-center p-4">
+    <button
+      className="w-[200px] h-[40px] text-white rounded-lg bg-[#F001E1] hover:bg-[#D900D1] transition-colors font-medium text-sm flex items-center justify-center"
+    >
+      Start Trading - {selectedAccountIndex !== null ? ['$10k', '$25k', '$50k', '$100k'][selectedAccountIndex] : '$10k'}
+    </button>
+  </div>
+</div>
 </div>
 
           {/* Pricing Box */}

@@ -813,8 +813,8 @@ export default function Hero() {
         <button
           className={`w-[160px] sm:w-[180px] ${
             selectedProgram === 'rapid' 
-              ? 'bg-fuchsia-500 text-white' 
-              : 'bg-white text-fuchsia-500 border border-[rgba(217,11,198,1)]'
+              ? 'bg-[#D90BC6] text-white' 
+              : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
           } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
           onClick={() => handleProgramClick('rapid')}
         >
@@ -825,8 +825,8 @@ export default function Hero() {
         <button
           className={`w-[160px] sm:w-[180px] ${
             selectedProgram === 'ignite' 
-              ? 'bg-fuchsia-500 text-white' 
-              : 'bg-white text-fuchsia-500 border border-[rgba(217,11,198,1)]'
+              ? 'bg-[#D90BC6] text-white' 
+              : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
           } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
           onClick={() => handleProgramClick('ignite')}
         >
@@ -837,8 +837,8 @@ export default function Hero() {
         <button
           className={`w-[160px] sm:w-[180px] ${
             selectedProgram === 'ascend' 
-              ? 'bg-fuchsia-500 text-white' 
-              : 'bg-white text-fuchsia-500 border border-[rgba(217,11,198,1)]'
+              ? 'bg-[#D90BC6] text-white' 
+              : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
           } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
           onClick={() => handleProgramClick('ascend')}
         >
@@ -849,8 +849,8 @@ export default function Hero() {
         <button
           className={`w-[160px] sm:w-[180px] ${
             selectedProgram === 'instant' 
-              ? 'bg-fuchsia-500 text-white' 
-              : 'bg-white text-fuchsia-500 border border-[rgba(217,11,198,1)]'
+              ? 'bg-[#D90BC6] text-white' 
+              : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
           } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
           onClick={() => handleProgramClick('instant')}
         >
@@ -867,12 +867,12 @@ export default function Hero() {
         <div className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
           {/* Account Size Tabs */}
           <div className="p-4">
-            <div className="flex flex-wrap justify-center gap-2">
+          <div className="max-w-7xl  bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7 flex flex-wrap justify-center gap-2">
               {accountSizes[selectedProgram].map((size) => (
                 <button
                   key={size}
-                  className={`w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] ${
-                    selectedSize === size ? 'bg-fuchsia-500' : 'bg-fuchsia-100'
+                  className={`w-[130px]  sm:w-[140px] md:w-[175px] h-[40px] sm:h-[47px] mx-1 sm:mx-2 ${
+                    selectedSize === size ? 'bg-[#D90BC6]' : 'bg-fuchsia-100'
                   } rounded-md flex items-center justify-center ${
                     selectedSize === size ? 'text-white' : 'text-black'
                   } font-medium text-sm sm:text-base`}
@@ -888,15 +888,15 @@ export default function Hero() {
 <div className="grid grid-cols-4 border-b border-gray-200">
   <div className="invisible"></div>
   <div className="text-center py-3">
-    <span className="text-fuchsia-500 font-medium">Phase 1</span>
+    <span className="text-[#D90BC6] font-medium">Phase 1</span>
   </div>
   <div className="text-center py-3">
-    <span className="text-fuchsia-500 font-medium">
+    <span className="text-[#D90BC6] font-medium">
       {selectedProgram !== 'rapid' ? 'Phase 2' : ' '}
     </span>
   </div>
   <div className="text-center py-3">
-    <span className="text-fuchsia-500 font-medium">Funded</span>
+    <span className="text-[#D90BC6] font-medium">Funded</span>
   </div>
 </div>
 
@@ -925,12 +925,12 @@ export default function Hero() {
         <div className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
           {/* Account Size Tabs */}
   <div className="p-4">
-    <div className="flex flex-wrap justify-center gap-2">
+  <div className="max-w-7xl  bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7 flex flex-wrap justify-center gap-2">
       {accountSizes[selectedProgram].map((size) => (
         <button
           key={size}
-          className={`w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] ${
-            selectedSize === size ? 'bg-fuchsia-500' : 'bg-fuchsia-100'
+          className={`w-[120px]  sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] mx-1 sm:mx-2 ${
+            selectedSize === size ? 'bg-[#D90BC6]' : 'bg-fuchsia-100'
           } rounded-md flex items-center justify-center ${
             selectedSize === size ? 'text-white' : 'text-black'
           } font-medium text-sm sm:text-base`}
@@ -945,7 +945,7 @@ export default function Hero() {
   {/* Funded Account Details */}
   <div className="grid grid-cols-2 border-b border-gray-200">
     <div className="py-3 pl-4 font-medium"></div>
-    <div className="text-center py-3 text-fuchsia-500 font-medium">Funded</div>
+    <div className="text-center py-3 text-[#D90BC6] font-medium">Funded</div>
   </div>
   <div className="grid grid-cols-2 border-b border-gray-200 ">
     <div className="py-3 pl-4 font-medium">Trading Period</div>

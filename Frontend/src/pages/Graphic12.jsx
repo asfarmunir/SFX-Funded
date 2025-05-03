@@ -750,8 +750,8 @@ const getTransform = (columnIndex) => {
         <div 
           className={`w-[180px] rounded-lg py-3 px-6 text-white font-medium flex items-center justify-center cursor-pointer transition-all duration-200 ${
             activeFundingType === "ignite" 
-              ? "bg-fuchsia-500 transform -translate-y-1 shadow-lg" 
-              : "bg-fuchsia-400 hover:bg-fuchsia-500"
+              ? "bg-[#D90BC6] transform -translate-y-1 shadow-lg" 
+              : "bg-[#D90BC6] hover:bg-fuchsia-500"
           }`}
           onClick={() => setActiveFundingType("ignite")}
         >
@@ -761,8 +761,8 @@ const getTransform = (columnIndex) => {
         <div 
           className={`w-[180px] rounded-lg py-3 px-6 text-white font-medium flex items-center justify-center cursor-pointer transition-all duration-200 ${
             activeFundingType === "ascend" 
-              ? "bg-fuchsia-500 transform -translate-y-1 shadow-lg" 
-              : "bg-fuchsia-400 hover:bg-fuchsia-500"
+              ? "bg-[#D90BC6] transform -translate-y-1 shadow-lg" 
+              : "bg-[#D90BC6] hover:bg-fuchsia-500"
           }`}
           onClick={() => setActiveFundingType("ascend")}
         >
@@ -774,101 +774,110 @@ const getTransform = (columnIndex) => {
       
 
       {/* Account Table */}
-      <div className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
-        {/* Account Size Tabs */}
-        <div className="p-4">
-          <div className="flex justify-center gap-2">
-            {accountSizes.map((size) => (
-              <div
-                key={size}
-                className={`w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] rounded-md flex items-center justify-center font-medium text-sm sm:text-base cursor-pointer transition-all duration-200 ${
-                  activeAccountSize === size
-                    ? "bg-fuchsia-500 transform -translate-y-1 shadow-md text-white"
-                    : "bg-fuchsia-100 text-black hover:bg-fuchsia-200"
-                }`}
-                onClick={() => setActiveAccountSize(size)}
-              >
-                ${size}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Phase Headers */}
-        <div className="grid grid-cols-4 border-b border-gray-200">
-          <div className="invisible"></div> {/* Empty space for alignment */}
-          <div className="text-center py-3">
-            <span className="text-fuchsia-600 font-medium">Phase 1</span>
-          </div>
-          <div className="text-center py-3">
-            <span className="text-fuchsia-600 font-medium">Phase 2</span>
-          </div>
-          <div className="text-center py-3">
-            <span className="text-fuchsia-600 font-medium">Funded</span>
-          </div>
-        </div>
-
-        {/* Table Content */}
-        <div>
-          {/* Trading Period */}
-          <div className="grid grid-cols-4 border-b border-gray-200">
-            <div className="py-3 pl-4 font-medium">Trading Period</div>
-            <div className="text-center py-3">{activeData.tradingPeriod[0]}</div>
-            <div className="text-center py-3">{activeData.tradingPeriod[1]}</div>
-            <div className="text-center py-3">{activeData.tradingPeriod[2]}</div>
-          </div>
-
-          {/* Maximum Daily Loss */}
-          <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
-            <div className="py-3 pl-4 font-medium">Maximum Daily Loss</div>
-            <div className="text-center py-3">{activeData.maxDailyLoss[0]}</div>
-            <div className="text-center py-3">{activeData.maxDailyLoss[1]}</div>
-            <div className="text-center py-3">{activeData.maxDailyLoss[2]}</div>
-          </div>
-
-          {/* Maximum Loss */}
-          <div className="grid grid-cols-4 border-b border-gray-200">
-            <div className="py-3 pl-4 font-medium">Maximum Loss</div>
-            <div className="text-center py-3">{activeData.maxLoss[0]}</div>
-            <div className="text-center py-3">{activeData.maxLoss[1]}</div>
-            <div className="text-center py-3">{activeData.maxLoss[2]}</div>
-          </div>
-
-          {/* Profit Target */}
-          <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
-            <div className="py-3 pl-4 font-medium">Profit Target</div>
-            <div className="text-center py-3">{activeData.profitTarget[0]}</div>
-            <div className="text-center py-3">{activeData.profitTarget[1]}</div>
-            <div className="text-center py-3">{activeData.profitTarget[2]}</div>
-          </div>
-
-          {/* Leverage */}
-          <div className="grid grid-cols-4 border-b border-gray-200">
-            <div className="py-3 pl-4 font-medium">Leverage</div>
-            <div className="text-center py-3">{activeData.leverage[0]}</div>
-            <div className="text-center py-3">{activeData.leverage[1]}</div>
-            <div className="text-center py-3">{activeData.leverage[2]}</div>
-          </div>
-
-          {/* Reward Schedule */}
-          <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
-            <div className="py-3 pl-4 font-medium">Reward Schedule</div>
-            <div className="text-center py-3">{activeData.rewardSchedule[0]}</div>
-            <div className="text-center py-3">{activeData.rewardSchedule[1]}</div>
-            <div className="text-center py-3">
-              <span className="whitespace-nowrap">{activeData.rewardSchedule[2]}</span>
-            </div>
-          </div>
-
-          {/* Profit Split */}
-          <div className="grid grid-cols-4 border-b border-gray-200">
-            <div className="py-3 pl-4 font-medium">Profit Split</div>
-            <div className="text-center py-3">{activeData.profitSplit[0]}</div>
-            <div className="text-center py-3">{activeData.profitSplit[1]}</div>
-            <div className="text-center py-3">{activeData.profitSplit[2]}</div>
-          </div>
-        </div>
+<div className="mt-8 border border-[#D90BC6] rounded-2xl overflow-hidden bg-white">
+  
+  {/* Mobile Account Selector - Added to match table 1 */}
+  <div className="block md:hidden px-4 py-3">
+    <select 
+      className="w-full p-3 rounded-lg bg-[#F001E1] text-white font-medium text-center"
+      onChange={(e) => setActiveAccountSize(e.target.value)}
+      value={activeAccountSize}
+    >
+      <option value="" disabled>Select Account Size</option>
+      {accountSizes.map((size, idx) => (
+        <option key={idx} value={size}>${size}</option>
+      ))}
+    </select>
+  </div>
+  
+  {/* Account Size Tabs - Desktop only */}
+  <div className="hidden md:flex max-w-7xl bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-5 mx-4 sm:mx-7 flex-wrap justify-center gap-2">
+    {accountSizes.map((size) => (
+      <div
+        key={size}
+        className={`w-[90px] sm:w-[110px] md:w-[130px] h-[34px] sm:h-[40px] rounded-md flex items-center justify-center font-medium text-xs sm:text-sm md:text-base cursor-pointer transition-all duration-200 mx-1 sm:mx-2 ${
+          activeAccountSize === size
+            ? "bg-[#D90BC6] transform -translate-y-1 shadow-md text-white"
+            : "bg-fuchsia-100 text-black hover:bg-fuchsia-200"
+        }`}
+        onClick={() => setActiveAccountSize(size)}
+      >
+        ${size}
       </div>
+    ))}
+  </div>
+
+  {/* Phase Headers - Desktop only */}
+  <div className="hidden md:grid grid-cols-4 border-b border-gray-200">
+    <div className="invisible"></div> {/* Empty space for alignment */}
+    <div className="text-center py-3">
+      <span className="text-[#D90BC6] font-medium">Phase 1</span>
+    </div>
+    <div className="text-center py-3">
+      <span className="text-fuchsia-600 font-medium">Phase 2</span>
+    </div>
+    <div className="text-center py-3">
+      <span className="text-[#D90BC6] font-medium">Funded</span>
+    </div>
+  </div>
+
+  {/* Table Content */}
+  <div>
+    {[
+      {
+        label: "Trading Period",
+        values: activeData.tradingPeriod
+      },
+      {
+        label: "Maximum Daily Loss",
+        values: activeData.maxDailyLoss,
+        bg: "bg-fuchsia-50"
+      },
+      {
+        label: "Maximum Loss",
+        values: activeData.maxLoss
+      },
+      {
+        label: "Profit Target",
+        values: activeData.profitTarget,
+        bg: "bg-fuchsia-50"
+      },
+      {
+        label: "Leverage",
+        values: activeData.leverage
+      },
+      {
+        label: "Reward Schedule",
+        values: activeData.rewardSchedule,
+        bg: "bg-fuchsia-50"
+      },
+      {
+        label: "Profit Split",
+        values: activeData.profitSplit
+      }
+    ].map((row, idx) => (
+      <div
+        key={idx}
+        className={`grid md:grid-cols-4 flex flex-col md:flex-row border-b border-gray-200 ${row.bg || ""}`}
+      >
+        <div className="py-3 pl-6 font-medium">{row.label}</div>
+
+        {/* Mobile phase titles inline */}
+        {["Phase 1", "Phase 2", "Funded"].map((phase, i) => (
+          <div
+            key={i}
+            className="py-3 flex justify-between px-6 md:block md:text-center"
+          >
+            <span className="text-sm font-medium text-fuchsia-500 md:hidden">
+              {phase}
+            </span>
+            <span>{row.values[i]}</span>
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>
     </div>
     
 

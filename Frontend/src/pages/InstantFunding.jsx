@@ -13,6 +13,7 @@ export default function InstantFunding() {
   
    // Define account sizes
    const accountSizes = [1000, 2500, 5000, 10000, 25000, 50000];
+     const [selectedAccountIndex, setSelectedAccountIndex] = useState(0);
   
    // Define table data for each account size
    const tableData = {
@@ -1088,99 +1089,158 @@ export default function InstantFunding() {
         </div>
       </div>
       
-      <div className="mt-8 border border-fuchsia-500 rounded-2xl overflow-hidden bg-white">
+      
+      <div className="mt-8 border border-[#D90BC6] rounded-2xl overflow-hidden bg-white">
+        {/* Mobile Account Selector */}
+{/* Mobile Account Selector */}
+<div className="block sm:hidden px-4 py-3">
+  <select 
+    className="w-full p-3 rounded-lg bg-[#F001E1] text-white font-medium text-center"
+    onChange={(e) => setSelectedSize(e.target.value)}
+    value={selectedSize}
+  >
+    <option value="" disabled>Select Account Size</option>
+    {accountSizes.map((size, idx) => (
+      <option key={idx} value={size}>${size}</option>
+    ))}
+  </select>
+</div>
+
       {/* Account Size Tabs */}
-      <div className="p-4 border-b border-fuchsia-200">
-        <div className="flex flex-wrap justify-center gap-2">
-          <div className="w-24 sm:w-28 md:w-32 h-10 bg-fuchsia-500 rounded-md flex items-center justify-center text-white font-medium text-sm sm:text-base">
-            Account Size
-          </div>
-          {accountSizes.map((size) => (
-            <button
-              key={size}
-              className={`w-24 sm:w-28 md:w-32 h-10 ${
-                selectedSize === size ? "bg-fuchsia-500 text-white" : "bg-fuchsia-100 text-black"
-              } rounded-md flex items-center justify-center font-medium text-sm sm:text-base`}
-              onClick={() => handleTabClick(size)}
-            >
-              ${size.toLocaleString()}
-            </button>
-          ))}
-        </div>
-      </div>
+      <div className="hidden sm:block max-w-7xl bg-white rounded-2xl border border-[#D90BC6] py-2 my-7 mx-4 sm:mx-7">
+  <div className="flex flex-wrap justify-between items-center gap-y-2 px-2">
 
-      {/* Phase Headers */}
-      <div className="grid grid-cols-4 border-b border-gray-200">
-        <div className="py-3 pl-6"></div>
-        <div className="py-3 text-center">
-          <span className="text-fuchsia-500 font-medium">Phase 1</span>
-        </div>
-        <div className="py-3 text-center">
-          <span className="text-fuchsia-500 font-medium">Phase 2</span>
-        </div>
-        <div className="py-3 text-center">
-          <span className="text-fuchsia-500 font-medium">Funded</span>
-        </div>
-      </div>
+    {/* Left-aligned label */}
+    <div className="w-[110px] sm:w-[130px] md:w-[150px] h-10 bg-[#D90BC6] rounded-md flex items-center justify-center text-white font-medium text-sm sm:text-base">
+      Account Size
+    </div>
 
-      {/* Table Content */}
-      <div>
-        {/* Trading Period */}
-        <div className="grid grid-cols-4 border-b border-gray-200">
-          <div className="py-3 pl-6 font-medium">Trading Period</div>
-          <div className="py-3 text-center">{tableData[selectedSize].phase1.tradingPeriod}</div>
-          <div className="py-3 text-center">{tableData[selectedSize].phase2.tradingPeriod}</div>
-          <div className="py-3 text-center">{fundedData.tradingPeriod}</div>
-        </div>
+    {/* Right-aligned value buttons */}
+    <div className="flex flex-wrap justify-end gap-1 sm:gap-2">
+      {accountSizes.map((size) => (
+        <button
+          key={size}
+          className={`
+            w-[95px] sm:w-[110px] md:w-[131px] h-10 
+            ${selectedSize === size 
+              ? "bg-[#D90BC6] text-white" 
+              : "bg-fuchsia-100 text-black hover:bg-fuchsia-200"}
+            rounded-md flex items-center justify-center 
+            font-medium text-xs sm:text-sm md:text-base 
+            transition-all duration-200
+          `}
+          onClick={() => handleTabClick(size)}
+        >
+          ${size}
+        </button>
+      ))}
+    </div>
 
-        {/* Maximum Daily Loss */}
-        <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
-          <div className="py-3 pl-6 font-medium">Maximum Daily Loss</div>
-          <div className="py-3 text-center">{tableData[selectedSize].phase1.maxDailyLoss}</div>
-          <div className="py-3 text-center">{tableData[selectedSize].phase2.maxDailyLoss}</div>
-          <div className="py-3 text-center">{fundedData.maxDailyLoss}</div>
-        </div>
+  </div>
+</div>
 
-        {/* Maximum Loss */}
-        <div className="grid grid-cols-4 border-b border-gray-200">
-          <div className="py-3 pl-6 font-medium">Maximum Loss</div>
-          <div className="py-3 text-center">{tableData[selectedSize].phase1.maxLoss}</div>
-          <div className="py-3 text-center">{tableData[selectedSize].phase2.maxLoss}</div>
-          <div className="py-3 text-center">{fundedData.maxLoss}</div>
-        </div>
 
-        {/* Profit Target */}
-        <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
-          <div className="py-3 pl-6 font-medium">Profit Target</div>
-          <div className="py-3 text-center">{tableData[selectedSize].phase1.profitTarget}</div>
-          <div className="py-3 text-center">{tableData[selectedSize].phase2.profitTarget}</div>
-          <div className="py-3 text-center">{fundedData.profitTarget}</div>
-        </div>
 
-        {/* Leverage */}
-        <div className="grid grid-cols-4 border-b border-gray-200">
-          <div className="py-3 pl-6 font-medium">Leverage</div>
-          <div className="py-3 text-center">{tableData[selectedSize].phase1.leverage}</div>
-          <div className="py-3 text-center">{tableData[selectedSize].phase2.leverage}</div>
-          <div className="py-3 text-center">{fundedData.leverage}</div>
-        </div>
+     {/* Phase Headers (Desktop only) */}
+<div className="hidden md:grid grid-cols-4 border-b border-gray-200">
+  <div className="py-3 pl-6"></div>
+  <div className="py-3 text-center">
+    <span className="text-fuchsia-500 font-medium">Phase 1</span>
+  </div>
+  <div className="py-3 text-center">
+    <span className="text-fuchsia-500 font-medium">Phase 2</span>
+  </div>
+  <div className="py-3 text-center">
+    <span className="text-fuchsia-500 font-medium">Funded</span>
+  </div>
+</div>
 
-        {/* Reward Schedule */}
-        <div className="grid grid-cols-4 border-b border-gray-200 bg-fuchsia-50">
-          <div className="py-3 pl-6 font-medium">Reward Schedule</div>
-          <div className="py-3 text-center">{tableData[selectedSize].phase1.rewardSchedule}</div>
-          <div className="py-3 text-center">{tableData[selectedSize].phase2.rewardSchedule}</div>
-          <div className="py-3 text-center">{fundedData.rewardSchedule}</div>
-        </div>
+{/* Table Content */}
+<div>
+  {[
+    {
+      label: "Trading Period",
+      values: [
+        tableData[selectedSize].phase1.tradingPeriod,
+        tableData[selectedSize].phase2.tradingPeriod,
+        fundedData.tradingPeriod,
+      ],
+    },
+    {
+      label: "Maximum Daily Loss",
+      values: [
+        tableData[selectedSize].phase1.maxDailyLoss,
+        tableData[selectedSize].phase2.maxDailyLoss,
+        fundedData.maxDailyLoss,
+      ],
+      bg: "bg-fuchsia-50",
+    },
+    {
+      label: "Maximum Loss",
+      values: [
+        tableData[selectedSize].phase1.maxLoss,
+        tableData[selectedSize].phase2.maxLoss,
+        fundedData.maxLoss,
+      ],
+    },
+    {
+      label: "Profit Target",
+      values: [
+        tableData[selectedSize].phase1.profitTarget,
+        tableData[selectedSize].phase2.profitTarget,
+        fundedData.profitTarget,
+      ],
+      bg: "bg-fuchsia-50",
+    },
+    {
+      label: "Leverage",
+      values: [
+        tableData[selectedSize].phase1.leverage,
+        tableData[selectedSize].phase2.leverage,
+        fundedData.leverage,
+      ],
+    },
+    {
+      label: "Reward Schedule",
+      values: [
+        tableData[selectedSize].phase1.rewardSchedule,
+        tableData[selectedSize].phase2.rewardSchedule,
+        fundedData.rewardSchedule,
+      ],
+      bg: "bg-fuchsia-50",
+    },
+    {
+      label: "Profit Split",
+      values: [
+        tableData[selectedSize].phase1.profitSplit,
+        tableData[selectedSize].phase2.profitSplit,
+        fundedData.profitSplit,
+      ],
+    },
+  ].map((row, idx) => (
+    <div
+      key={idx}
+      className={`grid md:grid-cols-4 flex flex-col md:flex-row border-b border-gray-200 ${row.bg || ""}`}
+    >
+      <div className="py-3 pl-6 font-medium">{row.label}</div>
 
-        {/* Profit Split */}
-        <div className="grid grid-cols-4 border-b border-gray-200">
-          <div className="py-3 pl-6 font-medium">Profit Split</div>
-          <div className="py-3 text-center">{tableData[selectedSize].phase1.profitSplit}</div>
-          <div className="py-3 text-center">{tableData[selectedSize].phase2.profitSplit}</div>
-          <div className="py-3 text-center">{fundedData.profitSplit}</div>
+      {/* Mobile phase titles inline */}
+      {["Phase 1", "Phase 2", "Funded"].map((phase, i) => (
+        <div
+          key={i}
+          className="py-3 flex justify-between px-6 md:block md:text-center"
+        >
+          <span className="text-sm font-medium text-fuchsia-500 md:hidden">
+            {phase}
+          </span>
+          <span>{row.values[i]}</span>
         </div>
-      </div>
+      ))}
+    </div>
+  ))}
+</div>
+
+
     </div>
     </div>
         

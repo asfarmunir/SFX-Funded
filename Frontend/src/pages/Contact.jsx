@@ -54,10 +54,10 @@ export default function Contact() {
         text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
         leading-none tracking-tight"
         style={{
-          fontFamily: "Oswald, sans-serif",
+          fontFamily: "Inter, sans-serif",
           fontWeight: 600,
           fontSize: "125.22px",
-          letterSpacing: "-7.64px",
+          
         }}>
         <span>CONTACT</span>{" "}
         <span className="text-[#fcfbfc]">US</span>

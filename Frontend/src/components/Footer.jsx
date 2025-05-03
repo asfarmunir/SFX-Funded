@@ -74,122 +74,62 @@ export default function Footer() {
           ))}
         </motion.div>
   
+        <div className="container mx-auto">
         {/* Main Content */}
-        <div className="max-w-6xl mx-auto px-4">
-          {/* Logo and Contact Info */}
-          <motion.div 
-            className="flex flex-col items-center md:items-start mb-10"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ margin: "-100px" }}
-          >
-            <motion.div 
-              className="mb-6"
-              variants={fadeInUp}
-            >
+        <div className="max-w-6xl mx-auto px-4 py-6">
+          {/* Logo and Info Row */}
+          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', marginBottom: '40px' }}>
+            {/* Logo */}
+            <div style={{ flex: '0 0 auto' }}>
               <img 
                 src="/sfxnew.svg" 
                 alt="SFX Funded Logo" 
-                className="h-16 object-contain"
+                style={{ height: '120px', width: 'auto' , marginRight: '10px'}}
               />
-            </motion.div>
+            </div>
             
-            <motion.div 
-              className="flex flex-col items-center md:items-start"
-              variants={fadeInUp}
-            >
-              <motion.div 
-                className="flex items-center space-x-2 mb-2"
-                variants={fadeInUp}
-              >
-                <div className="flex items-center justify-center">
-  <img src="/5star.svg" alt="5 Star Rating" className="w-28 h-auto" />
-</div>
-
-              </motion.div>
+            {/* Contact Info */}
+            <div style={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {/* Star Rating */}
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <img src="/5star.svg" alt="5 Star Rating" style={{ width: '140px', height: 'auto' }} />
+              </div>
               
-              <motion.div 
-                className="flex items-center mb-3"
-                variants={fadeInUp}
-              >
-                <svg className="w-5 h-5 mr-2 text-white" viewBox="0 0 24 24" fill="currentColor">
+              {/* Email */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <svg style={{ width: '20px', height: '20px', color: 'white' }} viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" />
                 </svg>
-                <span className="text-base">support@sfxfunded.com</span>
-              </motion.div>
+                <span style={{ fontSize: '14px' }}>support@sfxfunded.com</span>
+              </div>
               
-              <motion.div 
-                className="flex items-start"
-                variants={fadeInUp}
-              >
-                <svg className="w-5 h-5 mr-2 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+              {/* Address */}
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                <svg style={{ width: '20px', height: '20px', color: 'white', marginTop: '3px', flexShrink: 0 }} viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" />
                 </svg>
-                <span className="text-base">23691-001, A2 Building IFZA Business Park, DDP, DSO, Dubai, UAE</span>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-  
-          {/* Resources Columns */}
-          <motion.div 
-            className="grid grid-cols-2 gap-4 md:gap-8 lg:gap-16 mb-10"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ margin: "-100px" }}
-          >
-            <motion.div 
-              className="flex flex-col items-start"
-              variants={fadeInUp}
-            >
-              <motion.h3 
-                className="text-lg font-bold mb-4"
-                variants={fadeInUp}
-              >
-                Resources
-              </motion.h3>
-              <ul className="space-y-2">
-                <motion.li 
-                  className="hover:text-gray-300 cursor-pointer"
-                  variants={fadeInUp}
-                >
-                  Join Discord
-                </motion.li>
-                <motion.li 
-                  className="hover:text-gray-300 cursor-pointer"
-                  variants={fadeInUp}
-                >
-                  Dashboard
-                </motion.li>
-              </ul>
-            </motion.div>
+                <span style={{ fontSize: '14px' }}>23691-001, A2 Building IFZA Business Park, DDP, DSO, Dubai, UAE</span>
+              </div>
+            </div>
             
-            <motion.div 
-              className="flex flex-col items-start"
-              variants={fadeInUp}
-            >
-              <motion.h3 
-                className="text-lg font-bold mb-4"
-                variants={fadeInUp}
-              >
-                Resources
-              </motion.h3>
-              <ul className="space-y-2">
-                <motion.li 
-                  className="hover:text-gray-300 cursor-pointer"
-                  variants={fadeInUp}
-                >
-                  FAQs
-                </motion.li>
-                <motion.li 
-                  className="hover:text-gray-300 cursor-pointer"
-                  variants={fadeInUp}
-                >
-                  Contact Us
-                </motion.li>
-              </ul>
-            </motion.div>
-          </motion.div>
-        </div>
+            {/* Resources Links */}
+            <div style={{ flex: '0 0 auto', display: 'flex', gap: '30px' }}>
+              {/* First Resources Column */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <h3 style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '10px' }}>Resources</h3>
+                <a href="#" style={{ fontSize: '14px', color: 'white', textDecoration: 'none' }}>Join Discord</a>
+                <a href="#" style={{ fontSize: '14px', color: 'white', textDecoration: 'none' }}>Dashboard</a>
+              </div>
+              
+              {/* Second Resources Column */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <h3 style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '10px' }}>Resources</h3>
+                <a href="#" style={{ fontSize: '14px', color: 'white', textDecoration: 'none' }}>FAQs</a>
+                <a href="#" style={{ fontSize: '14px', color: 'white', textDecoration: 'none' }}>Contact Us</a>
+              </div>
+            </div>
+          </div>
+          </div></div>
   
         {/* Disclaimer */}
         <motion.div 

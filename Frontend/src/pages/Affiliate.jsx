@@ -240,8 +240,8 @@ export default function RapidChallenge() {
             style={{
               fontFamily: "Inter, sans-serif",
               fontWeight: 600,
-              fontSize: "125.22px",
-              
+              fontSize: "clamp(2.5rem, 10vw, 105px)",
+              letterSpacing: window.innerWidth < 640 ? "-2px" : "-7.64px",
             }}
           variants={slideUp}
           custom={0}

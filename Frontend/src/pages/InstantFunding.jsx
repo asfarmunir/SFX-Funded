@@ -462,10 +462,10 @@ export default function InstantFunding() {
       leading-none tracking-tight"style={{
         fontFamily: "Oswald, sans-serif",
         fontWeight: 600,
-        fontSize: "125.22px",
-        letterSpacing: "-7.64px",
+        fontSize: "clamp(2.5rem, 8vw, 100px)",
+        letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
       }}>
-      <span className="text-[#DE00DE]">FASTEST </span> <span className="text-[#fcfbfc]"> WAY TO A </span>{" "}
+      <span className="text-[#DE00DE]">FASTEST </span> <span className="text-[#fcfbfc]"> WAY TO A </span>{" "} <br />
       <span className="text-[#DE00DE]">FUNDED </span>
       <span className="text-[#fcfbfc]"> TRADING</span>
       <span className="text-[#DE00DE]"> ACCOUNT</span>
@@ -478,8 +478,8 @@ export default function InstantFunding() {
       leading-none tracking-tight mt-3 sm:mt-4 md:mt-5"style={{
         fontFamily: "Oswald, sans-serif",
         fontWeight: 600,
-        fontSize: "60.22px",
-        letterSpacing: "-3.64px",
+        fontSize: "clamp(1.5rem, 8vw, 60px)",
+        letterSpacing: window.innerWidth < 640 ? "-3px" : "-5.64px",
       }}>
       <span >CAPITAL IN </span> <span className="text-[#DE00DE]">MINUTES. </span> <span> REWARD IN </span> <span className="text-[#DE00DE]">DAYS. </span>{" "}
     </h2>

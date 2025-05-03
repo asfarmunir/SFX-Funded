@@ -101,8 +101,9 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
   style={{
     fontFamily: "Oswald, sans-serif",
     fontWeight: 600,
-    fontSize: "125.22px",
-    letterSpacing: "-7.64px",
+    fontSize: "clamp(2.5rem, 8vw, 100px)",
+    letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
+
   }}
 >
           {/* First line - Lightning Challenge */}

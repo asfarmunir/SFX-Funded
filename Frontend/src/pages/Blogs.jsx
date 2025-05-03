@@ -92,19 +92,20 @@ export default function Blogs() {
           variants={slideUp}
           className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center mt-8 sm:mt-12 md:mt-16 lg:mt-20"
         >
-          <div className="text-center mb-6 sm:mb-8 md:mb-10">
-            <h1 className="text-white  font-oswald font-bold 
-              text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
-              leading-none tracking-tight" style={{
-                fontFamily: "Inter, sans-serif",
-                fontWeight: 600,
-                fontSize: "125.22px",
-                
-              }}>
-              <span>Forex Trading</span>{" "}
-              <span className="text-[#fcfbfc]">Insights</span>
-            </h1>
-          </div>
+           <div className="text-center mb-6 sm:mb-8 md:mb-10">
+      <h1 
+        className="text-white font-bold 
+        text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 
+        leading-none tracking-tight"
+        style={{
+          fontFamily: "Inter, sans-serif",
+          fontWeight: 600,
+        }}
+      >
+        <span className="block">Forex Trading</span>
+        <span className="block text-[#fcfbfc]">Insights</span>
+      </h1>
+    </div>
 
           <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl font-inter mb-8 sm:mb-10 md:mb-12">
             Explore the latest insights in forex trading and maximize your potential with SFX Funded.

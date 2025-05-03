@@ -388,41 +388,41 @@ const getTransform = (columnIndex) => {
 
     {/* Hero Heading */}
     <div className="text-center mb-6 sm:mb-8 md:mb-10">
-        {/* Main Heading */}
-        <motion.h1 
-            className="text-white uppercase font-oswald font-bold
-            text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px]
-            leading-none tracking-tight"
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            style={{
-              fontFamily: "Oswald, sans-serif",
-              fontWeight: 600,
-              fontSize: "125.22px",
-              letterSpacing: "-7.64px",
-            }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-        >
-            GET FUNDED BY OUR 2-STEP
-        </motion.h1>
+      {/* Main Heading */}
+      <motion.h1 
+        className="text-white uppercase font-bold
+        text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl
+        leading-none tracking-tight"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        style={{
+          fontFamily: "Oswald, sans-serif",
+          fontWeight: 600,
+          letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
+          fontSize: "clamp(2.5rem, 8vw, 100px)",
+        }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+      >
+        GET FUNDED BY OUR 2-STEP
+      </motion.h1>
 
-        {/* Second Line as Part of the Main Heading */}
-        <motion.h1 
-            className="text-[#DE00DE] uppercase font-oswald font-bold
-            text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px]
-            leading-none tracking-tight"
-            initial={{ opacity: 0, y: 70 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            style={{
-              fontFamily: "Oswald, sans-serif",
-              fontWeight: 600,
-              fontSize: "125.22px",
-              letterSpacing: "-7.64px",
-            }}
-            transition={{ duration: 0.4, delay: 0.4 }}
-        >
-            PROP FIRM CHALLENGE
-        </motion.h1>
+      {/* Second Line as Part of the Main Heading */}
+      <motion.h1 
+        className="text-[#DE00DE] uppercase font-bold
+        text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl
+        leading-none tracking-tight"
+        initial={{ opacity: 0, y: 70 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        style={{
+          fontFamily: "Oswald, sans-serif",
+          fontWeight: 600,
+          letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
+          fontSize: "clamp(2.5rem, 8vw, 100px)",
+        }}
+        transition={{ duration: 0.4, delay: 0.4 }}
+      >
+        PROP FIRM CHALLENGE
+      </motion.h1>
     </div>
 
     {/* Description */}

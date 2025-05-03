@@ -56,7 +56,7 @@ export default function Contact() {
         style={{
           fontFamily: "Inter, sans-serif",
           fontWeight: 600,
-          fontSize: "125.22px",
+          fontSize: "clamp(2.5rem, 8vw, 100px)",
           
         }}>
         <span>CONTACT</span>{" "}

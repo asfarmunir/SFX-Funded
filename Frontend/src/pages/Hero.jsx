@@ -386,45 +386,45 @@ export default function Hero() {
 
       {/* Hero Heading */}
       <div className="text-center mb-6 sm:mb-8 md:mb-10">
-        {/* Main Heading */}
-        <motion.h1 
-          className="text-white  font-oswald font-bold 
-            text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
-            leading-none tracking-tight"
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false}}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          style={{
-            fontFamily: "Inter, sans-serif",
-            fontWeight: 600,
-            fontSize: "125.22px",
-            
-          }}>
-          <span>Power</span>{" "}
-          <span className="text-[#fcfbfc]">To Trade</span>
-        </motion.h1>
+      {/* Main Heading */}
+      <motion.h1 
+        className="text-white font-bold 
+          text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
+          leading-none tracking-tight"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false}}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        style={{
+          fontFamily: "Inter, sans-serif",
+          fontWeight: 600,
+          fontSize: "clamp(2.5rem, 10vw, 125px)",
+        }}
+      >
+        <span>Power</span>{" "}
+        <span className="text-[#fcfbfc]">To Trade</span>
+      </motion.h1>
 
-        {/* Subheading */}
-        <motion.h1 
-          className="text-white  font-oswald font-bold 
-            text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
-            leading-none tracking-tight"
-          initial={{ opacity: 0, y: 70 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          style={{
-            fontFamily: "Oswald, sans-serif",
-            fontWeight: 600,
-            fontSize: "125.22px",
-            letterSpacing: "-7.64px",
-          }}
-        >
-          <span className="text-[#DE00DE]">Freedom </span>{" "}
-          <span className="text-[#DE00DE]"> To Profit</span>{" "}
-        </motion.h1>
-      </div>
+      {/* Subheading */}
+      <motion.h1 
+        className="text-white font-bold 
+          text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
+          leading-none tracking-tight"
+        initial={{ opacity: 0, y: 70 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.7, delay: 0.3 }}
+        style={{
+          fontFamily: "Oswald, sans-serif",
+          fontWeight: 600,
+          fontSize: "clamp(2.5rem, 10vw, 125px)",
+          letterSpacing: "-3px",
+        }}
+      >
+        <span className="text-[#DE00DE]">Freedom </span>{" "}
+        <span className="text-[#DE00DE]"> To Profit</span>{" "}
+      </motion.h1>
+    </div>
 
       {/* Description */}
       <motion.p 

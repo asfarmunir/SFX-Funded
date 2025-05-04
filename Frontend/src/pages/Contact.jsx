@@ -40,7 +40,7 @@ export default function Contact() {
     background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
   }}
 >
-  <Navbar />
+ 
 
   <div className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center mt-8 sm:mt-12 md:mt-16 lg:mt-20">
     <motion.div
@@ -57,7 +57,7 @@ export default function Contact() {
           fontFamily: "Inter, sans-serif",
           fontWeight: 600,
           fontSize: "clamp(2.5rem, 8vw, 100px)",
-          
+          marginTop: '40px'
         }}>
         <span>CONTACT</span>{" "}
         <span className="text-[#fcfbfc]">US</span>

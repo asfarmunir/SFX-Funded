@@ -7,6 +7,8 @@ export default function Ticker() {
   const [contentWidth, setContentWidth] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);
   const animationRef = useRef(null);
+  const [slowDown, setSlowDown] = useState(false);
+  const [speed, setSpeed] = useState(1); // Base speed
   
   const message = "50% Off On All Challenges | COUPON : Auto Applied";
   
@@ -28,6 +30,24 @@ export default function Ticker() {
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
+  
+  // Update base speed based on screen width
+  useEffect(() => {
+    const updateSpeed = () => {
+      const baseSpeed = Math.max(0.5, Math.min(window.innerWidth / 1000, 2));
+      setSpeed(baseSpeed);
+    };
+    
+    updateSpeed();
+    window.addEventListener('resize', updateSpeed);
+    
+    return () => {
+      window.removeEventListener('resize', updateSpeed);
     };
   }, []);
   
@@ -43,9 +63,8 @@ export default function Ticker() {
         if (prevPosition < -contentWidth) {
           return containerWidth;
         }
-        // Adjust speed based on screen width
-        const speed = Math.max(0.5, Math.min(window.innerWidth / 1000, 2));
-        return prevPosition - speed;
+        const currentSpeed = slowDown ? speed * 0.5 : speed; // Slow down to 50% of normal speed
+        return prevPosition - currentSpeed;
       });
       
       animationRef.current = requestAnimationFrame(animate);
@@ -58,30 +77,15 @@ export default function Ticker() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [contentWidth, containerWidth]);
+  }, [contentWidth, containerWidth, speed, slowDown]);
   
-  // Pause animation on hover
+  // Slow down on hover
   const handleMouseEnter = () => {
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-    }
+    setSlowDown(true);
   };
-  
-  // Resume animation on mouse leave
+
   const handleMouseLeave = () => {
-    const animate = () => {
-      setPosition((prevPosition) => {
-        if (prevPosition < -contentWidth) {
-          return containerWidth;
-        }
-        const speed = Math.max(0.5, Math.min(window.innerWidth / 1000, 2));
-        return prevPosition - speed;
-      });
-      
-      animationRef.current = requestAnimationFrame(animate);
-    };
-    
-    animationRef.current = requestAnimationFrame(animate);
+    setSlowDown(false);
   };
   
   return (

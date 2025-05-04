@@ -221,8 +221,7 @@ export default function RapidChallenge() {
           background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
         }}
       >
-        {/* Navbar */}
-        <Navbar />
+      
 
         {/* Main Content */}
         <div className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center mt-8 sm:mt-12 md:mt-16 lg:mt-20">
@@ -242,6 +241,7 @@ export default function RapidChallenge() {
               fontWeight: 600,
               fontSize: "clamp(2.5rem, 10vw, 105px)",
               letterSpacing: window.innerWidth < 640 ? "-2px" : "-7.64px",
+              marginTop: '40px'
             }}
           variants={slideUp}
           custom={0}
@@ -249,6 +249,7 @@ export default function RapidChallenge() {
           <motion.span 
             variants={slideUp} 
             custom={0.5}
+            
           >
             Empower Your{" "}
           </motion.span>

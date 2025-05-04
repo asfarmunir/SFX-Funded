@@ -49,8 +49,7 @@ export default function About() {
     background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)',
   }}
 >
-        {/* Navbar */}
-        <Navbar />
+        
 
         {/* Main Content */}
 <motion.div
@@ -58,6 +57,7 @@ export default function About() {
   whileInView="show"
   viewport={{ once: false, amount: 0.2 }}
   variants={slideUp}
+  
   className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center mt-8 sm:mt-12 md:mt-16 lg:mt-20"
 >
   {/* Hero Heading */}
@@ -70,6 +70,7 @@ export default function About() {
       fontWeight: 600,
       fontSize: "125.22px",
       letterSpacing: "-7.64px",
+      marginTop: '40px'
     }}>
       <span>ABOUT</span>{" "}
       <span style={{ color: 'rgba(248, 0, 234, 1)' }}>SFX FUNDED</span>

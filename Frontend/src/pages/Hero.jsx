@@ -16,7 +16,37 @@ export default function Hero() {
     { flag: "GB", percent: 55 },
     { flag: "FRANCE", percent: 30 }
   ];
-
+  const pricingData = {
+    rapid: {
+      7500: { original: 55, discounted: 36 },
+      15000: { original: 89, discounted: 58 },
+      30000: { original: 139, discounted: 91 },
+      60000: { original: 210, discounted: 137 },
+      120000: { original: 338, discounted: 220 }
+    },
+    ignite: {
+      5000: { original: 57, discounted: 38 },
+      10000: { original: 77, discounted: 51 },
+      25000: { original: 147, discounted: 96 },
+      50000: { original: 222, discounted: 145 },
+      100000: { original: 350, discounted: 228 }
+    },
+    ascend: {
+      7500: { original: 69, discounted: 45 },
+      15000: { original: 99, discounted: 65 },
+      30000: { original: 199, discounted: 130 },
+      60000: { original: 299, discounted: 195 },
+      120000: { original: 499, discounted: 325 }
+    },
+    instant: {
+      1250: { original: 65, discounted: 43 },
+      2000: { original: 90, discounted: 59 },
+      5000: { original: 195, discounted: 127 },
+      10000: { original: 395, discounted: 257 },
+      20000: { original: 795, discounted: 517 },
+      40000: { original: 1680, discounted: 1092 }
+    }
+  };
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
   useEffect(() => {
@@ -37,7 +67,7 @@ export default function Hero() {
     rapid: [7500, 15000, 30000, 60000, 120000],
     ignite: [5000, 10000, 25000, 50000, 100000],
     ascend: [7500, 15000, 30000, 60000, 120000],
-    instant: [1250, 10000, 25000, 50000, 100000]
+    instant: [1250, 2000, 5000, 10000, 20000, 40000]
   };
    
    // Handler for funding program selection
@@ -96,10 +126,12 @@ export default function Hero() {
     },
     instant: {
       1250: {},
+      2000: {},
+      5000: {},
       10000: {},
-      25000: {},
-      50000: {},
-      100000: {}
+      20000: {},
+      40000: {}
+
     }
   };
 
@@ -369,9 +401,7 @@ export default function Hero() {
      background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
    }}
  >
-   {/* Navbar */}
-   <Navbar />
- 
+  
    {/* Main Content */}
    <div className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center mt-8 sm:mt-12 md:mt-16 lg:mt-20">
       <motion.img 
@@ -382,7 +412,8 @@ export default function Hero() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
         transition={{ duration: 0.6 }}
-      />
+        style={{marginTop: '40px'}}></motion.img>
+      
 
       {/* Hero Heading */}
       <div className="text-center mb-6 sm:mb-8 md:mb-10">
@@ -955,7 +986,7 @@ export default function Hero() {
   {accountSizes[selectedProgram].map((size) => (
         <button
           key={size}
-          className={`w-[120px]  sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] mx-1 sm:mx-2 ${
+          className={`w-[120px]  sm:w-[140px] md:w-[135px] h-[40px] sm:h-[47px] mx-1 sm:mx-2 ${
             selectedSize === size ? 'bg-[#D90BC6]' : 'bg-fuchsia-100'
           } rounded-md flex items-center justify-center ${
             selectedSize === size ? 'text-white' : 'text-black'
@@ -1010,43 +1041,45 @@ export default function Hero() {
 
                 {/* Pricing Box */}
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-                        <div className="flex flex-col items-center md:items-start gap-2">
-                            <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-                                <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
-                                    $69
-                                </div>
-                                <div className="text-[#F001E1] font-bold text-xl sm:text-2xl md:text-3xl">
-                                    $34
-                                </div>
-                                <div className="text-[#F001E1] font-medium text-lg sm:text-xl">
-                                    $7,500 Ascend
-                                </div>
-                            </div>
-                            <div className="text-[#F001E1] font-medium text-base sm:text-lg text-center md:text-left">
-                                One-Time Fee • 100% Refundable
-                            </div>
-                        </div>
+  <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+    <div className="flex flex-col items-center md:items-start gap-2">
+      <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
+        {/* Original Price (strikethrough) */}
+        <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
+          ${pricingData[selectedProgram][selectedSize]?.original || 'N/A'}
+        </div>
+        {/* Discounted Price */}
+        <div className="text-[#F001E1] font-bold "style={{fontSize: '48px'}}>
+          ${pricingData[selectedProgram][selectedSize]?.discounted || 'N/A'}
+        </div>
+        {/* Account Size with Program */}
+        <div className="text-[#F001E1] font-medium "style={{fontSize: '36px'}}>
+          ${selectedSize.toLocaleString()} {selectedProgram.charAt(0).toUpperCase() + selectedProgram.slice(1)}
+        </div>
+      </div>
+      <div className="text-[#F001E1] font-medium text-base sm:text-lg text-center md:text-left">
+        One-Time Fee • 100% Refundable
+      </div>
+    </div>
 
-                        <button
-                            className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
-                        >
-                            Start Challenge →
-                        </button>
-                    </div>
+    <button
+      className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
+    >
+      Start Challenge →
+    </button>
+  </div>
 
-                    <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
-                        {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
-                            <img
-                                key={img}
-                                src={`/${img}.png`}
-                                alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)}
-                                className="h-6 sm:h-8"
-                            />
-                        ))}
-                    </div>
-
-                </div>
+  <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
+    {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
+      <img 
+        key={img} 
+        src={`/${img}.png`} 
+        alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)} 
+        className="h-6 sm:h-8" 
+      />
+    ))}
+  </div>
+</div>
             </div>
 
             {/* Feature Icons */}

@@ -82,7 +82,7 @@ export default function Blogs() {
           background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
         }}
       >
-        <Navbar />
+        
 
         {/* Hero Content with Slide Up */}
         <motion.div
@@ -100,6 +100,7 @@ export default function Blogs() {
         style={{
           fontFamily: "Inter, sans-serif",
           fontWeight: 600,
+          marginTop: '40px'
         }}
       >
         <span className="block">Forex Trading</span>

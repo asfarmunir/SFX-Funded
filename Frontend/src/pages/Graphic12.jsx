@@ -369,8 +369,7 @@ const getTransform = (columnIndex) => {
                     background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
                 }}
             >
-                {/* Navbar */}
-                <Navbar />
+                
 
                 {/* Main Content */}
                 
@@ -380,7 +379,7 @@ const getTransform = (columnIndex) => {
         className="bg-black text-white mb-6 sm:mb-8 md:mb-10 border-2 border-white rounded-full px-6 py-3 sm:px-8 sm:py-4 font-semibold text-base sm:text-lg w-max font-inter"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        
+        style={{marginTop: '40px'}}
         transition={{ duration: 0.6 }}
     >
         2-Phase Challenge
@@ -742,9 +741,9 @@ const getTransform = (columnIndex) => {
                         <span className="text-lg font-medium">Trade Forex, Indices, Metals & Crypto</span>
                     </div>
                 </div>
-
-                <div className="p-6 font-sans max-w-4xl mx-auto">
                 
+                <div className="p-6 font-sans max-w-4xl mx-auto">
+                </div>
       {/* Ignite and Ascend Tiles */}
       <div className="flex justify-center gap-4 mt-6">
         <div 
@@ -772,9 +771,10 @@ const getTransform = (columnIndex) => {
       </div>
       
       
-
+      
       {/* Account Table */}
-<div className="mt-8 border border-[#D90BC6] rounded-2xl overflow-hidden bg-white">
+      <div className="mt-8 border border-[#D90BC6] rounded-2xl overflow-hidden bg-white w-full max-w-none">
+
   
   {/* Mobile Account Selector - Added to match table 1 */}
   <div className="block md:hidden px-4 py-3">
@@ -795,7 +795,7 @@ const getTransform = (columnIndex) => {
     {accountSizes.map((size) => (
       <div
         key={size}
-        className={`w-[90px] sm:w-[110px] md:w-[130px] h-[34px] sm:h-[40px] rounded-md flex items-center justify-center font-medium text-xs sm:text-sm md:text-base cursor-pointer transition-all duration-200 mx-1 sm:mx-2 ${
+        className={`w-[90px] sm:w-[110px] md:w-[170px] h-[34px] sm:h-[40px] rounded-md flex items-center justify-center font-medium text-xs sm:text-sm md:text-base cursor-pointer transition-all duration-200 mx-1 sm:mx-2 ${
           activeAccountSize === size
             ? "bg-[#D90BC6] transform -translate-y-1 shadow-md text-white"
             : "bg-fuchsia-100 text-black hover:bg-fuchsia-200"
@@ -878,50 +878,68 @@ const getTransform = (columnIndex) => {
     ))}
   </div>
 </div>
-    </div>
+    
     
 
 
 
                 {/* Pricing Box */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-                        <div className="flex flex-col items-center md:items-start gap-2">
-                            <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-                                <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
-                                    $69
-                                </div>
-                                <div className="text-[#F001E1] font-bold text-xl sm:text-2xl md:text-3xl">
-                                    $34
-                                </div>
-                                <div className="text-[#F001E1] font-medium text-lg sm:text-xl">
-                                    $7,500 Ascend
-                                </div>
-                            </div>
-                            <div className="text-[#F001E1] font-medium text-base sm:text-lg text-center md:text-left">
-                                One-Time Fee • 100% Refundable
-                            </div>
-                        </div>
+<div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
+  <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+    <div className="flex flex-col items-center md:items-start gap-2">
+      <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
+        {/* Original Price (strikethrough) */}
+        <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
+          {activeFundingType === 'ignite' ? 
+            (activeAccountSize === '7500' ? '$69' :
+             activeAccountSize === '15000' ? '$129' :
+             activeAccountSize === '30000' ? '$249' :
+             activeAccountSize === '60000' ? '$499' : '$999') :
+            (activeAccountSize === '7500' ? '$59' :
+             activeAccountSize === '15000' ? '$109' :
+             activeAccountSize === '30000' ? '$199' :
+             activeAccountSize === '60000' ? '$399' : '$799')}
+        </div>
+        {/* Discounted Price */}
+        <div className="text-[#F001E1] font-bold text-xl sm:text-2xl md:text-3xl"style={{ fontSize: '48px' }}>
+          {activeFundingType === 'ignite' ? 
+            (activeAccountSize === '7500' ? '$34' :
+             activeAccountSize === '15000' ? '$64' :
+             activeAccountSize === '30000' ? '$124' :
+             activeAccountSize === '60000' ? '$249' : '$499') :
+            (activeAccountSize === '7500' ? '$29' :
+             activeAccountSize === '15000' ? '$54' :
+             activeAccountSize === '30000' ? '$99' :
+             activeAccountSize === '60000' ? '$199' : '$399')}
+        </div>
+        {/* Account Size with Program */}
+        <div className="text-[#F001E1] font-medium "style={{ fontSize: '36px' }}>
+          ${parseInt(activeAccountSize).toLocaleString()} {activeFundingType.charAt(0).toUpperCase() + activeFundingType.slice(1)}
+        </div>
+      </div>
+      <div className="text-[#F001E1] font-medium text-base sm:text-lg text-center md:text-left">
+        One-Time Fee • 100% Refundable
+      </div>
+    </div>
 
-                        <button
-                            className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
-                        >
-                            Start Challenge →
-                        </button>
-                    </div>
+    <button
+      className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
+    >
+      Start Challenge →
+    </button>
+  </div>
 
-                    <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
-                        {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
-                            <img
-                                key={img}
-                                src={`/${img}.png`}
-                                alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)}
-                                className="h-6 sm:h-8"
-                            />
-                        ))}
-                    </div>
-
-                </div>
+  <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
+    {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
+      <img 
+        key={img} 
+        src={`/${img}.png`} 
+        alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)} 
+        className="h-6 sm:h-8" 
+      />
+    ))}
+  </div>
+</div>
             </div>
 
             <div className="bg-gray-50 py-12 font-sans w-full max-w-6xl mx-auto px-4">

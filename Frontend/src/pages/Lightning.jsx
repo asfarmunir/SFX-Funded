@@ -69,8 +69,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
     background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
   }}
 >
-  {/* Navbar */}
-  <Navbar />
+  
 
   {/* Main Content */}
 <motion.div
@@ -84,7 +83,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
   <motion.div
     variants={item}
     className="bg-black text-white mb-6 sm:mb-8 md:mb-10 border-2 border-white rounded-full px-6 py-3 sm:px-8 sm:py-4 font-semibold text-base sm:text-lg w-max font-inter"
-  >
+  style={{marginTop: '40px'}}>
     The Fastest Evaluation
   </motion.div>
 
@@ -676,43 +675,52 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
 </div>
 
           {/* Pricing Box */}
-          <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-              <div className="flex flex-col items-center md:items-start gap-2">
-                <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-                  <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
-                    $69
-                  </div>
-                  <div className="text-[#F001E1] font-bold text-xl sm:text-2xl md:text-3xl">
-                    $34
-                  </div>
-                  <div className="text-[#F001E1] font-medium text-lg sm:text-xl">
-                    $7,500 Ascend
-                  </div>
-                </div>
-                <div className="text-[#F001E1] font-medium text-base sm:text-lg text-center md:text-left">
-                  One-Time Fee • 100% Refundable
-                </div>
-              </div>
+<div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
+  <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+    <div className="flex flex-col items-center md:items-start gap-2">
+      <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
+        {/* Original Price (strikethrough) */}
+        <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
+          {selectedAccountIndex === 0 ? '$69' : 
+           selectedAccountIndex === 1 ? '$149' : 
+           selectedAccountIndex === 2 ? '$299' : '$599'}
+        </div>
+        {/* Discounted Price */}
+        <div className="text-[#F001E1] font-bold"style={{ fontSize: '48px' }}>
+          {selectedAccountIndex === 0 ? '$34' : 
+           selectedAccountIndex === 1 ? '$74' : 
+           selectedAccountIndex === 2 ? '$149' : '$299'}
+        </div>
+        {/* Account Size */}
+        <div className="text-[#F001E1] font-medium "style={{ fontSize: '36px' }}>
+          {selectedAccountIndex === 0 ? '$10,000' : 
+           selectedAccountIndex === 1 ? '$25,000' : 
+           selectedAccountIndex === 2 ? '$50,000' : '$100,000'}
+        </div>
+      </div>
+      <div className="text-[#F001E1] font-medium text-base sm:text-lg text-center md:text-left">
+        One-Time Fee • 100% Refundable
+      </div>
+    </div>
 
-              <button
-                className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
-              >
-                Start Challenge →
-              </button>
-            </div>
+    <button
+      className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
+    >
+      Start Challenge →
+    </button>
+  </div>
 
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
-              {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
-                <img 
-                  key={img} 
-                  src={`/${img}.png`} 
-                  alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)} 
-                  className="h-6 sm:h-8" 
-                />
-              ))}
-            </div>
-          </div>
+  <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
+    {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
+      <img 
+        key={img} 
+        src={`/${img}.png`} 
+        alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)} 
+        className="h-6 sm:h-8" 
+      />
+    ))}
+  </div>
+</div>
         </div>
       </div>
 

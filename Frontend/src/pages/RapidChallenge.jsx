@@ -21,7 +21,11 @@ export default function RapidChallenge() {
   const [isLoaded, setIsLoaded] = useState(false);
   
   const accountSizes = [7500, 15000, 30000, 60000, 120000];
-  const [activeAccountSize, setActiveAccountSize] = useState("7500");
+  const [selectedAccountIndex, setSelectedAccountIndex] = useState(0);
+  // Handle account selection
+  const handleAccountSelect = (index) => {
+    setSelectedAccountIndex(index);
+  };
   
   // Define table data for each account size
   const tableData = {
@@ -335,8 +339,7 @@ const getTransform = (columnIndex) => {
      background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
    }}
  >
-   {/* Navbar */}
-   <Navbar />
+   
  
   {/* Main Content */}
 <motion.div 
@@ -366,7 +369,7 @@ const getTransform = (columnIndex) => {
         }
       }
     }}
-  >
+    style={{marginTop: '40px'}}>
     Funded From Day One
   </motion.div>
 
@@ -921,160 +924,167 @@ const getTransform = (columnIndex) => {
       </div>
 
       <div className="mt-8 border border-[#D90BC6] rounded-2xl overflow-hidden bg-white">
-  {/* Mobile Account Selector */}
-  <div className="block sm:hidden px-4 py-3">
-    <select 
-      className="w-full p-3 rounded-lg bg-[#F001E1] text-white font-medium text-center"
-      onChange={(e) => setSelectedSize(e.target.value)}
-      value={selectedSize}
-    >
-      <option value="" disabled>Select Account Size</option>
-      {accountSizes.map((size, idx) => (
-        <option key={idx} value={size}>${size.toLocaleString()}</option>
-      ))}
-    </select>
-  </div>
-  
-  {/* Account Size Tabs */}
-  <div className="hidden sm:block max-w-7xl bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7">
-    <div className="flex flex-wrap justify-center gap-2">
-      {accountSizes.map((size) => (
-        <button
-          key={size}
-          className={`w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] mx-3 sm:mx-4 ${
-            selectedSize === size ? "bg-[#F001E1] text-white" : "bg-[#FFDBFD] text-black"
-          } rounded-md flex items-center justify-center font-medium text-sm sm:text-base transition-all duration-200`}
-          onClick={() => handleTabClick(size)}
-        >
-          ${size.toLocaleString()}
-        </button>
-      ))}
-    </div>
-  </div>
-
-  {/* Phase Headers (Desktop only) */}
-  <div className="hidden md:flex border-b border-gray-200">
-    <div className="flex-1 invisible"></div> {/* Empty space for alignment */}
-    <div className="flex-[5] text-center py-3">
-      <span className="text-fuchsia-600 font-medium">Phase 1</span>
-    </div>
-    <div className="flex-1 text-center py-3 px-4">
-      <span className="text-fuchsia-600 font-medium">Funded</span>
-    </div>
-  </div>
-
-  {/* Table Content */}
-  <div>
-    {[
-      {
-        label: "Trading Period",
-        phase1: tableData[selectedSize].tradingPeriod,
-        funded: fundedData.tradingPeriod
-      },
-      {
-        label: "Maximum Daily Loss",
-        phase1: tableData[selectedSize].maxDailyLoss,
-        funded: fundedData.maxDailyLoss,
-        bg: "bg-fuchsia-50"
-      },
-      {
-        label: "Maximum Loss",
-        phase1: tableData[selectedSize].maxLoss,
-        funded: fundedData.maxLoss
-      },
-      {
-        label: "Profit Target",
-        phase1: tableData[selectedSize].profitTarget,
-        funded: fundedData.profitTarget,
-        bg: "bg-fuchsia-50"
-      },
-      {
-        label: "Leverage",
-        phase1: tableData[selectedSize].leverage,
-        funded: fundedData.leverage
-      },
-      {
-        label: "Reward Schedule",
-        phase1: tableData[selectedSize].rewardSchedule,
-        funded: fundedData.rewardSchedule,
-        bg: "bg-fuchsia-50"
-      },
-      {
-        label: "Profit Split",
-        phase1: tableData[selectedSize].profitSplit,
-        funded: fundedData.profitSplit
-      }
-    ].map((row, idx) => (
-      <div
-        key={idx}
-        className={`border-b border-gray-200 ${row.bg || ""}`}
-      >
-        {/* Mobile view: stacked with inline phase labels */}
-        <div className="flex flex-col md:hidden">
-          <div className="py-3 pl-6 font-medium">{row.label}</div>
-          <div className="py-3 flex justify-between px-6">
-            <span className="text-sm font-medium text-fuchsia-500">Phase 1</span>
-            <span>{row.phase1}</span>
-          </div>
-          <div className="py-3 flex justify-between px-6">
-            <span className="text-sm font-medium text-fuchsia-500">Funded</span>
-            <span>{row.funded}</span>
-          </div>
+        {/* Mobile Account Selector */}
+        <div className="block sm:hidden px-4 py-3">
+          <select 
+            className="w-full p-3 rounded-lg bg-[#F001E1] text-white font-medium text-center"
+            onChange={(e) => handleAccountSelect(parseInt(e.target.value))}
+            value={selectedAccountIndex}
+          >
+            {accountSizes.map((size, idx) => (
+              <option key={idx} value={idx}>
+                ${size.toLocaleString()}
+              </option>
+            ))}
+          </select>
         </div>
         
-        {/* Desktop view: horizontal layout */}
-        <div className="hidden md:flex w-full">
-          <div className="flex-1 py-3 pl-6 font-medium">{row.label}</div>
-          <div className="flex-[5] text-center py-3">{row.phase1}</div>
-          <div className="flex-1 text-center py-3 px-4">{row.funded}</div>
+        {/* Account Size Tabs */}
+        <div className="hidden sm:block max-w-7xl bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7">
+          <div className="flex flex-wrap justify-center gap-2">
+            {accountSizes.map((size, idx) => (
+              <button
+                key={size}
+                className={`w-[120px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] mx-3 sm:mx-4 ${
+                  selectedAccountIndex === idx ? "bg-[#F001E1] text-white" : "bg-[#FFDBFD] text-black"
+                } rounded-md flex items-center justify-center font-medium text-sm sm:text-base transition-all duration-200`}
+                onClick={() => handleAccountSelect(idx)}
+              >
+                ${size.toLocaleString()}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Phase Headers (Desktop only) */}
+        <div className="hidden md:flex border-b border-gray-200">
+          <div className="flex-1 invisible"></div>
+          <div className="flex-[5] text-center py-3">
+            <span className="text-fuchsia-600 font-medium">Phase 1</span>
+          </div>
+          <div className="flex-1 text-center py-3 px-4">
+            <span className="text-fuchsia-600 font-medium">Funded</span>
+          </div>
+        </div>
+
+        {/* Table Content */}
+        <div>
+          {[
+            {
+              label: "Trading Period",
+              phase1: tableData[accountSizes[selectedAccountIndex]].tradingPeriod,
+              funded: fundedData.tradingPeriod
+            },
+            {
+              label: "Maximum Daily Loss",
+              phase1: tableData[accountSizes[selectedAccountIndex]].maxDailyLoss,
+              funded: fundedData.maxDailyLoss,
+              bg: "bg-fuchsia-50"
+            },
+            {
+              label: "Maximum Loss",
+              phase1: tableData[accountSizes[selectedAccountIndex]].maxLoss,
+              funded: fundedData.maxLoss
+            },
+            {
+              label: "Profit Target",
+              phase1: tableData[accountSizes[selectedAccountIndex]].profitTarget,
+              funded: fundedData.profitTarget,
+              bg: "bg-fuchsia-50"
+            },
+            {
+              label: "Leverage",
+              phase1: tableData[accountSizes[selectedAccountIndex]].leverage,
+              funded: fundedData.leverage
+            },
+            {
+              label: "Reward Schedule",
+              phase1: tableData[accountSizes[selectedAccountIndex]].rewardSchedule,
+              funded: fundedData.rewardSchedule,
+              bg: "bg-fuchsia-50"
+            },
+            {
+              label: "Profit Split",
+              phase1: tableData[accountSizes[selectedAccountIndex]].profitSplit,
+              funded: fundedData.profitSplit
+            }
+          ].map((row, idx) => (
+            <div
+              key={idx}
+              className={`border-b border-gray-200 ${row.bg || ""}`}
+            >
+              {/* Mobile view */}
+              <div className="flex flex-col md:hidden">
+                <div className="py-3 pl-6 font-medium">{row.label}</div>
+                <div className="py-3 flex justify-between px-6">
+                  <span className="text-sm font-medium text-fuchsia-500">Phase 1</span>
+                  <span>{row.phase1}</span>
+                </div>
+                <div className="py-3 flex justify-between px-6">
+                  <span className="text-sm font-medium text-fuchsia-500">Funded</span>
+                  <span>{row.funded}</span>
+                </div>
+              </div>
+              
+              {/* Desktop view */}
+              <div className="hidden md:flex w-full">
+                <div className="flex-1 py-3 pl-6 font-medium">{row.label}</div>
+                <div className="flex-[5] text-center py-3">{row.phase1}</div>
+                <div className="flex-1 text-center py-3 px-4">{row.funded}</div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
       
-    ))}
-  </div>
-</div>
-      
- 
-           {/* Pricing Box */}
-           <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
-             <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-               <div className="flex flex-col items-center md:items-start gap-2">
-                 <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-                   <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
-                     $69
-                   </div>
-                   <div className="text-[#F001E1] font-bold text-xl sm:text-2xl md:text-3xl">
-                     $34
-                   </div>
-                   <div className="text-[#F001E1] font-medium text-lg sm:text-xl">
-                     $7,500 Ascend
-                   </div>
-                 </div>
-                 <div className="text-[#F001E1] font-medium text-base sm:text-lg text-center md:text-left">
-                   One-Time Fee • 100% Refundable
-                 </div>
-               </div>
- 
-               <button
-                 className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
-               >
-                 Start Challenge →
-               </button>
-             </div>
- 
-             <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
-               {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
-                 <img 
-                   key={img} 
-                   src={`/${img}.png`} 
-                   alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)} 
-                   className="h-6 sm:h-8" 
-                 />
-               ))}
-             </div>
-           
-         </div>
-       </div>
+      {/* Pricing Box */}
+      <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
+              {/* Original Price (strikethrough) */}
+              <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
+                {selectedAccountIndex === 0 ? '$69' : 
+                 selectedAccountIndex === 1 ? '$149' : 
+                 selectedAccountIndex === 2 ? '$299' : 
+                 selectedAccountIndex === 3 ? '$399' : '$599'}
+              </div>
+              {/* Discounted Price */}
+              <div className="text-[#F001E1] font-bold" style={{ fontSize: '48px' }}>
+                {selectedAccountIndex === 0 ? '$34' : 
+                 selectedAccountIndex === 1 ? '$74' : 
+                 selectedAccountIndex === 2 ? '$149' :
+                 selectedAccountIndex === 3 ? '$299' : '$349'}
+              </div>
+              {/* Account Size */}
+              <div className="text-[#F001E1] font-medium" style={{ fontSize: '36px' }}>
+                ${accountSizes[selectedAccountIndex].toLocaleString()}
+              </div>
+            </div>
+            <div className="text-[#F001E1] font-medium text-base sm:text-lg text-center md:text-left">
+              One-Time Fee • 100% Refundable
+            </div>
+          </div>
+
+          <button
+            className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
+          >
+            Start Challenge →
+          </button>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
+          {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
+            <img 
+              key={img} 
+              src={`/${img}.png`} 
+              alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)} 
+              className="h-6 sm:h-8" 
+            />
+          ))}
+        </div>
+      </div>
+    </div>
        <div
   className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 flex flex-col md:flex-row items-center justify-between"
   style={{

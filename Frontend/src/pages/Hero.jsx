@@ -58,6 +58,34 @@ export default function Hero() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // The styles for the SVG colors
+  const svgStyles = {
+    // Pink to white filter (for SVGs that are originally pink and need to be white when selected)
+    pinkToWhite: {
+      filter: 'brightness(0) invert(1)'
+    },
+    // Default style for pink SVGs when unselected (no filter needed)
+    pink: {},
+    // White to pink filter (for SVGs that are originally white and need to be pink when unselected)
+    whiteToPink: {
+      filter:' invert(70%) sepia(100%) saturate(5500%) hue-rotate(295deg) brightness(92%) contrast(110%)'
+
+    }
+  };
+
+  // Function to determine which SVG style to use
+  const getSvgStyle = (program, originalColor = 'pink') => {
+    const isSelected = selectedProgram === program;
+    
+    if (originalColor === 'pink') {
+      // If the original SVG is pink
+      return isSelected ? svgStyles.pinkToWhite : svgStyles.pink;
+    } else {
+      // If the original SVG is white (like ascend.svg)
+      return isSelected ? svgStyles.pink : svgStyles.whiteToPink;
+    }
+  };
+  
   const [selectedProgram, setSelectedProgram] = useState('rapid');
   const [selectedSize, setSelectedSize] = useState(7500);
   const [isMobile, setIsMobile] = useState(false);
@@ -838,7 +866,6 @@ export default function Hero() {
 
                 
                 <div className="px-4 sm:px-6 max-w-full overflow-hidden">
-      
       {/* Program Selection Tiles */}
       <div className={`flex flex-wrap justify-center gap-4 mt-6 ${isMobile ? 'gap-y-3' : ''}`}>
         <button
@@ -849,7 +876,12 @@ export default function Hero() {
           } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
           onClick={() => handleProgramClick('rapid')}
         >
-          <img src="/thunder.svg" alt="Rapid" className="w-5 h-5 mr-2" />
+          <img 
+            src="/thunder.svg" 
+            alt="Rapid" 
+            className="w-5 h-5 mr-2" 
+            style={getSvgStyle('rapid')}
+          />
           <span>Rapid</span>
         </button>
         
@@ -861,7 +893,12 @@ export default function Hero() {
           } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
           onClick={() => handleProgramClick('ignite')}
         >
-          <img src="/ignite1.svg" alt="Ignite" className="w-5 h-5 mr-2" />
+          <img 
+            src="/ignite1.svg" 
+            alt="Ignite" 
+            className="w-5 h-5 mr-2" 
+            style={getSvgStyle('ignite')}
+          />
           <span>Ignite</span>
         </button>
         
@@ -873,7 +910,12 @@ export default function Hero() {
           } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
           onClick={() => handleProgramClick('ascend')}
         >
-          <img src="/ascend.svg" alt="Ascend" className="w-5 h-5 mr-2" />
+          <img 
+            src="/ascend.svg" 
+            alt="Ascend" 
+            className="w-5 h-5 mr-2" 
+            style={getSvgStyle('ascend', 'white')} // Assume ascend.svg is originally white
+          />
           <span>Ascend</span>
         </button>
         
@@ -885,12 +927,15 @@ export default function Hero() {
           } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
           onClick={() => handleProgramClick('instant')}
         >
-          <img src="/rocket.svg" alt="Instant Funding" className="w-5 h-5 mr-2" />
+          <img 
+            src="/rocket.svg" 
+            alt="Instant Funding" 
+            className="w-5 h-5 mr-2" 
+            style={getSvgStyle('instant')}
+          />
           <span className="whitespace-nowrap text-sm sm:text-base">Instant Funding</span>
         </button>
       </div>
-      
-      
     </div>
 
         {/* Account Table */}

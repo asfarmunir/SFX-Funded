@@ -68,7 +68,7 @@ function App() {
       return '80%'; // Narrower width for mobile when not scrolled
     }
     
-    return '1700px'; // Default width for larger screens when not scrolled
+    return '90%'; // Default width for larger screens when not scrolled
   };
 
   // Calculate content margin top based on device

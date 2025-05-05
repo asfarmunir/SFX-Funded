@@ -424,7 +424,7 @@ export default function Hero() {
      <div className="font-inter w-full overflow-x-hidden">
        
  
-       <div className="w-full mx-0 px-2 sm:px-6 py-8 sm:py-2 md:py-4 lg:py-5 rounded-[40px] my-6 sm:my-8 relative overflow-hidden"
+       <div className="w-full mx-0 px-2 sm:px-6 pt-8 sm:pt-2 md:pt-4 lg:pt-5 pb-0 rounded-[40px] my-6 sm:my-8 relative overflow-hidden"
    style={{
      background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
    }}
@@ -493,8 +493,57 @@ export default function Hero() {
         viewport={{ once: false }}
         transition={{ duration: 0.7, delay: 0.5 }}
       >
-        Your fastest path to SFX Funded Trader, hit a 5% target and unlock accounts up to $120,000
+        Trade up to $400k in Simulated Funds, scale up to $3.2 Million
       </motion.p>
+
+      <motion.div 
+      className="w-full flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-8 sm:mb-10"
+      initial={{ opacity: 0, y: 85 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.7, delay: 0.6 }}
+    >
+      {/* Left Container - 206.23px width */}
+      <motion.div 
+        className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0"
+        style={{
+          width: "230px", 
+          height: "31px",
+          fontFamily: "Inter, sans-serif",
+          fontWeight: 600
+        }}
+      >
+        <img src="/hero11.svg" alt="Payout Icon" className="h-5 w-5 mr-2" />
+        <span className="text-black text-xs sm:text-sm">Payout on Demand</span>
+      </motion.div>
+      
+      {/* Center Container - 312.20px width */}
+      <motion.div 
+        className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0"
+        style={{
+          width: "250px", 
+          height: "31px",
+          fontFamily: "Inter, sans-serif",
+          fontWeight: 600
+        }}
+      >
+        <span className="text-black text-xs sm:text-sm">Evaluation & Funded Stage Reset</span>
+      </motion.div>
+      
+      {/* Right Container - 229.90px width */}
+      <motion.div 
+        className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0"
+        style={{
+          width: "230px", 
+          height: "31px",
+          fontFamily: "Inter, sans-serif",
+          fontWeight: 600
+        }}
+      >
+        <img src="/hero12.svg" alt="Profit Icon" className="h-5 w-5 mr-2" />
+        <span className="text-black text-xs sm:text-sm">Up to 100% Profit Split</span>
+      </motion.div>
+    </motion.div>
 
       {/* CTA Button */}
       <motion.div 
@@ -522,6 +571,18 @@ export default function Hero() {
         </button>
       </motion.div>
     </div>
+    {/* Mobile App Screenshot */}
+    <div
+                                className="flex justify-center"
+                                
+                              >
+                                <img
+                                  src="/herophone.png"
+                                  alt="Trading Platform Mobile App"
+                                  className="max-w-full md:max-w-lg"
+                                />
+                             </div>
+
  </div>
 
  <div className="flex justify-center w-full p-4">

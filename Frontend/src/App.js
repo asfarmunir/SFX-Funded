@@ -58,19 +58,6 @@ function App() {
   // Determine if we're in mobile view
   const isMobile = windowWidth < 768;
 
-  // Calculate navbar max width based on device type and scroll state
-  const getNavbarMaxWidth = () => {
-    if (isScrolled) {
-      return '100%'; // Full width when scrolled for all devices
-    }
-    
-    if (isMobile) {
-      return '80%'; // Narrower width for mobile when not scrolled
-    }
-    
-    return '90%'; // Default width for larger screens when not scrolled
-  };
-
   // Calculate content margin top based on device
   const getContentMarginTop = () => {
     if (isMobile) {
@@ -89,25 +76,40 @@ function App() {
       {/* Improved layout container */}
       <div className="relative">
         {/* Navbar with proper positioning */}
-        <div style={{ 
-          position: 'sticky',
-          top: `${tickerHeight}px`, // Position below ticker when scrolled
-          width: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          zIndex: 40, // Below ticker but above content
-          marginTop: isMobile ? '1.5rem' : '2.5rem', // Different spacing based on device
-          transition: 'all 0.3s ease',
-          pointerEvents: 'none', // This makes the container transparent to clicks but children can override
-        }}>
-          <div style={{ 
+        <div 
+          style={{ 
+            position: 'sticky',
+            top: `${tickerHeight}px`,
             width: '100%',
-            maxWidth: getNavbarMaxWidth(),
-            transition: 'max-width 0.3s ease',
-            pointerEvents: 'auto', // Re-enable pointer events for the navbar itself
-          }}>
-            <Navbar shouldStick={false} isScrolled={isScrolled} isMobile={isMobile} /> {/* Pass device info to Navbar */}
-          </div>
+            zIndex: 40,
+            marginTop: isMobile ? '1.5rem' : '2.5rem',
+            
+            transition: ' 0.3s ease',
+           
+          }}
+        >
+          {/* When not scrolled, constrain width */}
+          {!isScrolled ? (
+            <div 
+              style={{ 
+                maxWidth: '1820px',
+                margin: '0 auto',
+                padding: '0 20px',
+              }}
+            >
+              <div 
+                style={{
+                  width: isMobile ? '80%' : '90%',
+                  margin: '0 auto',
+                }}
+              >
+                <Navbar shouldStick={false} isScrolled={isScrolled} isMobile={isMobile} />
+              </div>
+            </div>
+          ) : (
+            /* When scrolled, use full width without side borders/padding */
+            <Navbar shouldStick={false} isScrolled={isScrolled} isMobile={isMobile} />
+          )}
         </div>
         
         {/* Main Content positioned to be underneath navbar */}

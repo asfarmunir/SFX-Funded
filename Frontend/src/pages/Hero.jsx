@@ -424,40 +424,41 @@ export default function Hero() {
      <div className="font-inter w-full overflow-x-hidden">
        
  
-       <div className="w-full mx-0 px-2 sm:px-6 pt-8 sm:pt-2 md:pt-4 lg:pt-5 pb-0 rounded-[40px] my-6 sm:my-8 relative overflow-hidden"
+       <div className="w-full mx-0 px-2 sm:px-4 pt-4 sm:pt-2 md:pt-3 lg:pt-4 pb-0 rounded-[30px] mt-6 mb-4 sm:mt-6 sm:mb-6
+ relative overflow-hidden"
    style={{
      background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
    }}
  >
   
    {/* Main Content */}
-   <div className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center mt-8 sm:mt-12 md:mt-16 lg:mt-20">
+   <div className="max-w-5xl mx-auto text-center flex flex-col items-center justify-center mt-4 sm:mt-6 md:mt-8 lg:mt-10">
       <motion.img 
         src="/4.7.svg" 
         alt="4.7 Rating" 
-        className="mb-6 sm:mb-8 md:mb-10 w-auto h-auto"
-        initial={{ opacity: 0, y: 50 }}
+        className="mb-3 sm:mb-4 md:mb-5 w-auto h-8 sm:h-10"
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
         transition={{ duration: 0.6 }}
-        style={{marginTop: '40px'}}></motion.img>
+        style={{marginTop: '60px'}}></motion.img>
       
 
       {/* Hero Heading */}
-      <div className="text-center mb-6 sm:mb-8 md:mb-10">
+      <div className="text-center mb-3 sm:mb-4 md:mb-5">
       {/* Main Heading */}
       <motion.h1 
         className="text-white font-bold 
-          text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
+          text-2xl sm:text-3xl md:text-4xl lg:text-5xl
           leading-none tracking-tight"
-        initial={{ opacity: 0, y: 60 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false}}
         transition={{ duration: 0.7, delay: 0.1 }}
         style={{
           fontFamily: "Inter, sans-serif",
           fontWeight: 600,
-          fontSize: "clamp(2.5rem, 10vw, 125px)",
+          fontSize: "clamp(1.5rem, 5vw, 3rem)",
         }}
       >
         <span>Power</span>{" "}
@@ -467,17 +468,17 @@ export default function Hero() {
       {/* Subheading */}
       <motion.h1 
         className="text-white font-bold 
-          text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
+          text-2xl sm:text-3xl md:text-4xl lg:text-5xl
           leading-none tracking-tight"
-        initial={{ opacity: 0, y: 70 }}
+        initial={{ opacity: 0, y: 35 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
         transition={{ duration: 0.7, delay: 0.3 }}
         style={{
           fontFamily: "Oswald, sans-serif",
           fontWeight: 600,
-          fontSize: "clamp(2.5rem, 10vw, 125px)",
-          letterSpacing: "-3px",
+          fontSize: "clamp(1.5rem, 5vw, 3rem)",
+          letterSpacing: "-1px",
         }}
       >
         <span className="text-[#DE00DE]">Freedom </span>{" "}
@@ -487,8 +488,8 @@ export default function Hero() {
 
       {/* Description */}
       <motion.p 
-        className="text-white text-base sm:text-lg md:text-xl lg:text-2xl max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl font-inter mb-8 sm:mb-10 md:mb-12"
-        initial={{ opacity: 0, y: 80 }}
+        className="text-white text-sm sm:text-base md:text-lg max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg font-inter mb-4 sm:mb-5 md:mb-6"
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
         transition={{ duration: 0.7, delay: 0.5 }}
@@ -497,68 +498,68 @@ export default function Hero() {
       </motion.p>
 
       <motion.div 
-      className="w-full flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-8 sm:mb-10"
-      initial={{ opacity: 0, y: 85 }}
+      className="w-full flex flex-col sm:flex-row justify-center gap-2 sm:gap-3 mb-4 sm:mb-5"
+      initial={{ opacity: 0, y: 42 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}
       transition={{ duration: 0.7, delay: 0.6 }}
     >
-      {/* Left Container - 206.23px width */}
+      {/* Left Container - smaller width */}
       <motion.div 
         className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0"
         style={{
-          width: "230px", 
-          height: "31px",
+          width: "160px", 
+          height: "24px",
           fontFamily: "Inter, sans-serif",
           fontWeight: 600
         }}
       >
-        <img src="/hero11.svg" alt="Payout Icon" className="h-5 w-5 mr-2" />
-        <span className="text-black text-xs sm:text-sm">Payout on Demand</span>
+        <img src="/hero11.svg" alt="Payout Icon" className="h-3 w-3 mr-1" />
+        <span className="text-black text-xs">Payout on Demand</span>
       </motion.div>
       
-      {/* Center Container - 312.20px width */}
+      {/* Center Container - smaller width */}
       <motion.div 
         className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0"
         style={{
-          width: "250px", 
-          height: "31px",
+          width: "200px", 
+          height: "24px",
           fontFamily: "Inter, sans-serif",
           fontWeight: 600
         }}
       >
-        <span className="text-black text-xs sm:text-sm">Evaluation & Funded Stage Reset</span>
+        <span className="text-black text-xs">Evaluation & Funded Stage Reset</span>
       </motion.div>
       
-      {/* Right Container - 229.90px width */}
+      {/* Right Container - smaller width */}
       <motion.div 
         className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0"
         style={{
-          width: "230px", 
-          height: "31px",
+          width: "160px", 
+          height: "24px",
           fontFamily: "Inter, sans-serif",
           fontWeight: 600
         }}
       >
-        <img src="/hero12.svg" alt="Profit Icon" className="h-5 w-5 mr-2" />
-        <span className="text-black text-xs sm:text-sm">Up to 100% Profit Split</span>
+        <img src="/hero12.svg" alt="Profit Icon" className="h-3 w-3 mr-1" />
+        <span className="text-black text-xs">Up to 100% Profit Split</span>
       </motion.div>
     </motion.div>
 
       {/* CTA Button */}
       <motion.div 
-        className="mt-4 sm:mt-6 mb-8 sm:mb-10"
-        initial={{ opacity: 0, y: 90 }}
+        className="mt-2 sm:mt-3 mb-4 sm:mb-5"
+        initial={{ opacity: 0, y: 45 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
         transition={{ duration: 0.7, delay: 0.7 }}
       >
-        <button className="text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center justify-center mx-auto font-inter text-base sm:text-lg md:text-xl">
+        <button className="text-white px-4 py-2 sm:px-5 sm:py-3 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center justify-center mx-auto font-inter text-sm sm:text-base">
           Trade With SFX Funded
           <svg
-            className="ml-3"
-            width="20"
-            height="20"
+            className="ml-2"
+            width="14"
+            height="14"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -571,109 +572,129 @@ export default function Hero() {
         </button>
       </motion.div>
     </div>
-    {/* Mobile App Screenshot */}
-    <div
-                                className="flex justify-center"
-                                
-                              >
-                                <img
-                                  src="/herophone.png"
-                                  alt="Trading Platform Mobile App"
-                                  className="max-w-full md:max-w-lg"
-                                />
-                             </div>
-
+    {/* Mobile App Screenshot - smaller size */}
+    <div className="flex justify-center">
+      <img
+        src="/herophone.png"
+        alt="Trading Platform Mobile App"
+        className="max-w-full w-48 md:w-64"
+      />
+    </div>
  </div>
 
  <div className="flex justify-center w-full p-4">
-  <div className="flex flex-col md:flex-row items-start gap-4 p-6 bg-gray-50 rounded-[20px] font-['Inter'] max-w-7xl w-full">
+  <div className="flex flex-col md:flex-row items-start gap-4 p-4 bg-gray-50 rounded-[20px] font-['Inter'] max-w-5xl w-full">
 
-    {/* Recent Verified Payouts Section */}
-    <div className="flex flex-col items-center justify-center bg-white rounded-[20px] p-[30px_40px] shadow-sm w-[244px] h-[116px] flex-shrink-0">
-      <div className="flex justify-center items-center bg-black rounded-full w-8 h-8 mb-2">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </div>
-      <div className="text-center">
-        <p className="font-semibold text-xs leading-tight"style={{ 
-            fontFamily: "'Inter', sans-serif"
-           }}>Recent Verified</p>
-        <p className="font-semibold text-xs leading-tight"style={{ 
-            fontFamily: "'Inter', sans-serif"
-           }}>Payouts</p>
-      </div>
-    </div>
+    {/* Recent Verified Payouts Section - Modified for responsive layout */}
+<div className="flex flex-row items-center justify-start bg-white rounded-[20px] md:rounded-[20px] p-2 md:p-4 shadow-sm h-[40px] md:h-[80px] flex-shrink-0 w-full md:w-auto">
+  <div className="flex justify-center items-center w-6 md:w-12 h-6 md:h-12 mr-2 md:mr-3">
+    <img src="/last.svg" alt="checkmark" className="w-2.5 md:w-3.5 h-2.5 md:h-3.5" />
+  </div>
 
-    <div className="relative w-full">
-      {/* Blurred Left Overlay */}
-      <div className="absolute left-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-r from-white via-white/80 to-transparent" />
-      
-      {/* Enhanced Blurred Right Overlay with Border */}
-      <div className="absolute right-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-l from-white via-white/80 to-transparent" style={{
-        boxShadow: '-5px 0 15px rgba(255,255,255,0.7)',
-      }} />
-      
-      {/* Scrolling Container */}
-      <div className="overflow-hidden rounded-lg bg-gray-100 h-28">
-        {mounted && (
-          <div className="flex items-center h-full px-2 whitespace-nowrap animate-scroll">
-            {/* First set of payment items */}
-            {payments.map((payment, index) => (
-              <div key={index} className="flex items-center gap-3 flex-shrink-0 h-full px-4">
-                {/* Price and Name */}
-                <div className="flex flex-col justify-center h-full">
-                  <p className="font-bold text-xl"style={{ 
-            fontFamily: "'Inter', sans-serif"
-           }}>{payment.amount}</p>
-                  <p className="text-base text-gray-600"style={{ 
-            fontFamily: "'Inter', sans-serif"
-           }}>{payment.name}</p>
-                </div>
-                {/* Certificate */}
-                <div className="w-20 h-full flex items-center py-2">
-                  <img
-                    src={payment.certificate}
-                    alt="Payment Certificate"
-                    className="w-full h-full object-contain rounded-md"
-                  />
-                </div>
-              </div>
-            ))}
-            
-            {/* Duplicated set for seamless loop */}
-            {payments.map((payment, index) => (
-              <div key={`loop-${index}`} className="flex items-center gap-3 flex-shrink-0 h-full px-4">
-                <div className="flex flex-col justify-center h-full">
-                  <p className="font-bold text-xl">{payment.amount}</p>
-                  <p className="text-base text-gray-600">{payment.name}</p>
-                </div>
-                <div className="w-20 h-full flex items-center py-2">
-                  <img
-                    src={payment.certificate}
-                    alt="Payment Certificate"
-                    className="w-full h-full object-contain rounded-md"
-                  />
-                </div>
-              </div>
-            ))}
+  <div className="text-left">
+    <p className="font-semibold text-[10px] md:text-xs leading-tight" style={{ 
+      fontFamily: "'Inter', sans-serif"
+    }}>Recent Verified</p>
+    <p className="font-semibold text-[10px] md:text-xs leading-tight" style={{ 
+      fontFamily: "'Inter', sans-serif"
+    }}>Payouts</p>
+  </div>
+</div>
+
+<div className="relative w-full">
+  {/* Blurred Left Overlay */}
+  <div className="absolute left-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-r from-white via-white/80 to-transparent" />
+  
+  {/* Enhanced Blurred Right Overlay with Border */}
+  <div className="absolute right-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-l from-white via-white/80 to-transparent" style={{
+    boxShadow: '-5px 0 15px rgba(255,255,255,0.7)',
+  }} />
+  
+  {/* Scrolling Container - Changed to white background */}
+  <div className="overflow-hidden rounded-lg bg-white h-[80px]">
+    {mounted && (
+      <div className="flex items-center h-full whitespace-nowrap animate-scroll">
+        {/* First complete set of payment items */}
+        {payments.map((payment, index) => (
+          <div key={index} className="flex items-center gap-3 flex-shrink-0 h-full px-3 mx-2 bg-[#F5F5F7] rounded-lg">
+            {/* Price and Name */}
+            <div className="flex flex-col justify-center h-full">
+              <p className="font-bold text-lg" style={{ 
+                fontFamily: "'Inter', sans-serif"
+              }}>{payment.amount}</p>
+              <p className="text-sm text-gray-600" style={{ 
+                fontFamily: "'Inter', sans-serif"
+              }}>{payment.name}</p>
+            </div>
+            {/* Certificate */}
+            <div className="w-16 h-full flex items-center py-2">
+              <img
+                src={payment.certificate}
+                alt="Payment Certificate"
+                className="w-full h-full object-contain rounded-md"
+              />
+            </div>
           </div>
-        )}
+        ))}
+        
+        {/* Second complete set for seamless loop */}
+        {payments.map((payment, index) => (
+          <div key={`loop-${index}`} className="flex items-center gap-3 flex-shrink-0 h-full px-3 mx-2 bg-[#F5F5F7] rounded-lg">
+            <div className="flex flex-col justify-center h-full">
+              <p className="font-bold text-lg" style={{ 
+                fontFamily: "'Inter', sans-serif"
+              }}>{payment.amount}</p>
+              <p className="text-sm text-gray-600" style={{ 
+                fontFamily: "'Inter', sans-serif"
+              }}>{payment.name}</p>
+            </div>
+            <div className="w-16 h-full flex items-center py-2">
+              <img
+                src={payment.certificate}
+                alt="Payment Certificate"
+                className="w-full h-full object-contain rounded-md"
+              />
+            </div>
+          </div>
+        ))}
+        
+        {/* Third partial set to ensure no gaps */}
+        {payments.slice(0, 3).map((payment, index) => (
+          <div key={`extra-${index}`} className="flex items-center gap-3 flex-shrink-0 h-full px-3 mx-2 bg-[#F5F5F7] rounded-lg">
+            <div className="flex flex-col justify-center h-full">
+              <p className="font-bold text-lg" style={{ 
+                fontFamily: "'Inter', sans-serif"
+              }}>{payment.amount}</p>
+              <p className="text-sm text-gray-600" style={{ 
+                fontFamily: "'Inter', sans-serif"
+              }}>{payment.name}</p>
+            </div>
+            <div className="w-16 h-full flex items-center py-2">
+              <img
+                src={payment.certificate}
+                alt="Payment Certificate"
+                className="w-full h-full object-contain rounded-md"
+              />
+            </div>
+          </div>
+        ))}
       </div>
-      
-      {/* Animation keyframes */}
-      <style jsx>{`
-        @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-scroll {
-          animation: scroll 5s linear infinite;
-        }
-      `}</style>
-    </div>
-
-
+    )}
+  </div>
+  
+  {/* Improved Animation keyframes */}
+  <style jsx>{`
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 24px)); }
+    }
+    .animate-scroll {
+      animation: scroll 30s linear infinite;
+      /* Slow down animation and adjust distance */
+      padding-right: 24px; /* Extra padding to eliminate any potential gaps */
+    }
+  `}</style>
+</div>
   </div>
 </div>
 

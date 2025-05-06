@@ -62,19 +62,20 @@ export default function About() {
 >
   {/* Hero Heading */}
   <div className="text-center mb-6 sm:mb-8 md:mb-10">
-    <h1 className="text-white uppercase font-oswald font-bold 
-     text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
-     leading-none tracking-tight"
-     style={{
-      fontFamily: "Oswald, sans-serif",
-      fontWeight: 600,
-      fontSize: "125.22px",
-      letterSpacing: "-7.64px",
-      marginTop: '40px'
-    }}>
-      <span>ABOUT</span>{" "}
-      <span style={{ color: 'rgba(248, 0, 234, 1)' }}>SFX FUNDED</span>
-    </h1>
+  <h1
+  className="text-white uppercase font-oswald font-bold leading-none tracking-tight"
+  style={{
+    fontFamily: "Oswald, sans-serif",
+    fontWeight: 600,
+    fontSize: "clamp(2.5rem, 8vw, 7.8rem)", // Responsive font size
+    letterSpacing: "-0.45rem",
+    marginTop: '40px'
+  }}
+>
+  <span>ABOUT</span>{" "}
+  <span style={{ color: 'rgba(248, 0, 234, 1)' }}>SFX FUNDED</span>
+</h1>
+
   </div>
 </motion.div>
       </div>

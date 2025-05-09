@@ -13,7 +13,7 @@ import 'swiper/css/autoplay';
 
 export default function RapidChallenge() {
   const countryData = [
-    { flag: "USA", percent: 85 },
+    { flag: "Malay", percent: 85 },
     { flag: "GERMANY", percent: 70 },
     { flag: "GB", percent: 55 },
     { flag: "FRANCE", percent: 30 }
@@ -109,10 +109,10 @@ export default function RapidChallenge() {
     // If you want more badges later, just add paths here
   ];
   const traders = [
-    { src: "/p1.png", alt: "Karim" },
-    { src: "/p2.png", alt: "Chad" },
-    { src: "/p3.png", alt: "Alex" },
-    { src: "/p4.png", alt: "Preet" },
+    { src: "/p1.svg", alt: "Karim" },
+    { src: "/p2.svg", alt: "Chad" },
+    { src: "/p3.svg", alt: "Alex" },
+    { src: "/p4.svg", alt: "Preet" },
   ];
   const socialIcons = [
     {
@@ -179,14 +179,14 @@ export default function RapidChallenge() {
         name: "Pierre L.",
         flag: "FRANCE",
         rating: 5,
-        text: "This is by far the best prop firm I have used; they are trustworthy and have excellent customer service. Since being with AquaFunded I have completed both evaluation and just received my first payout. The process was fast without any issues, I cannot recommend this company enough. It's clear they care about their traders."
+        text: "Easy and fast payout progess. From requested to funds in my account all within 48 hours."
     },
     {
         id: 2,
-        name: "John S.",
+        name: "Liam Carter",
         flag: "USA",
         rating: 5,
-        text: "Customer service is 10/10, the moment you put a ticket in you get a reply immediately. Their spreads are amazing. The prices are very affordable. This is hands down the best prop firm I have ever stumbled across!"
+        text: "I only trade instant funded accounts. The firm has good offerings for anyone interested in instant funded accounts. More expensive then challenge accounts but well worth the money IMO"
     },
     {
         id: 3,
@@ -200,28 +200,28 @@ export default function RapidChallenge() {
         name: "James R.",
         flag: "AUS",
         rating: 5,
-        text: "I have just received my first reward of over $13k. AquaFunded is the real deal. Their rules are fair and easy to follow. The customer support is 2nd to none and I'm happy to recommend them to anyone. Trust is key in this industry and these guys have my full trust."
+        text: "I had some bad experiences with other firms before so I was not sure about joining SFX Funded because of that. But after buying one account now I am glad to know SFX Funded is better. I take nearly 2 months to pass both levels because I dont want to break any rules and now I am funded. I have not yet claimed a payout yet but will try first time after one or two more trades. Thank you sfx funded."
     },
     {
         id: 5,
         name: "Ravi K.",
         flag: "IND",
         rating: 5,
-        text: "AquaFunded is one of the best funding companies, there are no hidden rules that harm traders, there is a 2 step and lot rules. Rewards are fast and the support service is very friendly and responds quickly. AquaFunded is the best, I love it"
+        text: "This is my first time with a prop firm ever and they made it so easy for me. Helpful support team and good trading platform."
     },
     {
         id: 6,
-        name: "Ahmed M.",
-        flag: "UAE",
+        name: "Peter S.",
+        flag: "GERMANY",
         rating: 5,
-        text: "Honestly, I've tried so many funded companies but what always disappointed me was their support team. Since I joined AquaFunded, I have had no complaints from the first day. What I love most about them is their hardworking team. WOW, WHAT A TEAM THEY ARE. Very quick, supportive and responsive. They will become the best funded company very soon."
+        text: "I recently completed the prop trading challenge with SFX Funded and was fortunate to pass on my first attempt. The challenge had clear guidelines and excellent support from the team. I had not used MatchTrader before but found it easy to navigate after watching a few short videos and looking around the platform. The backend of SFX Funded was also easy to navigate and showed me clearly where I was standing during my challenge and verification phases.The payout process is efficient, and I received my first money within 48 hours of making the payout request.Becoming a funded trader with SFX Funded overall has been a smooth experience and for any trader looking to prove their skills and get funded, I highly recommend SFX Funded."
     },
     {
         id: 7,
-        name: "Hans W.",
-        flag: "GERMANY",
+        name: "Ahmed M.",
+        flag: "UAE",
         rating: 5,
-        text: "Great firm, no nonsense rules! Support super-fast and clear. Had no problems with my Reward. Already got my second reward. I encourage people to be part of Aqua"
+        text: "Easy payment solution for me here in Nigeria. Sometimes we cant even find firms that accept our bank cards. This company offers payment option for local payment that is widely used here in my country and means me and my friends can be part of propfirm trading."
     }
 ];
 
@@ -1177,541 +1177,556 @@ const getTransform = (columnIndex) => {
 </div>
 
        <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
-      <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
-        Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
-      </h1>
-      
-      <div className="relative overflow-hidden w-full mb-12">
- {/* Blur Overlays */}
-<div
-  className="absolute left-0 top-0 h-full w-24 z-10 pointer-events-none"
-  style={{
-    background: "linear-gradient(to right, rgba(255,255,255,0.6), transparent)"
-  }}
-/>
-<div
-  className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none"
-  style={{
-    background: "linear-gradient(to left, rgba(255,255,255,0.6), transparent)"
-  }}
-/>
-
-
- {/* Scrolling Container */}
-<div className="whitespace-nowrap animate-scroll flex items-center gap-12">
-  {[...Array(2)].map((_, index) => (
-    <div key={index} className="flex items-center gap-12 px-4">
-      {[
-        { src: "/mw.png", alt: "Marketwatch" },
-        { src: "/ms.png", alt: "MSN" },
-        { src: "/bb.png", alt: "Bloomberg" },
-        { src: "/nd.png", alt: "Nasdaq" },
-        { src: "/bz.png", alt: "Benzinga" }
-      ].map((brand, i) => (
-        <div key={i} className="h-10 w-32 flex items-center justify-center">
-          <img
-            src={brand.src}
-            alt={brand.alt}
-            className="h-full max-w-full object-contain"
-          />
-        </div>
-      ))}
-    </div>
-  ))}
-</div>
-
-
-  {/* Tailwind custom animation */}
-  <style jsx>{`
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .animate-scroll {
-      animation: scroll 5s linear infinite;
-    }
-  `}</style>
-</div>
-
-      
-      {/* Stats Cards Container */}
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-  {/* LEFT COLUMN */}
-  <div className="flex flex-col gap-6">
-    
-    {/* Graph Card */}
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.2 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="bg-white rounded-3xl p-6 shadow-sm w-full"
-    >
-      <p className="text-center text-lg font-normal mb-2">Highest Paid Trader:</p>
-      <h2 className="text-center text-4xl md:text-5xl font-semibold mb-6">$39,183</h2>
-
-      {/* Graph */}
-      <div className="w-full h-30 relative">
-        <img 
-          src="/graph.svg" 
-          alt="Trading performance graph" 
-          className="w-full h-full object-cover" 
-        />
-      </div>
-    </motion.div>
-
-    {/* Country Stats Card */}
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.2 }}
-      transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-      className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col"
-    >
-      <p className="text-left text-lg font-inter mb-2">Total Rewards:</p>
-      <h2 className="text-left text-4xl md:text-5xl font-semibold mb-6">$829,00+</h2>
-
-      {/* Info containers */}
-      <div className="flex flex-col sm:flex-row gap-3 mb-6">
-        <div className="inline-flex border border-fuchsia-600 rounded-full px-3 py-1">
-          <p className="text-fuchsia-600 font-medium text-xs">Average Rewards: $1132</p>
-        </div>
-        <div className="inline-flex bg-fuchsia-600 rounded-full px-3 py-1">
-          <p className="text-white font-medium text-xs">Avg Payout Time: &lt; 8 hours</p>
-        </div>
-      </div>
-
-      {/* Country bars */}
-      <div className="space-y-3">
-  {countryData.map((country, index) => (
-    <div key={index} className="flex items-center gap-3">
-      <img 
-        src={`/${country.flag}.svg`} 
-        alt={`${country.name} flag`} 
-        className="w-6 h-6 object-contain" 
-      />
-      <div className="flex-1 bg-gray-200 rounded-full h-4 overflow-hidden">
-        <div 
-          className="bg-fuchsia-600 h-full rounded-full" 
-          style={{ width: `${country.percent}%` }}
-        />
-      </div>
-    </div>
-  ))}
-</div>
-    </motion.div>
-  </div>
-
-  {/* RIGHT COLUMN */}
-  <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: false, amount: 0.2 }}
-    transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-    className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col justify-between h-full"
-  >
-    <div>
-      <p className="text-left text-lg font-normal mb-1">Countries:</p>
-      <h2 className="text-left text-4xl md:text-5xl font-semibold mb-4">130+</h2>
-    </div>
-
-    <div className="relative w-full flex-1 flex items-end justify-start mt-auto">
-      <img 
-        src="/globe.svg" 
-        alt="World map with connection points" 
-        className="w-full h-200 object-contain" 
-      />
-    </div>
-  </motion.div>
-</div>
-
-    </div>
+                               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
+                                 Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
+                               </h1>
+                               
+                               <div className="relative overflow-hidden w-full mt-6 mb-8 sm:mt-8 sm:mb-10 md:mt-12 md:mb-14 lg:mt-16 lg:mb-20">
+                
+                          {/* Blur Overlays */}
+                         <div
+                           className="absolute left-0 top-0 h-full w-24 z-10 pointer-events-none"
+                           style={{
+                             background: "linear-gradient(to right, rgba(255,255,255,0.6), transparent)"
+                           }}
+                         />
+                         <div
+                           className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none"
+                           style={{
+                             background: "linear-gradient(to left, rgba(255,255,255,0.6), transparent)"
+                           }}
+                         />
+                         
+                         
+                          {/* Scrolling Container */}
+                         <div className="whitespace-nowrap animate-scroll flex items-center gap-12">
+                           {[...Array(2)].map((_, index) => (
+                             <div key={index} className="flex items-center gap-12 px-4">
+                               {[
+                                 { src: "/mw.png", alt: "Marketwatch" },
+                                 { src: "/ms.png", alt: "MSN" },
+                                 { src: "/bb.png", alt: "Bloomberg" },
+                                 { src: "/nd.png", alt: "Nasdaq" },
+                                 { src: "/bz.png", alt: "Benzinga" }
+                               ].map((brand, i) => (
+                                 <div key={i} className="h-10 w-32 flex items-center justify-center">
+                                   <img
+                                     src={brand.src}
+                                     alt={brand.alt}
+                                     className="h-full max-w-full object-contain"
+                                   />
+                                 </div>
+                               ))}
+                             </div>
+                           ))}
+                         </div>
+                         
+                         
+                           {/* Tailwind custom animation */}
+                           <style jsx>{`
+                             @keyframes scroll {
+                               0% { transform: translateX(0); }
+                               100% { transform: translateX(-50%); }
+                             }
+                             .animate-scroll {
+                               animation: scroll 5s linear infinite;
+                             }
+                           `}</style>
+                         </div>
+                         
+                               
+                               {/* Stats Cards Container */}
+                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                           {/* LEFT COLUMN */}
+                           <div className="flex flex-col gap-6">
+                             
+                             {/* Graph Card */}
+                             <motion.div
+                               initial={{ opacity: 0, y: 50 }}
+                               whileInView={{ opacity: 1, y: 0 }}
+                               viewport={{ once: false, amount: 0.2 }}
+                               transition={{ duration: 0.6, ease: "easeOut" }}
+                               className="bg-white rounded-3xl p-6 shadow-sm w-full"
+                             >
+                               <p className="text-center text-lg font-normal mb-2">Highest Paid Trader:</p>
+                               <h2 className="text-center text-4xl md:text-5xl font-semibold mb-6">$39,183.97</h2>
+                         
+                               {/* Graph */}
+                               <div className="w-full h-30 relative">
+                                 <img 
+                                   src="/graph.svg" 
+                                   alt="Trading performance graph" 
+                                   className="w-full h-full object-cover" 
+                                 />
+                               </div>
+                             </motion.div>
+                         
+                             {/* Country Stats Card */}
+                             <motion.div
+                               initial={{ opacity: 0, y: 50 }}
+                               whileInView={{ opacity: 1, y: 0 }}
+                               viewport={{ once: false, amount: 0.2 }}
+                               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                               className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col"
+                             >
+                               <p className="text-left text-lg font-inter mb-2">Total Rewards:</p>
+                               <h2 className="text-left text-4xl md:text-5xl font-semibold mb-6">$673,142.91</h2>
+                         
+                               {/* Info containers */}
+                               <div className="flex flex-col sm:flex-row gap-3 mb-6">
+                                 <div className="inline-flex border border-fuchsia-600 rounded-full px-3 py-1">
+                                   <p className="text-fuchsia-600 font-medium text-xs">Average Rewards: $1132</p>
+                                 </div>
+                                 <div className="inline-flex bg-fuchsia-600 rounded-full px-3 py-1">
+                                   <p className="text-white font-medium text-xs">Avg Payout Time: &lt; 8 hours</p>
+                                 </div>
+                               </div>
+                         
+                               {/* Country bars */}
+                      <div className="space-y-3">
+                  {countryData.map((country, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <img 
+                        src={`/${country.flag}.svg`} 
+                        alt={`${country.name} flag`} 
+                        className="w-6 h-6 object-contain" 
+                      />
+                      <div className="flex-1 bg-gray-200 rounded-full h-4 overflow-hidden">
+                        <div 
+                          className="bg-fuchsia-600 h-full rounded-full" 
+                          style={{ width: `${country.percent}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                             </motion.div>
+                           </div>
+                         
+                           {/* RIGHT COLUMN */}
+                           <motion.div
+                             initial={{ opacity: 0, y: 50 }}
+                             whileInView={{ opacity: 1, y: 0 }}
+                             viewport={{ once: false, amount: 0.2 }}
+                             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                             className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col justify-between h-full"
+                           >
+                             <div>
+                               <p className="text-left text-lg font-normal mb-1">Countries:</p>
+                               <h2 className="text-left text-4xl md:text-5xl font-semibold mb-4">130+</h2>
+                             </div>
+                         
+                             <div className="relative w-full flex-1 flex items-end justify-start mt-auto">
+                               <img 
+                                 src="/globe.svg" 
+                                 alt="World map with connection points" 
+                                 className="w-full h-200 object-contain" 
+                               />
+                             </div>
+                           </motion.div>
+                         </div>
+                         
+                             </div>
 
     <div className="w-full font-inter bg-white">
-      {/* Real Traders, Real Success Section */}
-      <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
-        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
-          <span className="text-black">Real Traders, </span>
-          <span className="text-[#F800EA]">Real Success</span>
-        </h2>
-        <p className="text-center text-gray-800 mb-8">Empowering Traders Globally</p>
-        
-        {/* Trader Cards - Responsive Grid */}
-        <div className="mb-8">
-      <Swiper
-        modules={[Autoplay]}
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
-        loop={true}
-        slidesPerView={1}
-        spaceBetween={16}
-        breakpoints={{
-          640: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        }}
-      >
-        {traders.map((trader, index) => (
-          <SwiperSlide key={index}>
-            <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-              <div className="relative">
-                <img src={trader.src} alt={trader.alt} className="w-full object-cover" />
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-        
-        {/* Start Trading Button */}
-        <div className="flex justify-center mb-16">
-          <button className="bg-[#F800EA] text-black px-8 py-3 rounded-full font-medium flex items-center">
-            Start Trading
-            <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
-            </svg>
-          </button>
-        </div>
-        
-        {/* Platform Section */}
-        <div className="mb-16 px-4">
-      {/* Heading */}
-      <motion.h2
-        className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-      >
-        <span className="text-black">Trade On Our</span>
-        <br />
-        <span className="text-black">Leading </span>
-        <span className="text-[#F800EA]">Platform 5</span>
-      </motion.h2>
-
-      {/* Description */}
-      <motion.p
-        className="text-center text-gray-800 max-w-3xl mx-auto mb-8"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        Experience our user-friendly prop trading platform, designed to help you execute, track and 
-        manage your trades effortlessly. We simulate real market conditions with spreads from 0 pips and 
-        with the lowest commission.
-      </motion.p>
-
-      {/* Feature Icons */}
-      <div className="flex flex-col md:flex-row justify-center gap-4 mb-12">
-      <motion.div
-        className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        <img 
-          src="/blue.svg" 
-          alt="Feature icon" 
-          className="w-4 h-4 mr-2"
-        />
-        <span className="font-medium">True Market Pricing</span>
-      </motion.div>
-      
-      <motion.div
-        className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-      >
-        <img 
-          src="/blue.svg" 
-          alt="Feature icon" 
-          className="w-4 h-4 mr-2"
-        />
-        <span className="font-medium">Lightning Fast Trade Execution</span>
-      </motion.div>
-      
-      <motion.div
-        className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        <img 
-          src="/blue.svg" 
-          alt="Feature icon" 
-          className="w-4 h-4 mr-2"
-        />
-        <span className="font-medium">Industry Leading Spreads 0.0 pips</span>
-      </motion.div>
-    </div>
-
-      {/* Mobile App Screenshot */}
-      <div
-        className="flex justify-center"
-        
-      >
-        <img
-          src="/phone.png"
-          alt="Trading Platform Mobile App"
-          className="max-w-full md:max-w-lg"
-        />
-     </div>
-
-     {/* Firm Badge Section */}
-<div style={{
-  background: "rgba(245, 245, 247, 1)",
-  borderRadius: "20px",
-  padding: "16px",
-}}>
-  <motion.h2
-    className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-12"
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.2, delay: 0.7 }}
-  >
-    <span className="text-black">A </span>
-    <span className="text-[#F800EA]">Firm </span>
-    <span className="text-black">You Can Rely On</span>
-  </motion.h2>
-
-  {/* Fixed Badge Swiper */}
-  <div className="w-full px-4 max-w-6xl mx-auto">
-  {mounted && (
-    <Swiper
-      modules={[Autoplay]}
-      autoplay={{
-        delay: 2000,
-        disableOnInteraction: false,
-      }}
-      loop={true}
-      slidesPerView={1}
-      spaceBetween={16}
-      breakpoints={{
-        640: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3}
-      }}
-     // slidesPerGroup={1} // Important: slides move one by one
-    >
-      {/* Duplicate badges for smoother looping */}
-      {[...badges, ...badges].map((src, index) => (
-        <SwiperSlide key={index}>
-          <div className="flex justify-center items-center p-4 h-full">
-            <img
-              src={src}
-              alt={`Badge ${(index % badges.length) + 1}`}
-              className="h-24 md:h-32 w-full object-contain"
-              style={{ 
-                maxWidth: "100%",
-                aspectRatio: "1/1"
-              }}
-            />
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  )}
-</div>
-
-  {/* Start Trading Button */}
-  <div className="flex justify-center items-center">
-    <button className="bg-[#F800EA] text-black px-8 py-3 rounded-full font-medium flex items-center">
-      Start Trading
-      <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
-      </svg>
-    </button>
-  </div>
-</div>
-    </div>
-        
-      </div>
-    </div>
-    
-
-    <div className="w-full font-sans bg-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        {/* Purple diamond decoration */}
-        <div 
-          className="absolute left-16 top-16 md:left-24 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
-          style={{
-            animation: 'float 3s infinite ease-in-out',
-          }}
-        >
-     
-          {/* Diamond SVG */}
-<div>
-  <img src="/diamond.svg" alt="Diamond Icon" className="w-20 h-20" />
-</div>
-
-        </div>
-        
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 relative z-10">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
-            What Our Traders Have To Say
-          </h2>
+                  {/* Real Traders, Real Success Section */}
+                  <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
+                    <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
+                      <span className="text-black">Real Traders, </span>
+                      <span className="text-[#F800EA]">Real Success</span>
+                    </h2>
+                    <p className="text-center text-gray-800 mb-8">Empowering Traders Globally</p>
           
-          <button className="bg-[#F800EA] text-black px-6 py-3 rounded-full font-medium flex items-center">
-            Start Trading
-            <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
-            </svg>
-          </button>
-        </div>
-        
-        {/* Mobile Testimonial Column (Visible on small screens) */}
-        <div className="block md:hidden relative h-96 overflow-hidden">
-          <div className="absolute w-full space-y-6" style={{ transform: getTransform(0) }}>
-            {mobileTestimonials.map((testimonial, index) => (
-              <div 
-                key={`mobile-${testimonial.id}-${index}`} 
-                className="bg-white p-6 rounded-lg shadow-lg"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.8)',
-                  backdropFilter: 'blur(24px)'
-                }}
-              >
-                {renderStars(testimonial.rating)}
-                <div className="mb-4">
-                  {highlightText(testimonial.text)}
-                </div>
-                <div className="flex items-center">
-                  <span className="font-medium mr-2">{testimonial.name}</span>
-                  <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded">
-                  <img
-    src={`/${testimonial.flag}.svg`}
-    alt={testimonial.flag}
-    className="w-full h-full object-cover"
-  />
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        {/* Desktop 3-Column Testimonial Layout (Hidden on small screens) */}
-        <div className="hidden md:grid md:grid-cols-3 gap-8 relative">
-          {/* Left Column */}
-          <div className="relative h-[32rem] overflow-hidden">
-            <div className="absolute w-full space-y-6" style={{ transform: getTransform(0) }}>
-              {leftColumnTestimonials.map((testimonial, index) => (
-                <div 
-                  key={`left-${testimonial.id}-${index}`} 
-                  className="bg-white p-6 rounded-lg shadow-lg"
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    backdropFilter: 'blur(24px)'
-                  }}
-                >
-                  {renderStars(testimonial.rating)}
-                  <div className="mb-4">
-                    {highlightText(testimonial.text)}
-                  </div>
-                  <div className="flex items-center">
-                    <span className="font-medium mr-2">{testimonial.name}</span>
-                    <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
-  <img
-    src={`/${testimonial.flag}.svg`}
-    alt={testimonial.flag}
-    className="w-full h-full object-cover"
-  />
-</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+                    {/* Trader Cards - Responsive Grid */}
+                    <div className="mb-8">
+                      <Swiper
+                        modules={[Autoplay]}
+                        autoplay={{ delay: 2000, disableOnInteraction: false }}
+                        loop={true}
+                        slidesPerView={1}
+                        spaceBetween={16}
+                        breakpoints={{
+                          640: { slidesPerView: 1 },
+                          768: { slidesPerView: 2 },
+                          1024: { slidesPerView: 3 },
+                        }}
+                      >
+                        {traders.map((trader, index) => (
+                          <SwiperSlide key={index}>
+                            <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+                              <div className="relative">
+                                <img src={trader.src} alt={trader.alt} className="w-full object-cover" />
+                              </div>
+                            </div>
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
+                    </div>
           
-          {/* Center Column */}
-          <div className="relative h-[32rem] overflow-hidden">
-            <div className="absolute w-full space-y-6" style={{ transform: getTransform(1) }}>
-              {centerColumnTestimonials.map((testimonial, index) => (
-                <div 
-                  key={`center-${testimonial.id}-${index}`} 
-                  className="bg-white p-6 rounded-lg shadow-lg"
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    backdropFilter: 'blur(24px)'
-                  }}
-                >
-                  {renderStars(testimonial.rating)}
-                  <div className="mb-4">
-                    {highlightText(testimonial.text)}
-                  </div>
-                  <div className="flex items-center">
-                    <span className="font-medium mr-2">{testimonial.name}</span>
-                    <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
-  <img
-    src={`/${testimonial.flag}.svg`}
-    alt={testimonial.flag}
-    className="w-full h-full object-cover"
-  />
-</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+                    {/* Start Trading Button */}
+                    <div className="flex justify-center mb-16">
+                      <button className="bg-[#F800EA] text-black px-8 py-3 rounded-full font-medium flex items-center">
+                        Start Trading
+                        <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+                        </svg>
+                      </button>
+                    </div>
           
-          {/* Right Column */}
-          <div className="relative h-[32rem] overflow-hidden">
-            <div className="absolute w-full space-y-6" style={{ transform: getTransform(2) }}>
-              {rightColumnTestimonials.map((testimonial, index) => (
-                <div 
-                  key={`right-${testimonial.id}-${index}`} 
-                  className="bg-white p-6 rounded-lg shadow-lg"
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    backdropFilter: 'blur(24px)'
-                  }}
-                >
-                  {renderStars(testimonial.rating)}
-                  <div className="mb-4">
-                    {highlightText(testimonial.text)}
-                  </div>
-                  <div className="flex items-center">
-                    <span className="font-medium mr-2">{testimonial.name}</span>
-                    <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
-  <img
-    src={`/${testimonial.flag}.svg`}
-    alt={testimonial.flag}
-    className="w-full h-full object-cover"
-  />
-</span>
+                    {/* Platform Section */}
+                    <div className="mb-16 px-4">
+                      {/* Heading */}
+                      <motion.h2
+                        className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                      >
+                        <span className="text-black">Trade On Our</span>
+                        <br />
+                        <span className="text-black">Leading </span>
+                        <span className="text-[#F800EA]">Platform 5</span>
+                      </motion.h2>
+          
+                      {/* Description */}
+                      <motion.p
+                        className="text-center text-gray-800 max-w-3xl mx-auto mb-8"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                      >
+                        Experience our user-friendly prop trading platform, designed to help you execute, track and
+                        manage your trades effortlessly. We simulate real market conditions with spreads from 0 pips and
+                        with the lowest commission.
+                      </motion.p>
+          
+                      {/* Feature Icons */}
+                      <div className="flex flex-col md:flex-row justify-center gap-4 mb-12">
+                        <motion.div
+                          className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
+                          initial={{ opacity: 0, y: 50 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <img
+                            src="/blue.svg"
+                            alt="Feature icon"
+                            className="w-4 h-4 mr-2"
+                          />
+                          <span className="font-medium">True Market Pricing</span>
+                        </motion.div>
+          
+                        <motion.div
+                          className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
+                          initial={{ opacity: 0, y: 50 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.4 }}
+                        >
+                          <img
+                            src="/blue.svg"
+                            alt="Feature icon"
+                            className="w-4 h-4 mr-2"
+                          />
+                          <span className="font-medium">Lightning Fast Trade Execution</span>
+                        </motion.div>
+          
+                        <motion.div
+                          className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
+                          initial={{ opacity: 0, y: 50 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.5 }}
+                        >
+                          <img
+                            src="/blue.svg"
+                            alt="Feature icon"
+                            className="w-4 h-4 mr-2"
+                          />
+                          <span className="font-medium">Industry Leading Spreads 0.0 pips</span>
+                        </motion.div>
+                      </div>
+          
+                      {/* Mobile App Screenshot */}
+                      <div
+                        className="flex justify-center"
+          
+                      >
+                        <img
+                          src="/phone.png"
+                          alt="Trading Platform Mobile App"
+                          className="max-w-full md:max-w-lg"
+                        />
+                      </div>
+          
+                      {/* Firm Badge Section */}
+                      <div
+                        style={{
+                          background: "rgba(245, 245, 247, 1)",
+                          borderRadius: "20px",
+                          padding: "16px",
+                        }}
+                      >
+                        <motion.h2
+                          className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-12"
+                          initial={{ opacity: 0, y: 50 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.2, delay: 0.7 }}
+                        >
+                          <span className="text-black">A </span>
+                          <span className="text-[#F800EA]">Firm </span>
+                          <span className="text-black">You Can Rely On</span>
+                        </motion.h2>
+          
+                        {/* Swiper for Badges */}
+                        {/* Fixed Badge Swiper */}
+                        <div className="w-full px-4 max-w-6xl mx-auto">
+                          {mounted && (
+                            <Swiper
+                              modules={[Autoplay]}
+                              autoplay={{
+                                delay: 2000,
+                                disableOnInteraction: false,
+                              }}
+                              loop={true}
+                              slidesPerView={1}
+                              spaceBetween={16}
+                              breakpoints={{
+                                640: { slidesPerView: 1 },
+                                768: { slidesPerView: 2 },
+                                1024: { slidesPerView: 3 }
+                              }}
+                            // slidesPerGroup={1} // Important: slides move one by one
+                            >
+                              {/* Duplicate badges for smoother looping */}
+                              {[...badges, ...badges].map((src, index) => (
+                                <SwiperSlide key={index}>
+                                  <div className="flex justify-center items-center p-4 h-full">
+                                    <img
+                                      src={src}
+                                      alt={`Badge ${(index % badges.length) + 1}`}
+                                      className="h-60 md:h-60 w-full object-contain"
+                                      style={{
+                                        maxWidth: "100%",
+                                        aspectRatio: "1/1"
+                                      }}
+                                    />
+                                  </div>
+                                </SwiperSlide>
+                              ))}
+                            </Swiper>
+                          )}
+                        </div>
+          
+          
+                        {/* Start Trading Button */}
+          
+                        <div className="flex justify-center items-center">
+                          <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+                            Start Trading
+                            <svg
+                              className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+                                fill="currentColor"
+                              />
+                            </svg>
+                          </button>
+          
+                        </div>
+          
+                      </div>
+                    </div>
+          
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        
-        {/* Floating ellipse decoration */}
-        <div
-          className="absolute right-0 bottom-10 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-10"
-          style={{
-            animation: 'float 4s infinite ease-in-out',
-          }}
-        >
-            {/* Floating ellipse decoration */}
-<motion.img
-  src="/elipse.svg"
-  alt="Floating Elipse"
-  className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-30 z-10"
-  animate={{ y: [0, -15, 0] }}
-  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-/>
-
-        </div>
-      </div>
-      
-      {/* Animation keyframes */}
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-15px); }
-        }
-      `}</style>
-    </div>
+          <div className="w-full font-sans bg-[#f5f5f7]
+           py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+                  <div className="max-w-7xl mx-auto">
+                    {/* Purple diamond decoration */}
+                    <div
+                      className="absolute left-16 top-16 md:left-24 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
+                      style={{
+                        animation: 'float 3s infinite ease-in-out',
+                      }}
+                    >
+                      {/* Diamond SVG */}
+                      <div>
+                        <img src="/diamond.svg" alt="Diamond Icon" className="w-20 h-20" />
+                      </div>
+                    </div>
+          
+                    <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 relative z-10">
+                      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
+                        What Our Traders Have To Say
+                      </h2>
+                    </div>
+          
+                    {/* Mobile Testimonial Column (Visible on small screens) */}
+                    <div className="block md:hidden relative h-96 overflow-hidden">
+                      <div className="absolute w-full space-y-6" style={{ transform: getTransform(0) }}>
+                        {mobileTestimonials.map((testimonial, index) => (
+                          <div
+                            key={`mobile-${testimonial.id}-${index}`}
+                            className="bg-white p-6 rounded-lg shadow-lg"
+                            style={{
+                              background: 'rgba(255, 255, 255, 0.8)',
+                              backdropFilter: 'blur(24px)'
+                            }}
+                          >
+                            {renderStars(testimonial.rating)}
+                            <div className="mb-4">
+                              {highlightText(testimonial.text)}
+                            </div>
+                            <div className="flex items-center">
+                              <span className="font-medium mr-2">{testimonial.name}</span>
+                              <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded">
+                                <img
+                                  src={`/${testimonial.flag}.svg`}
+                                  alt={testimonial.flag}
+                                  className="w-full h-full object-cover"
+                                />
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+          
+                    {/* Desktop 3-Column Testimonial Layout (Hidden on small screens) */}
+                    <div className="hidden md:grid md:grid-cols-3 gap-8 relative">
+                      {/* Left Column */}
+                      <div className="relative h-[32rem] overflow-hidden">
+                        <div className="absolute w-full space-y-6" style={{ transform: getTransform(0) }}>
+                          {leftColumnTestimonials.map((testimonial, index) => (
+                            <div
+                              key={`left-${testimonial.id}-${index}`}
+                              className="bg-white p-6 rounded-lg shadow-lg"
+                              style={{
+                                background: 'rgba(255, 255, 255, 0.8)',
+                                backdropFilter: 'blur(24px)'
+                              }}
+                            >
+                              {renderStars(testimonial.rating)}
+                              <div className="mb-4">
+                                {highlightText(testimonial.text)}
+                              </div>
+                              <div className="flex items-center">
+                                <span className="font-medium mr-2">{testimonial.name}</span>
+                                <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+                                  <img
+                                    src={`/${testimonial.flag}.svg`}
+                                    alt={testimonial.flag}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+          
+                      {/* Center Column */}
+                      <div className="relative h-[32rem] overflow-hidden">
+                        <div className="absolute w-full space-y-6" style={{ transform: getTransform(1) }}>
+                          {centerColumnTestimonials.map((testimonial, index) => (
+                            <div
+                              key={`center-${testimonial.id}-${index}`}
+                              className="bg-white p-6 rounded-lg shadow-lg"
+                              style={{
+                                background: 'rgba(255, 255, 255, 0.8)',
+                                backdropFilter: 'blur(24px)'
+                              }}
+                            >
+                              {renderStars(testimonial.rating)}
+                              <div className="mb-4">
+                                {highlightText(testimonial.text)}
+                              </div>
+                              <div className="flex items-center">
+                                <span className="font-medium mr-2">{testimonial.name}</span>
+                                <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+                                  <img
+                                    src={`/${testimonial.flag}.svg`}
+                                    alt={testimonial.flag}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+          
+                      {/* Right Column */}
+                      <div className="relative h-[32rem] overflow-hidden">
+                        <div className="absolute w-full space-y-6" style={{ transform: getTransform(2) }}>
+                          {rightColumnTestimonials.map((testimonial, index) => (
+                            <div
+                              key={`right-${testimonial.id}-${index}`}
+                              className="bg-white p-6 rounded-lg shadow-lg"
+                              style={{
+                                background: 'rgba(255, 255, 255, 0.8)',
+                                backdropFilter: 'blur(24px)'
+                              }}
+                            >
+                              {renderStars(testimonial.rating)}
+                              <div className="mb-4">
+                                {highlightText(testimonial.text)}
+                              </div>
+                              <div className="flex items-center">
+                                <span className="font-medium mr-2">{testimonial.name}</span>
+                                <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+                                  <img
+                                    src={`/${testimonial.flag}.svg`}
+                                    alt={testimonial.flag}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+          
+                    {/* Centered Start Trading Button at Bottom */}
+                    <div className="flex justify-center mt-16">
+                      <button className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform">
+                        Start Trading
+                        <svg className="ml-3 w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+                        </svg>
+                      </button>
+                    </div>
+          
+                    {/* Floating ellipse decoration */}
+                    <div
+                      className="absolute right-0 bottom-10 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-10"
+                      style={{
+                        animation: 'float 4s infinite ease-in-out',
+                      }}
+                    >
+                      {/* Floating ellipse decoration */}
+                      <motion.img
+                        src="/elipse.svg"
+                        alt="Floating Elipse"
+                        className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-30 z-10"
+                        animate={{ y: [0, -15, 0] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      />
+                    </div>
+                  </div>
+          
+                  {/* Animation keyframes */}
+                  <style jsx>{`
+              @keyframes float {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-15px); }
+              }
+            `}</style>
+                </div>
     
 
     {/* FAQ Section */}

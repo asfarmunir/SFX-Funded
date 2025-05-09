@@ -114,17 +114,19 @@ export default function FAQ() {
               variants={textVariants}
               transition={{ delay: 0.4 }}
             >
-              <motion.button
-                className="w-full py-4 px-6 text-black font-bold text-xl rounded-full text-center flex items-center justify-center"
-                style={{ backgroundColor: '#F800EA' }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Start Trading
-                <svg className="ml-3 w-6 h-6" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
-                </svg>
-              </motion.button>
+             <motion.button
+  className="w-[80%] sm:w-[70%] md:w-[60%] lg:w-[50%] max-w-sm mx-auto py-3 sm:py-4 px-4 sm:px-6 text-black font-bold text-base sm:text-lg md:text-xl rounded-full text-center flex items-center justify-center transition-all duration-300"
+  style={{ backgroundColor: '#F800EA' }}
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <span className="flex items-center justify-center">
+    Start Trading
+    <svg className="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none">
+      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+    </svg>
+  </span>
+</motion.button>
             </motion.div>
           </div>
 

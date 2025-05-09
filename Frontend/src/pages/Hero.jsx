@@ -320,9 +320,16 @@ export default function Hero() {
     }
   ];
   const payments = [
-    { amount: '$6,130.00', name: 'Stephan P.', certificate: 'c1.svg' },
-    { amount: '$800.00', name: 'Saqib D.', certificate: 'c2.svg' },
-    { amount: '$423.49', name: 'Kenia S.', certificate: 'c2.svg' }
+    { amount: '$6,130.00', name: 'Devansh P.', certificate: 'c1.svg' },
+    { amount: '$800.00', name: 'Supun D.', certificate: 'c2.svg' },
+    { amount: '$423.49', name: 'Kenta S.', certificate: 'kenta.svg' },
+    { amount: '$9,848.00', name: 'Jhon B.', certificate: 'kenta.svg' },
+    { amount: '$523.93', name: 'Zane M.', certificate: 'kenta.svg' },
+    { amount: '$7,694.74', name: 'Jack W.', certificate: 'kenta.svg' },
+    { amount: '$6185.00', name: 'Nicolas D.', certificate: 'kenta.svg' },
+    { amount: '$1,132.11', name: 'Akin B.', certificate: 'kenta.svg' },
+    { amount: '$2,755.84', name: 'Vikram J.', certificate: 'kenta.svg' },
+    { amount: '$2,537.55', name: 'Lukas M.', certificate: 'kenta.svg' }
   ];
 
 
@@ -602,7 +609,7 @@ export default function Hero() {
       <div className="flex justify-center w-full p-4">
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 p-4 bg-gray-50 rounded-[20px] font-['Inter'] max-w-5xl w-full">
 
-          {/* Recent Verified Payouts Section - Fixed centering */}
+          {/* Recent Verified Payouts Section */}
           <div className="flex flex-row items-center justify-start bg-white rounded-[20px] md:rounded-[20px] p-2 md:p-4 shadow-sm h-[40px] md:h-[80px] flex-shrink-0 w-full md:w-auto">
             <div className="flex justify-center items-center w-6 md:w-12 h-6 md:h-12 mr-2 md:mr-3">
               <img src="/last.svg" alt="checkmark" className="w-2.5 md:w-3.5 h-2.5 md:h-3.5" />
@@ -618,7 +625,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Scrolling Payments - Fixed centering */}
+          {/* Scrolling Payments */}
           <div className="relative w-full">
             {/* Blurred Left Overlay */}
             <div className="absolute left-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-r from-white via-white/80 to-transparent" />
@@ -628,90 +635,95 @@ export default function Hero() {
               boxShadow: '-5px 0 15px rgba(255,255,255,0.7)',
             }} />
 
-            {/* Scrolling Container - Changed to white background */}
-            <div className="overflow-hidden rounded-lg bg-white h-[80px]">
-              {mounted && (
-                <div className="flex items-center h-full whitespace-nowrap animate-scroll">
-                  {/* First complete set of payment items */}
-                  {payments.map((payment, index) => (
-                    <div key={index} className="flex items-center gap-3 flex-shrink-0 h-full px-3 mx-2 bg-[#F5F5F7] rounded-lg">
-                      {/* Price and Name */}
-                      <div className="flex flex-col justify-center h-full">
-                        <p className="font-bold text-lg" style={{
-                          fontFamily: "'Inter', sans-serif"
-                        }}>{payment.amount}</p>
-                        <p className="text-sm text-gray-600" style={{
-                          fontFamily: "'Inter', sans-serif"
-                        }}>{payment.name}</p>
-                      </div>
-                      {/* Certificate */}
-                      <div className="w-16 h-full flex items-center py-2">
-                        <img
-                          src={payment.certificate}
-                          alt="Payment Certificate"
-                          className="w-full h-full object-contain rounded-md"
-                        />
-                      </div>
-                    </div>
-                  ))}
+            {/* Scrolling Container */}
+<div className="overflow-hidden rounded-lg bg-gray-50 h-[90px]">
+  {mounted && (
+    <div className="flex items-center h-full whitespace-nowrap slider-animate">
+      {/* First complete set of payment items */}
+      {payments.map((payment, index) => (
+        <div key={index} className="flex items-center gap-4 flex-shrink-0 h-[80%] px-4 mx-3 bg-[#eaeaf1] rounded-lg">
+          {/* Price and Name */}
+          <div className="flex flex-col justify-center h-full">
+            <p className="font-bold text-lg" style={{
+              fontFamily: "'Inter', sans-serif"
+            }}>{payment.amount}</p>
+            <p className="text-sm text-gray-600" style={{
+              fontFamily: "'Inter', sans-serif"
+            }}>{payment.name}</p>
+          </div>
+          {/* Certificate - Larger size */}
+          <div className="w-20 h-full flex items-center py-1.5">
+            <img
+              src={payment.certificate}
+              alt="Payment Certificate"
+              className="w-full h-full object-contain rounded-md"
+            />
+          </div>
+        </div>
+      ))}
 
-                  {/* Second complete set for seamless loop */}
-                  {payments.map((payment, index) => (
-                    <div key={`loop-${index}`} className="flex items-center gap-3 flex-shrink-0 h-full px-3 mx-2 bg-[#F5F5F7] rounded-lg">
-                      <div className="flex flex-col justify-center h-full">
-                        <p className="font-bold text-lg" style={{
-                          fontFamily: "'Inter', sans-serif"
-                        }}>{payment.amount}</p>
-                        <p className="text-sm text-gray-600" style={{
-                          fontFamily: "'Inter', sans-serif"
-                        }}>{payment.name}</p>
-                      </div>
-                      <div className="w-16 h-full flex items-center py-2">
-                        <img
-                          src={payment.certificate}
-                          alt="Payment Certificate"
-                          className="w-full h-full object-contain rounded-md"
-                        />
-                      </div>
-                    </div>
-                  ))}
+      {/* Second complete set for seamless loop */}
+      {payments.map((payment, index) => (
+        <div key={`loop-${index}`} className="flex items-center gap-4 flex-shrink-0 h-[80%] px-4 mx-3 bg-[#eaeaf1] rounded-lg">
+          <div className="flex flex-col justify-center h-full">
+            <p className="font-bold text-lg" style={{
+              fontFamily: "'Inter', sans-serif"
+            }}>{payment.amount}</p>
+            <p className="text-sm text-gray-600" style={{
+              fontFamily: "'Inter', sans-serif"
+            }}>{payment.name}</p>
+          </div>
+          <div className="w-20 h-full flex items-center py-1.5">
+            <img
+              src={payment.certificate}
+              alt="Payment Certificate"
+              className="w-full h-full object-contain rounded-md"
+            />
+          </div>
+        </div>
+      ))}
 
-                  {/* Third partial set to ensure no gaps */}
-                  {payments.slice(0, 3).map((payment, index) => (
-                    <div key={`extra-${index}`} className="flex items-center gap-3 flex-shrink-0 h-full px-3 mx-2 bg-[#F5F5F7] rounded-lg">
-                      <div className="flex flex-col justify-center h-full">
-                        <p className="font-bold text-lg" style={{
-                          fontFamily: "'Inter', sans-serif"
-                        }}>{payment.amount}</p>
-                        <p className="text-sm text-gray-600" style={{
-                          fontFamily: "'Inter', sans-serif"
-                        }}>{payment.name}</p>
-                      </div>
-                      <div className="w-16 h-full flex items-center py-2">
-                        <img
-                          src={payment.certificate}
-                          alt="Payment Certificate"
-                          className="w-full h-full object-contain rounded-md"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+      {/* Third partial set to ensure no gaps */}
+      {payments.slice(0, 3).map((payment, index) => (
+        <div key={`extra-${index}`} className="flex items-center gap-4 flex-shrink-0 h-[80%] px-4 mx-3 bg-[#eaeaf1] rounded-lg">
+          <div className="flex flex-col justify-center h-full">
+            <p className="font-bold text-lg" style={{
+              fontFamily: "'Inter', sans-serif"
+            }}>{payment.amount}</p>
+            <p className="text-sm text-gray-600" style={{
+              fontFamily: "'Inter', sans-serif"
+            }}>{payment.name}</p>
+          </div>
+          <div className="w-20 h-full flex items-center py-1.5">
+            <img
+              src={payment.certificate}
+              alt="Payment Certificate"
+              className="w-full h-full object-contain rounded-md"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+</div>
 
-            {/* Improved Animation keyframes */}
-            <style jsx>{`
-            @keyframes scroll {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(calc(-50% - 24px)); }
-            }
-            .animate-scroll {
-              animation: scroll 30s linear infinite;
-              /* Slow down animation and adjust distance */
-              padding-right: 24px; /* Extra padding to eliminate any potential gaps */
-            }
-          `}</style>
+          {/* Updated Animation Style */}
+<style jsx>{`
+  @keyframes scrollSlow {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 24px)); }
+  }
+  .slider-animate {
+    animation: scrollSlow 20s linear infinite;
+    padding-right: 24px;
+    /* Add the following to further slow down */
+    animation-play-state: running;
+    animation-delay: 0s;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+  }
+`}</style>
+
           </div>
         </div>
       </div>
@@ -1269,49 +1281,52 @@ export default function Hero() {
 
         <div className="w-full max-w-6xl mx-auto px-4">
           {/* Step Buttons with exact dimensions for laptop */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: false, amount: 0.3 }}
-            className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 mb-16"
-          >
-            <button
-              onClick={() => handleStepClick(1)}
-              className={`rounded-3xl px-6 py-3 md:w-[348px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${activeStep === 1 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
-                }`}
-              style={{
-                borderRadius: "31px"
-              }}
-            >
-              <p className="font-medium text-base md:text-lg">Step 1:</p>
-              <p className="font-medium text-base md:text-lg">Choose a Plan</p>
-            </button>
+         <motion.div
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.1 }}
+  viewport={{ once: false, amount: 0.3 }}
+  className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 mb-16"
+>
+  <button
+    onClick={() => handleStepClick(1)}
+    className={`rounded-3xl px-6 py-3 w-full max-w-[348px] min-h-[80px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${
+      activeStep === 1 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
+    }`}
+    style={{
+      borderRadius: "31px"
+    }}
+  >
+    <p className="font-medium text-base md:text-lg">Step 1:</p>
+    <p className="font-medium text-base md:text-lg">Choose a Plan</p>
+  </button>
 
-            <button
-              onClick={() => handleStepClick(2)}
-              className={`rounded-3xl px-6 py-3 md:w-[348px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${activeStep === 2 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
-                }`}
-              style={{
-                borderRadius: "31px"
-              }}
-            >
-              <p className="font-medium text-base md:text-lg">Step 2:</p>
-              <p className="font-medium text-base md:text-lg">Get Funded</p>
-            </button>
+  <button
+    onClick={() => handleStepClick(2)}
+    className={`rounded-3xl px-6 py-3 w-full max-w-[348px] min-h-[80px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${
+      activeStep === 2 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
+    }`}
+    style={{
+      borderRadius: "31px"
+    }}
+  >
+    <p className="font-medium text-base md:text-lg">Step 2:</p>
+    <p className="font-medium text-base md:text-lg">Get Funded</p>
+  </button>
 
-            <button
-              onClick={() => handleStepClick(3)}
-              className={`rounded-3xl px-6 py-3 md:w-[348px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${activeStep === 3 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
-                }`}
-              style={{
-                borderRadius: "31px"
-              }}
-            >
-              <p className="font-medium text-base md:text-lg">Step 3:</p>
-              <p className="font-medium text-base md:text-lg">Start Your Trading Journey</p>
-            </button>
-          </motion.div>
+  <button
+    onClick={() => handleStepClick(3)}
+    className={`rounded-3xl px-6 py-3 w-full max-w-[348px] min-h-[80px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${
+      activeStep === 3 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
+    }`}
+    style={{
+      borderRadius: "31px"
+    }}
+  >
+    <p className="font-medium text-base md:text-lg">Step 3:</p>
+    <p className="font-medium text-base md:text-lg">Start Your Trading Journey</p>
+  </button>
+</motion.div>
 
           {/* Option Cards - Different for each step */}
           <AnimatePresence mode="wait">
@@ -1442,7 +1457,7 @@ export default function Hero() {
 
 
 
-      <div className="w-full font-inter bg-white">
+      <div className="w-full font-inter bg-gray-50">
         {/* Real Traders, Real Success Section */}
         <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
           <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">

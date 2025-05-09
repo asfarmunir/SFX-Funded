@@ -78,58 +78,59 @@ export default function Footer() {
         {/* Main Content */}
         <div className="max-w-6xl mx-auto px-4 py-6">
           {/* Logo and Info Row */}
-          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', marginBottom: '40px' }}>
-            {/* Logo */}
-            <div style={{ flex: '0 0 auto' }}>
+          <div className="flex flex-col items-center sm:flex-row sm:justify-between sm:items-start gap-6 mb-10">
+            {/* Logo - Centered on mobile */}
+            <div className="flex justify-center sm:justify-start">
               <img 
                 src="/sfxnew.svg" 
                 alt="SFX Funded Logo" 
-                style={{ height: '120px', width: 'auto' , marginRight: '10px'}}
+                className="h-24 w-auto"
               />
             </div>
             
-            {/* Contact Info */}
-            <div style={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {/* Contact Info - Centered on mobile */}
+            <div className="flex flex-col items-center sm:items-start gap-2.5 text-center sm:text-left">
               {/* Star Rating */}
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <img src="/5star.svg" alt="5 Star Rating" style={{ width: '140px', height: 'auto' }} />
+              <div className="flex items-center justify-center sm:justify-start">
+                <img src="/5star.svg" alt="5 Star Rating" className="w-36 h-auto" />
               </div>
               
               {/* Email */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <svg style={{ width: '20px', height: '20px', color: 'white' }} viewBox="0 0 24 24" fill="currentColor">
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" />
                 </svg>
-                <span style={{ fontSize: '14px' }}>support@sfxfunded.com</span>
+                <span className="text-sm">support@sfxfunded.com</span>
               </div>
               
               {/* Address */}
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                <svg style={{ width: '20px', height: '20px', color: 'white', marginTop: '3px', flexShrink: 0 }} viewBox="0 0 24 24" fill="currentColor">
+              <div className="flex items-start gap-2 max-w-xs sm:max-w-none">
+                <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" />
                 </svg>
-                <span style={{ fontSize: '14px' }}>23691-001, A2 Building IFZA Business Park, DDP, DSO, Dubai, UAE</span>
+                <span className="text-sm">23691-001, A2 Building IFZA Business Park, DDP, DSO, Dubai, UAE</span>
               </div>
             </div>
             
-            {/* Resources Links */}
-            <div style={{ flex: '0 0 auto', display: 'flex', gap: '30px' }}>
+            {/* Resources Links - Centered on mobile */}
+            <div className="flex justify-center gap-8 w-full sm:w-auto">
               {/* First Resources Column */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <h3 style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '10px' }}>Resources</h3>
-                <a href="#" style={{ fontSize: '14px', color: 'white', textDecoration: 'none' }}>Join Discord</a>
-                <a href="#" style={{ fontSize: '14px', color: 'white', textDecoration: 'none' }}>Dashboard</a>
+              <div className="flex flex-col items-center sm:items-start gap-2.5">
+                <h3 className="text-base font-bold mb-2.5">Resources</h3>
+                <a href="#" className="text-sm text-white no-underline hover:underline">Join Discord</a>
+                <a href="#" className="text-sm text-white no-underline hover:underline">Dashboard</a>
               </div>
               
               {/* Second Resources Column */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <h3 style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '10px' }}>Resources</h3>
-                <a href="#" style={{ fontSize: '14px', color: 'white', textDecoration: 'none' }}>FAQs</a>
-                <a href="#" style={{ fontSize: '14px', color: 'white', textDecoration: 'none' }}>Contact Us</a>
+              <div className="flex flex-col items-center sm:items-start gap-2.5">
+                <h3 className="text-base font-bold mb-2.5">Resources</h3>
+                <a href="#" className="text-sm text-white no-underline hover:underline">FAQs</a>
+                <a href="#" className="text-sm text-white no-underline hover:underline">Contact Us</a>
               </div>
             </div>
           </div>
-          </div></div>
+        </div>
+      </div>
   
         {/* Disclaimer */}
         <motion.div 
@@ -154,24 +155,24 @@ export default function Footer() {
   
       
         {/* Copyright */}
-<div className="max-w-6xl mx-auto px-4 py-4 mt-8">
-  <div className="flex flex-col md:flex-row justify-between items-center text-xs md:text-sm text-gray-400">
-    <div className="mb-4 md:mb-0">
-      © 2025 AquaFunded. All rights reserved.
-    </div>
-    <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
-      <span className="hover:text-white cursor-pointer">
-        Refund Policy
-      </span>
-      <span className="hover:text-white cursor-pointer">
-        Privacy Policy
-      </span>
-      <span className="hover:text-white cursor-pointer">
-        Terms of Service
-      </span>
-    </div>
-  </div>
-</div>
+        <div className="max-w-6xl mx-auto px-4 py-4 mt-8">
+          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center text-xs md:text-sm text-gray-400">
+            <div className="mb-4 md:mb-0 text-center md:text-left">
+              © 2025 AquaFunded. All rights reserved.
+            </div>
+            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
+              <span className="hover:text-white cursor-pointer">
+                Refund Policy
+              </span>
+              <span className="hover:text-white cursor-pointer">
+                Privacy Policy
+              </span>
+              <span className="hover:text-white cursor-pointer">
+                Terms of Service
+              </span>
+            </div>
+          </div>
+        </div>
 
       </div>
     </footer>

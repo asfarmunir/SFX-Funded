@@ -1540,7 +1540,7 @@ export default function InstantFunding() {
                   
                       </div>
   
-      <div className="w-full font-inter bg-white">
+      <div className="w-full font-inter bg-gray-50">
               {/* Real Traders, Real Success Section */}
               <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
                 <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">

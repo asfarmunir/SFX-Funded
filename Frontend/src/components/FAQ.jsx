@@ -4,7 +4,20 @@ import { motion, useInView } from 'framer-motion';
 export default function FAQ() {
   const [activeQuestion, setActiveQuestion] = useState(null);
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { amount: 0.2 });
+  const isInView = useInView(sectionRef, { amount: 0.2, once: false });
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 768);
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const faqItems = [
     {
@@ -37,7 +50,7 @@ export default function FAQ() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15 }
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 }
     }
   };
 
@@ -71,34 +84,96 @@ export default function FAQ() {
   return (
     <div
       ref={sectionRef}
-      className="relative w-screen overflow-hidden py-16 px-4 sm:px-6 lg:px-8"
+      className="relative w-full overflow-hidden py-16 px-4 sm:px-6 lg:px-8"
       style={{ fontFamily: 'Inter, sans-serif' }}
     >
-      {/* Decorative Floating Elements */}
-      <img src="/diamond.svg" alt="Diamond" className="absolute top-10 left-0 w-24 h-24 z-0" />
-      <img src="/elipse.svg" alt="Elipse" className="absolute bottom-1/4 right-12 w-32 h-32 z-0" />
+      {/* Decorative Floating Elements - Responsive positions and sizes */}
+      <motion.img 
+        src="/diamond.svg" 
+        alt="Diamond" 
+        className="absolute hidden sm:block"
+        style={{ 
+          top: '10%', 
+          left: '5%', 
+          width: windowWidth > 1024 ? '6rem' : '4rem',
+          height: windowWidth > 1024 ? '6rem' : '4rem',
+          zIndex: 0,
+          opacity: 0.7
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.7 }}
+        transition={{ duration: 1 }}
+      />
       
-      <img src="/elipse21.svg" alt="Elipse21" className="absolute top-0 right-1/4 w-24 h-24 z-0 opacity-70" />
-      <img src="/elipse.svg" alt="Elipse" className="absolute bottom-1/4 left-0 w-40 h-40 z-0 opacity-60" />
+      <motion.img 
+        src="/elipse.svg" 
+        alt="Elipse" 
+        className="absolute hidden sm:block"
+        style={{ 
+          bottom: '25%', 
+          right: '5%', 
+          width: windowWidth > 1024 ? '8rem' : '5rem',
+          height: windowWidth > 1024 ? '8rem' : '5rem',
+          zIndex: 0,
+          opacity: 0.6
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.6 }}
+        transition={{ duration: 1, delay: 0.3 }}
+      />
+      
+      <motion.img 
+        src="/elipse21.svg" 
+        alt="Elipse21" 
+        className="absolute hidden sm:block"
+        style={{ 
+          top: '5%', 
+          right: '25%', 
+          width: windowWidth > 1024 ? '6rem' : '4rem',
+          height: windowWidth > 1024 ? '6rem' : '4rem',
+          zIndex: 0,
+          opacity: 0.5
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.5 }}
+        transition={{ duration: 1, delay: 0.2 }}
+      />
+      
+      <motion.img 
+        src="/elipse.svg" 
+        alt="Elipse" 
+        className="absolute hidden sm:block"
+        style={{ 
+          bottom: '20%', 
+          left: '5%', 
+          width: windowWidth > 1024 ? '10rem' : '6rem',
+          height: windowWidth > 1024 ? '10rem' : '6rem',
+          zIndex: 0,
+          opacity: 0.4
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.4 }}
+        transition={{ duration: 1, delay: 0.4 }}
+      />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* 2 Column Flex Layout */}
-        <div className="flex flex-col md:flex-row gap-12">
+        {/* 2 Column Flex Layout - Better responsive behavior */}
+        <div className="flex flex-col md:flex-row md:gap-8 lg:gap-12">
           {/* Left Column */}
-          <div className="w-full md:w-2/5">
+          <div className="w-full md:w-2/5 mb-12 md:mb-0">
             <motion.div
               className="mb-6"
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               variants={textVariants}
             >
-              <h2 className="text-4xl font-bold leading-tight text-gray-900">
+              <h2 className="text-3xl sm:text-4xl font-bold leading-tight text-gray-900">
                 Our Most Asked Questions
               </h2>
             </motion.div>
 
             <motion.p
-              className="text-gray-700 mb-6"
+              className="text-base sm:text-lg text-gray-700 mb-8"
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               variants={textVariants}
@@ -108,25 +183,29 @@ export default function FAQ() {
             </motion.p>
 
             <motion.div
-              className="mt-16 mb-8"
+              className="mt-8 md:mt-12 lg:mt-16"
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               variants={textVariants}
               transition={{ delay: 0.4 }}
             >
-             <motion.button
-  className="w-[80%] sm:w-[70%] md:w-[60%] lg:w-[50%] max-w-sm mx-auto py-3 sm:py-4 px-4 sm:px-6 text-black font-bold text-base sm:text-lg md:text-xl rounded-full text-center flex items-center justify-center transition-all duration-300"
-  style={{ backgroundColor: '#F800EA' }}
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
->
-  <span className="flex items-center justify-center">
-    Start Trading
-    <svg className="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none">
-      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
-    </svg>
-  </span>
-</motion.button>
+              <motion.button
+                className="py-3 sm:py-4 px-6 sm:px-8 text-black font-bold text-base sm:text-lg rounded-full text-center flex items-center justify-center transition-all duration-300 mx-0"
+                style={{ 
+                  backgroundColor: '#F800EA',
+                  width: windowWidth < 768 ? '100%' : windowWidth < 1024 ? '80%' : '70%',
+                  maxWidth: '320px'
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="flex items-center justify-center">
+                  Start Trading
+                  <svg className="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+                  </svg>
+                </span>
+              </motion.button>
             </motion.div>
           </div>
 
@@ -138,17 +217,22 @@ export default function FAQ() {
             animate={isInView ? "visible" : "hidden"}
           >
             {faqItems.map((item, index) => (
-              <motion.div key={index} className="mb-4" variants={questionVariants}>
+              <motion.div 
+                key={index} 
+                className="mb-4 overflow-hidden"
+                variants={questionVariants}
+              >
                 <motion.button
-                  className="w-full flex items-center justify-between bg-white p-4 rounded-md shadow-sm text-left focus:outline-none"
+                  className="w-full flex items-center justify-between bg-white p-4 sm:p-5 rounded-md shadow-sm text-left focus:outline-none"
                   onClick={() => toggleQuestion(index)}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ backgroundColor: "#fafafa" }}
+                  whileTap={{ scale: 0.99 }}
                 >
-                  <span className="font-medium">{item.question}</span>
+                  <span className="font-medium pr-4 text-sm sm:text-base">{item.question}</span>
                   <motion.svg
-                    width="20"
-                    height="20"
+                    width="16"
+                    height="16"
+                    className="flex-shrink-0"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -162,16 +246,15 @@ export default function FAQ() {
                   </motion.svg>
                 </motion.button>
 
-                {activeQuestion === index && (
-                  <motion.div
-                    className="bg-white p-4 rounded-b-md shadow-sm mt-[-1px]"
-                    variants={answerVariants}
-                    initial="hidden"
-                    animate="visible"
-                  >
-                    <p className="text-gray-600">{item.answer}</p>
-                  </motion.div>
-                )}
+                <motion.div
+                  className="bg-white p-4 sm:p-5 rounded-b-md shadow-sm mt-[-1px] overflow-hidden"
+                  variants={answerVariants}
+                  initial="hidden"
+                  animate={activeQuestion === index ? "visible" : "hidden"}
+                  exit="hidden"
+                >
+                  <p className="text-gray-600 text-sm sm:text-base">{item.answer}</p>
+                </motion.div>
               </motion.div>
             ))}
           </motion.div>

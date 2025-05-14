@@ -111,7 +111,7 @@ export default function Navbar({ shouldStick = true, isScrolled = false }) {
           <img 
   src="/navbar.svg" 
   alt="SFX Funded Logo" 
-  className="w-20 h-6 sm:w-28 sm:h-8 md:w-32 md:h-12 object-contain" 
+  className="w-28 h-8 sm:w-28 sm:h-8 md:w-32 md:h-12 object-contain" 
 />
 
           </div>

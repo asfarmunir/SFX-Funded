@@ -1,15 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Rocket, Banknote, Clock, Users, CheckCircle, Shield, ArrowRight, Star } from "lucide-react";
+import { useEffect, useRef, useState } from 'react';
 import Newsletter from '../components/Newsletter';
-import Navbar from '../components/Navbar';
 import FAQ from '../components/FAQ';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 
 export default function Hero() {
+
+      const targetRef = useRef(null);
+  
   const countryData = [
     { flag: "malay", percent: 85 },
     { flag: "GERMANY", percent: 70 },
@@ -472,42 +473,42 @@ export default function Hero() {
           <div className="text-center mb-3 sm:mb-4 md:mb-5">
             {/* Main Heading */}
             <motion.h1
-              className="text-white font-bold 
-          text-2xl sm:text-3xl md:text-4xl lg:text-5xl
-          leading-none tracking-tight"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontWeight: 600,
-                fontSize: "clamp(1.5rem, 5vw, 5rem)",
-              }}
-            >
-              <span>Power</span>{" "}
-              <span className="text-[#fcfbfc]">To Trade</span>
-            </motion.h1>
+  className="text-white font-bold 
+  text-3xl sm:text-3xl md:text-4xl lg:text-5xl
+  leading-none tracking-tight"
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: false }}
+  transition={{ duration: 0.7, delay: 0.1 }}
+  style={{
+    fontFamily: "Inter, sans-serif",
+    fontWeight: 600,
+    fontSize: "clamp(3rem, 5vw, 5rem)", // Increased from 1.5rem to 2rem for mobile
+  }}
+>
+  <span>Power</span>{" "}
+  <span className="text-[#fcfbfc]">To Trade</span>
+</motion.h1>
 
             {/* Subheading */}
             <motion.h1
-              className="text-white font-bold 
-          text-2xl sm:text-3xl md:text-4xl lg:text-5xl
-          leading-none tracking-tight"
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              style={{
-                fontFamily: "Oswald, sans-serif",
-                fontWeight: 600,
-                fontSize: "clamp(1.5rem, 5vw, 5rem)",
-                letterSpacing: "-1px",
-              }}
-            >
-              <span className="text-[#DE00DE]">Freedom </span>{" "}
-              <span className="text-[#DE00DE]"> To Profit</span>{" "}
-            </motion.h1>
+  className="text-white font-bold 
+  text-3xl sm:text-3xl md:text-4xl lg:text-5xl
+  leading-none tracking-tight"
+  initial={{ opacity: 0, y: 35 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: false }}
+  transition={{ duration: 0.7, delay: 0.3 }}
+  style={{
+    fontFamily: "Oswald, sans-serif",
+    fontWeight: 600,
+    fontSize: "clamp(2.5rem, 5vw, 5rem)", // Increased from 1.5rem to 2rem for mobile
+    letterSpacing: "-1px",
+  }}
+>
+  <span className="text-[#DE00DE]">Freedom </span>{" "}
+  <span className="text-[#DE00DE]"> To Profit</span>{" "}
+</motion.h1>
           </div>
 
           {/* Description */}
@@ -530,45 +531,91 @@ export default function Hero() {
           >
             {/* Left Container - larger on laptop */}
             <motion.div
-              className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-40 md:w-52"
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontWeight: 600
-              }}
-            >
-              <img src="/hero11.svg" alt="Payout Icon" className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2" />
-              <span className="text-black text-xs md:text-base whitespace-nowrap">Payout on Demand</span>
-            </motion.div>
+  className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-40 md:w-52"
+  style={{
+    fontFamily: "Inter, sans-serif",
+    fontWeight: 600
+  }}
+>
+  {/* Green tick SVG */}
+  <svg 
+    width="16" 
+    height="16" 
+    viewBox="0 0 24 24" 
+    className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path 
+      d="M20 6L9 17L4 12" 
+      stroke="currentColor" 
+      strokeWidth="3" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    />
+  </svg>
+  <span className="text-black text-xs md:text-base whitespace-nowrap">Payout on Demand</span>
+</motion.div>
 
-            {/* Center Container - larger on laptop */}
-            <motion.div
-              className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-64 md:w-80 px-3 md:px-5"
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontWeight: 600
-              }}
-            >
-              <span className="text-black text-xs md:text-base whitespace-nowrap">
-                Evaluation & Funded Stage Reset
-              </span>
-            </motion.div>
+<motion.div
+  className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-64 md:w-80 px-3 md:px-5"
+  style={{
+    fontFamily: "Inter, sans-serif",
+    fontWeight: 600
+  }}
+>
+  {/* Green tick SVG */}
+  <svg 
+    width="16" 
+    height="16" 
+    viewBox="0 0 24 24" 
+    className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path 
+      d="M20 6L9 17L4 12" 
+      stroke="currentColor" 
+      strokeWidth="3" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    />
+  </svg>
+  <span className="text-black text-xs md:text-base whitespace-nowrap">
+    Evaluation & Funded Stage Reset
+  </span>
+</motion.div>
 
-
-            {/* Right Container - larger on laptop */}
-            <motion.div
-              className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-40 md:w-56"
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontWeight: 600
-              }}
-            >
-              <img src="/hero12.svg" alt="Profit Icon" className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2" />
-              <span className="text-black text-xs md:text-base whitespace-nowrap">Up to 100% Profit Split</span>
-            </motion.div>
+<motion.div
+  className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-40 md:w-52"
+  style={{
+    fontFamily: "Inter, sans-serif",
+    fontWeight: 600
+  }} 
+>
+  {/* Green tick SVG */}
+  <svg 
+    width="16" 
+    height="16" 
+    viewBox="0 0 24 24" 
+    className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path 
+      d="M20 6L9 17L4 12" 
+      stroke="currentColor" 
+      strokeWidth="3" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    />
+  </svg>
+  <span className="text-black text-xs md:text-base whitespace-nowrap">Up to 100% Profit Split</span>
+</motion.div>
           </motion.div>
 
           {/* CTA Button */}
-          <motion.div
+          <motion.div onClick={() => targetRef.current?.scrollIntoView({ behavior: "smooth" })}
             className="mt-2 sm:mt-3 mb-4 sm:mb-5"
             initial={{ opacity: 0, y: 45 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -713,14 +760,17 @@ export default function Hero() {
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(-50% - 24px)); }
   }
+
   .slider-animate {
     animation: scrollSlow 20s linear infinite;
     padding-right: 24px;
-    /* Add the following to further slow down */
-    animation-play-state: running;
-    animation-delay: 0s;
-    animation-duration: 20s;
-    animation-timing-function: linear;
+  }
+
+  /* Make scroll faster on screens smaller than 640px */
+  @media (max-width: 639px) {
+    .slider-animate {
+      animation-duration: 10s;
+    }
   }
 `}</style>
 
@@ -728,7 +778,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="w-full max-w-7xl mx-auto">
+   <div className="w-full max-w-7xl mx-auto">
         {/* Top Three Feature Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8">
 
@@ -814,8 +864,10 @@ export default function Hero() {
 
       </div>
 
+
+       
       <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-center leading-none tracking-tight mb-8">
           Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
         </h1>
 
@@ -969,9 +1021,9 @@ export default function Hero() {
       <div className="font-sans max-w-6xl mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            Top Funded Trader Programs
-          </h2>
+         <h2 className="text-5xl md:text-6xl font-bold text-gray-900">
+  Top Funded Trader Programs
+</h2>
           <div className="mt-4 inline-block bg-fuchsia-50 px-6 py-2 rounded-full border border-fuchsia-200">
             <span className="text-lg font-medium">Trade Forex, Indices, Metals & Crypto</span>
           </div>
@@ -1049,7 +1101,7 @@ export default function Hero() {
 
         {/* Account Table */}
         {selectedProgram !== 'instant' ? (
-          <div className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
+          <div ref={targetRef} className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
             {/* Mobile Account Selector */}
             <div className="block sm:hidden px-4 py-3">
               <select
@@ -1189,79 +1241,104 @@ export default function Hero() {
 
 
 
-        {/* Pricing Box */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-            <div className="flex flex-col items-center md:items-start gap-2">
-              <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-                {/* Original Price (strikethrough) */}
-                <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
-                  ${pricingData[selectedProgram][selectedSize]?.original || 'N/A'}
-                </div>
-                {/* Discounted Price */}
-                <div className="text-[#F001E1] font-bold " style={{ fontSize: '48px' }}>
-                  ${pricingData[selectedProgram][selectedSize]?.discounted || 'N/A'}
-                </div>
-                {/* Account Size with Program */}
-                <div className="text-[#F001E1] font-medium " style={{ fontSize: '36px' }}>
-                  ${selectedSize.toLocaleString()} {selectedProgram.charAt(0).toUpperCase() + selectedProgram.slice(1)}
-                </div>
-              </div>
-              <div className="text-[#F001E1] font-medium text-base sm:text-lg text-center md:text-left">
-                One-Time Fee
-                {selectedProgram !== "instant" && " • 100% Refundable"}
-              </div>
-
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+        <div className="flex flex-col items-center md:items-start gap-2 w-full">
+          {/* Mobile View - Stacked layout */}
+          <div className="flex flex-col items-center md:hidden w-full gap-1">
+            {/* 1st line - Account Size with Program */}
+            <div className="text-[#F001E1] font-medium text-2xl">
+              ${selectedSize.toLocaleString()} {selectedProgram.charAt(0).toUpperCase() + selectedProgram.slice(1)}
             </div>
-
-            <button
-              className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
-            >
-              Start Challenge →
-            </button>
+            
+            {/* 2nd line - Original Price (strikethrough) */}
+            <div className="text-[#F001E1] font-bold text-xl line-through">
+              ${pricingData[selectedProgram][selectedSize]?.original || 'N/A'}
+            </div>
+            
+            {/* 3rd line - Discounted Price */}
+            <div className="text-[#F001E1] font-bold text-4xl">
+              ${pricingData[selectedProgram][selectedSize]?.discounted || 'N/A'}
+            </div>
+            
+            {/* 4th line - One-Time Fee text */}
+            <div className="text-[#F001E1] font-medium text-base">
+              One-Time Fee
+              {selectedProgram !== "instant" && " • 100% Refundable"}
+            </div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
-            {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
-              <img
-                key={img}
-                src={`/${img}.png`}
-                alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)}
-                className="h-6 sm:h-8"
-              />
-            ))}
+          {/* Desktop View - Row layout */}
+          <div className="hidden md:flex items-center gap-2 sm:gap-4 flex-wrap">
+            {/* Original Price (strikethrough) */}
+            <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
+              ${pricingData[selectedProgram][selectedSize]?.original || 'N/A'}
+            </div>
+            {/* Discounted Price */}
+            <div className="text-[#F001E1] font-bold text-4xl sm:text-5xl">
+              ${pricingData[selectedProgram][selectedSize]?.discounted || 'N/A'}
+            </div>
+            {/* Account Size with Program */}
+            <div className="text-[#F001E1] font-medium text-2xl sm:text-3xl">
+              ${selectedSize.toLocaleString()} {selectedProgram.charAt(0).toUpperCase() + selectedProgram.slice(1)}
+            </div>
+          </div>
+          
+          {/* Desktop - One-Time Fee text */}
+          <div className="hidden md:block text-[#F001E1] font-medium text-base sm:text-lg text-left">
+            One-Time Fee
+            {selectedProgram !== "instant" && " • 100% Refundable"}
           </div>
         </div>
+
+        <button
+          className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
+        >
+          Start Challenge →
+        </button>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 mb-12 w-full max-w-6xl mx-auto">
-        <div className="border-2 border-[#F800EA] rounded-xl px-5 py-4 md:px-8 md:py-6 flex items-center hover:shadow-lg transition-all duration-300 flex-1">
+      <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
+        {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
           <img
-            src="/blue.svg"
-            alt="Feature icon"
-            className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4"
+            key={img}
+            src={`/${img}.png`}
+            alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)}
+            className="h-6 sm:h-8"
           />
-          <span className="font-medium text-base md:text-xl lg:text-2xl">Reward Guarantee</span>
-        </div>
-
-        <div className="border-2 border-[#F800EA] rounded-xl px-5 py-4 md:px-8 md:py-6 flex items-center hover:shadow-lg transition-all duration-300 flex-1">
-          <img
-            src="/blue.svg"
-            alt="Feature icon"
-            className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4"
-          />
-          <span className="font-medium text-base md:text-xl lg:text-2xl">Account Resets</span>
-        </div>
-
-        <div className="border-2 border-[#F800EA] rounded-xl px-5 py-4 md:px-8 md:py-6 flex items-center hover:shadow-lg transition-all duration-300 flex-1">
-          <img
-            src="/blue.svg"
-            alt="Feature icon"
-            className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4"
-          />
-          <span className="font-medium text-base md:text-xl lg:text-2xl">Bi-Weekly Rewards</span>
-        </div>
+        ))}
       </div>
+    </div>
+      </div>
+
+       <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 mb-12 w-full max-w-6xl mx-auto">
+      <div className="border-2 border-[#F800EA] rounded-xl px-5 py-4 md:px-8 md:py-6 flex items-center justify-center hover:shadow-lg transition-all duration-300 flex-1">
+        <img
+          src="/blue.svg"
+          alt="Feature icon"
+          className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4 flex-shrink-0"
+        />
+        <span className="font-medium text-base md:text-xl lg:text-2xl text-center">Reward Guarantee</span>
+      </div>
+
+      <div className="border-2 border-[#F800EA] rounded-xl px-5 py-4 md:px-8 md:py-6 flex items-center justify-center hover:shadow-lg transition-all duration-300 flex-1">
+        <img
+          src="/blue.svg"
+          alt="Feature icon"
+          className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4 flex-shrink-0"
+        />
+        <span className="font-medium text-base md:text-xl lg:text-2xl text-center">Account Resets</span>
+      </div>
+
+      <div className="border-2 border-[#F800EA] rounded-xl px-5 py-4 md:px-8 md:py-6 flex items-center justify-center hover:shadow-lg transition-all duration-300 flex-1">
+        <img
+          src="/blue.svg"
+          alt="Feature icon"
+          className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4 flex-shrink-0"
+        />
+        <span className="font-medium text-base md:text-xl lg:text-2xl text-center">Bi-Weekly Rewards</span>
+      </div>
+    </div>
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -1460,7 +1537,7 @@ export default function Hero() {
       <div className="w-full font-inter bg-gray-50">
         {/* Real Traders, Real Success Section */}
         <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
-          <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
+          <h2 className="text-center text-5xl md:text-5xl lg:text-6xl font-bold mb-2">
             <span className="text-black">Real Traders, </span>
             <span className="text-[#F800EA]">Real Success</span>
           </h2>
@@ -1494,19 +1571,27 @@ export default function Hero() {
 
           {/* Start Trading Button */}
           <div className="flex justify-center mb-16">
-            <button className="bg-[#F800EA] text-black px-8 py-3 rounded-full font-medium flex items-center">
-              Start Trading
-              <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
-              </svg>
-            </button>
+            <button onClick={() => targetRef.current?.scrollIntoView({ behavior: "smooth" })} className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+                  Start Trading
+                  <svg
+                    className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
           </div>
 
           {/* Platform Section */}
-          <div className="mb-16 px-4">
+          <div className="mb-4 sm:mb-4 px-4">
             {/* Heading */}
             <motion.h2
-              className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+              className="text-center text-5xl md:text-6xl lg:text-7xl font-bold mb-4"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -1649,7 +1734,7 @@ export default function Hero() {
               {/* Start Trading Button */}
 
               <div className="flex justify-center items-center">
-                <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+                <button onClick={() => targetRef.current?.scrollIntoView({ behavior: "smooth" })} className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
                   Start Trading
                   <svg
                     className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
@@ -1672,16 +1757,16 @@ export default function Hero() {
         </div>
       </div>
 
-      <div style={{ fontFamily: "'Inter', sans-serif" }} className="max-w-6xl mx-auto px-4 py-12 sm:py-16">
-        {/* Header */}
-        <motion.h2
-          className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-10 sm:mb-16"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Why Traders Choose <span className="text-fuchsia-500">SFX </span> Funded
-        </motion.h2>
+      <div style={{ fontFamily: "'Inter', sans-serif" }} className="max-w-6xl mx-auto px-4 pt-4 sm:py-12"> {/* Changed from py-12 sm:py-16 to pt-4 sm:py-12 sm:py-16 */}
+  {/* Header with increased font size on mobile */}
+  <motion.h2
+    className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-10 sm:mb-16" 
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+  >
+    Why Traders Choose <span className="text-fuchsia-500">SFX </span> Funded
+  </motion.h2>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -1779,12 +1864,13 @@ export default function Hero() {
 
             {/* CTA Button */}
             <motion.div
+            
               className="mt-6 sm:mt-8 flex justify-center"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+              <button onClick={() => targetRef.current?.scrollIntoView({ behavior: "smooth" })} className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
                 Start Trading
                 <svg
                   className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
@@ -2020,7 +2106,7 @@ export default function Hero() {
 
           {/* Centered Start Trading Button at Bottom */}
           <div className="flex justify-center mt-16">
-            <button className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform">
+            <button onClick={() => targetRef.current?.scrollIntoView({ behavior: "smooth" })} className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform">
               Start Trading
               <svg className="ml-3 w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />

@@ -8,6 +8,24 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 
 export default function Hero() {
+   const cards = [
+    {
+      title: 'Your Skill, Our Support',
+      description: 'Trade with confidence...',
+      image: '/hero1.svg',
+    },
+    {
+      title: 'Fast & Flexible Payouts',
+      description: 'Enjoy high profit splits...',
+      image: '/hero2.svg',
+    },
+    {
+      title: '24/7 Customer Support',
+      description: 'Our support team is dedicated...',
+      image: '/hero3.svg',
+    },
+  ];
+
 
       const targetRef = useRef(null);
   
@@ -444,6 +462,7 @@ export default function Hero() {
     // This ensures the animation is seamless by showing 200% of the content
     return `translateY(-${offset}%)`;
   };
+  
 
   return (
     <div className="font-inter w-full overflow-x-hidden">
@@ -778,92 +797,65 @@ export default function Hero() {
         </div>
       </div>
 
-   <div className="w-full max-w-7xl mx-auto">
-        {/* Top Three Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8">
-
-          {/* Card 1 */}
+  <div className="w-full max-w-7xl mx-auto px-4">
+      {/* Desktop Grid */}
+      <div className="hidden md:grid grid-cols-3 gap-6 mb-8">
+        {cards.map((card, index) => (
           <motion.div
+            key={`desktop-${index}`}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.2 }}
-            className="bg-gray-100 rounded-3xl p-8 h-full"
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="bg-gray-100 rounded-3xl p-8"
           >
             <div className="w-12 h-12 text-fuchsia-600 mb-16">
-              <img src="/hero1.svg" alt="Chart icon" className="w-full h-full" />
+              <img src={card.image} alt="" className="w-full h-full" />
             </div>
-            <h3 className="text-3xl font-semibold mb-4 leading-tight">
-              Your Skill, Our Support
-            </h3>
-            <p className="text-base leading-6">
-              Trade with confidence, knowing you can reset your Evaluation or Funded account for a Second chance.
-            </p>
+            <h3 className="text-3xl font-semibold mb-4">{card.title}</h3>
+            <p className="text-base">{card.description}</p>
           </motion.div>
+        ))}
+      </div>
 
-          {/* Card 2 */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-            viewport={{ once: false, amount: 0.2 }}
-            className="bg-gray-100 rounded-3xl p-8 h-full"
+      {/* Mobile Stack */}
+         <div className="md:hidden px-4">
+      <div className="relative">
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className="sticky top-0 bg-white shadow-xl rounded-3xl p-6 mb-8"
+            style={{ zIndex: cards.length - index }}
           >
-            <div className="w-12 h-12 text-fuchsia-600 mb-16">
-              <img src="/hero2.svg" alt="Rocket icon" className="w-full h-full" />
+            <div className="w-12 h-12 mb-6">
+              <img src={card.image} alt="" className="w-full h-full" />
             </div>
-            <h3 className="text-3xl font-semibold mb-4 leading-tight">
-              Fast & Flexible Payouts
-            </h3>
-            <p className="text-base leading-6">
-              Enjoy high profit splits and get paid whenever you're ready with your first payout on demand.
-            </p>
-          </motion.div>
+            <h3 className="text-2xl font-semibold mb-2">{card.title}</h3>
+            <p className="text-gray-600">{card.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
 
-          {/* Card 3 */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-            viewport={{ once: false, amount: 0.2 }}
-            className="bg-gray-100 rounded-3xl p-8 h-full"
-          >
-            <div className="w-12 h-12 text-fuchsia-600 mb-16">
-              <img src="/hero3.svg" alt="Question mark icon" className="w-full h-full" />
-            </div>
-            <h3 className="text-3xl font-semibold mb-4 leading-tight">
-              24/7 Customer Support
-            </h3>
-            <p className="text-base leading-6">
-              Our support team is dedicated to your success, providing personalized assistance, expert guidance.
-            </p>
-          </motion.div>
-
-        </div>
-
-        {/* Bottom Guarantee Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
-          viewport={{ once: false, amount: 0.2 }}
-          className="bg-gray-100 rounded-3xl p-8 my-5 flex flex-col md:flex-row items-center justify-center text-center md:text-left"
-        >
-          <div className="w-20 h-20 text-fuchsia-600 md:mr-6 mb-4 md:mb-0 flex-shrink-0">
-            <img src="/hero4.svg" alt="Shield check icon" className="w-full h-full object-contain" />
+      {/* Guarantee Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="bg-gray-100 rounded-3xl p-8 my-5"
+      >
+        <div className="flex flex-col md:flex-row items-center">
+          <div className="w-20 h-20 text-fuchsia-600 mb-4 md:mb-0 md:mr-6">
+            <img src="/hero4.svg" alt="" className="w-full h-full" />
           </div>
           <div>
-            <h3 className="text-3xl font-semibold mb-2 leading-tight">
-              SFX Payout Guarantee
-            </h3>
-            <p className="text-lg font-semibold leading-relaxed">
+            <h3 className="text-3xl font-semibold mb-2">SFX Payout Guarantee</h3>
+            <p className="text-lg font-semibold">
               Get Paid in 48 Hours or We Pay You an Extra $300
             </p>
           </div>
-        </motion.div>
-
-      </div>
-
+        </div>
+      </motion.div>
+    </div>
 
        
       <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">

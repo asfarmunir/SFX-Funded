@@ -69,14 +69,12 @@ function App() {
   return (
     <Router>
       {/* Sticky Ticker at the very top with ID for measurement */}
-      <div id="ticker-component" style={{ position: 'sticky', top: 0, zIndex: 50 }}>
+       <div id="ticker-component" style={{ position: 'sticky', top: 0, zIndex: 50 }}>
         <Ticker />
-      </div>
+      </div> 
 
-      {/* Improved layout container */}
       <div className="relative">
-        {/* Navbar with proper positioning */}
-        <div 
+         <div 
           style={{ 
             position: 'sticky',
             top: `${tickerHeight}px`,
@@ -88,7 +86,6 @@ function App() {
            
           }}
         >
-          {/* When not scrolled, constrain width */}
           {!isScrolled ? (
             <div 
               style={{ 
@@ -107,10 +104,9 @@ function App() {
               </div>
             </div>
           ) : (
-            /* When scrolled, use full width without side borders/padding */
             <Navbar shouldStick={false} isScrolled={isScrolled} isMobile={isMobile} />
           )}
-        </div>
+        </div> 
         
         {/* Main Content positioned to be underneath navbar */}
         <div style={{ 

@@ -6,29 +6,36 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
+import MobileStackCards from '../components/MobileStackCards';
 
-export default function Hero() {
-   const cards = [
+
+ export const cards = [
     {
+      index: 0,
       title: 'Your Skill, Our Support',
       description: 'Trade with confidence...',
       image: '/hero1.svg',
     },
     {
+      index: 1,
       title: 'Fast & Flexible Payouts',
       description: 'Enjoy high profit splits...',
       image: '/hero2.svg',
     },
     {
+      index: 2,
       title: '24/7 Customer Support',
       description: 'Our support team is dedicated...',
       image: '/hero3.svg',
     },
   ];
 
+export default function Hero() {
+ 
 
-      const targetRef = useRef(null);
-  
+
+  const targetRef = useRef(null);
+
   const countryData = [
     { flag: "malay", percent: 85 },
     { flag: "GERMANY", percent: 70 },
@@ -462,10 +469,13 @@ export default function Hero() {
     // This ensures the animation is seamless by showing 200% of the content
     return `translateY(-${offset}%)`;
   };
+
+
+
   
 
   return (
-    <div className="font-inter w-full overflow-x-hidden">
+    <div className="font-inter w-full ">
 
 
       <div className="w-full mx-0 px-2 sm:px-4 pt-4 sm:pt-2 md:pt-3 lg:pt-4 pb-0 rounded-[30px] mt-6 mb-4 sm:mt-6 sm:mb-6
@@ -492,42 +502,42 @@ export default function Hero() {
           <div className="text-center mb-3 sm:mb-4 md:mb-5">
             {/* Main Heading */}
             <motion.h1
-  className="text-white font-bold 
+              className="text-white font-bold 
   text-3xl sm:text-3xl md:text-4xl lg:text-5xl
   leading-none tracking-tight"
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: false }}
-  transition={{ duration: 0.7, delay: 0.1 }}
-  style={{
-    fontFamily: "Inter, sans-serif",
-    fontWeight: 600,
-    fontSize: "clamp(3rem, 5vw, 5rem)", // Increased from 1.5rem to 2rem for mobile
-  }}
->
-  <span>Power</span>{" "}
-  <span className="text-[#fcfbfc]">To Trade</span>
-</motion.h1>
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontWeight: 600,
+                fontSize: "clamp(3rem, 5vw, 5rem)", // Increased from 1.5rem to 2rem for mobile
+              }}
+            >
+              <span>Power</span>{" "}
+              <span className="text-[#fcfbfc]">To Trade</span>
+            </motion.h1>
 
             {/* Subheading */}
             <motion.h1
-  className="text-white font-bold 
+              className="text-white font-bold 
   text-3xl sm:text-3xl md:text-4xl lg:text-5xl
   leading-none tracking-tight"
-  initial={{ opacity: 0, y: 35 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: false }}
-  transition={{ duration: 0.7, delay: 0.3 }}
-  style={{
-    fontFamily: "Oswald, sans-serif",
-    fontWeight: 600,
-    fontSize: "clamp(2.5rem, 5vw, 5rem)", // Increased from 1.5rem to 2rem for mobile
-    letterSpacing: "-1px",
-  }}
->
-  <span className="text-[#DE00DE]">Freedom </span>{" "}
-  <span className="text-[#DE00DE]"> To Profit</span>{" "}
-</motion.h1>
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              style={{
+                fontFamily: "Oswald, sans-serif",
+                fontWeight: 600,
+                fontSize: "clamp(2.5rem, 5vw, 5rem)", // Increased from 1.5rem to 2rem for mobile
+                letterSpacing: "-1px",
+              }}
+            >
+              <span className="text-[#DE00DE]">Freedom </span>{" "}
+              <span className="text-[#DE00DE]"> To Profit</span>{" "}
+            </motion.h1>
           </div>
 
           {/* Description */}
@@ -550,87 +560,87 @@ export default function Hero() {
           >
             {/* Left Container - larger on laptop */}
             <motion.div
-  className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-40 md:w-52"
-  style={{
-    fontFamily: "Inter, sans-serif",
-    fontWeight: 600
-  }}
->
-  {/* Green tick SVG */}
-  <svg 
-    width="16" 
-    height="16" 
-    viewBox="0 0 24 24" 
-    className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500" 
-    fill="none" 
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path 
-      d="M20 6L9 17L4 12" 
-      stroke="currentColor" 
-      strokeWidth="3" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    />
-  </svg>
-  <span className="text-black text-xs md:text-base whitespace-nowrap">Payout on Demand</span>
-</motion.div>
+              className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-40 md:w-52"
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontWeight: 600
+              }}
+            >
+              {/* Green tick SVG */}
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 6L9 17L4 12"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span className="text-black text-xs md:text-base whitespace-nowrap">Payout on Demand</span>
+            </motion.div>
 
-<motion.div
-  className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-64 md:w-80 px-3 md:px-5"
-  style={{
-    fontFamily: "Inter, sans-serif",
-    fontWeight: 600
-  }}
->
-  {/* Green tick SVG */}
-  <svg 
-    width="16" 
-    height="16" 
-    viewBox="0 0 24 24" 
-    className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500" 
-    fill="none" 
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path 
-      d="M20 6L9 17L4 12" 
-      stroke="currentColor" 
-      strokeWidth="3" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    />
-  </svg>
-  <span className="text-black text-xs md:text-base whitespace-nowrap">
-    Evaluation & Funded Stage Reset
-  </span>
-</motion.div>
+            <motion.div
+              className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-64 md:w-80 px-3 md:px-5"
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontWeight: 600
+              }}
+            >
+              {/* Green tick SVG */}
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 6L9 17L4 12"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span className="text-black text-xs md:text-base whitespace-nowrap">
+                Evaluation & Funded Stage Reset
+              </span>
+            </motion.div>
 
-<motion.div
-  className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-40 md:w-52"
-  style={{
-    fontFamily: "Inter, sans-serif",
-    fontWeight: 600
-  }} 
->
-  {/* Green tick SVG */}
-  <svg 
-    width="16" 
-    height="16" 
-    viewBox="0 0 24 24" 
-    className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500" 
-    fill="none" 
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path 
-      d="M20 6L9 17L4 12" 
-      stroke="currentColor" 
-      strokeWidth="3" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    />
-  </svg>
-  <span className="text-black text-xs md:text-base whitespace-nowrap">Up to 100% Profit Split</span>
-</motion.div>
+            <motion.div
+              className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-40 md:w-52"
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontWeight: 600
+              }}
+            >
+              {/* Green tick SVG */}
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 6L9 17L4 12"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span className="text-black text-xs md:text-base whitespace-nowrap">Up to 100% Profit Split</span>
+            </motion.div>
           </motion.div>
 
           {/* CTA Button */}
@@ -702,79 +712,79 @@ export default function Hero() {
             }} />
 
             {/* Scrolling Container */}
-<div className="overflow-hidden rounded-lg bg-gray-50 h-[90px]">
-  {mounted && (
-    <div className="flex items-center h-full whitespace-nowrap slider-animate">
-      {/* First complete set of payment items */}
-      {payments.map((payment, index) => (
-        <div key={index} className="flex items-center gap-4 flex-shrink-0 h-[80%] px-4 mx-3 bg-[#eaeaf1] rounded-lg">
-          {/* Price and Name */}
-          <div className="flex flex-col justify-center h-full">
-            <p className="font-bold text-lg" style={{
-              fontFamily: "'Inter', sans-serif"
-            }}>{payment.amount}</p>
-            <p className="text-sm text-gray-600" style={{
-              fontFamily: "'Inter', sans-serif"
-            }}>{payment.name}</p>
-          </div>
-          {/* Certificate - Larger size */}
-          <div className="w-20 h-full flex items-center py-1.5">
-            <img
-              src={payment.certificate}
-              alt="Payment Certificate"
-              className="w-full h-full object-contain rounded-md"
-            />
-          </div>
-        </div>
-      ))}
+            <div className="overflow-hidden rounded-lg bg-gray-50 h-[90px]">
+              {mounted && (
+                <div className="flex items-center h-full whitespace-nowrap slider-animate">
+                  {/* First complete set of payment items */}
+                  {payments.map((payment, index) => (
+                    <div key={index} className="flex items-center gap-4 flex-shrink-0 h-[80%] px-4 mx-3 bg-[#eaeaf1] rounded-lg">
+                      {/* Price and Name */}
+                      <div className="flex flex-col justify-center h-full">
+                        <p className="font-bold text-lg" style={{
+                          fontFamily: "'Inter', sans-serif"
+                        }}>{payment.amount}</p>
+                        <p className="text-sm text-gray-600" style={{
+                          fontFamily: "'Inter', sans-serif"
+                        }}>{payment.name}</p>
+                      </div>
+                      {/* Certificate - Larger size */}
+                      <div className="w-20 h-full flex items-center py-1.5">
+                        <img
+                          src={payment.certificate}
+                          alt="Payment Certificate"
+                          className="w-full h-full object-contain rounded-md"
+                        />
+                      </div>
+                    </div>
+                  ))}
 
-      {/* Second complete set for seamless loop */}
-      {payments.map((payment, index) => (
-        <div key={`loop-${index}`} className="flex items-center gap-4 flex-shrink-0 h-[80%] px-4 mx-3 bg-[#eaeaf1] rounded-lg">
-          <div className="flex flex-col justify-center h-full">
-            <p className="font-bold text-lg" style={{
-              fontFamily: "'Inter', sans-serif"
-            }}>{payment.amount}</p>
-            <p className="text-sm text-gray-600" style={{
-              fontFamily: "'Inter', sans-serif"
-            }}>{payment.name}</p>
-          </div>
-          <div className="w-20 h-full flex items-center py-1.5">
-            <img
-              src={payment.certificate}
-              alt="Payment Certificate"
-              className="w-full h-full object-contain rounded-md"
-            />
-          </div>
-        </div>
-      ))}
+                  {/* Second complete set for seamless loop */}
+                  {payments.map((payment, index) => (
+                    <div key={`loop-${index}`} className="flex items-center gap-4 flex-shrink-0 h-[80%] px-4 mx-3 bg-[#eaeaf1] rounded-lg">
+                      <div className="flex flex-col justify-center h-full">
+                        <p className="font-bold text-lg" style={{
+                          fontFamily: "'Inter', sans-serif"
+                        }}>{payment.amount}</p>
+                        <p className="text-sm text-gray-600" style={{
+                          fontFamily: "'Inter', sans-serif"
+                        }}>{payment.name}</p>
+                      </div>
+                      <div className="w-20 h-full flex items-center py-1.5">
+                        <img
+                          src={payment.certificate}
+                          alt="Payment Certificate"
+                          className="w-full h-full object-contain rounded-md"
+                        />
+                      </div>
+                    </div>
+                  ))}
 
-      {/* Third partial set to ensure no gaps */}
-      {payments.slice(0, 3).map((payment, index) => (
-        <div key={`extra-${index}`} className="flex items-center gap-4 flex-shrink-0 h-[80%] px-4 mx-3 bg-[#eaeaf1] rounded-lg">
-          <div className="flex flex-col justify-center h-full">
-            <p className="font-bold text-lg" style={{
-              fontFamily: "'Inter', sans-serif"
-            }}>{payment.amount}</p>
-            <p className="text-sm text-gray-600" style={{
-              fontFamily: "'Inter', sans-serif"
-            }}>{payment.name}</p>
-          </div>
-          <div className="w-20 h-full flex items-center py-1.5">
-            <img
-              src={payment.certificate}
-              alt="Payment Certificate"
-              className="w-full h-full object-contain rounded-md"
-            />
-          </div>
-        </div>
-      ))}
-    </div>
-  )}
-</div>
+                  {/* Third partial set to ensure no gaps */}
+                  {payments.slice(0, 3).map((payment, index) => (
+                    <div key={`extra-${index}`} className="flex items-center gap-4 flex-shrink-0 h-[80%] px-4 mx-3 bg-[#eaeaf1] rounded-lg">
+                      <div className="flex flex-col justify-center h-full">
+                        <p className="font-bold text-lg" style={{
+                          fontFamily: "'Inter', sans-serif"
+                        }}>{payment.amount}</p>
+                        <p className="text-sm text-gray-600" style={{
+                          fontFamily: "'Inter', sans-serif"
+                        }}>{payment.name}</p>
+                      </div>
+                      <div className="w-20 h-full flex items-center py-1.5">
+                        <img
+                          src={payment.certificate}
+                          alt="Payment Certificate"
+                          className="w-full h-full object-contain rounded-md"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
 
-          {/* Updated Animation Style */}
-<style jsx>{`
+            {/* Updated Animation Style */}
+            <style jsx>{`
   @keyframes scrollSlow {
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(-50% - 24px)); }
@@ -797,67 +807,92 @@ export default function Hero() {
         </div>
       </div>
 
-  <div className="w-full max-w-7xl mx-auto px-4">
-      {/* Desktop Grid */}
-      <div className="hidden md:grid grid-cols-3 gap-6 mb-8">
-        {cards.map((card, index) => (
-          <motion.div
-            key={`desktop-${index}`}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-gray-100 rounded-3xl p-8"
-          >
-            <div className="w-12 h-12 text-fuchsia-600 mb-16">
-              <img src={card.image} alt="" className="w-full h-full" />
-            </div>
-            <h3 className="text-3xl font-semibold mb-4">{card.title}</h3>
-            <p className="text-base">{card.description}</p>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Mobile Stack */}
-         <div className="md:hidden px-4">
-      <div className="relative">
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            className="sticky top-0 bg-white shadow-xl rounded-3xl p-6 mb-8"
-            style={{ zIndex: cards.length - index }}
-          >
-            <div className="w-12 h-12 mb-6">
-              <img src={card.image} alt="" className="w-full h-full" />
-            </div>
-            <h3 className="text-2xl font-semibold mb-2">{card.title}</h3>
-            <p className="text-gray-600">{card.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-
-      {/* Guarantee Card */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="bg-gray-100 rounded-3xl p-8 my-5"
-      >
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="w-20 h-20 text-fuchsia-600 mb-4 md:mb-0 md:mr-6">
-            <img src="/hero4.svg" alt="" className="w-full h-full" />
-          </div>
-          <div>
-            <h3 className="text-3xl font-semibold mb-2">SFX Payout Guarantee</h3>
-            <p className="text-lg font-semibold">
-              Get Paid in 48 Hours or We Pay You an Extra $300
-            </p>
-          </div>
+      <div className="w-full max-w-7xl mx-auto px-4">
+        {/* Desktop Grid */}
+        <div className="hidden md:grid grid-cols-3 gap-6 mb-8">
+          {cards.map((card, index) => (
+            <motion.div
+              key={`desktop-${index}`}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-gray-100 rounded-3xl p-8"
+            >
+              <div className="w-12 h-12 text-fuchsia-600 mb-16">
+                <img src={card.image} alt="" className="w-full h-full" />
+              </div>
+              <h3 className="text-3xl font-semibold mb-4">{card.title}</h3>
+              <p className="text-base">{card.description}</p>
+            </motion.div>
+          ))}
         </div>
-      </motion.div>
-    </div>
 
-       
+        {/* Mobile Stack with pure CSS sticky positioning */}
+        {/* <div className="md:hidden flex flex-col items-center gap-4">
+            {cards.map((card, index) => (
+              <div
+                key={index} 
+                className=' w-full'
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  zIndex: cards.length - index
+                }}
+              >
+                <div
+                  style={{
+                    backgroundColor: 'white',
+                    width: '100%',
+                    maxWidth: '90%',
+                    borderRadius: '1.5rem',
+                    padding: '1.5rem',
+                    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)'
+                  }}
+                >
+                  <div style={{ width: '3rem', height: '3rem', marginBottom: '1.5rem' }}>
+                    <img src={card.image} alt="" style={{ width: '100%', height: '100%' }} />
+                  </div>
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '0.5rem' }}>
+                    {card.title}
+                  </h3>
+                  <p style={{ color: '#4b5563' }}>
+                    {card.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div> */}
+        {/* Guarantee Card */}
+  
+ <div className="md:hidden"style={{
+        position: 'relative',
+        minHeight: '0vh', // Ensure enough height
+      }}>
+       <MobileStackCards />
+      </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="bg-gray-100 rounded-3xl p-8 my-5"
+        >
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="w-20 h-20 text-fuchsia-600 mb-4 md:mb-0 md:mr-6">
+              <img src="/hero4.svg" alt="" className="w-full h-full" />
+            </div>
+            <div>
+              <h3 className="text-3xl font-semibold mb-2">SFX Payout Guarantee</h3>
+              <p className="text-lg font-semibold">
+                Get Paid in 48 Hours or We Pay You an Extra $300
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+
       <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-center leading-none tracking-tight mb-8">
           Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
@@ -1013,9 +1048,9 @@ export default function Hero() {
       <div className="font-sans max-w-6xl mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-6">
-         <h2 className="text-5xl md:text-6xl font-bold text-gray-900">
-  Top Funded Trader Programs
-</h2>
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900">
+            Top Funded Trader Programs
+          </h2>
           <div className="mt-4 inline-block bg-fuchsia-50 px-6 py-2 rounded-full border border-fuchsia-200">
             <span className="text-lg font-medium">Trade Forex, Indices, Metals & Crypto</span>
           </div>
@@ -1027,8 +1062,8 @@ export default function Hero() {
           <div className={`flex flex-wrap justify-center gap-4 mt-6 ${isMobile ? 'gap-y-3' : ''}`}>
             <button
               className={`w-[160px] sm:w-[180px] ${selectedProgram === 'rapid'
-                  ? 'bg-[#D90BC6] text-white'
-                  : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+                ? 'bg-[#D90BC6] text-white'
+                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
                 } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
               onClick={() => handleProgramClick('rapid')}
             >
@@ -1043,8 +1078,8 @@ export default function Hero() {
 
             <button
               className={`w-[160px] sm:w-[180px] ${selectedProgram === 'ignite'
-                  ? 'bg-[#D90BC6] text-white'
-                  : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+                ? 'bg-[#D90BC6] text-white'
+                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
                 } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
               onClick={() => handleProgramClick('ignite')}
             >
@@ -1059,8 +1094,8 @@ export default function Hero() {
 
             <button
               className={`w-[160px] sm:w-[180px] ${selectedProgram === 'ascend'
-                  ? 'bg-[#D90BC6] text-white'
-                  : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+                ? 'bg-[#D90BC6] text-white'
+                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
                 } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
               onClick={() => handleProgramClick('ascend')}
             >
@@ -1075,8 +1110,8 @@ export default function Hero() {
 
             <button
               className={`w-[160px] sm:w-[180px] ${selectedProgram === 'instant'
-                  ? 'bg-[#D90BC6] text-white'
-                  : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+                ? 'bg-[#D90BC6] text-white'
+                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
                 } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
               onClick={() => handleProgramClick('instant')}
             >
@@ -1234,103 +1269,103 @@ export default function Hero() {
 
 
         <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-        <div className="flex flex-col items-center md:items-start gap-2 w-full">
-          {/* Mobile View - Stacked layout */}
-          <div className="flex flex-col items-center md:hidden w-full gap-1">
-            {/* 1st line - Account Size with Program */}
-            <div className="text-[#F001E1] font-medium text-2xl">
-              ${selectedSize.toLocaleString()} {selectedProgram.charAt(0).toUpperCase() + selectedProgram.slice(1)}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+            <div className="flex flex-col items-center md:items-start gap-2 w-full">
+              {/* Mobile View - Stacked layout */}
+              <div className="flex flex-col items-center md:hidden w-full gap-1">
+                {/* 1st line - Account Size with Program */}
+                <div className="text-[#F001E1] font-medium text-2xl">
+                  ${selectedSize.toLocaleString()} {selectedProgram.charAt(0).toUpperCase() + selectedProgram.slice(1)}
+                </div>
+
+                {/* 2nd line - Original Price (strikethrough) */}
+                <div className="text-[#F001E1] font-bold text-xl line-through">
+                  ${pricingData[selectedProgram][selectedSize]?.original || 'N/A'}
+                </div>
+
+                {/* 3rd line - Discounted Price */}
+                <div className="text-[#F001E1] font-bold text-4xl">
+                  ${pricingData[selectedProgram][selectedSize]?.discounted || 'N/A'}
+                </div>
+
+                {/* 4th line - One-Time Fee text */}
+                <div className="text-[#F001E1] font-medium text-base">
+                  One-Time Fee
+                  {selectedProgram !== "instant" && " • 100% Refundable"}
+                </div>
+              </div>
+
+              {/* Desktop View - Row layout */}
+              <div className="hidden md:flex items-center gap-2 sm:gap-4 flex-wrap">
+                {/* Original Price (strikethrough) */}
+                <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
+                  ${pricingData[selectedProgram][selectedSize]?.original || 'N/A'}
+                </div>
+                {/* Discounted Price */}
+                <div className="text-[#F001E1] font-bold text-4xl sm:text-5xl">
+                  ${pricingData[selectedProgram][selectedSize]?.discounted || 'N/A'}
+                </div>
+                {/* Account Size with Program */}
+                <div className="text-[#F001E1] font-medium text-2xl sm:text-3xl">
+                  ${selectedSize.toLocaleString()} {selectedProgram.charAt(0).toUpperCase() + selectedProgram.slice(1)}
+                </div>
+              </div>
+
+              {/* Desktop - One-Time Fee text */}
+              <div className="hidden md:block text-[#F001E1] font-medium text-base sm:text-lg text-left">
+                One-Time Fee
+                {selectedProgram !== "instant" && " • 100% Refundable"}
+              </div>
             </div>
-            
-            {/* 2nd line - Original Price (strikethrough) */}
-            <div className="text-[#F001E1] font-bold text-xl line-through">
-              ${pricingData[selectedProgram][selectedSize]?.original || 'N/A'}
-            </div>
-            
-            {/* 3rd line - Discounted Price */}
-            <div className="text-[#F001E1] font-bold text-4xl">
-              ${pricingData[selectedProgram][selectedSize]?.discounted || 'N/A'}
-            </div>
-            
-            {/* 4th line - One-Time Fee text */}
-            <div className="text-[#F001E1] font-medium text-base">
-              One-Time Fee
-              {selectedProgram !== "instant" && " • 100% Refundable"}
-            </div>
+
+            <button
+              className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
+            >
+              Start Challenge →
+            </button>
           </div>
 
-          {/* Desktop View - Row layout */}
-          <div className="hidden md:flex items-center gap-2 sm:gap-4 flex-wrap">
-            {/* Original Price (strikethrough) */}
-            <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
-              ${pricingData[selectedProgram][selectedSize]?.original || 'N/A'}
-            </div>
-            {/* Discounted Price */}
-            <div className="text-[#F001E1] font-bold text-4xl sm:text-5xl">
-              ${pricingData[selectedProgram][selectedSize]?.discounted || 'N/A'}
-            </div>
-            {/* Account Size with Program */}
-            <div className="text-[#F001E1] font-medium text-2xl sm:text-3xl">
-              ${selectedSize.toLocaleString()} {selectedProgram.charAt(0).toUpperCase() + selectedProgram.slice(1)}
-            </div>
-          </div>
-          
-          {/* Desktop - One-Time Fee text */}
-          <div className="hidden md:block text-[#F001E1] font-medium text-base sm:text-lg text-left">
-            One-Time Fee
-            {selectedProgram !== "instant" && " • 100% Refundable"}
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
+            {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
+              <img
+                key={img}
+                src={`/${img}.png`}
+                alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)}
+                className="h-6 sm:h-8"
+              />
+            ))}
           </div>
         </div>
-
-        <button
-          className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
-        >
-          Start Challenge →
-        </button>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
-        {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
+      <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 mb-12 w-full max-w-6xl mx-auto">
+        <div className="border-2 border-[#F800EA] rounded-xl px-5 py-4 md:px-8 md:py-6 flex items-center justify-center hover:shadow-lg transition-all duration-300 flex-1">
           <img
-            key={img}
-            src={`/${img}.png`}
-            alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)}
-            className="h-6 sm:h-8"
+            src="/blue.svg"
+            alt="Feature icon"
+            className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4 flex-shrink-0"
           />
-        ))}
-      </div>
-    </div>
-      </div>
+          <span className="font-medium text-base md:text-xl lg:text-2xl text-center">Reward Guarantee</span>
+        </div>
 
-       <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 mb-12 w-full max-w-6xl mx-auto">
-      <div className="border-2 border-[#F800EA] rounded-xl px-5 py-4 md:px-8 md:py-6 flex items-center justify-center hover:shadow-lg transition-all duration-300 flex-1">
-        <img
-          src="/blue.svg"
-          alt="Feature icon"
-          className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4 flex-shrink-0"
-        />
-        <span className="font-medium text-base md:text-xl lg:text-2xl text-center">Reward Guarantee</span>
-      </div>
+        <div className="border-2 border-[#F800EA] rounded-xl px-5 py-4 md:px-8 md:py-6 flex items-center justify-center hover:shadow-lg transition-all duration-300 flex-1">
+          <img
+            src="/blue.svg"
+            alt="Feature icon"
+            className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4 flex-shrink-0"
+          />
+          <span className="font-medium text-base md:text-xl lg:text-2xl text-center">Account Resets</span>
+        </div>
 
-      <div className="border-2 border-[#F800EA] rounded-xl px-5 py-4 md:px-8 md:py-6 flex items-center justify-center hover:shadow-lg transition-all duration-300 flex-1">
-        <img
-          src="/blue.svg"
-          alt="Feature icon"
-          className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4 flex-shrink-0"
-        />
-        <span className="font-medium text-base md:text-xl lg:text-2xl text-center">Account Resets</span>
+        <div className="border-2 border-[#F800EA] rounded-xl px-5 py-4 md:px-8 md:py-6 flex items-center justify-center hover:shadow-lg transition-all duration-300 flex-1">
+          <img
+            src="/blue.svg"
+            alt="Feature icon"
+            className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4 flex-shrink-0"
+          />
+          <span className="font-medium text-base md:text-xl lg:text-2xl text-center">Bi-Weekly Rewards</span>
+        </div>
       </div>
-
-      <div className="border-2 border-[#F800EA] rounded-xl px-5 py-4 md:px-8 md:py-6 flex items-center justify-center hover:shadow-lg transition-all duration-300 flex-1">
-        <img
-          src="/blue.svg"
-          alt="Feature icon"
-          className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4 flex-shrink-0"
-        />
-        <span className="font-medium text-base md:text-xl lg:text-2xl text-center">Bi-Weekly Rewards</span>
-      </div>
-    </div>
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -1350,52 +1385,49 @@ export default function Hero() {
 
         <div className="w-full max-w-6xl mx-auto px-4">
           {/* Step Buttons with exact dimensions for laptop */}
-         <motion.div
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: 0.1 }}
-  viewport={{ once: false, amount: 0.3 }}
-  className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 mb-16"
->
-  <button
-    onClick={() => handleStepClick(1)}
-    className={`rounded-3xl px-6 py-3 w-full max-w-[348px] min-h-[80px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${
-      activeStep === 1 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
-    }`}
-    style={{
-      borderRadius: "31px"
-    }}
-  >
-    <p className="font-medium text-base md:text-lg">Step 1:</p>
-    <p className="font-medium text-base md:text-lg">Choose a Plan</p>
-  </button>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: false, amount: 0.3 }}
+            className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 mb-16"
+          >
+            <button
+              onClick={() => handleStepClick(1)}
+              className={`rounded-3xl px-6 py-3 w-full max-w-[348px] min-h-[80px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${activeStep === 1 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
+                }`}
+              style={{
+                borderRadius: "31px"
+              }}
+            >
+              <p className="font-medium text-base md:text-lg">Step 1:</p>
+              <p className="font-medium text-base md:text-lg">Choose a Plan</p>
+            </button>
 
-  <button
-    onClick={() => handleStepClick(2)}
-    className={`rounded-3xl px-6 py-3 w-full max-w-[348px] min-h-[80px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${
-      activeStep === 2 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
-    }`}
-    style={{
-      borderRadius: "31px"
-    }}
-  >
-    <p className="font-medium text-base md:text-lg">Step 2:</p>
-    <p className="font-medium text-base md:text-lg">Get Funded</p>
-  </button>
+            <button
+              onClick={() => handleStepClick(2)}
+              className={`rounded-3xl px-6 py-3 w-full max-w-[348px] min-h-[80px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${activeStep === 2 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
+                }`}
+              style={{
+                borderRadius: "31px"
+              }}
+            >
+              <p className="font-medium text-base md:text-lg">Step 2:</p>
+              <p className="font-medium text-base md:text-lg">Get Funded</p>
+            </button>
 
-  <button
-    onClick={() => handleStepClick(3)}
-    className={`rounded-3xl px-6 py-3 w-full max-w-[348px] min-h-[80px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${
-      activeStep === 3 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
-    }`}
-    style={{
-      borderRadius: "31px"
-    }}
-  >
-    <p className="font-medium text-base md:text-lg">Step 3:</p>
-    <p className="font-medium text-base md:text-lg">Start Your Trading Journey</p>
-  </button>
-</motion.div>
+            <button
+              onClick={() => handleStepClick(3)}
+              className={`rounded-3xl px-6 py-3 w-full max-w-[348px] min-h-[80px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${activeStep === 3 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
+                }`}
+              style={{
+                borderRadius: "31px"
+              }}
+            >
+              <p className="font-medium text-base md:text-lg">Step 3:</p>
+              <p className="font-medium text-base md:text-lg">Start Your Trading Journey</p>
+            </button>
+          </motion.div>
 
           {/* Option Cards - Different for each step */}
           <AnimatePresence mode="wait">
@@ -1564,19 +1596,19 @@ export default function Hero() {
           {/* Start Trading Button */}
           <div className="flex justify-center mb-16">
             <button onClick={() => targetRef.current?.scrollIntoView({ behavior: "smooth" })} className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
-                  Start Trading
-                  <svg
-                    className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </button>
+              Start Trading
+              <svg
+                className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
           </div>
 
           {/* Platform Section */}
@@ -1750,15 +1782,15 @@ export default function Hero() {
       </div>
 
       <div style={{ fontFamily: "'Inter', sans-serif" }} className="max-w-6xl mx-auto px-4 pt-4 sm:py-12"> {/* Changed from py-12 sm:py-16 to pt-4 sm:py-12 sm:py-16 */}
-  {/* Header with increased font size on mobile */}
-  <motion.h2
-    className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-10 sm:mb-16" 
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-  >
-    Why Traders Choose <span className="text-fuchsia-500">SFX </span> Funded
-  </motion.h2>
+        {/* Header with increased font size on mobile */}
+        <motion.h2
+          className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-10 sm:mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Why Traders Choose <span className="text-fuchsia-500">SFX </span> Funded
+        </motion.h2>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -1856,7 +1888,7 @@ export default function Hero() {
 
             {/* CTA Button */}
             <motion.div
-            
+
               className="mt-6 sm:mt-8 flex justify-center"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}

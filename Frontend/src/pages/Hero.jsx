@@ -7,7 +7,8 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import MobileStackCards from '../components/MobileStackCards';
-
+import Step1 from '../components/Step1';
+import Step2 from '../components/Step2';
 
  export const cards = [
     {
@@ -32,7 +33,24 @@ import MobileStackCards from '../components/MobileStackCards';
 
 export default function Hero() {
  
+const mobileContainerRef = useRef(null);
+const { scrollYProgress: mobileScrollProgress } = useScroll({
+  target: mobileContainerRef,
+  offset: ['start start', 'end end']
+});
 
+// Pre-calculate all scale transforms for mobile cards
+const mobileCardScales = {
+  step1: [
+    useTransform(mobileScrollProgress, [0, 0.25], [1, 0.9]),
+    useTransform(mobileScrollProgress, [0.25, 0.5], [1, 0.95]),
+    useTransform(mobileScrollProgress, [0.5, 0.75], [1, 0.97])
+  ],
+  step2: [
+    useTransform(mobileScrollProgress, [0, 0.5], [1, 0.9]),
+    useTransform(mobileScrollProgress, [0.5, 1], [1, 0.95])
+  ]
+};
 
   const targetRef = useRef(null);
 
@@ -1368,13 +1386,12 @@ export default function Hero() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 50 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: false, amount: 0.3 }}
-        className="w-full bg-black rounded-3xl p-8 my-8 md:p-16 text-center"
-      >
+  initial={{ opacity: 0, y: 50 }} // Start below with 0 opacity
+  whileInView={{ opacity: 1, y: 0 }} // Slide up into view
+  transition={{ duration: 0.6, ease: "easeOut" }} // Smooth ease
+  viewport={{ once: true, amount: 0.3 }} // Trigger when 30% in view, only once
+  className="w-full bg-black rounded-3xl p-8 my-8 md:p-16 text-center"
+>
         {/* Heading Section */}
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
           Start Your <span className="text-fuchsia-500">SFX Funded Trading Journey</span>
@@ -1430,125 +1447,150 @@ export default function Hero() {
           </motion.div>
 
           {/* Option Cards - Different for each step */}
-          <AnimatePresence mode="wait">
-            {activeStep === 1 && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6" key="step1">
-                <motion.div
-                  custom={0}
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
-                >
-                  <div className="flex justify-center mb-4">
-                    <div className="flex items-center justify-center">
-                      <h3 className="text-2xl font-bold mr-2">Rapid Challenge</h3>
-                      <img src="/hero5.svg" alt="Rocket icon" className="w-6 h-6" />
-                    </div>
-                  </div>
-                  <p className="font-medium mb-2">Want to Fast Track The Evaluation?</p>
-                  <p className="text-sm">Demonstrate your skills and get Funded in as quickly as 7 Days</p>
-                </motion.div>
+         <AnimatePresence mode="wait">
+  {activeStep === 1 && (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6" key="step1">
+      {/* Mobile view component - hidden on medium screens and up */}
+      <motion.div 
+        className="md:hidden"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -50 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Step1 />
+      </motion.div>
+      
+      {/* Desktop view components - hidden on small screens */}
+      <motion.div
+        custom={0}
+        variants={cardVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="hidden md:block bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
+      >
+        <div className="flex justify-center mb-4">
+          <div className="flex items-center justify-center">
+            <h3 className="text-2xl font-bold mr-2">Rapid Challenge</h3>
+            <img src="/hero5.svg" alt="Rocket icon" className="w-6 h-6" />
+          </div>
+        </div>
+        <p className="font-medium mb-2">Want to Fast Track The Evaluation?</p>
+        <p className="text-sm">Demonstrate your skills and get Funded in as quickly as 7 Days</p>
+      </motion.div>
 
-                <motion.div
-                  custom={1}
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
-                >
-                  <div className="flex justify-center mb-4">
-                    <div className="flex items-center justify-center">
-                      <h3 className="text-2xl font-bold mr-2">2-Step Evaluation</h3>
-                      <img src="/hero6.svg" alt="Chart icon" className="w-6 h-6" />
-                    </div>
-                  </div>
-                  <p className="font-medium mb-2">Prefer a more traditional approach?</p>
-                  <p className="text-sm">Demonstrate discipline and consistency with our 2-step evaluation</p>
-                </motion.div>
+      <motion.div
+        custom={1}
+        variants={cardVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="hidden md:block bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
+      >
+        <div className="flex justify-center mb-4">
+          <div className="flex items-center justify-center">
+            <h3 className="text-2xl font-bold mr-2">2-Step Evaluation</h3>
+            <img src="/hero6.svg" alt="Chart icon" className="w-6 h-6" />
+          </div>
+        </div>
+        <p className="font-medium mb-2">Prefer a more traditional approach?</p>
+        <p className="text-sm">Demonstrate discipline and consistency with our 2-step evaluation</p>
+      </motion.div>
 
-                <motion.div
-                  custom={2}
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
-                >
-                  <div className="flex justify-center mb-4">
-                    <div className="flex items-center justify-center">
-                      <h3 className="text-2xl font-bold mr-2">Instant Funding</h3>
-                      <img src="/hero7.svg" alt="Fire icon" className="w-6 h-6" />
-                    </div>
-                  </div>
-                  <p className="font-medium mb-2">Want to start earning right away?</p>
-                  <p className="text-sm">Choose our Instant Funded Account option.</p>
-                </motion.div>
-              </div>
-            )}
+      <motion.div
+        custom={2}
+        variants={cardVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="hidden md:block bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
+      >
+        <div className="flex justify-center mb-4">
+          <div className="flex items-center justify-center">
+            <h3 className="text-2xl font-bold mr-2">Instant Funding</h3>
+            <img src="/hero7.svg" alt="Fire icon" className="w-6 h-6" />
+          </div>
+        </div>
+        <p className="font-medium mb-2">Want to start earning right away?</p>
+        <p className="text-sm">Choose our Instant Funded Account option.</p>
+      </motion.div>
+    </div>
+  )}
 
-            {activeStep === 2 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6" key="step2">
-                <motion.div
-                  custom={0}
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
-                >
-                  <div className="flex justify-center mb-4">
-                    <div className="flex items-center justify-center">
-                      <h3 className="text-2xl font-bold mr-2">Instant Funding</h3>
-                      <img src="/hero5.svg" alt="Rocket icon" className="w-6 h-6" />
-                    </div>
-                  </div>
-                  <p className="font-medium mb-2">Create and verify your account to start earning</p>
-                  <p className="text-sm">Start earning right away with simulated capital</p>
-                </motion.div>
+  {activeStep === 2 && (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6" key="step2">
+      {/* Mobile view component - hidden on medium screens and up */}
+      <motion.div 
+        className="md:hidden"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -50 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Step2 />
+      </motion.div>
 
-                <motion.div
-                  custom={1}
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
-                >
-                  <div className="flex justify-center mb-4">
-                    <div className="flex items-center justify-center">
-                      <h3 className="text-2xl font-bold mr-2">Rapid & 2-Step Evaluation</h3>
-                      <img src="/hero7.svg" alt="Fire icon" className="w-6 h-6" />
-                    </div>
-                  </div>
-                  <p className="font-medium mb-2">Complete the evaluation process by meeting our achievable targets</p>
-                  <p className="text-sm">Demonstrate your trading prowess and get funded</p>
-                </motion.div>
-              </div>
-            )}
+      {/* Desktop view components - hidden on small screens */}
+      <motion.div
+        custom={0}
+        variants={cardVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="hidden md:block bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
+      >
+        <div className="flex justify-center mb-4">
+          <div className="flex items-center justify-center">
+            <h3 className="text-2xl font-bold mr-2">Instant Funding</h3>
+            <img src="/hero5.svg" alt="Rocket icon" className="w-6 h-6" />
+          </div>
+        </div>
+        <p className="font-medium mb-2">Create and verify your account to start earning</p>
+        <p className="text-sm">Start earning right away with simulated capital</p>
+      </motion.div>
 
-            {activeStep === 3 && (
-              <div className="grid grid-cols-1 gap-6" key="step3">
-                <motion.div
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="bg-white rounded-3xl p-8 text-center shadow-lg shadow-fuchsia-600/20"
-                >
-                  <div className="flex justify-center mb-6">
-                    <img src="/hero5.svg" alt="Rocket icon" className="w-12 h-12" />
-                  </div>
-                  <p className="text-lg font-medium mb-2">
-                    Once funded, you're ready to leverage our capital and start maximizing your profits.
-                    Trade confidently, knowing we support your success!
-                  </p>
-                </motion.div>
-              </div>
-            )}
-          </AnimatePresence>
+      <motion.div
+        custom={1}
+        variants={cardVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="hidden md:block bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
+      >
+        <div className="flex justify-center mb-4">
+          <div className="flex items-center justify-center">
+            <h3 className="text-2xl font-bold mr-2">Rapid & 2-Step Evaluation</h3>
+            <img src="/hero7.svg" alt="Fire icon" className="w-6 h-6" />
+          </div>
+        </div>
+        <p className="font-medium mb-2">Complete the evaluation process by meeting our achievable targets</p>
+        <p className="text-sm">Demonstrate your trading prowess and get funded</p>
+      </motion.div>
+    </div>
+  )}
+
+  {activeStep === 3 && (
+    <div className="grid grid-cols-1 gap-6" key="step3">
+      <motion.div
+        variants={cardVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="bg-white rounded-3xl p-8 text-center shadow-lg shadow-fuchsia-600/20"
+      >
+        <div className="flex justify-center mb-6">
+          <img src="/hero5.svg" alt="Rocket icon" className="w-12 h-12" />
+        </div>
+        <p className="text-lg font-medium mb-2">
+          Once funded, you're ready to leverage our capital and start maximizing your profits.
+          Trade confidently, knowing we support your success!
+        </p>
+        
+      </motion.div>
+    </div>
+  )}
+</AnimatePresence>
         </div>
       </motion.div>
 

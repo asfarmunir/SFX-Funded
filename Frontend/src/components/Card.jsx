@@ -17,7 +17,7 @@ const Card = ({i, title, description, image, url, color, progress, range, target
   
   return (
     <div ref={container} style={{
-      height: '40vh',
+      height: '50vh',
       width: '100%',
       position: 'sticky',
       top: 0,

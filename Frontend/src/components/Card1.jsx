@@ -16,7 +16,7 @@ const Card1 = ({i, title, description, image, url, color, progress, range, targe
   const fontFamily = "'Inter', sans-serif";
   
   return (
-    <div ref={container} className="h-[30vh] w-full sticky top-0 flex items-center justify-center">
+    <div ref={container} className="h-[50vh] w-full sticky top-0 flex items-center justify-center">
       <motion.div 
         style={{ scale }}
         className="bg-[#F5F5F7] flex flex-col relative w-[90%] max-w-[422px] h-auto min-h-[280px] rounded-3xl p-6 sm:p-8 font-['Inter',sans-serif] text-center overflow-hidden"

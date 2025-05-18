@@ -471,7 +471,7 @@ export default function Graphic() {
         </div>
       </div>
 
-      <div className="flex justify-center w-full p-4">
+       <div className="flex justify-center w-full p-4">
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 p-4 bg-gray-50 rounded-[20px] font-['Inter'] max-w-5xl w-full">
 
           {/* Recent Verified Payouts Section */}
@@ -492,15 +492,13 @@ export default function Graphic() {
 
           {/* Scrolling Payments */}
           <div className="relative w-full">
-            {/* Blurred Left Overlay */}
-            <div className="absolute left-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-r from-white via-white/80 to-transparent" />
+             {/* Blurred Left Overlay */}
+  <div className="absolute left-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-r from-white via-white/80 to-transparent" />
 
-            {/* Enhanced Blurred Right Overlay with Border */}
-            <div className="absolute right-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-l from-white via-white/80 to-transparent" style={{
-              boxShadow: '-5px 0 15px rgba(255,255,255,0.7)',
-            }} />
+  {/* Right Overlay - Now identical to left overlay */}
+  <div className="absolute right-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-l from-white via-white/80 to-transparent" />
 
-            {/* Scrolling Container */}
+  {/* Scrolling Container */}
             <div className="overflow-hidden rounded-lg bg-gray-50 h-[90px]">
               {mounted && (
                 <div className="flex items-center h-full whitespace-nowrap slider-animate">
@@ -578,14 +576,17 @@ export default function Graphic() {
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(-50% - 24px)); }
   }
+
   .slider-animate {
     animation: scrollSlow 20s linear infinite;
     padding-right: 24px;
-    /* Add the following to further slow down */
-    animation-play-state: running;
-    animation-delay: 0s;
-    animation-duration: 20s;
-    animation-timing-function: linear;
+  }
+
+  /* Make scroll faster on screens smaller than 640px */
+  @media (max-width: 639px) {
+    .slider-animate {
+      animation-duration: 10s;
+    }
   }
 `}</style>
 

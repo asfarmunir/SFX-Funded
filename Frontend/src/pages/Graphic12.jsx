@@ -495,9 +495,7 @@ export default function Graphic() {
              {/* Blurred Left Overlay */}
   <div className="absolute left-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-r from-white via-white/80 to-transparent" />
 
-  {/* Right Overlay - Now identical to left overlay */}
-  <div className="absolute right-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-l from-white via-white/80 to-transparent" />
-
+ 
   {/* Scrolling Container */}
             <div className="overflow-hidden rounded-lg bg-gray-50 h-[90px]">
               {mounted && (

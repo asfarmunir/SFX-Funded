@@ -1177,156 +1177,156 @@ const getTransform = (columnIndex) => {
 </div>
 
        <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
-                               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
-                                 Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
-                               </h1>
-                               
-                               <div className="relative overflow-hidden w-full mt-6 mb-8 sm:mt-8 sm:mb-10 md:mt-12 md:mb-14 lg:mt-16 lg:mb-20">
-                
-                          {/* Blur Overlays */}
-                         <div
-                           className="absolute left-0 top-0 h-full w-24 z-10 pointer-events-none"
-                           style={{
-                             background: "linear-gradient(to right, rgba(255,255,255,0.6), transparent)"
-                           }}
-                         />
-                         <div
-                           className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none"
-                           style={{
-                             background: "linear-gradient(to left, rgba(255,255,255,0.6), transparent)"
-                           }}
-                         />
-                         
-                         
-                          {/* Scrolling Container */}
-                         <div className="whitespace-nowrap animate-scroll flex items-center gap-12">
-                           {[...Array(2)].map((_, index) => (
-                             <div key={index} className="flex items-center gap-12 px-4">
-                               {[
-                                 { src: "/mw.png", alt: "Marketwatch" },
-                                 { src: "/ms.png", alt: "MSN" },
-                                 { src: "/bb.png", alt: "Bloomberg" },
-                                 { src: "/nd.png", alt: "Nasdaq" },
-                                 { src: "/bz.png", alt: "Benzinga" }
-                               ].map((brand, i) => (
-                                 <div key={i} className="h-10 w-32 flex items-center justify-center">
-                                   <img
-                                     src={brand.src}
-                                     alt={brand.alt}
-                                     className="h-full max-w-full object-contain"
-                                   />
-                                 </div>
-                               ))}
-                             </div>
-                           ))}
-                         </div>
-                         
-                         
-                           {/* Tailwind custom animation */}
-                           <style jsx>{`
-                             @keyframes scroll {
-                               0% { transform: translateX(0); }
-                               100% { transform: translateX(-50%); }
-                             }
-                             .animate-scroll {
-                               animation: scroll 5s linear infinite;
-                             }
-                           `}</style>
-                         </div>
-                         
-                               
-                               {/* Stats Cards Container */}
-                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                           {/* LEFT COLUMN */}
-                           <div className="flex flex-col gap-6">
-                             
-                             {/* Graph Card */}
-                             <motion.div
-                               initial={{ opacity: 0, y: 50 }}
-                               whileInView={{ opacity: 1, y: 0 }}
-                               viewport={{ once: false, amount: 0.2 }}
-                               transition={{ duration: 0.6, ease: "easeOut" }}
-                               className="bg-white rounded-3xl p-6 shadow-sm w-full"
-                             >
-                               <p className="text-center text-lg font-normal mb-2">Highest Paid Trader:</p>
-                               <h2 className="text-center text-4xl md:text-5xl font-semibold mb-6">$39,183.97</h2>
-                         
-                               {/* Graph */}
-                               <div className="w-full h-30 relative">
-                                 <img 
-                                   src="/graph.svg" 
-                                   alt="Trading performance graph" 
-                                   className="w-full h-full object-cover" 
-                                 />
-                               </div>
-                             </motion.div>
-                         
-                             {/* Country Stats Card */}
-                             <motion.div
-                               initial={{ opacity: 0, y: 50 }}
-                               whileInView={{ opacity: 1, y: 0 }}
-                               viewport={{ once: false, amount: 0.2 }}
-                               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                               className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col"
-                             >
-                               <p className="text-left text-lg font-inter mb-2">Total Rewards:</p>
-                               <h2 className="text-left text-4xl md:text-5xl font-semibold mb-6">$673,142.91</h2>
-                         
-                               {/* Info containers */}
-                               <div className="flex flex-col sm:flex-row gap-3 mb-6">
-                                 <div className="inline-flex border border-fuchsia-600 rounded-full px-3 py-1">
-                                   <p className="text-fuchsia-600 font-medium text-xs">Average Rewards: $1132</p>
-                                 </div>
-                                 <div className="inline-flex bg-fuchsia-600 rounded-full px-3 py-1">
-                                   <p className="text-white font-medium text-xs">Avg Payout Time: &lt; 8 hours</p>
-                                 </div>
-                               </div>
-                         
-                               {/* Country bars */}
-                      <div className="space-y-3">
-                  {countryData.map((country, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <img 
-                        src={`/${country.flag}.svg`} 
-                        alt={`${country.name} flag`} 
-                        className="w-6 h-6 object-contain" 
-                      />
-                      <div className="flex-1 bg-gray-200 rounded-full h-4 overflow-hidden">
-                        <div 
-                          className="bg-fuchsia-600 h-full rounded-full" 
-                          style={{ width: `${country.percent}%` }}
-                        />
-                      </div>
-                    </div>
-                  ))}
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
+          Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
+        </h1>
+
+        <div className="relative overflow-hidden w-full mt-6 mb-8 sm:mt-8 sm:mb-10 md:mt-12 md:mb-14 lg:mt-16 lg:mb-20">
+
+          {/* Blur Overlays */}
+          <div
+            className="absolute left-0 top-0 h-full w-24 z-10 pointer-events-none"
+            style={{
+              background: "linear-gradient(to right, rgba(255,255,255,0.6), transparent)"
+            }}
+          />
+          <div
+            className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none"
+            style={{
+              background: "linear-gradient(to left, rgba(255,255,255,0.6), transparent)"
+            }}
+          />
+
+
+          {/* Scrolling Container */}
+          <div className="whitespace-nowrap animate-scroll flex items-center gap-12">
+            {[...Array(2)].map((_, index) => (
+              <div key={index} className="flex items-center gap-12 px-4">
+                {[
+                  { src: "/mw.png", alt: "Marketwatch" },
+                  { src: "/ms.png", alt: "MSN" },
+                  { src: "/bb.png", alt: "Bloomberg" },
+                  { src: "/nd.png", alt: "Nasdaq" },
+                  { src: "/bz.png", alt: "Benzinga" }
+                ].map((brand, i) => (
+                  <div key={i} className="h-10 w-32 flex items-center justify-center">
+                    <img
+                      src={brand.src}
+                      alt={brand.alt}
+                      className="h-full max-w-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+
+
+          {/* Tailwind custom animation */}
+          <style jsx>{`
+             @keyframes scroll {
+               0% { transform: translateX(0); }
+               100% { transform: translateX(-50%); }
+             }
+             .animate-scroll {
+               animation: scroll 5s linear infinite;
+             }
+           `}</style>
+        </div>
+
+
+        {/* Stats Cards Container */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* LEFT COLUMN */}
+          <div className="flex flex-col gap-6">
+
+            {/* Graph Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="bg-white rounded-3xl p-6 shadow-sm w-full"
+            >
+              <p className="text-center text-lg font-normal mb-2">Highest Paid Trader:</p>
+              <h2 className="text-center text-4xl md:text-5xl font-semibold mb-6">$39,183.97</h2>
+
+              {/* Graph */}
+              <div className="w-full h-30 relative">
+                <img
+                  src="/graph.svg"
+                  alt="Trading performance graph"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+
+            {/* Country Stats Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col"
+            >
+              <p className="text-left text-lg font-inter mb-2">Total Rewards:</p>
+              <h2 className="text-left text-4xl md:text-5xl font-semibold mb-6">$673,142.91</h2>
+
+              {/* Info containers */}
+              <div className="flex flex-col sm:flex-row gap-3 mb-6">
+                <div className="inline-flex border border-fuchsia-600 rounded-full px-3 py-1">
+                  <p className="text-fuchsia-600 font-medium text-xs">Average Rewards: $1132</p>
                 </div>
-                             </motion.div>
-                           </div>
-                         
-                           {/* RIGHT COLUMN */}
-                           <motion.div
-                             initial={{ opacity: 0, y: 50 }}
-                             whileInView={{ opacity: 1, y: 0 }}
-                             viewport={{ once: false, amount: 0.2 }}
-                             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                             className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col justify-between h-full"
-                           >
-                             <div>
-                               <p className="text-left text-lg font-normal mb-1">Countries:</p>
-                               <h2 className="text-left text-4xl md:text-5xl font-semibold mb-4">130+</h2>
-                             </div>
-                         
-                             <div className="relative w-full flex-1 flex items-end justify-start mt-auto">
-                               <img 
-                                 src="/globe.svg" 
-                                 alt="World map with connection points" 
-                                 className="w-full h-200 object-contain" 
-                               />
-                             </div>
-                           </motion.div>
-                         </div>
-                         
-                             </div>
+                <div className="inline-flex bg-fuchsia-600 rounded-full px-3 py-1">
+                  <p className="text-white font-medium text-xs">Avg Payout Time: &lt; 8 hours</p>
+                </div>
+              </div>
+
+              {/* Country bars */}
+              <div className="space-y-3">
+                {countryData.map((country, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <img
+                      src={`/${country.flag}.svg`}
+                      alt={`${country.name} flag`}
+                      className="w-6 h-6 object-contain"
+                    />
+                    <div className="flex-1 bg-gray-200 rounded-full h-4 overflow-hidden">
+                      <div
+                        className="bg-fuchsia-600 h-full rounded-full"
+                        style={{ width: `${country.percent}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* RIGHT COLUMN */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col justify-between h-full"
+          >
+            <div>
+              <p className="text-left text-lg font-normal mb-1">Countries:</p>
+              <h2 className="text-left text-4xl md:text-5xl font-semibold mb-4">130+</h2>
+            </div>
+
+            <div className="relative w-full flex-1 flex items-end justify-start mt-auto">
+              <img
+                src="/globe.svg"
+                alt="World map with connection points"
+                className="w-full h-200 object-contain"
+              />
+            </div>
+          </motion.div>
+        </div>
+
+      </div>
 
     <div className="w-full font-inter bg-gray-50">
                   {/* Real Traders, Real Success Section */}

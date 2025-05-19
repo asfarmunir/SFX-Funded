@@ -887,28 +887,29 @@ const mobileCardScales = {
       </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="bg-gray-100 rounded-3xl p-8 my-5"
-        >
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="w-20 h-20 text-fuchsia-600 mb-4 md:mb-0 md:mr-6">
-              <img src="/hero4.svg" alt="" className="w-full h-full" />
-            </div>
-            <div>
-              <h3 className="text-3xl font-semibold mb-2">SFX Payout Guarantee</h3>
-              <p className="text-lg font-semibold">
-                Get Paid in 48 Hours or We Pay You an Extra $300
-              </p>
-            </div>
-          </div>
-        </motion.div>
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+  className="bg-gray-100 rounded-3xl p-8 my-5 flex justify-center items-center"
+>
+  <div className="flex flex-col md:flex-row items-center text-center">
+    <div className="w-20 h-20 text-fuchsia-600 mb-4 md:mb-0 md:mr-6">
+      <img src="/hero4.svg" alt="" className="w-full h-full" />
+    </div>
+    <div>
+      <h3 className="text-3xl font-semibold mb-2">SFX Payout Guarantee</h3>
+      <p className="text-lg font-semibold">
+        Get Paid in 48 Hours or We Pay You an Extra $300
+      </p>
+    </div>
+  </div>
+</motion.div>
+
       </div>
 
 
       <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-center leading-none tracking-tight mb-8">
+        <h1 className="text-5xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
           Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
         </h1>
 

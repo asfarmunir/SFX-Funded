@@ -704,18 +704,20 @@ const mobileCardScales = {
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 p-4 bg-gray-50 rounded-[20px] font-['Inter'] max-w-5xl w-full">
 
           {/* Recent Verified Payouts Section */}
-          <div className="flex flex-row items-center justify-start bg-white rounded-[20px] md:rounded-[20px] p-2 md:p-4 shadow-sm h-[40px] md:h-[80px] flex-shrink-0 w-full md:w-auto">
-            <div className="flex justify-center items-center w-6 md:w-12 h-6 md:h-12 mr-2 md:mr-3">
-              <img src="/last.svg" alt="checkmark" className="w-2.5 md:w-3.5 h-2.5 md:h-3.5" />
-            </div>
+          <div className="flex flex-row items-center justify-center md:justify-start bg-white rounded-[20px] md:rounded-[20px] p-2 md:p-4 shadow-sm h-[40px] md:h-[80px] flex-shrink-0 w-full md:w-auto">
+            <div className="flex justify-center items-center w-12 md:w-16 h-12 md:h-16 mr-2 md:mr-3">
+  <img src="/last.svg" alt="checkmark" className="w-6 md:w-8 h-6 md:h-8" />
+</div>
 
-            <div className="text-left">
-              <p className="font-semibold text-[10px] md:text-xs leading-tight" style={{
-                fontFamily: "'Inter', sans-serif"
-              }}>Recent Verified</p>
-              <p className="font-semibold text-[10px] md:text-xs leading-tight" style={{
-                fontFamily: "'Inter', sans-serif"
-              }}>Payouts</p>
+
+            <div className="text-center md:text-left">
+              <p className="font-semibold text-sm md:text-base leading-tight" style={{
+  fontFamily: "'Inter', sans-serif"
+}}>
+  Recent Verified Payouts
+</p>
+
+              
             </div>
           </div>
 
@@ -1380,14 +1382,13 @@ const mobileCardScales = {
           />
           <span className="font-medium text-base md:text-xl lg:text-2xl text-center">Bi-Weekly Rewards</span>
         </div>
-      </div>
-
-      <motion.div
+      </div>     
+       <motion.div
   initial={{ opacity: 0, y: 50 }} // Start below with 0 opacity
-  whileInView={{ opacity: 1, y: 0 }} // Slide up into view
-  transition={{ duration: 0.6, ease: "easeOut" }} // Smooth ease
+  whileInView={{ opacity: 1, y: 0 }} // Slide up into view  transition={{ duration: 0.6, ease: "easeOut" }} // Smooth ease
   viewport={{ once: true, amount: 0.3 }} // Trigger when 30% in view, only once
-  className="w-full bg-black rounded-3xl p-8 my-8 md:p-16 text-center"
+  className="w-full bg-black rounded-3xl p-4 pt-6 pb-6 sm:p-8 my-8 md:p-16 text-center"
+
 >
         {/* Heading Section */}
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
@@ -1397,51 +1398,40 @@ const mobileCardScales = {
           Your Strategy, No risk. You're Not Liable For Losses.
         </p>
 
-        <div className="w-full max-w-6xl mx-auto px-4">
-          {/* Step Buttons with exact dimensions for laptop */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: false, amount: 0.3 }}
-            className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 mb-16"
-          >
-            <button
-              onClick={() => handleStepClick(1)}
-              className={`rounded-3xl px-6 py-3 w-full max-w-[348px] min-h-[80px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${activeStep === 1 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
-                }`}
-              style={{
-                borderRadius: "31px"
-              }}
-            >
-              <p className="font-medium text-base md:text-lg">Step 1:</p>
-              <p className="font-medium text-base md:text-lg">Choose a Plan</p>
-            </button>
+        <div className="w-full max-w-6xl mx-auto px-2 sm:px-4">
+          {/* Step Buttons with exact dimensions for laptop */}         <motion.div
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.1 }}
+  viewport={{ once: false, amount: 0.3 }}
+  className="flex flex-row justify-center items-center gap-1 sm:gap-4 md:gap-6 mb-16 px-1 sm:px-2"
+>
+  {[1, 2, 3].map((step) => (
+    <button
+      key={step}
+      onClick={() => handleStepClick(step)}
+      className={`rounded-xl sm:rounded-3xl px-1 sm:px-6 py-2 sm:py-3 
+        w-[110px] h-[100px] sm:w-[240px] sm:h-[140px] md:w-[348px] md:h-[160px] 
+        transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] flex-shrink-0
+        ${activeStep === step
+          ? "bg-fuchsia-600 text-white border-transparent"
+          : "bg-white text-black border-fuchsia-600"
+        }`}
+      style={{ borderRadius: "20px" }}
+    >
+      <p className="font-medium text-xs sm:text-base md:text-lg">{`Step ${step}:`}</p>
+      <p className="font-medium text-xs sm:text-base md:text-lg leading-tight">
+        {step === 1
+          ? "Choose a Plan"
+          : step === 2
+          ? "Get Funded"
+          : "Start Your Trading Journey"}
+      </p>
+    </button>
+  ))}
+</motion.div>
 
-            <button
-              onClick={() => handleStepClick(2)}
-              className={`rounded-3xl px-6 py-3 w-full max-w-[348px] min-h-[80px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${activeStep === 2 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
-                }`}
-              style={{
-                borderRadius: "31px"
-              }}
-            >
-              <p className="font-medium text-base md:text-lg">Step 2:</p>
-              <p className="font-medium text-base md:text-lg">Get Funded</p>
-            </button>
 
-            <button
-              onClick={() => handleStepClick(3)}
-              className={`rounded-3xl px-6 py-3 w-full max-w-[348px] min-h-[80px] md:h-[100px] transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] ${activeStep === 3 ? "bg-fuchsia-600 text-white border-transparent" : "bg-white text-black border-fuchsia-600"
-                }`}
-              style={{
-                borderRadius: "31px"
-              }}
-            >
-              <p className="font-medium text-base md:text-lg">Step 3:</p>
-              <p className="font-medium text-base md:text-lg">Start Your Trading Journey</p>
-            </button>
-          </motion.div>
 
           {/* Option Cards - Different for each step */}
          <AnimatePresence mode="wait">
@@ -1826,11 +1816,10 @@ const mobileCardScales = {
           className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-10 sm:mb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+          transition={{ duration: 0.5 }}        >
           Why Traders Choose <span className="text-fuchsia-500">SFX </span> Funded
         </motion.h2>
-
+        
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* First Column - 3 Cards */}
@@ -1925,10 +1914,9 @@ const mobileCardScales = {
               </div>
             </motion.div>
 
-            {/* CTA Button */}
+            {/* CTA Button - Hidden on mobile, shown on md+ */}
             <motion.div
-
-              className="mt-6 sm:mt-8 flex justify-center"
+              className="hidden md:flex mt-6 sm:mt-8 justify-center"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -2016,6 +2004,29 @@ const mobileCardScales = {
             </motion.div>
           </div>
         </div>
+
+        {/* Mobile CTA Button - Shown only on mobile at bottom */}
+        <motion.div
+          className="md:hidden mt-8 mb-6 flex justify-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <button onClick={() => targetRef.current?.scrollIntoView({ behavior: "smooth" })} className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+            Start Trading
+            <svg
+              className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </motion.div>
       </div>
 
       <div className="w-full font-sans bg-[#f5f5f7]

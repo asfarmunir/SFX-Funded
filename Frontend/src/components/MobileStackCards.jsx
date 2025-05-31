@@ -40,12 +40,18 @@ export default function MobileStackCards() {
     requestAnimationFrame(raf)
   }, [])
 
+  // Calculate dynamic height based on number of cards
+  const cardHeight = 300; // Minimum height per card in mobile
+  const dynamicHeight = `${(projects.length * cardHeight) + 100}px`; // Extra 100px for spacing
+
   return (
     <div 
       ref={container}
       style={{
         position: "relative",
-        marginTop: "4vh"
+        marginTop: "2vh",
+        width: "100%",
+        height: dynamicHeight,
       }}
     >
       {projects.map((project, i) => {

@@ -110,7 +110,7 @@ export default function Graphic() {
       }
     }
   };
-
+const targetRef = useRef(null);
   // Account sizes data
   const accountSizes = ["7500", "15000", "30000", "60000", "120000"];
 
@@ -477,18 +477,20 @@ export default function Graphic() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 p-4 bg-gray-50 rounded-[20px] font-['Inter'] max-w-5xl w-full">
 
           {/* Recent Verified Payouts Section */}
-          <div className="flex flex-row items-center justify-start bg-white rounded-[20px] md:rounded-[20px] p-2 md:p-4 shadow-sm h-[40px] md:h-[80px] flex-shrink-0 w-full md:w-auto">
-            <div className="flex justify-center items-center w-6 md:w-12 h-6 md:h-12 mr-2 md:mr-3">
-              <img src="/last.svg" alt="checkmark" className="w-2.5 md:w-3.5 h-2.5 md:h-3.5" />
-            </div>
+          <div className="flex flex-row items-center justify-center md:justify-start bg-white rounded-[20px] md:rounded-[20px] p-2 md:p-4 shadow-sm h-[40px] md:h-[80px] flex-shrink-0 w-full md:w-auto">
+            <div className="flex justify-center items-center w-12 md:w-16 h-12 md:h-16 mr-2 md:mr-3">
+  <img src="/last.svg" alt="checkmark" className="w-6 md:w-8 h-6 md:h-8" />
+</div>
 
-            <div className="text-left">
-              <p className="font-semibold text-[10px] md:text-xs leading-tight" style={{
-                fontFamily: "'Inter', sans-serif"
-              }}>Recent Verified</p>
-              <p className="font-semibold text-[10px] md:text-xs leading-tight" style={{
-                fontFamily: "'Inter', sans-serif"
-              }}>Payouts</p>
+
+            <div className="text-center md:text-left">
+              <p className="font-semibold text-sm md:text-base leading-tight" style={{
+  fontFamily: "'Inter', sans-serif"
+}}>
+  Recent Verified Payouts
+</p>
+
+              
             </div>
           </div>
 
@@ -1045,192 +1047,214 @@ export default function Graphic() {
             Why Traders Choose the <span className="text-fuchsia-500">SFX 2-Step Challenge</span>
           </motion.h2>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {/* First Column - 3 Cards */}
-            <div className="flex flex-col gap-6 md:gap-8">
-              {/* SFX Reward Guarantee */}
-              <motion.div
-                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.05 }}
-              >
-                <h3 className="text-xl sm:text-2xl font-semibold mb-2">SFX Reward Guarantee</h3>
-                <p className="text-gray-700 text-sm sm:text-base">
-                  Get paid in 48-HRS or we pay you $300 extra
-                </p>
-                <div className="flex justify-center mt-6">
-                  <img src="/shield.svg" alt="Shield" className="w-20 h-20 sm:w-24 sm:h-24" />
-                </div>
-              </motion.div>
+                     {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {/* First Column - 3 Cards */}
+          <div className="flex flex-col gap-6 md:gap-8">
+            {/* SFX Reward Guarantee */}
+            <motion.div
+              className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
+            >
+              <h3 className="text-xl sm:text-2xl font-semibold mb-2">SFX Reward Guarantee</h3>
+              <p className="text-gray-700 text-sm sm:text-base">
+                Get paid in 48-HRS or we pay you $300 extra
+              </p>
+              <div className="flex justify-center mt-6">
+                <img src="/shield.svg" alt="Shield" className="w-20 h-20 sm:w-24 sm:h-24" />
+              </div>
+            </motion.div>
 
-              {/* Realistic Profit Targets */}
-              <motion.div
-                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <div className="flex justify-between items-start">
-                  <h3 className="text-xl sm:text-2xl font-semibold mb-2">Realistic Profit<br />Targets from 5-8%</h3>
-                  <img src="/profit.svg" alt="Profit" className="w-12 h-12 sm:w-14 sm:h-14" />
-                </div>
-              </motion.div>
+            {/* Realistic Profit Targets */}
+            <motion.div
+              className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <div className="flex justify-between items-start">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-2">Realistic Profit<br />Targets from 5-8%</h3>
+                <img src="/profit.svg" alt="Profit" className="w-12 h-12 sm:w-14 sm:h-14" />
+              </div>
+            </motion.div>
 
-              {/* Scale Up To */}
-              <motion.div
-                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-              >
-                <div className="flex justify-between items-start">
-                  <h3 className="text-xl sm:text-2xl font-semibold mb-2">Scale Up To $3.2<br />Million Capital</h3>
-                  <img src="/profit2.svg" alt="Scale" className="w-12 h-12 sm:w-14 sm:h-14" />
-                </div>
-              </motion.div>
-            </div>
+            {/* Scale Up To */}
+            <motion.div
+              className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+            >
+              <div className="flex justify-between items-start">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-2">Scale Up To $3.2<br />Million Capital</h3>
+                <img src="/profit2.svg" alt="Scale" className="w-12 h-12 sm:w-14 sm:h-14" />
+              </div>
+            </motion.div>
+          </div>
 
-            {/* Second Column - 3 Cards */}
-            <div className="flex flex-col gap-6 md:gap-8">
-              {/* 100% Profit Splits */}
-              <motion.div
-                className="bg-green-50 rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.05 }}
-              >
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-green-700">100% Profit Splits</h3>
-                  <img src="/dollar.svg" alt="Dollar" className="w-10 h-10 sm:w-12 sm:h-12" />
-                </div>
-                <p className="text-green-700 text-sm sm:text-base">
-                  Scale your Profit from a standard 80% to 100%
-                </p>
-              </motion.div>
+          {/* Second Column - 3 Cards */}
+          <div className="flex flex-col gap-6 md:gap-8">
+            {/* 100% Profit Splits */}
+            <motion.div
+              className="bg-green-50 rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
+            >
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-xl sm:text-2xl font-semibold text-green-700">100% Profit Splits</h3>
+                <img src="/dollar.svg" alt="Dollar" className="w-10 h-10 sm:w-12 sm:h-12" />
+              </div>
+              <p className="text-green-700 text-sm sm:text-base">
+                Scale your Profit from a standard 80% to 100%
+              </p>
+            </motion.div>
 
-              {/* Account Resets */}
-              <motion.div
-                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl sm:text-2xl font-semibold">Account Resets</h3>
-                  <img src="/users.png" alt="Users" className="w-10 h-10 sm:w-12 sm:h-12" />
-                </div>
-                <p className="text-gray-700 text-sm sm:text-base">
-                  With this feature, reset your evaluation in phase 1 or phase 2 and even once a SFX Funded trader.
-                </p>
-              </motion.div>
+            {/* Account Resets */}
+            <motion.div
+              className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-xl sm:text-2xl font-semibold">Account Resets</h3>
+                <img src="/users.png" alt="Users" className="w-10 h-10 sm:w-12 sm:h-12" />
+              </div>
+              <p className="text-gray-700 text-sm sm:text-base">
+                With this feature, reset your evaluation in phase 1 or phase 2 and even once a SFX Funded trader.
+              </p>
+            </motion.div>
 
-              {/* No Time Limits */}
-              <motion.div
-                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[140px] sm:h-[160px]"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-              >
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl sm:text-2xl font-semibold">No time Limits</h3>
-                  <img src="/stop.svg" alt="Stop" className="w-10 h-10 sm:w-12 sm:h-12" />
-                </div>
-              </motion.div>
+            {/* No Time Limits */}
+            <motion.div
+              className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[140px] sm:h-[160px]"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+            >
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-xl sm:text-2xl font-semibold">No time Limits</h3>
+                <img src="/stop.svg" alt="Stop" className="w-10 h-10 sm:w-12 sm:h-12" />
+              </div>
+            </motion.div>
 
-              {/* CTA Button */}
-              <motion.div
-                className="mt-6 sm:mt-8 flex justify-center"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
-                  Start Trading
-                  <svg
-                    className="ml-2"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
-                  </svg>
-                </button>
-              </motion.div>
-            </div>
+            {/* CTA Button - Hidden on mobile, shown on md+ */}
+            <motion.div
+              className="hidden md:flex mt-6 sm:mt-8 justify-center"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <button onClick={() => targetRef.current?.scrollIntoView({ behavior: "smooth" })} className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+                Start Trading
+                <svg
+                  className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            </motion.div>
+          </div>
 
-            {/* Third Column - 4 Cards */}
-            <div className="flex flex-col gap-6 md:gap-8">
-              {/* No Restrictions */}
-              <motion.div
-                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.05 }}
-              >
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl sm:text-2xl font-semibold">No Restrictions</h3>
-                  <img src="/timer.svg" alt="Timer" className="w-10 h-10 sm:w-12 sm:h-12" />
-                </div>
-                <p className="text-gray-700 text-sm sm:text-base">
-                  Trade your way! We don't limit your strategies, allowing you to use your preferred trading style and EAs freely.
-                </p>
-              </motion.div>
+          {/* Third Column - 4 Cards */}
+          <div className="flex flex-col gap-6 md:gap-8">
+            {/* No Restrictions */}
+            <motion.div
+              className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[220px] sm:h-[240px]"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
+            >
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-xl sm:text-2xl font-semibold">No Restrictions</h3>
+                <img src="/timer.svg" alt="Timer" className="w-10 h-10 sm:w-12 sm:h-12" />
+              </div>
+              <p className="text-gray-700 text-sm sm:text-base">
+                Trade your way! We don't limit your strategies, allowing you to use your preferred trading style and EAs freely.
+              </p>
+            </motion.div>
 
-              {/* Get Your First Reward On Demand! */}
-              <motion.div
-                className="rounded-xl p-6 sm:p-8 shadow-sm h-[140px] sm:h-[160px]"
-                style={{
-                  background: "rgba(229, 242, 255, 1)",
-                  backdropFilter: "blur(73px)",
-                }}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <div className="flex justify-between items-start">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-fuchsia-500">
-                    Get Your First Reward<br />On Demand!
-                  </h3>
-                  <img src="/badge.svg" alt="Badge" className="w-10 h-10 sm:w-12 sm:h-12" />
-                </div>
-              </motion.div>
+            {/* Get Your First Reward On Demand! */}
+            <motion.div
+              className="rounded-xl p-6 sm:p-8 shadow-sm h-[140px] sm:h-[160px]"
+              style={{
+                background: "rgba(229, 242, 255, 1)",
+                backdropFilter: "blur(73px)",
+              }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <div className="flex justify-between items-start">
+                <h3 className="text-xl sm:text-2xl font-semibold text-fuchsia-500">
+                  Get Your First Reward<br />On Demand!
+                </h3>
+                <img src="/badge.svg" alt="Badge" className="w-10 h-10 sm:w-12 sm:h-12" />
+              </div>
+            </motion.div>
 
-              {/* 100% Refundable Evaluation Fees */}
-              <motion.div
-                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[140px] sm:h-[160px]"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-              >
-                <div className="flex justify-between items-start">
-                  <h3 className="text-xl sm:text-2xl font-semibold">
-                    100% Refundable<br />Evaluation Fees
-                  </h3>
-                  <img src="/refund.svg" alt="Refund" className="w-10 h-10 sm:w-12 sm:h-12" />
-                </div>
-              </motion.div>
+            {/* 100% Refundable Evaluation Fees */}
+            <motion.div
+              className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[140px] sm:h-[160px]"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+            >
+              <div className="flex justify-between items-start">
+                <h3 className="text-xl sm:text-2xl font-semibold">
+                  100% Refundable<br />Evaluation Fees
+                </h3>
+                <img src="/refund.svg" alt="Refund" className="w-10 h-10 sm:w-12 sm:h-12" />
+              </div>
+            </motion.div>
 
-              {/* No Hidden Rules! */}
-              <motion.div
-                className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[140px] sm:h-[160px]"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <div className="flex justify-between items-start">
-                  <h3 className="text-xl sm:text-2xl font-semibold">No Hidden Rules!</h3>
-                  <img src="/documents.svg" alt="Documents" className="w-10 h-10 sm:w-12 sm:h-12" />
-                </div>
-              </motion.div>
-            </div>
+            {/* No Hidden Rules! */}
+            <motion.div
+              className="bg-[rgba(245,245,247,1)] rounded-xl p-6 sm:p-8 shadow-sm h-[140px] sm:h-[160px]"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="flex justify-between items-start">
+                <h3 className="text-xl sm:text-2xl font-semibold">No Hidden Rules!</h3>
+                <img src="/documents.svg" alt="Documents" className="w-10 h-10 sm:w-12 sm:h-12" />
+              </div>
+            </motion.div>
           </div>
         </div>
-      </div>
 
+        {/* Mobile CTA Button - Shown only on mobile at bottom */}
+        <motion.div
+          className="md:hidden mt-8 mb-6 flex justify-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <button onClick={() => targetRef.current?.scrollIntoView({ behavior: "smooth" })} className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+            Start Trading
+            <svg
+              className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </motion.div>
+      </div>
 
 
 
@@ -2273,6 +2297,7 @@ export default function Graphic() {
           </motion.div>
         </motion.div>
       </div>
+</div>
 </div>
  );
 }

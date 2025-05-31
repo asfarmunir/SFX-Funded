@@ -108,7 +108,7 @@ export default function Ticker() {
           style={{ 
             transform: `translateX(${position}px)`,
             fontFamily: 'Segoe UI Symbol, system-ui, sans-serif',
-            fontWeight: 400,
+            fontWeight: 700,
             whiteSpace: 'nowrap'
           }}
         >

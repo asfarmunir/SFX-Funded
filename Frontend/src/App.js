@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Ticker from './components/Ticker';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -12,6 +12,30 @@ import Hero from './pages/Hero';
 import Graphic12 from './pages/Graphic12';
 import InstantFunding from './pages/InstantFunding';
 import RapidChallenge from './pages/RapidChallenge';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Debug: log scroll positions
+    console.log("window.scrollY:", window.scrollY);
+    const main = document.querySelector("#main-app-container");
+    if (main) {
+      console.log("main-app-container.scrollTop:", main.scrollTop);
+    }
+    // Try scrolling window
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    // Try scrolling main container
+    if (main) {
+      main.scrollTop = 0;
+    }
+    // Try scrolling document.documentElement and body
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   const [tickerHeight, setTickerHeight] = useState(0);
@@ -68,6 +92,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       {/* Sticky Ticker at the very top with ID for measurement */}
        <div id="ticker-component" style={{ position: 'sticky', top: 0, zIndex: 50 }}>
         <Ticker />

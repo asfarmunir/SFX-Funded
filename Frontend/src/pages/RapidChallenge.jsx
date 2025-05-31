@@ -487,15 +487,15 @@ const getTransform = (columnIndex) => {
             opacity: 1, 
             y: 0,
             transition: {
-              duration: 0.8,
-              ease: "easeOut",
-              delay: 0.2
-            }
+                duration: 0.5,
+               
+                delay: 0
+              }
           }
         }}
         initial="hidden"
         whileInView="visible"
-        viewport={{ amount: 0.3 }}
+        viewport={{ amount: 0.3, once: true }}
         className="lg:w-1/2"
       >
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
@@ -524,15 +524,16 @@ const getTransform = (columnIndex) => {
               opacity: 1, 
               y: 0,
               transition: {
-                duration: 0.8,
-                ease: "easeOut",
-                delay: 0.4
+                duration: 0.5,
+                
+                delay: 0
               }
+              
             }
           }}
           initial="hidden"
           whileInView="visible"
-          viewport={{ amount: 0.3 }}
+          viewport={{ amount: 0.3, once: true }}
           className="p-5 sm:p-8 relative bg-[#F8EAF8] rounded-3xl w-full h-auto min-h-[200px] sm:min-h-[280px] sm:h-[331px] flex flex-col justify-center"
         >
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
@@ -559,15 +560,15 @@ const getTransform = (columnIndex) => {
               opacity: 1, 
               y: 0,
               transition: {
-                duration: 0.8,
-                ease: "easeOut",
-                delay: 0.7
+                duration: 0.5,
+                
+                delay: 0.05
               }
             }
           }}
           initial="hidden"
           whileInView="visible"
-          viewport={{ amount: 0.3 }}
+          viewport={{ amount: 0.3, once: true }}
           className="p-5 sm:p-8 relative bg-blue-50 rounded-3xl w-full h-auto min-h-[200px] sm:min-h-[280px] sm:h-[331px] flex flex-col justify-center"
         >
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
@@ -594,15 +595,15 @@ const getTransform = (columnIndex) => {
               opacity: 1, 
               y: 0,
               transition: {
-                duration: 0.8,
-                ease: "easeOut",
-                delay: 1.0
+                duration: 0.5,
+                
+                delay: 0.1
               }
             }
           }}
           initial="hidden"
           whileInView="visible"
-          viewport={{ amount: 0.3 }}
+          viewport={{ amount: 0.3, once: true }}
           className="p-5 sm:p-8 relative bg-green-50 rounded-3xl w-full h-auto min-h-[200px] sm:min-h-[280px] sm:h-[331px] flex flex-col justify-center"
         >
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">

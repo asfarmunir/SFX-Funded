@@ -90,7 +90,7 @@ export default function Ticker() {
   
   return (
     <div 
-      className="fixed top-0 left-0 w-full bg-orange-400 flex items-center overflow-hidden py-2 sm:py-3 md:py-3 lg:py-4"
+      className="fixed top-0 left-0 w-full bg-orange-400 flex items-center overflow-hidden py-1 sm:py-2 md:py-2 lg:py-2"
       style={{ 
         position: 'sticky',
         backgroundColor: 'rgba(255, 165, 0, 1)',

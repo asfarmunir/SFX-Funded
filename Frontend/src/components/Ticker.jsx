@@ -90,12 +90,13 @@ export default function Ticker() {
   
   return (
     <div 
-      className="fixed top-0 left-0 w-full bg-orange-400 flex items-center overflow-hidden py-1 sm:py-2 md:py-2 lg:py-2"
+      className="fixed top-0 left-0 w-full bg-orange-400 flex items-center overflow-hidden py-1 sm:py-2 md:py-2 lg:py-2 mb-0"
       style={{ 
         position: 'sticky',
         backgroundColor: 'rgba(255, 165, 0, 1)',
         zIndex: 100,
-        height: 'auto'
+        height: 'auto',
+        marginBottom: 0
       }}
       ref={tickerRef}
       onMouseEnter={handleMouseEnter}

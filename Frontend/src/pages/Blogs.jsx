@@ -100,7 +100,7 @@ export default function Blogs() {
         style={{
           fontFamily: "Inter, sans-serif",
           fontWeight: 600,
-          marginTop: '40px'
+          marginTop: '60px'
         }}
       >
         <span className="block">Forex Trading</span>
@@ -121,21 +121,32 @@ export default function Blogs() {
           whileInView="show"
           viewport={{ once: false }}
           variants={slideUp}
-          className="flex flex-col md:flex-row gap-6 mb-12 bg-white rounded-lg overflow-hidden shadow-sm"
+          className="flex flex-col md:flex-row mb-12 overflow-hidden shadow-sm"
+          style={{ backgroundColor: 'rgba(255, 230, 253, 1)', borderRadius: '20px' }}
         >
           <div className="md:w-1/2">
             <img
               src={featuredPost.image}
               alt={featuredPost.title}
               className="w-full h-full object-cover"
+              style={{ 
+                borderRadius: '20px 20px 20px 20px',
+                minHeight: '100%'
+              }}
             />
           </div>
-          <div className="md:w-1/2 p-6 bg-fuchsia-50">
-            <p className="text-sm text-gray-600 mb-2">{featuredPost.date}</p>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">{featuredPost.title}</h2>
-            <p className="text-gray-700 mb-4">{featuredPost.excerpt}</p>
-            <button className="bg-fuchsia-500 hover:bg-fuchsia-600 text-white py-2 px-4 rounded text-sm">
-              Read more
+          <div className="md:w-1/2 p-6">
+            <p className="text-sm text-gray-600 mb-2" style={{ fontFamily: 'Inter, sans-serif' }}>{featuredPost.date}</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'Inter, sans-serif' }}>{featuredPost.title}</h2>
+            <p className="text-gray-700 mb-4" style={{ fontFamily: 'Inter, sans-serif' }}>{featuredPost.excerpt}</p>
+            <button 
+              className="text-black py-2 px-4 rounded text-sm hover:opacity-90 transition-opacity flex items-center gap-1" 
+              style={{ 
+                fontFamily: 'Inter, sans-serif',
+                backgroundColor: 'rgba(248, 0, 234, 1)'
+              }}
+            >
+              Read more <ArrowRight size={14} />
             </button>
           </div>
         </motion.div>
@@ -153,18 +164,26 @@ export default function Blogs() {
               key={post.id}
               variants={slideUp}
               className="bg-white rounded-lg overflow-hidden shadow-sm"
+              style={{ backgroundColor: 'rgba(245, 245, 247, 1)' }}
             >
               <img
                 src={post.image}
                 alt={post.title}
                 className="w-full h-48 object-cover"
+                style={{ borderRadius: '20px' }}
               />
               <div className="p-4">
-                <p className="text-xs text-gray-600 mb-1">{post.date}</p>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{post.title}</h3>
-                <p className="text-sm text-gray-700 mb-3">{post.excerpt}</p>
-                <button className="bg-fuchsia-500 hover:bg-fuchsia-600 text-white py-1 px-3 rounded text-xs">
-                  Read more
+                <p className="text-xs text-gray-600 mb-1" style={{ fontFamily: 'Inter, sans-serif' }}>{post.date}</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2" style={{ fontFamily: 'Inter, sans-serif' }}>{post.title}</h3>
+                <p className="text-sm text-gray-700 mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>{post.excerpt}</p>
+                <button 
+                  className="text-black py-1 px-3 rounded text-xs hover:opacity-90 transition-opacity flex items-center gap-1" 
+                  style={{ 
+                    fontFamily: 'Inter, sans-serif',
+                    backgroundColor: 'rgba(248, 0, 234, 1)'
+                  }}
+                >
+                  Read more <ArrowRight size={12} />
                 </button>
               </div>
             </motion.div>
@@ -177,8 +196,12 @@ export default function Blogs() {
             <button
               key={index}
               className={`w-8 h-8 flex items-center justify-center rounded-md ${
-                val === 1 ? "bg-fuchsia-500 text-white" : "border border-gray-300 text-gray-500 hover:bg-gray-100"
+                val === 1 ? "text-white" : "border border-gray-300 text-gray-500 hover:bg-gray-100"
               }`}
+              style={{ 
+                fontFamily: 'Inter, sans-serif',
+                backgroundColor: val === 1 ? 'rgba(248, 0, 234, 1)' : 'transparent'
+              }}
             >
               {val}
             </button>

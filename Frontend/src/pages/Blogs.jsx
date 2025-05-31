@@ -163,8 +163,8 @@ export default function Blogs() {
             <motion.div
               key={post.id}
               variants={slideUp}
-              className="bg-white rounded-lg overflow-hidden shadow-sm"
-              style={{ backgroundColor: 'rgba(245, 245, 247, 1)' }}
+              className="bg-white overflow-hidden shadow-sm"
+              style={{ backgroundColor: 'rgba(245, 245, 247, 1)', borderRadius: '20px' }}
             >
               <img
                 src={post.image}

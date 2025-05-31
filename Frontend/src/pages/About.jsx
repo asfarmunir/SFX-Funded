@@ -67,7 +67,7 @@ export default function About() {
   style={{
     fontFamily: "Oswald, sans-serif",
     fontWeight: 600,
-    fontSize: "clamp(2.5rem, 8vw, 7.8rem)", // Responsive font size
+                fontSize: "clamp(3rem, 5vw, 5rem)",// Responsive font size
     letterSpacing: "-0.45rem",
     marginTop: '40px'
   }}

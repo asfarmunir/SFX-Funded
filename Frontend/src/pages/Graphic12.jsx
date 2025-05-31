@@ -403,9 +403,10 @@ export default function Graphic() {
               whileInView={{ opacity: 1, y: 0 }}
               style={{
                 fontFamily: "Oswald, sans-serif",
-                fontWeight: 600,
+                
                 letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
-                fontSize: "clamp(2.5rem, 8vw, 100px)",
+                 fontWeight: 600,
+                fontSize: "clamp(3rem, 5vw, 5rem)",
               }}
               transition={{ duration: 0.4, delay: 0.2 }}
             >
@@ -421,9 +422,10 @@ export default function Graphic() {
               whileInView={{ opacity: 1, y: 0 }}
               style={{
                 fontFamily: "Oswald, sans-serif",
-                fontWeight: 600,
+                
                 letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
-                fontSize: "clamp(2.5rem, 8vw, 100px)",
+                 fontWeight: 600,
+                fontSize: "clamp(3rem, 5vw, 5rem)",
               }}
               transition={{ duration: 0.4, delay: 0.4 }}
             >

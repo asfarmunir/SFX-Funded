@@ -239,7 +239,7 @@ export default function RapidChallenge() {
             style={{
               fontFamily: "Inter, sans-serif",
               fontWeight: 600,
-              fontSize: "clamp(2.5rem, 10vw, 105px)",
+                fontSize: "clamp(3rem, 5vw, 5rem)",
               letterSpacing: window.innerWidth < 640 ? "-2px" : "-7.64px",
               marginTop: '40px'
             }}
@@ -372,40 +372,62 @@ export default function RapidChallenge() {
       whileInView="visible"
       viewport={{ once: false, amount: 0.2 }}
       style={{ 
-        fontFamily: "'Inter', sans-serif"
+        fontFamily: "'Inter', sans-serif",
+        maxWidth: '860px'
        }}
     >
       <motion.div 
-        className="rounded-full border p-4 flex items-center gap-4 " 
-        style={{ border: '2px solid rgba(248, 0, 234, 1)', fontFamily: "'Inter', sans-serif"}}
+        className="border p-6 flex flex-col" 
+        style={{ 
+          border: '2px solid rgba(248, 0, 234, 1)', 
+          fontFamily: "'Inter', sans-serif", 
+          height: '165px',
+          borderRadius: '52px',
+          width: '100%',
+          maxWidth: '860px'
+        }}
         variants={slideUp}
         custom={3}
         whileHover="hover"
       >
-        <img src="/image 46.svg" alt="Commission" className="w-8 h-8" />
-        <p className="text-gray-700">Get paid 10% commission when a new customer opens an account.</p>
+        <img src="/image 46.svg" alt="Commission" className="w-8 h-8 mb-6 self-start lg:ml-6" />
+        <p className="text-gray-700 lg:ml-6">Get paid 10% commission when a new customer opens an account.</p>
       </motion.div>
 
       <motion.div 
-        className="rounded-full border border-gray-200 p-4 flex items-center gap-4 font-['Inter']" 
-        style={{ border: '2px solid rgba(217, 217, 217, 1)', fontFamily: "'Inter', sans-serif" }}
+        className="border border-gray-200 p-6 flex flex-col font-['Inter']" 
+        style={{ 
+          border: '2px solid rgba(217, 217, 217, 1)', 
+          fontFamily: "'Inter', sans-serif", 
+          height: '165px',
+          borderRadius: '52px',
+          width: '100%',
+          maxWidth: '860px'
+        }}
         variants={slideUp}
         custom={4}
         whileHover="hover"
       >
-        <img src="/image 47.svg" alt="Dashboard" className="w-8 h-8" />
-        <p className="text-gray-700">Easily keep tabs on your revenue using our affiliate dashboard.</p>
+        <img src="/image 47.svg" alt="Dashboard" className="w-8 h-8 mb-6 self-start lg:ml-6" />
+        <p className="text-gray-700 lg:ml-6">Easily keep tabs on your revenue using our affiliate dashboard.</p>
       </motion.div>
 
       <motion.div 
-        className="rounded-full border border-gray-200 p-4 flex items-center gap-4 font-['Inter']" 
-        style={{ border: '2px solid rgba(217, 217, 217, 1)' , fontFamily: "'Inter', sans-serif"}}
+        className="border border-gray-200 p-6 flex flex-col font-['Inter']" 
+        style={{ 
+          border: '2px solid rgba(217, 217, 217, 1)', 
+          fontFamily: "'Inter', sans-serif", 
+          height: '165px',
+          borderRadius: '52px',
+          width: '100%',
+          maxWidth: '860px'
+        }}
         variants={slideUp}
         custom={5}
         whileHover="hover"
       >
-        <img src="/image 48.svg" alt="Link" className="w-8 h-8" />
-        <p className="text-gray-700">Simply use your special link to promote using any methods</p>
+        <img src="/image 48.svg" alt="Link" className="w-8 h-8 mb-6 self-start lg:ml-6" />
+        <p className="text-gray-700 lg:ml-6">Simply use your special link to promote using any methods</p>
       </motion.div>
     </motion.div>
   </div>
@@ -978,7 +1000,7 @@ export default function RapidChallenge() {
 
           {/* Results Table */}
           <div className="mt-12">
-            <div className="grid grid-cols-3 bg-[#F800EA] text-white rounded-t-lg">
+            <div className="grid grid-cols-3 text-white rounded-t-lg" style={{ fontFamily: "'Inter', sans-serif", backgroundColor: 'rgba(248, 0, 234, 1)' }}>
               <div className="py-3 text-center font-medium">Package</div>
               <div className="py-3 text-center font-medium">Amount</div>
               <div className="py-3 text-center font-medium">Free Accounts</div>

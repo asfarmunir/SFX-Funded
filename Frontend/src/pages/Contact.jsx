@@ -55,8 +55,8 @@ export default function Contact() {
         leading-none tracking-tight"
         style={{
           fontFamily: "Inter, sans-serif",
-          fontWeight: 600,
-          fontSize: "clamp(2.5rem, 8vw, 100px)",
+           fontWeight: 600,
+                fontSize: "clamp(3rem, 5vw, 5rem)",
           marginTop: '40px'
         }}>
         <span>CONTACT</span>{" "}

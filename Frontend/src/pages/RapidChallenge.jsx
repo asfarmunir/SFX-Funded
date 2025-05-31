@@ -398,8 +398,8 @@ const getTransform = (columnIndex) => {
   "
   style={{
     fontFamily: "Oswald, sans-serif",
-    fontWeight: 600,
-    fontSize: "clamp(2.5rem, 8vw, 110px)",
+     fontWeight: 600,
+                fontSize: "clamp(3rem, 5vw, 5rem)",
     letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
   }}
 >
@@ -411,8 +411,8 @@ const getTransform = (columnIndex) => {
       text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
       leading-none tracking-tight mt-3 sm:mt-4 md:mt-5" style={{
         fontFamily: "Oswald, sans-serif",
-        fontWeight: 600,
-        fontSize: "clamp(2.5rem, 8vw, 100px)",
+         fontWeight: 600,
+                fontSize: "clamp(3rem, 5vw, 5rem)",
         letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
       }}>
       <span className="text-[#DE00DE]">PAST FAST. </span>{" "}

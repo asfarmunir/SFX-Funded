@@ -100,7 +100,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
   style={{
     fontFamily: "Oswald, sans-serif",
     fontWeight: 600,
-    fontSize: "clamp(2.5rem, 8vw, 100px)",
+                fontSize: "clamp(3rem, 5vw, 5rem)",
     letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
 
   }}

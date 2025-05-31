@@ -99,7 +99,8 @@ export default function Blogs() {
         leading-none tracking-tight"
         style={{
           fontFamily: "Inter, sans-serif",
-          fontWeight: 600,
+           fontWeight: 600,
+                fontSize: "clamp(3rem, 5vw, 5rem)",
           marginTop: '60px'
         }}
       >

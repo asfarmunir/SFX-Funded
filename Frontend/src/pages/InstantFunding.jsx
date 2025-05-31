@@ -471,7 +471,7 @@ export default function InstantFunding() {
       leading-none tracking-tight"style={{
         fontFamily: "Oswald, sans-serif",
         fontWeight: 600,
-        fontSize: "clamp(2.5rem, 8vw, 100px)",
+                fontSize: "clamp(3rem, 5vw, 5rem)",
         letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
       }}>
       <span className="text-[#DE00DE]">FASTEST </span> <span className="text-[#fcfbfc]"> WAY TO A </span>{" "} <br />

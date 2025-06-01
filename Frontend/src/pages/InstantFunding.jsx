@@ -1939,129 +1939,138 @@ export default function InstantFunding() {
     viewport={{ once: false }}
     transition={{ duration: 0.6, ease: 'easeOut' }}
   >
-    {/* Pink Glow */}
-    <motion.div
-      className="absolute top-0 left-0 w-[500px] h-[500px]"
-      style={{
-        background: 'radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)',
-        borderTopLeftRadius: '24px'
-      }}
-      animate={{ y: [0, -10, 0] }}
-      transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-    />
+    {/* Background Layer - All decorative elements */}
+    <div className="absolute inset-0 overflow-hidden">
+      {/* Pink Glow */}
+      <motion.div
+        className="absolute top-0 left-0 w-[500px] h-[500px]"
+        style={{
+          background: 'radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)',
+          borderTopLeftRadius: '24px'
+        }}
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+      />
 
-    {/* Floating Decorative Elements */}
-    <motion.img
-      src="/diamond.svg"
-      alt="Diamond Left of Turn"
-      className="absolute left-[10%] top-[30%] w-40 h-40"
-      animate={{ y: [0, -10, 0] }}
-      transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-    />
+      {/* Floating Decorative Elements */}
+      <motion.img
+        src="/diamond.svg"
+        alt="Diamond Left of Turn"
+        className="absolute left-[10%] top-[30%] w-40 h-40"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+      />
 
-    <motion.img
-      src="/diamond.svg"
-      alt="Diamond Near Logo"
-      className="absolute right-[20%] top-[15%] w-10 h-10 opacity-50 blur-sm"
-      animate={{ y: [0, -10, 0] }}
-      transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-    />
+      <motion.img
+        src="/diamond.svg"
+        alt="Diamond Near Logo"
+        className="absolute right-[20%] top-[15%] w-10 h-10 opacity-50 blur-sm"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+      />
 
-    <motion.img
-      src="/elipse.svg"
-      alt="Elipse Bottom Right"
-      className="absolute bottom-8 right-8 w-32 h-32 opacity-60"
-      animate={{ y: [0, -10, 0] }}
-      transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-    />
+      <motion.img
+        src="/elipse.svg"
+        alt="Elipse Bottom Right"
+        className="absolute bottom-8 right-8 w-32 h-32 opacity-60"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+      />
 
-    <motion.img
-      src="/elipse21.svg"
-      alt="Elipse21 Bottom Left"
-      className="absolute bottom-8 left-8 w-40 h-40 opacity-70"
-      animate={{ y: [0, -10, 0] }}
-      transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-    />
+      <motion.img
+        src="/elipse21.svg"
+        alt="Elipse21 Bottom Left"
+        className="absolute bottom-8 left-8 w-40 h-40 opacity-70"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+      />
 
-    <motion.img
-      src="/elipse21.svg"
-      alt="Elipse21 Mid Right"
-      className="absolute top-1/2 right-4 transform -translate-y-1/2 w-36 h-36 opacity-70"
-      animate={{ y: [0, -10, 0] }}
-      transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-    />
+      <motion.img
+        src="/elipse21.svg"
+        alt="Elipse21 Mid Right"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 w-36 h-36 opacity-70"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+      />
+    </div>
 
-    {/* Logo */}
-    <motion.div
-      className="mb-10"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
-      transition={{ delay: 0.1, duration: 0.6 }}
-    >
-      <img src="/sfx-funded-2.png" alt="SFX Funded" className="h-14 sm:h-16" />
-    </motion.div>
+    {/* Content Layer - Above background elements */}
+    <div className="relative z-10 w-full flex flex-col items-center">
+      {/* Logo */}
+      <motion.div
+        className="mb-10"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ delay: 0.1, duration: 0.6 }}
+      >
+        <img src="/sfx-funded-2.png" alt="SFX Funded" className="h-14 sm:h-16" />
+      </motion.div>
 
-    {/* Heading */}
-    <motion.h1
-      className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4"
-      initial={{ opacity: 0, y: 30 }}
-      style={{ 
-        fontFamily: "'Inter', sans-serif"
-       }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
-      transition={{ delay: 0.2, duration: 0.6 }}
-    >
-      GET FUNDED INSTANTLY!
-    </motion.h1>
+      {/* Heading */}
+      <motion.h1
+        className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4"
+        initial={{ opacity: 0, y: 30 }}
+        style={{ 
+          fontFamily: "'Inter', sans-serif"
+        }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+      >
+        GET FUNDED INSTANTLY!
+      </motion.h1>
 
-    <motion.h2
-      className="text-2xl sm:text-3xl md:text-4xl text-center mb-12"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      style={{ 
-        fontFamily: "'Inter', sans-serif"
-       }}
-      viewport={{ once: false }}
-      transition={{ delay: 0.3, duration: 0.6 }}
-    >
-      No Evaluation, No Delays
-    </motion.h2>
+      <motion.h2
+        className="text-2xl sm:text-3xl md:text-4xl text-center mb-12"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        style={{ 
+          fontFamily: "'Inter', sans-serif"
+        }}
+        viewport={{ once: false }}
+        transition={{ delay: 0.3, duration: 0.6 }}
+      >
+        No Evaluation, No Delays
+      </motion.h2>
 
-    {/* CTA Button */}
-    <motion.div
-      className="mb-12"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
-      transition={{ delay: 0.4, duration: 0.6 }}
-    >
-      <button className="py-4 px-12 rounded-full bg-fuchsia-600 text-white font-medium text-lg hover:bg-fuchsia-700 transition-colors"style={{ 
+      {/* CTA Button */}
+      <motion.div
+        className="mb-12"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+      >
+        <button 
+          className="py-4 px-12 rounded-full bg-fuchsia-600 text-white font-medium text-lg hover:bg-fuchsia-700 transition-colors"
+          style={{ 
             fontFamily: "'Inter', sans-serif"
-           }}>
-        Start Trading
-      </button>
-    </motion.div>
+          }}
+        >
+          Start Trading
+        </button>
+      </motion.div>
 
-    {/* Social Icons */}
-    <motion.div
-      className="flex gap-3 mb-4"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
-      transition={{ delay: 0.5, duration: 0.6 }}
-    >
-      {socialIcons.slice(0, 6).map((social, index) => (
-        <a href="#" key={index} className="bg-white p-2 rounded-full">
-          {React.cloneElement(social.icon, {
-            width: 20,
-            height: 20,
-            fill: 'rgba(248, 0, 234, 1)',
-          })}
-        </a>
-      ))}
-    </motion.div>
+      {/* Social Icons */}
+      <motion.div
+        className="flex gap-3 mb-4"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+      >
+        {socialIcons.slice(0, 6).map((social, index) => (
+          <a href="#" key={index} className="bg-white p-2 rounded-full">
+            {React.cloneElement(social.icon, {
+              width: 20,
+              height: 20,
+              fill: 'rgba(248, 0, 234, 1)',
+            })}
+          </a>
+        ))}
+      </motion.div>
+    </div>
   </motion.div>
 </div>
          {/* Newsletter Section */}

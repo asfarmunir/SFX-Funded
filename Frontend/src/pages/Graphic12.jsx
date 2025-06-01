@@ -1694,10 +1694,11 @@ const targetRef = useRef(null);
               </div>
 
 
-              {/* Start Trading Button */}
+               {/* Start Trading Button */}
 
               <div className="flex justify-center items-center">
-                <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+                <button onClick={() => targetRef.current?.scrollIntoView({ behavior: "smooth" })} className="bg-[#F800EA] text-black px-6 py-2 lg:px-14 lg:py-5 rounded-full font-bold text-sm lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+>
                   Start Trading
                   <svg
                     className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
@@ -1723,242 +1724,7 @@ const targetRef = useRef(null);
 
 
 
-      <div className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 flex flex-col md:flex-row items-center justify-between">
-        {/* Big Pink Glow at Top-Left */}
-        <div
-          className="absolute top-0 left-0 w-[500px] h-[500px]"
-          style={{
-            background: 'radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)',
-            borderTopLeftRadius: '24px'
-          }}
-        />
-
-        {/* Text Content - Left Side */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: false }}
-          className="text-white md:w-1/2 z-10 mb-10 md:mb-0"
-        >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            SFX Payout <span className="text-fuchsia-500">Guarantee!</span>
-          </h2>
-          <p className="text-lg sm:text-xl mb-4">
-            Get paid within 48 hours or we add an extra $500 to your withdrawal!
-          </p>
-          <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-8 max-w-md">
-            At SFX Funded, we stand by our commitment to fast payouts and trader-first policies. You focus on trading, and we ensure you get rewarded on time — every time.
-          </p>
-          <button className="bg-fuchsia-600 text-white rounded-full px-8 py-4 flex items-center gap-3 text-base sm:text-lg hover:bg-fuchsia-700 transition-colors">
-            Read More
-            <ArrowRight size={20} />
-          </button>
-        </motion.div>
-
-        {/* Clock Image - Right Side */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: false }}
-          className="relative md:w-1/2 flex justify-center items-center"
-        >
-          <img src="/clock.svg" alt="Clock" className="h-56 sm:h-72 md:h-80 relative z-10" />
-
-          {/* Decorations */}
-          <motion.img
-            src="/diamond.svg"
-            alt="Diamond"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4, repeat: Infinity }}
-            className="absolute right-10 top-0 w-10 h-10 z-0"
-          />
-          <motion.img
-            src="/elipse.svg"
-            alt="Elipse"
-            animate={{ x: [0, 8, 0] }}
-            transition={{ duration: 5, repeat: Infinity }}
-            className="absolute right-0 bottom-10 w-16 h-16 opacity-70 z-0"
-          />
-          <motion.img
-            src="/elipse21.svg"
-            alt="Elipse21"
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 6, repeat: Infinity }}
-            className="absolute bottom-0 right-24 w-20 h-20 opacity-70 z-0"
-          />
-        </motion.div>
-
-        {/* Floating Extra Decorations */}
-        <motion.img
-          src="/elipse.svg"
-          alt="Floating Elipse"
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 6, repeat: Infinity }}
-          className="absolute bottom-10 left-1/4 w-16 h-16 opacity-40 z-0"
-        />
-        <motion.img
-          src="/diamond.svg"
-          alt="Floating Diamond"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 5, repeat: Infinity }}
-          className="absolute top-1/3 left-1/4 w-8 h-8 opacity-50 z-0"
-        />
-      </div>
-
-
-      <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
-          Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
-        </h1>
-
-        <div className="relative overflow-hidden w-full mt-6 mb-8 sm:mt-8 sm:mb-10 md:mt-12 md:mb-14 lg:mt-16 lg:mb-20">
-
-          {/* Blur Overlays */}
-          <div
-            className="absolute left-0 top-0 h-full w-24 z-10 pointer-events-none"
-            style={{
-              background: "linear-gradient(to right, rgba(255,255,255,0.6), transparent)"
-            }}
-          />
-          <div
-            className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none"
-            style={{
-              background: "linear-gradient(to left, rgba(255,255,255,0.6), transparent)"
-            }}
-          />
-
-
-          {/* Scrolling Container */}
-          <div className="whitespace-nowrap animate-scroll flex items-center gap-12">
-            {[...Array(2)].map((_, index) => (
-              <div key={index} className="flex items-center gap-12 px-4">
-                {[
-                  { src: "/mw.png", alt: "Marketwatch" },
-                  { src: "/ms.png", alt: "MSN" },
-                  { src: "/bb.png", alt: "Bloomberg" },
-                  { src: "/nd.png", alt: "Nasdaq" },
-                  { src: "/bz.png", alt: "Benzinga" }
-                ].map((brand, i) => (
-                  <div key={i} className="h-10 w-32 flex items-center justify-center">
-                    <img
-                      src={brand.src}
-                      alt={brand.alt}
-                      className="h-full max-w-full object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-
-
-          {/* Tailwind custom animation */}
-          <style jsx>{`
-                             @keyframes scroll {
-                               0% { transform: translateX(0); }
-                               100% { transform: translateX(-50%); }
-                             }
-                             .animate-scroll {
-                               animation: scroll 5s linear infinite;
-                             }
-                           `}</style>
-        </div>
-
-
-        {/* Stats Cards Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* LEFT COLUMN */}
-          <div className="flex flex-col gap-6">
-
-            {/* Graph Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="bg-white rounded-3xl p-6 shadow-sm w-full"
-            >
-              <p className="text-center text-lg font-normal mb-2">Highest Paid Trader:</p>
-              <h2 className="text-center text-4xl md:text-5xl font-semibold mb-6">$39,183.97</h2>
-
-              {/* Graph */}
-              <div className="w-full h-30 relative">
-                <img
-                  src="/graph.svg"
-                  alt="Trading performance graph"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
-
-            {/* Country Stats Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-              className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col"
-            >
-              <p className="text-left text-lg font-inter mb-2">Total Rewards:</p>
-              <h2 className="text-left text-4xl md:text-5xl font-semibold mb-6">$673,142.91</h2>
-
-              {/* Info containers */}
-              <div className="flex flex-col sm:flex-row gap-3 mb-6">
-                <div className="inline-flex border border-fuchsia-600 rounded-full px-3 py-1">
-                  <p className="text-fuchsia-600 font-medium text-xs">Average Rewards: $1132</p>
-                </div>
-                <div className="inline-flex bg-fuchsia-600 rounded-full px-3 py-1">
-                  <p className="text-white font-medium text-xs">Avg Payout Time: &lt; 8 hours</p>
-                </div>
-              </div>
-
-              {/* Country bars */}
-              <div className="space-y-3">
-                {countryData.map((country, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <img
-                      src={`/${country.flag}.svg`}
-                      alt={`${country.name} flag`}
-                      className="w-6 h-6 object-contain"
-                    />
-                    <div className="flex-1 bg-gray-200 rounded-full h-4 overflow-hidden">
-                      <div
-                        className="bg-fuchsia-600 h-full rounded-full"
-                        style={{ width: `${country.percent}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* RIGHT COLUMN */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col justify-between h-full"
-          >
-            <div>
-              <p className="text-left text-lg font-normal mb-1">Countries:</p>
-              <h2 className="text-left text-4xl md:text-5xl font-semibold mb-4">130+</h2>
-            </div>
-
-            <div className="relative w-full flex-1 flex items-end justify-start mt-auto">
-              <img
-                src="/globe.svg"
-                alt="World map with connection points"
-                className="w-full h-200 object-contain"
-              />
-            </div>
-          </motion.div>
-        </div>
-
-      </div>
+     
 
       <div className="w-full font-sans bg-[#f5f5f7]
            py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -2161,143 +1927,148 @@ const targetRef = useRef(null);
             borderRadius: '24px',
           }}
         >
-          {/* Big Pink Glow at Top-Left */}
-          <div
-            className="absolute top-0 left-0 w-[500px] h-[500px]"
-            style={{
-              background: 'radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)',
-              borderTopLeftRadius: '24px'
-            }}
-          ></div>
+          {/* Background Decorative Elements */}
+          <div className="absolute inset-0 z-0">
+            {/* Big Pink Glow at Top-Left */}
+            <div
+              className="absolute top-0 left-0 w-[500px] h-[500px]"
+              style={{
+                background: 'radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)',
+                borderTopLeftRadius: '24px'
+              }}
+            />
 
-          {/* Diamond left of "TURN" */}
-          <motion.img
-            src="/diamond.svg"
-            alt="Diamond Left of Turn"
-            className="absolute left-[10%] top-[30%] w-40 h-40"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: false }}
-          />
+            {/* Diamond left of "TURN" */}
+            <motion.img
+              src="/diamond.svg"
+              alt="Diamond Left of Turn"
+              className="absolute left-[10%] top-[30%] w-40 h-40 opacity-30"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 0.3, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: false }}
+            />
 
-          {/* Diamond blurred near logo */}
-          <motion.img
-            src="/diamond.svg"
-            alt="Diamond Near Logo"
-            className="absolute right-[20%] top-[15%] w-10 h-10 opacity-50 blur-sm"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: false }}
-          />
+            {/* Diamond blurred near logo */}
+            <motion.img
+              src="/diamond.svg"
+              alt="Diamond Near Logo"
+              className="absolute right-[20%] top-[15%] w-10 h-10 opacity-20 blur-sm"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 0.2, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: false }}
+            />
 
-          {/* elipse.svg - bottom right */}
-          <motion.img
-            src="/elipse.svg"
-            alt="Elipse Bottom Right"
-            className="absolute bottom-8 right-8 w-32 h-32 opacity-60"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: false }}
-          />
+            {/* elipse.svg - bottom right */}
+            <motion.img
+              src="/elipse.svg"
+              alt="Elipse Bottom Right"
+              className="absolute bottom-8 right-8 w-32 h-32 opacity-20"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 0.2, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: false }}
+            />
 
-          {/* elipse21.svg - bottom left */}
-          <motion.img
-            src="/elipse21.svg"
-            alt="Elipse21 Bottom Left"
-            className="absolute bottom-8 left-8 w-40 h-40 opacity-70"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            viewport={{ once: false }}
-          />
+            {/* elipse21.svg - bottom left */}
+            <motion.img
+              src="/elipse21.svg"
+              alt="Elipse21 Bottom Left"
+              className="absolute bottom-8 left-8 w-40 h-40 opacity-25"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 0.25, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ once: false }}
+            />
 
-          {/* elipse21.svg - mid right */}
-          <motion.img
-            src="/elipse21.svg"
-            alt="Elipse21 Mid Right"
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 w-36 h-36 opacity-70"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            viewport={{ once: false }}
-          />
+            {/* elipse21.svg - mid right */}
+            <motion.img
+              src="/elipse21.svg"
+              alt="Elipse21 Mid Right"
+              className="absolute top-1/2 right-4 transform -translate-y-1/2 w-36 h-36 opacity-25"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 0.25, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              viewport={{ once: false }}
+            />
+          </div>
 
-          {/* Logo */}
-          <motion.div
-            className="mb-10"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-            viewport={{ once: false }}
-          >
-            <img src="/sfx-funded-2.png" alt="SFX Funded" className="h-14 sm:h-16" />
-          </motion.div>
+          {/* Main Content - Higher z-index */}
+          <div className="relative z-10 flex flex-col items-center">
+            {/* Logo */}
+            <motion.div
+              className="mb-10"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              viewport={{ once: false }}
+            >
+              <img src="/sfx-funded-2.png" alt="SFX Funded" className="h-14 sm:h-16" />
+            </motion.div>
 
-          {/* Main Heading */}
-          <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.5 }}
-            viewport={{ once: false }}
-          >
-            TURN STRATEGY INTO CAPITAL
-          </motion.h1>
+            {/* Main Heading */}
+            <motion.h1
+              className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.5 }}
+              viewport={{ once: false }}
+            >
+              TURN STRATEGY INTO CAPITAL
+            </motion.h1>
 
-          <motion.h2
-            className="text-2xl sm:text-3xl md:text-4xl text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            style={{
-              fontFamily: "'Inter', sans-serif"
-            }}
-            viewport={{ once: false }}
-          >
-            Pass 2 Steps, Earn Up To 100% Profit Split.
-          </motion.h2>
-
-          {/* CTA Button */}
-          <motion.div
-            className="mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
-            viewport={{ once: false }}
-          >
-            <button
-              className="py-4 px-12 rounded-full bg-fuchsia-600 text-white font-medium text-lg hover:bg-fuchsia-700 transition-colors"
+            <motion.h2
+              className="text-2xl sm:text-3xl md:text-4xl text-center mb-12"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
               style={{
                 fontFamily: "'Inter', sans-serif"
-              }}>
-              Start Trading
-            </button>
-          </motion.div>
+              }}
+              viewport={{ once: false }}
+            >
+              Pass 2 Steps, Earn Up To 100% Profit Split.
+            </motion.h2>
 
-          {/* Social Media Icons */}
-          <motion.div
-            className="flex gap-3 mb-4"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
-            viewport={{ once: false }}
-          >
-            {socialIcons.slice(0, 6).map((social, index) => (
-              <a href="#" key={index} className="bg-white p-2 rounded-full">
-                {React.cloneElement(social.icon, {
-                  width: 20,
-                  height: 20,
-                  fill: 'rgba(248, 0, 234, 1)',
-                })}
-              </a>
-            ))}
-          </motion.div>
+            {/* CTA Button */}
+            <motion.div
+              className="mb-12"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+              viewport={{ once: false }}
+            >
+              <button
+                className="py-4 px-12 rounded-full bg-fuchsia-600 text-white font-medium text-lg hover:bg-fuchsia-700 transition-colors"
+                style={{
+                  fontFamily: "'Inter', sans-serif"
+                }}>
+                Start Trading
+              </button>
+            </motion.div>
+
+            {/* Social Media Icons */}
+            <motion.div
+              className="flex gap-3 mb-4"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.1 }}
+              viewport={{ once: false }}
+            >
+              {socialIcons.slice(0, 6).map((social, index) => (
+                <a href="#" key={index} className="bg-white p-2 rounded-full">
+                  {React.cloneElement(social.icon, {
+                    width: 20,
+                    height: 20,
+                    fill: 'rgba(248, 0, 234, 1)',
+                  })}
+                </a>
+              ))}
+            </motion.div>
+          </div>
         </motion.div>
       </div>
-</div>
-</div>
+       </div> </div>
  );
 }

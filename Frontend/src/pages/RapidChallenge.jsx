@@ -1718,212 +1718,217 @@ const getTransform = (columnIndex) => {
 
     {/* FAQ Section */}
     <FAQ />
-    <div className="flex flex-col items-center w-full font-['Inter']">
-            {/* Hero Section */}
-<motion.div
-  className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 sm:mb-14 md:mb-20 lg:mb-24 flex flex-col items-center justify-center text-white"
-  style={{
-    backgroundColor: "#000000",
-    borderRadius: "24px",
-  }}
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: false }}
-  transition={{ duration: 0.4 }}
->
-  {/* Glow */}
+   <div className="flex flex-col items-center w-full font-['Inter']">
+  {/* Hero Section */}
   <motion.div
-    className="absolute top-0 left-0 w-[500px] h-[500px]"
+    className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 sm:mb-14 md:mb-20 lg:mb-24 flex flex-col items-center justify-center text-white"
     style={{
-      background:
-        "radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)",
-      borderTopLeftRadius: "24px",
+      backgroundColor: "#000000",
+      borderRadius: "24px",
     }}
-    animate={{ y: [0, -10, 0], x: [0, 10, 0] }}
-    transition={{ duration: 6, repeat: Infinity }}
-  />
-
-  {/* Animated SVG/IMG elements */}
-  <motion.img
-    src="/diamond.svg"
-    alt="Diamond Left of Turn"
-    className="absolute left-[10%] top-[30%] w-40 h-40"
-    animate={{ y: [0, -10, 0], x: [0, 10, 0] }}
-    transition={{ duration: 8, repeat: Infinity }}
-  />
-
-  <motion.img
-    src="/diamond.svg"
-    alt="Diamond Near Logo"
-    className="absolute right-[20%] top-[15%] w-10 h-10 opacity-50 blur-sm"
-    animate={{ y: [0, 8, 0], x: [0, -8, 0] }}
-    transition={{ duration: 6, repeat: Infinity }}
-  />
-
-  <motion.img
-    src="/elipse.svg"
-    alt="Elipse Bottom Right"
-    className="absolute bottom-8 right-8 w-32 h-32 opacity-60"
-    animate={{ y: [0, -6, 0], x: [0, 6, 0] }}
-    transition={{ duration: 7, repeat: Infinity }}
-  />
-
-  <motion.img
-    src="/elipse21.svg"
-    alt="Elipse21 Bottom Left"
-    className="absolute bottom-8 left-8 w-40 h-40 opacity-70"
-    animate={{ y: [0, 8, 0], x: [0, -8, 0] }}
-    transition={{ duration: 8, repeat: Infinity }}
-  />
-
-  <motion.img
-    src="/elipse21.svg"
-    alt="Elipse21 Mid Right"
-    className="absolute top-1/2 right-4 transform -translate-y-1/2 w-36 h-36 opacity-70"
-    animate={{ y: [0, -10, 0], x: [0, 10, 0] }}
-    transition={{ duration: 6, repeat: Infinity }}
-  />
-
-  {/* Logo */}
-  <motion.div
-    className="mb-10"
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: false }}
-    transition={{ duration: 0.3, delay: 0.1 }}
+    transition={{ duration: 0.4 }}
   >
-    <img src="/sfx-funded-2.png" alt="SFX Funded" className="h-14 sm:h-16" />
-  </motion.div>
+    {/* Background Elements - Behind content */}
+    <div className="absolute inset-0 overflow-hidden">
+      {/* Glow */}
+      <motion.div
+        className="absolute top-0 left-0 w-[500px] h-[500px]"
+        style={{
+          background:
+            "radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)",
+          borderTopLeftRadius: "24px",
+        }}
+        animate={{ y: [0, -10, 0], x: [0, 10, 0] }}
+        transition={{ duration: 6, repeat: Infinity }}
+      />
 
-  {/* Headings */}
-  <motion.h1
-    className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4"
-    initial={{ opacity: 0, y: 50 }}
-    style={{ 
-      fontFamily: "'Inter', sans-serif"
-     }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: false }}
-    transition={{ duration: 0.3, delay: 0.2 }}
-  >
-    EVALUATIONS AT RAPID SPEED
-  </motion.h1>
+      {/* Animated SVG/IMG elements */}
+      <motion.img
+        src="/diamond.svg"
+        alt="Diamond Left of Turn"
+        className="absolute left-[10%] top-[30%] w-40 h-40"
+        animate={{ y: [0, -10, 0], x: [0, 10, 0] }}
+        transition={{ duration: 8, repeat: Infinity }}
+      />
 
-  <motion.h2
-    className="text-2xl sm:text-3xl md:text-4xl text-center mb-12"
-    initial={{ opacity: 0, y: 50 }}
-    style={{ 
-      fontFamily: "'Inter', sans-serif"
-     }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: false }}
-    transition={{ duration: 0.3, delay: 0.3 }}
-  >
-    JOIN THE #1 PROP FIRM
-  </motion.h2>
+      <motion.img
+        src="/diamond.svg"
+        alt="Diamond Near Logo"
+        className="absolute right-[20%] top-[15%] w-10 h-10 opacity-50 blur-sm"
+        animate={{ y: [0, 8, 0], x: [0, -8, 0] }}
+        transition={{ duration: 6, repeat: Infinity }}
+      />
 
-  {/* CTA Buttons */}
-  <motion.div
-    className="flex flex-col sm:flex-row gap-4 mb-10 w-full max-w-md justify-center"
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: false }}
-    transition={{ duration: 0.3, delay: 0.4 }}
-  >
-    <button className="py-3 px-6 rounded-full bg-fuchsia-500 text-white font-medium hover:bg-fuchsia-600 transition-colors"style={{ 
-            fontFamily: "'Inter', sans-serif"
-           }}>
-      Get Funded Now
-    </button>
-    <button className="py-3 px-6 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-colors"style={{  fontFamily: "'Inter', sans-serif"
-           }}>
-      Sign Up
-    </button>
-  </motion.div>
+      <motion.img
+        src="/elipse.svg"
+        alt="Elipse Bottom Right"
+        className="absolute bottom-8 right-8 w-32 h-32 opacity-60"
+        animate={{ y: [0, -6, 0], x: [0, 6, 0] }}
+        transition={{ duration: 7, repeat: Infinity }}
+      />
 
-  {/* Social Icons */}
-  <motion.div
-    className="flex gap-3 mb-4"
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: false }}
-    transition={{ duration: 0.3, delay: 0.5 }}
-  >
-    {socialIcons.slice(0, 6).map((social, index) => (
-      <a href="#" key={index} className="bg-white p-2 rounded-full">
-        {React.cloneElement(social.icon, {
-          width: 20,
-          height: 20,
-          fill: "rgba(248, 0, 234, 1)",
-        })}
-      </a>
-    ))}
-  </motion.div>
-</motion.div>
+      <motion.img
+        src="/elipse21.svg"
+        alt="Elipse21 Bottom Left"
+        className="absolute bottom-8 left-8 w-40 h-40 opacity-70"
+        animate={{ y: [0, 8, 0], x: [0, -8, 0] }}
+        transition={{ duration: 8, repeat: Infinity }}
+      />
 
-<motion.div 
-      className="flex flex-col items-center justify-center py-16 px-4 text-center"
-      initial={{ opacity: 0, y: 40 }}
-      animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, margin: "-100px" }}
-    >
-      <motion.h1 
-        className="text-5xl md:text-6xl font-bold mb-6 "
-        initial={{ opacity: 0, y: 20 }}
-        style={{ fontFamily: "'Inter', sans-serif"
-         }}
-        animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+      <motion.img
+        src="/elipse21.svg"
+        alt="Elipse21 Mid Right"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 w-36 h-36 opacity-70"
+        animate={{ y: [0, -10, 0], x: [0, 10, 0] }}
+        transition={{ duration: 6, repeat: Infinity }}
+      />
+    </div>
+
+    {/* Content - Above background elements */}
+    <div className="relative z-10 w-full flex flex-col items-center">
+      {/* Logo */}
+      <motion.div
+        className="mb-10"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.3, delay: 0.1 }}
       >
-        Trade, Connect, And Win Together
-      </motion.h1>
-      
-      <motion.p 
-        className="text-lg md:text-xl mb-12 font-medium text-gray-800 "
-        initial={{ opacity: 0, y: 20 }}
-        style={{ fontFamily: "'Inter', sans-serif"
-         }}
-        animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-      >
-        Join a thriving community of trades, share insights, and grow together.
-      </motion.p>
-      
-      <motion.div 
-        className="flex flex-col sm:flex-row gap-4 w-full max-w-lg"
-        initial={{ opacity: 0, y: 20 }}
-        animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-      >
-        <motion.button 
-          className="flex items-center justify-center gap-2 py-3 px-6 rounded-full font-medium text-white text-lg w-full "
-          style={{ background: "rgba(248, 0, 234, 1)",
-            fontFamily: "'Inter', sans-serif"
-           }}
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <img src="/discord.svg" alt="Discord" className="w-6 h-6" />
-          Join Discord Community
-        </motion.button>
-        
-        <motion.button 
-          className="flex items-center justify-center gap-2 py-3 px-6 rounded-full font-medium text-white text-lg w-full "
-          style={{ background: "rgba(146, 0, 138, 1)",
-            fontFamily: "'Inter', sans-serif"
-           }}
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <img src="/X.svg" alt="X" className="w-6 h-6" />
-          Join X Community
-        </motion.button>
+        <img src="/sfx-funded-2.png" alt="SFX Funded" className="h-14 sm:h-16" />
       </motion.div>
-    </motion.div>
 
-          </div>
+      {/* Headings */}
+      <motion.h1
+        className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4"
+        initial={{ opacity: 0, y: 50 }}
+        style={{ 
+          fontFamily: "'Inter', sans-serif"
+        }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+      >
+        EVALUATIONS AT RAPID SPEED
+      </motion.h1>
+
+      <motion.h2
+        className="text-2xl sm:text-3xl md:text-4xl text-center mb-12"
+        initial={{ opacity: 0, y: 50 }}
+        style={{ 
+          fontFamily: "'Inter', sans-serif"
+        }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.3, delay: 0.3 }}
+      >
+        JOIN THE #1 PROP FIRM
+      </motion.h2>
+
+      {/* CTA Buttons */}
+      <motion.div
+        className="flex flex-col sm:flex-row gap-4 mb-10 w-full max-w-md justify-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.3, delay: 0.4 }}
+      >
+        <button className="py-3 px-6 rounded-full bg-fuchsia-500 text-white font-medium hover:bg-fuchsia-600 transition-colors"style={{ 
+                fontFamily: "'Inter', sans-serif"
+              }}>
+          Get Funded Now
+        </button>
+        <button className="py-3 px-6 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-colors"style={{  fontFamily: "'Inter', sans-serif"
+              }}>
+          Sign Up
+        </button>
+      </motion.div>
+
+      {/* Social Icons */}
+      <motion.div
+        className="flex gap-3 mb-4"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.3, delay: 0.5 }}
+      >
+        {socialIcons.slice(0, 6).map((social, index) => (
+          <a href="#" key={index} className="bg-white p-2 rounded-full">
+            {React.cloneElement(social.icon, {
+              width: 20,
+              height: 20,
+              fill: "rgba(248, 0, 234, 1)",
+            })}
+          </a>
+        ))}
+      </motion.div>
+    </div>
+  </motion.div>
+
+  <motion.div 
+    className="flex flex-col items-center justify-center py-16 px-4 text-center"
+    initial={{ opacity: 0, y: 40 }}
+    animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: false, margin: "-100px" }}
+  >
+    <motion.h1 
+      className="text-5xl md:text-6xl font-bold mb-6 "
+      initial={{ opacity: 0, y: 20 }}
+      style={{ fontFamily: "'Inter', sans-serif"
+      }}
+      animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+    >
+      Trade, Connect, And Win Together
+    </motion.h1>
+    
+    <motion.p 
+      className="text-lg md:text-xl mb-12 font-medium text-gray-800 "
+      initial={{ opacity: 0, y: 20 }}
+      style={{ fontFamily: "'Inter', sans-serif"
+      }}
+      animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+    >
+      Join a thriving community of trades, share insights, and grow together.
+    </motion.p>
+    
+    <motion.div 
+      className="flex flex-col sm:flex-row gap-4 w-full max-w-lg"
+      initial={{ opacity: 0, y: 20 }}
+      animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+    >
+      <motion.button 
+        className="flex items-center justify-center gap-2 py-3 px-6 rounded-full font-medium text-white text-lg w-full "
+        style={{ background: "rgba(248, 0, 234, 1)",
+          fontFamily: "'Inter', sans-serif"
+        }}
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        <img src="/discord.svg" alt="Discord" className="w-6 h-6" />
+        Join Discord Community
+      </motion.button>
+      
+      <motion.button 
+        className="flex items-center justify-center gap-2 py-3 px-6 rounded-full font-medium text-white text-lg w-full "
+        style={{ background: "rgba(146, 0, 138, 1)",
+          fontFamily: "'Inter', sans-serif"
+        }}
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        <img src="/X.svg" alt="X" className="w-6 h-6" />
+        Join X Community
+      </motion.button>
+    </motion.div>
+  </motion.div>
+</div>
        
      </div>
    );

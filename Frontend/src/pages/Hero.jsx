@@ -832,7 +832,7 @@ const mobileCardScales = {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-100 rounded-3xl p-8"
+              className="bg-gray-100 rounded-[10px] py-8 px-6 text-center"
             >
               <div className="w-12 h-12 text-fuchsia-600 mb-16">
                 <img src={card.image} alt="" className="w-full h-full" />
@@ -892,7 +892,7 @@ const mobileCardScales = {
   initial={{ opacity: 0, y: 50 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.5 }}
-  className="bg-gray-100 rounded-3xl p-8 my-5 flex justify-center items-center"
+  className="bg-gray-100 rounded-[10px] py-8 px-6 my-5 flex justify-center items-center"
 >
   <div className="flex flex-col md:flex-row items-center text-center">
     <div className="w-20 h-20 text-fuchsia-600 mb-4 md:mb-0 md:mr-6">
@@ -980,7 +980,7 @@ const mobileCardScales = {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="bg-white rounded-3xl p-6 shadow-sm w-full"
+              className="bg-white rounded-[10px] py-8 px-6 shadow-sm w-full"
             >
               <p className="text-center text-lg font-normal mb-2">Highest Paid Trader:</p>
               <h2 className="text-center text-4xl md:text-5xl font-semibold mb-6">$39,183.97</h2>
@@ -1001,7 +1001,7 @@ const mobileCardScales = {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-              className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col"
+              className="bg-white rounded-[10px] py-8 px-6 shadow-sm w-full flex flex-col"
             >
               <p className="text-left text-lg font-inter mb-2">Total Rewards:</p>
               <h2 className="text-left text-4xl md:text-5xl font-semibold mb-6">$673,142.91</h2>
@@ -1043,7 +1043,7 @@ const mobileCardScales = {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col justify-between h-full"
+            className="bg-white rounded-[10px] py-8 px-6 shadow-sm w-full flex flex-col justify-between h-full"
           >
             <div>
               <p className="text-left text-lg font-normal mb-1">Countries:</p>
@@ -1459,7 +1459,7 @@ const mobileCardScales = {
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="hidden md:block bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
+        className="hidden md:block bg-white rounded-[10px] py-8 px-6 text-center shadow-lg shadow-fuchsia-600/20"
       >
         <div className="flex justify-center mb-4">
           <div className="flex items-center justify-center">
@@ -1477,7 +1477,7 @@ const mobileCardScales = {
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="hidden md:block bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
+        className="hidden md:block bg-white rounded-[10px] py-8 px-6 text-center shadow-lg shadow-fuchsia-600/20"
       >
         <div className="flex justify-center mb-4">
           <div className="flex items-center justify-center">
@@ -1495,7 +1495,7 @@ const mobileCardScales = {
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="hidden md:block bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
+        className="hidden md:block bg-white rounded-[10px] py-8 px-6 text-center shadow-lg shadow-fuchsia-600/20"
       >
         <div className="flex justify-center mb-4">
           <div className="flex items-center justify-center">
@@ -1505,7 +1505,7 @@ const mobileCardScales = {
         </div>
         <p className="font-medium mb-2">Want to start earning right away?</p>
         <p className="text-sm">Choose our Instant Funded Account option.</p>  
-            </motion.div>
+      </motion.div>
     </div>
   )}
 
@@ -1529,7 +1529,7 @@ const mobileCardScales = {
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="hidden md:block bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
+        className="hidden md:block bg-white rounded-[10px] py-8 px-6 text-center shadow-lg shadow-fuchsia-600/20"
       >
         <div className="flex justify-center mb-4">
           <div className="flex items-center justify-center">
@@ -1547,7 +1547,7 @@ const mobileCardScales = {
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="hidden md:block bg-white rounded-3xl p-6 text-center shadow-lg shadow-fuchsia-600/20"
+        className="hidden md:block bg-white rounded-[10px] py-8 px-6 text-center shadow-lg shadow-fuchsia-600/20"
       >
         <div className="flex justify-center mb-4">
           <div className="flex items-center justify-center">
@@ -1568,7 +1568,7 @@ const mobileCardScales = {
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="bg-white rounded-3xl p-8 text-center shadow-lg shadow-fuchsia-600/20"
+        className="bg-white rounded-[10px] py-10 px-8 text-center shadow-lg shadow-fuchsia-600/20"
       >
         <div className="flex justify-center mb-6">
           <img src="/hero5.svg" alt="Rocket icon" className="w-12 h-12" />

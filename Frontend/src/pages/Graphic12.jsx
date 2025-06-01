@@ -473,8 +473,8 @@ const targetRef = useRef(null);
         </div>
       </div>
 
-       <div className="flex justify-center w-full p-4">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 p-4 bg-gray-50 rounded-[20px] font-['Inter'] max-w-5xl w-full">
+       <div className="flex justify-center w-full max-w-5xl mx-auto px-5 sm:px-6 md:px-7 lg:px-10 ">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 p-4 bg-gray-50 rounded-[20px] font-['Inter'] max-w-7xl w-full">
 
           {/* Recent Verified Payouts Section */}
           <div className="flex flex-row items-center justify-center md:justify-start bg-white rounded-[20px] md:rounded-[20px] p-2 md:p-4 shadow-sm h-[40px] md:h-[80px] flex-shrink-0 w-full md:w-auto">
@@ -581,7 +581,7 @@ const targetRef = useRef(null);
 
   .slider-animate {
     animation: scrollSlow 20s linear infinite;
-    padding-right: 24px;
+    padding-right: 28px;
   }
 
   /* Make scroll faster on screens smaller than 640px */

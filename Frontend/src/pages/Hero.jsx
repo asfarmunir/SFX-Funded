@@ -700,8 +700,8 @@ const mobileCardScales = {
       </div>
 
 
-      <div className="flex justify-center w-full p-4">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 p-4 bg-gray-50 rounded-[20px] font-['Inter'] max-w-5xl w-full">
+      <div className="flex justify-center w-full max-w-5xl mx-auto px-5 sm:px-6 md:px-7 lg:px-10 ">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 p-4 bg-gray-50 rounded-[20px] font-['Inter'] max-w-7xl w-full">
 
           {/* Recent Verified Payouts Section */}
           <div className="flex flex-row items-center justify-center md:justify-start bg-white rounded-[20px] md:rounded-[20px] p-2 md:p-4 shadow-sm h-[40px] md:h-[80px] flex-shrink-0 w-full md:w-auto">
@@ -808,7 +808,7 @@ const mobileCardScales = {
 
   .slider-animate {
     animation: scrollSlow 20s linear infinite;
-    padding-right: 24px;
+    padding-right: 28px;
   }
 
   /* Make scroll faster on screens smaller than 640px */
@@ -1399,26 +1399,30 @@ const mobileCardScales = {
         </p>
 
         <div className="w-full max-w-6xl mx-auto px-2 sm:px-4">
-          {/* Step Buttons with exact dimensions for laptop */}         <motion.div
+          {/* Step Buttons with exact dimensions for laptop */}      
+             <motion.div
   initial={{ opacity: 0, y: 50 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6, delay: 0.1 }}
   viewport={{ once: false, amount: 0.3 }}
-  className="flex flex-row justify-center items-center gap-1 sm:gap-4 md:gap-6 mb-16 px-1 sm:px-2"
+  className="flex gap-2 sm:gap-4 justify-center items-stretch w-full"
 >
   {[1, 2, 3].map((step) => (
-    <button
-      key={step}
-      onClick={() => handleStepClick(step)}
-      className={`rounded-xl sm:rounded-3xl px-1 sm:px-6 py-2 sm:py-3 
-        w-[110px] h-[100px] sm:w-[240px] sm:h-[140px] md:w-[348px] md:h-[160px] 
-        transition-all duration-300 text-center flex flex-col justify-center items-center border-[1.5px] flex-shrink-0
-        ${activeStep === step
-          ? "bg-fuchsia-600 text-white border-transparent"
-          : "bg-white text-black border-fuchsia-600"
-        }`}
-      style={{ borderRadius: "20px" }}
-    >
+ <button
+  key={step}
+  onClick={() => handleStepClick(step)}
+  className={`
+    rounded-[10px] 
+    px-6 py-2 sm:px-6 sm:py-5 mb-6 sm:mb-12
+    w-full max-w-[100%] md:max-w-[200px] lg:max-w-[220px] 
+    transition-all duration-300 text-center 
+    flex flex-col justify-center items-center border-[1.5px] 
+    ${activeStep === step 
+      ? "bg-fuchsia-600 text-white border-transparent" 
+      : "bg-white text-black border-fuchsia-600"
+    }
+  `}
+>
       <p className="font-medium text-xs sm:text-base md:text-lg">{`Step ${step}:`}</p>
       <p className="font-medium text-xs sm:text-base md:text-lg leading-tight">
         {step === 1
@@ -1500,8 +1504,8 @@ const mobileCardScales = {
           </div>
         </div>
         <p className="font-medium mb-2">Want to start earning right away?</p>
-        <p className="text-sm">Choose our Instant Funded Account option.</p>
-      </motion.div>
+        <p className="text-sm">Choose our Instant Funded Account option.</p>  
+            </motion.div>
     </div>
   )}
 

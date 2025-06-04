@@ -410,7 +410,7 @@ const targetRef = useRef(null);
               }}
               transition={{ duration: 0.4, delay: 0.2 }}
             >
-              GET FUNDED BY OUR 2-STEP
+              GET FUNDED WITH OUR 2-STEP
             </motion.h1>
 
             {/* Second Line as Part of the Main Heading */}
@@ -429,7 +429,7 @@ const targetRef = useRef(null);
               }}
               transition={{ duration: 0.4, delay: 0.4 }}
             >
-              PROP FIRM CHALLENGE
+               CHALLENGE
             </motion.h1>
           </div>
 
@@ -446,30 +446,29 @@ const targetRef = useRef(null);
           </motion.p>
 
           {/* CTA Button */}
-          <motion.div
-            className="mt-4 sm:mt-6 mb-8 sm:mb-10"
-            initial={{ opacity: 0, y: 90 }}
-            whileInView={{ opacity: 1, y: 0 }}
-
-            transition={{ duration: 0.4, delay: 0.4 }}
-          >
-            <button className="text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center justify-center mx-auto font-inter text-base sm:text-lg md:text-xl">
-              Pick Your Challenge
-              <svg
-                className="ml-3"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
-                  fill="white"
-                />
-              </svg>
-            </button>
-          </motion.div>
+<motion.div
+  className="mt-4 sm:mt-6 mb-8 sm:mb-10"
+  initial={{ opacity: 0, y: 90 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.4, delay: 0.4 }}
+>
+  <button className="text-white px-12 py-5 sm:px-16 sm:py-6 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center justify-center mx-auto font-inter text-lg sm:text-xl md:text-2xl font-semibold shadow-lg hover:shadow-xl">
+    Pick Your Challenge
+    <svg
+      className="ml-4"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+        fill="white"
+      />
+    </svg>
+  </button>
+</motion.div>
         </div>
       </div>
 
@@ -619,20 +618,20 @@ const targetRef = useRef(null);
               viewport={{ once: true, amount: 0.3 }}
               className="lg:w-1/2"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                HOW TO GET FUNDED WITH OUR
-                <br />
+              <h2 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+  HOW TO GET FUNDED WITH OUR
+  <br />
                 <span className="text-[#DE00DE] font-semibold"> 2-STEP CHALLENGE</span>
               </h2>
               <p className="mt-3 text-lg sm:text-xl md:text-2xl text-gray-600">
                 Pass two simple phases and access up to $3.2M in capital
               </p>
-              <button className="mt-6 text-white px-6 py-3 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center">
-                Start Trading
-                <svg className="ml-2" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
-                </svg>
-              </button>
+              <button className="mt-6 text-white px-10 py-4 sm:px-12 sm:py-5 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center font-semibold text-lg sm:text-xl shadow-lg hover:shadow-xl">
+  Start Trading
+  <svg className="ml-3" width="20" height="20" viewBox="0 0 24 24" fill="none">
+    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
+  </svg>
+</button>
             </motion.div>
 
             {/* Right Side Steps */}
@@ -1032,7 +1031,7 @@ const targetRef = useRef(null);
         </div>
       </div>
 
-      <div className="bg-gray-50 py-12 font-sans w-full max-w-6xl mx-auto px-4">
+      <div className="bg-gray-50 py-12 font-sans w-full max-w-8xl mx-auto px-4">
 
 
 
@@ -1261,8 +1260,8 @@ const targetRef = useRef(null);
      
 
 
-      <div
-        className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 flex flex-col md:flex-row items-center justify-between"
+       <div
+        className="w-full max-w-7xl mx-auto relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 flex flex-col md:flex-row items-center justify-between"
         style={{
           backgroundColor: "#000000",
           borderRadius: "24px",
@@ -1277,7 +1276,7 @@ const targetRef = useRef(null);
             borderTopLeftRadius: "24px"
           }}
         />
-
+      
         {/* Text Content - Left Side */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -1295,12 +1294,12 @@ const targetRef = useRef(null);
           <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-8 max-w-md">
             At SFX Funded, we stand by our commitment to fast payouts and trader-first policies. You focus on trading, and we ensure you get rewarded on time — every time.
           </p>
-          <button className="bg-fuchsia-600 text-white rounded-full px-8 py-4 flex items-center gap-3 text-base sm:text-lg hover:bg-fuchsia-700 transition-colors">
-            Read More
-            <ArrowRight size={20} />
-          </button>
+          <button className="bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white rounded-full px-8 py-4 flex items-center gap-3 text-base sm:text-lg hover:from-fuchsia-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform border-2 border-fuchsia-400/50">
+        Read More
+        <ArrowRight size={20} />
+      </button>
         </motion.div>
-
+      
         {/* Clock Image - Right Side */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -1310,7 +1309,7 @@ const targetRef = useRef(null);
           className="relative md:w-1/2 flex justify-center items-center"
         >
           <img src="/clock.svg" alt="Clock" className="h-56 sm:h-72 md:h-80 relative z-10" />
-
+      
           {/* Decorations */}
           <motion.img
             src="/diamond.svg"
@@ -1334,7 +1333,7 @@ const targetRef = useRef(null);
             className="absolute bottom-0 right-24 w-20 h-20 opacity-70 z-0"
           />
         </motion.div>
-
+      
         {/* Floating Extra Decorations */}
         <motion.img
           src="/elipse.svg"
@@ -2040,35 +2039,20 @@ const targetRef = useRef(null);
               viewport={{ once: false }}
             >
               <button
-                className="py-4 px-12 rounded-full bg-fuchsia-600 text-white font-medium text-lg hover:bg-fuchsia-700 transition-colors"
-                style={{
-                  fontFamily: "'Inter', sans-serif"
-                }}>
-                Start Trading
-              </button>
+  className="py-4 px-12 rounded-full bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold text-lg hover:from-fuchsia-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform border-2 border-fuchsia-400/50"
+  style={{
+    fontFamily: "'Inter', sans-serif"
+  }}>
+  Start Trading
+</button>
             </motion.div>
 
-            {/* Social Media Icons */}
-            <motion.div
-              className="flex gap-3 mb-4"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.1 }}
-              viewport={{ once: false }}
-            >
-              {socialIcons.slice(0, 6).map((social, index) => (
-                <a href="#" key={index} className="bg-white p-2 rounded-full">
-                  {React.cloneElement(social.icon, {
-                    width: 20,
-                    height: 20,
-                    fill: 'rgba(248, 0, 234, 1)',
-                  })}
-                </a>
-              ))}
-            </motion.div>
+            
           </div>
         </motion.div>
       </div>
-       </div> </div>
+       </div> 
+       <Newsletter />
+       </div>
  );
 }

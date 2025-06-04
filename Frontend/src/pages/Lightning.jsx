@@ -166,7 +166,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
             viewport={{ amount: 0.3, once: true }}
             className="lg:w-1/2"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold leading-tight">
               ONE STEP. 5% TARGET.
               <br />
               <span className="text-[#DE00DE] font-semibold">7 DAYS TO PASS.</span>

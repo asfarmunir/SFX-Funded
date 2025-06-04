@@ -415,7 +415,7 @@ const getTransform = (columnIndex) => {
                 fontSize: "clamp(3rem, 5vw, 5rem)",
         letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
       }}>
-      <span className="text-[#DE00DE]">PAST FAST. </span>{" "}
+      <span className="text-[#DE00DE]">PASS FAST. </span>{" "}
       <span className="text-[#DE00DE]">GET FUNDED .</span>
     </h2>
   </motion.div>
@@ -455,20 +455,10 @@ const getTransform = (columnIndex) => {
       }
     }}
   >
-    <button className="text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center justify-center mx-auto font-inter text-base sm:text-lg md:text-xl">
-      Trade With SFX Funded
-      <svg
-        className="ml-3"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
-          fill="white"
-        />
+    <button className="mt-8 text-white px-10 py-5 text-xl font-bold rounded-full bg-gradient-to-r from-[#DE00DE] to-[#FF00E6] hover:from-[#C000B0] hover:to-[#E600CC] transition-all duration-300 flex items-center shadow-2xl hover:shadow-[#DE00DE]/50 hover:scale-105 transform border-2 border-white/20 backdrop-blur-sm">
+      Trade With SFX Funded 
+      <svg className="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
       </svg>
     </button>
   </motion.div>
@@ -498,17 +488,17 @@ const getTransform = (columnIndex) => {
         viewport={{ amount: 0.3, once: true }}
         className="lg:w-1/2"
       >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-          ONE STEP. 5% TARGET.
-          <br />
-          <span className="text-[#DE00DE] font-semibold">EARN ON DEMAND</span>
-        </h2>
-        <p className="mt-3 text-lg sm:text-xl md:text-2xl text-gray-600">
-          Prove your skills, get funded — all in record time.
-        </p>
-        <button className="mt-6 text-white px-6 py-3 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center">
+        <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold leading-tight">
+              ONE STEP. 5% TARGET.
+              <br />
+              <span className="text-[#DE00DE] font-semibold">EARN ON DEMAND.</span>
+            </h2>
+            <p className="mt-3 text-lg sm:text-xl md:text-2xl text-gray-600">
+              Prove your skills, get funded — all in rapid time.
+            </p>
+        <button className="mt-8 text-white px-10 py-5 text-xl font-bold rounded-full bg-gradient-to-r from-[#DE00DE] to-[#FF00E6] hover:from-[#C000B0] hover:to-[#E600CC] transition-all duration-300 flex items-center shadow-2xl hover:shadow-[#DE00DE]/50 hover:scale-105 transform border-2 border-white/20 backdrop-blur-sm">
           Get Started
-          <svg className="ml-2" width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <svg className="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
           </svg>
         </button>
@@ -834,22 +824,7 @@ const getTransform = (columnIndex) => {
             </p>
           </motion.div>
 
-          {/* Up to 100% Performance Split */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false }}
-            variants={slideUp}
-            className="bg-white rounded-2xl p-6 flex-1 shadow-sm min-h-[180px]"
-          >
-            <div className="flex justify-between items-start mb-4">
-              <h3 className="text-2xl font-bold">Up to 100% Performance Split</h3>
-              <img src="/refund.svg" alt="Refund" className="w-12 h-12" />
-            </div>
-            <p className="text-lg text-gray-700">
-              Scale your profits up to 100%.
-            </p>
-          </motion.div>
+         
         </div>
 
         {/* Third Column */}
@@ -871,24 +846,20 @@ const getTransform = (columnIndex) => {
             </p>
           </motion.div>
 
-          {/* Platform 5 */}
+           {/* Up to 100% Performance Split */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false }}
             variants={slideUp}
-            className="rounded-2xl p-6 flex-1 shadow-sm min-h-[180px]"
-            style={{
-              background: "rgba(229, 242, 255, 1)",
-              backdropFilter: "blur(73px)",
-            }}
+            className="bg-white rounded-2xl p-6 flex-1 shadow-sm min-h-[180px]"
           >
             <div className="flex justify-between items-start mb-4">
-              <h3 className="text-2xl font-bold text-fuchsia-500">Platform 5</h3>
-              <img src="/badge.svg" alt="Badge" className="w-12 h-12" />
+              <h3 className="text-2xl font-bold">Up to 100% Performance Split</h3>
+              <img src="/refund.svg" alt="Refund" className="w-12 h-12" />
             </div>
-            <p className="text-lg text-fuchsia-500">
-              Trade with the most popular platform and stick to what you know.
+            <p className="text-lg text-gray-700">
+              Scale your profits up to 100%.
             </p>
           </motion.div>
 
@@ -1073,7 +1044,7 @@ const getTransform = (columnIndex) => {
       </div>
     </div>
        <div
-  className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 flex flex-col md:flex-row items-center justify-between"
+  className="w-full max-w-7xl mx-auto relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 flex flex-col md:flex-row items-center justify-between"
   style={{
     backgroundColor: "#000000",
     borderRadius: "24px",
@@ -1106,10 +1077,10 @@ const getTransform = (columnIndex) => {
     <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-8 max-w-md">
       At SFX Funded, we stand by our commitment to fast payouts and trader-first policies. You focus on trading, and we ensure you get rewarded on time — every time.
     </p>
-    <button className="bg-fuchsia-600 text-white rounded-full px-8 py-4 flex items-center gap-3 text-base sm:text-lg hover:bg-fuchsia-700 transition-colors">
-      Read More
-      <ArrowRight size={20} />
-    </button>
+    <button className="bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white rounded-full px-8 py-4 flex items-center gap-3 text-base sm:text-lg hover:from-fuchsia-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform border-2 border-fuchsia-400/50">
+  Read More
+  <ArrowRight size={20} />
+</button>
   </motion.div>
 
   {/* Clock Image - Right Side */}
@@ -1721,10 +1692,11 @@ const getTransform = (columnIndex) => {
    <div className="flex flex-col items-center w-full font-['Inter']">
   {/* Hero Section */}
   <motion.div
-    className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 sm:mb-14 md:mb-20 lg:mb-24 flex flex-col items-center justify-center text-white"
+    className="w-full max-w-7xl mx-auto relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 flex flex-col items-center justify-center text-white"
     style={{
       backgroundColor: "#000000",
       borderRadius: "24px",
+      fontFamily: "Inter, sans-serif"
     }}
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -1749,7 +1721,7 @@ const getTransform = (columnIndex) => {
       <motion.img
         src="/diamond.svg"
         alt="Diamond Left of Turn"
-        className="absolute left-[10%] top-[30%] w-40 h-40"
+        className="absolute left-[0%] top-[30%] w-40 h-40"
         animate={{ y: [0, -10, 0], x: [0, 10, 0] }}
         transition={{ duration: 8, repeat: Infinity }}
       />
@@ -1788,7 +1760,7 @@ const getTransform = (columnIndex) => {
     </div>
 
     {/* Content - Above background elements */}
-    <div className="relative z-10 w-full flex flex-col items-center">
+    <div className="relative z-10 w-full mx-auto flex flex-col items-center">
       {/* Logo */}
       <motion.div
         className="mb-10"
@@ -1835,12 +1807,12 @@ const getTransform = (columnIndex) => {
         viewport={{ once: false }}
         transition={{ duration: 0.3, delay: 0.4 }}
       >
-        <button className="py-3 px-6 rounded-full bg-fuchsia-500 text-white font-medium hover:bg-fuchsia-600 transition-colors"style={{ 
+        <button className="py-3 px-6 rounded-full bg-fuchsia-500 text-white font-medium hover:bg-fuchsia-600 transition-colors" style={{ 
                 fontFamily: "'Inter', sans-serif"
               }}>
           Get Funded Now
         </button>
-        <button className="py-3 px-6 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-colors"style={{  fontFamily: "'Inter', sans-serif"
+        <button className="py-3 px-6 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-colors" style={{  fontFamily: "'Inter', sans-serif"
               }}>
           Sign Up
         </button>
@@ -1867,69 +1839,9 @@ const getTransform = (columnIndex) => {
     </div>
   </motion.div>
 
-  <motion.div 
-    className="flex flex-col items-center justify-center py-16 px-4 text-center"
-    initial={{ opacity: 0, y: 40 }}
-    animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-    transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: false, margin: "-100px" }}
-  >
-    <motion.h1 
-      className="text-5xl md:text-6xl font-bold mb-6 "
-      initial={{ opacity: 0, y: 20 }}
-      style={{ fontFamily: "'Inter', sans-serif"
-      }}
-      animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-    >
-      Trade, Connect, And Win Together
-    </motion.h1>
-    
-    <motion.p 
-      className="text-lg md:text-xl mb-12 font-medium text-gray-800 "
-      initial={{ opacity: 0, y: 20 }}
-      style={{ fontFamily: "'Inter', sans-serif"
-      }}
-      animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-    >
-      Join a thriving community of trades, share insights, and grow together.
-    </motion.p>
-    
-    <motion.div 
-      className="flex flex-col sm:flex-row gap-4 w-full max-w-lg"
-      initial={{ opacity: 0, y: 20 }}
-      animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-    >
-      <motion.button 
-        className="flex items-center justify-center gap-2 py-3 px-6 rounded-full font-medium text-white text-lg w-full "
-        style={{ background: "rgba(248, 0, 234, 1)",
-          fontFamily: "'Inter', sans-serif"
-        }}
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.98 }}
-      >
-        <img src="/discord.svg" alt="Discord" className="w-6 h-6" />
-        Join Discord Community
-      </motion.button>
-      
-      <motion.button 
-        className="flex items-center justify-center gap-2 py-3 px-6 rounded-full font-medium text-white text-lg w-full "
-        style={{ background: "rgba(146, 0, 138, 1)",
-          fontFamily: "'Inter', sans-serif"
-        }}
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.98 }}
-      >
-        <img src="/X.svg" alt="X" className="w-6 h-6" />
-        Join X Community
-      </motion.button>
-    </motion.div>
-  </motion.div>
+  
 </div>
-       
+     <Newsletter />  
      </div>
    );
  }

@@ -1368,7 +1368,7 @@ export default function InstantFunding() {
                     </div>
 
          <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
-                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
+                        <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
                           Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
                         </h1>
                         
@@ -1574,9 +1574,10 @@ export default function InstantFunding() {
                     transition={{ duration: 0.5, delay: 0.1 }}
                   >
                     <span className="text-black">Trade On Our</span>
-                    <br />
-                    <span className="text-black">Leading </span>
-                    <span className="text-[#F800EA]">Platform 5</span>
+                    <span className="text-black">Trade On Our</span>
+                        <br />
+                        
+                        <span className="text-[#F800EA]">Leading Platform </span>
                   </motion.h2>
       
                   {/* Description */}

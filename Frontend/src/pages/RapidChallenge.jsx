@@ -455,9 +455,9 @@ const getTransform = (columnIndex) => {
       }
     }}
   >
-    <button className="mt-8 text-white px-10 py-5 text-xl font-bold rounded-full bg-gradient-to-r from-[#DE00DE] to-[#FF00E6] hover:from-[#C000B0] hover:to-[#E600CC] transition-all duration-300 flex items-center shadow-2xl hover:shadow-[#DE00DE]/50 hover:scale-105 transform border-2 border-white/20 backdrop-blur-sm">
+    <button className="mt-8 text-white px-6 py-3 sm:px-10 sm:py-5 text-lg sm:text-xl font-bold rounded-full bg-gradient-to-r from-[#DE00DE] to-[#FF00E6] hover:from-[#C000B0] hover:to-[#E600CC] transition-all duration-300 flex items-center shadow-2xl hover:shadow-[#DE00DE]/50 hover:scale-105 transform border-2 border-white/20 backdrop-blur-sm">
       Trade With SFX Funded 
-      <svg className="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <svg className="ml-2 sm:ml-3" width="20" height="20" viewBox="0 0 24 24" fill="none">
         <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
       </svg>
     </button>
@@ -496,9 +496,9 @@ const getTransform = (columnIndex) => {
             <p className="mt-3 text-lg sm:text-xl md:text-2xl text-gray-600">
               Prove your skills, get funded — all in rapid time.
             </p>
-        <button className="mt-8 text-white px-10 py-5 text-xl font-bold rounded-full bg-gradient-to-r from-[#DE00DE] to-[#FF00E6] hover:from-[#C000B0] hover:to-[#E600CC] transition-all duration-300 flex items-center shadow-2xl hover:shadow-[#DE00DE]/50 hover:scale-105 transform border-2 border-white/20 backdrop-blur-sm">
+        <button className="mt-6 sm:mt-8 text-white px-6 py-3 sm:px-10 sm:py-5 text-lg sm:text-xl font-bold rounded-full bg-gradient-to-r from-[#DE00DE] to-[#FF00E6] hover:from-[#C000B0] hover:to-[#E600CC] transition-all duration-300 flex items-center shadow-2xl hover:shadow-[#DE00DE]/50 hover:scale-105 transform border-2 border-white/20 backdrop-blur-sm">
           Get Started
-          <svg className="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <svg className="ml-2 sm:ml-3" width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
           </svg>
         </button>
@@ -645,11 +645,11 @@ const getTransform = (columnIndex) => {
       }
     }}
   >
-    <h1 className="text-4xl md:text-5xl font-bold mb-4">
-      WHY THE <span className="text-fuchsia-500">RAPID CHALLENGE</span>
-    </h1>
-    <p className="text-xl">Compare the rapid challenge with the 1-Step Model</p>
-  </motion.div>
+   <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 whitespace-nowrap">
+  WHY THE <span className="text-fuchsia-500">RAPID CHALLENGE</span>
+</h1>
+<p className="text-sm sm:text-base md:text-lg lg:text-xl whitespace-nowrap">Compare the rapid challenge with the 1-Step Model</p>
+</motion.div>
 
   {/* Comparison Cards */}
   <motion.div 
@@ -881,11 +881,10 @@ const getTransform = (columnIndex) => {
         </div>
       </div>
 
-      <div className="mt-8 border border-[#D90BC6] rounded-2xl overflow-hidden bg-white">
-        {/* Mobile Account Selector */}
+      <div className="mt-8 border border-[#D90BC6] rounded-2xl overflow-hidden bg-white">        {/* Mobile Account Selector */}
         <div className="block sm:hidden px-4 py-3">
           <select 
-            className="w-full p-3 rounded-lg bg-[#F001E1] text-white font-medium text-center"
+            className="w-full p-3 rounded-lg bg-[#D90BC6] text-white font-medium text-center"
             onChange={(e) => handleAccountSelect(parseInt(e.target.value))}
             value={selectedAccountIndex}
           >
@@ -912,16 +911,25 @@ const getTransform = (columnIndex) => {
               </button>
             ))}
           </div>
+        </div>        {/* Phase Headers */}
+        <div className="grid grid-cols-3 md:hidden border-b border-gray-200">
+          <div className="invisible"></div>
+          <div className="text-center py-3">
+            <span className="text-[#D90BC6] font-medium">Phase 1</span>
+          </div>
+          <div className="text-center py-3">
+            <span className="text-[#D90BC6] font-medium">Funded</span>
+          </div>
         </div>
 
         {/* Phase Headers (Desktop only) */}
         <div className="hidden md:flex border-b border-gray-200">
           <div className="flex-1 invisible"></div>
           <div className="flex-[5] text-center py-3">
-            <span className="text-fuchsia-600 font-medium">Phase 1</span>
+            <span className="text-[#D90BC6] font-medium">Phase 1</span>
           </div>
           <div className="flex-1 text-center py-3 px-4">
-            <span className="text-fuchsia-600 font-medium">Funded</span>
+            <span className="text-[#D90BC6] font-medium">Funded</span>
           </div>
         </div>
 
@@ -966,22 +974,15 @@ const getTransform = (columnIndex) => {
               phase1: tableData[accountSizes[selectedAccountIndex]].profitSplit,
               funded: fundedData.profitSplit
             }
-          ].map((row, idx) => (
-            <div
+          ].map((row, idx) => (            <div
               key={idx}
               className={`border-b border-gray-200 ${row.bg || ""}`}
             >
               {/* Mobile view */}
-              <div className="flex flex-col md:hidden">
+              <div className="grid grid-cols-3 md:hidden">
                 <div className="py-3 pl-6 font-medium">{row.label}</div>
-                <div className="py-3 flex justify-between px-6">
-                  <span className="text-sm font-medium text-fuchsia-500">Phase 1</span>
-                  <span>{row.phase1}</span>
-                </div>
-                <div className="py-3 flex justify-between px-6">
-                  <span className="text-sm font-medium text-fuchsia-500">Funded</span>
-                  <span>{row.funded}</span>
-                </div>
+                <div className="text-center py-3">{row.phase1}</div>
+                <div className="text-center py-3">{row.funded}</div>
               </div>
               
               {/* Desktop view */}
@@ -1135,7 +1136,7 @@ const getTransform = (columnIndex) => {
 </div>
 
        <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
+        <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
           Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
         </h1>
 
@@ -1225,7 +1226,7 @@ const getTransform = (columnIndex) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-              className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col"
+              className="bg-white rounded-2xl p-6 shadow-sm w-full flex flex-col"
             >
               <p className="text-left text-lg font-inter mb-2">Total Rewards:</p>
               <h2 className="text-left text-4xl md:text-5xl font-semibold mb-6">$673,142.91</h2>
@@ -1267,7 +1268,7 @@ const getTransform = (columnIndex) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="bg-white rounded-3xl p-6 shadow-sm w-full flex flex-col justify-between h-full"
+            className="bg-white rounded-2xl p-6 shadow-sm w-full flex flex-col justify-between h-full"
           >
             <div>
               <p className="text-left text-lg font-normal mb-1">Countries:</p>
@@ -1342,8 +1343,8 @@ const getTransform = (columnIndex) => {
                       >
                         <span className="text-black">Trade On Our</span>
                         <br />
-                        <span className="text-black">Leading </span>
-                        <span className="text-[#F800EA]">Platform 5</span>
+                        
+                        <span className="text-[#F800EA]">Leading Platform </span>
                       </motion.h2>
           
                       {/* Description */}
@@ -1391,7 +1392,7 @@ const getTransform = (columnIndex) => {
                         <motion.div
                           className="border border-[#F800EA] rounded-lg px-4 py-3 flex items-center"
                           initial={{ opacity: 0, y: 50 }}
-                          whileInView={{ opacity: 1, y: 0 }}
+                          whileInView={{ opacity: 1, y:  0 }}
                           transition={{ duration: 0.5, delay: 0.5 }}
                         >
                           <img

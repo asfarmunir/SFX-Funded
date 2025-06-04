@@ -708,164 +708,184 @@ export default function RapidChallenge() {
 
 <div className="flex flex-col items-center w-full font-['Inter']">
   {/* Hero Section */}
-  <motion.div
-    className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 sm:mb-14 md:mb-20 lg:mb-24 flex flex-col items-center justify-center text-white"
+<motion.div
+  className="w-full max-w-7xl mx-auto relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 sm:mb-14 md:mb-20 lg:mb-24 flex flex-col items-center justify-center text-white"
+  style={{
+    backgroundColor: '#000000',
+    borderRadius: '24px',
+  }}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: false, amount: 0.2 }}
+>
+  {/* Big Pink Glow at Top-Left */}
+  <div
+    className="absolute top-0 left-0 w-[500px] h-[500px]"
     style={{
-      backgroundColor: '#000000',
-      borderRadius: '24px',
+      background: 'radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)',
+      borderTopLeftRadius: '24px'
     }}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: false, amount: 0.2 }}
+  ></div>
+
+  {/* Diamond left of "TURN" - floating */}
+  <motion.img
+    src="/diamond.svg"
+    alt="Diamond Left of Turn"
+    className="absolute left-[10%] top-[30%] w-40 h-40"
+    variants={floatAnimation}
+    custom={{ 
+      yStart: 0, 
+      yEnd: -20, 
+      xStart: 0, 
+      xEnd: 10, 
+      rotStart: 0, 
+      rotEnd: 5, 
+      duration: 6 
+    }}
+    initial="initial"
+    animate="animate"
+  />
+
+  {/* Diamond blurred near logo - floating */}
+  <motion.img
+    src="/diamond.svg"
+    alt="Diamond Near Logo"
+    className="absolute right-[20%] top-[15%] w-10 h-10 opacity-50 blur-sm"
+    variants={floatAnimation}
+    custom={{ 
+      yStart: 0, 
+      yEnd: -15, 
+      xStart: 0, 
+      xEnd: -10, 
+      rotStart: 0, 
+      rotEnd: -8, 
+      duration: 4.5 
+    }}
+    initial="initial"
+    animate="animate"
+  />
+
+  {/* elipse.svg - bottom right - floating */}
+  <motion.img
+    src="/elipse.svg"
+    alt="Elipse Bottom Right"
+    className="absolute bottom-8 right-8 w-32 h-32 opacity-60"
+    variants={floatAnimation}
+    custom={{ 
+      yStart: 0, 
+      yEnd: 15, 
+      xStart: 0, 
+      xEnd: -5, 
+      rotStart: 0, 
+      rotEnd: 10, 
+      duration: 7 
+    }}
+    initial="initial"
+    animate="animate"
+  />
+
+  {/* elipse21.svg - bottom left - floating */}
+  <motion.img
+    src="/elipse21.svg"
+    alt="Elipse21 Bottom Left"
+    className="absolute bottom-8 left-8 w-40 h-40 opacity-70"
+    variants={floatAnimation}
+    custom={{ 
+      yStart: 0, 
+      yEnd: 20, 
+      xStart: 0, 
+      xEnd: 10, 
+      rotStart: 0, 
+      rotEnd: -5, 
+      duration: 8 
+    }}
+    initial="initial"
+    animate="animate"
+  />
+
+  {/* elipse21.svg - mid right - floating */}
+  <motion.img
+    src="/elipse21.svg"
+    alt="Elipse21 Mid Right"
+    className="absolute top-1/2 right-4 transform -translate-y-1/2 w-36 h-36 opacity-70"
+    variants={floatAnimation}
+    custom={{ 
+      yStart: 0, 
+      yEnd: -25, 
+      xStart: 0, 
+      xEnd: -15, 
+      rotStart: 0, 
+      rotEnd: 15, 
+      duration: 9 
+    }}
+    initial="initial"
+    animate="animate"
+  />
+
+  {/* Logo - slide up */}
+  <motion.div 
+    className="mb-10 relative z-10"
+    variants={slideUp}
+    custom={0}
   >
-    {/* Big Pink Glow at Top-Left */}
-    <div
-      className="absolute top-0 left-0 w-[500px] h-[500px]"
-      style={{
-        background: 'radial-gradient(circle at top left, rgba(248,0,234,0.4) 0%, transparent 70%)',
-        borderTopLeftRadius: '24px'
-      }}
-    ></div>
-
-    {/* Diamond left of "TURN" - floating */}
-    <motion.img
-      src="/diamond.svg"
-      alt="Diamond Left of Turn"
-      className="absolute left-[10%] top-[30%] w-40 h-40"
-      variants={floatAnimation}
-      custom={{ 
-        yStart: 0, 
-        yEnd: -20, 
-        xStart: 0, 
-        xEnd: 10, 
-        rotStart: 0, 
-        rotEnd: 5, 
-        duration: 6 
-      }}
-      initial="initial"
-      animate="animate"
-    />
-
-    {/* Diamond blurred near logo - floating */}
-    <motion.img
-      src="/diamond.svg"
-      alt="Diamond Near Logo"
-      className="absolute right-[20%] top-[15%] w-10 h-10 opacity-50 blur-sm"
-      variants={floatAnimation}
-      custom={{ 
-        yStart: 0, 
-        yEnd: -15, 
-        xStart: 0, 
-        xEnd: -10, 
-        rotStart: 0, 
-        rotEnd: -8, 
-        duration: 4.5 
-      }}
-      initial="initial"
-      animate="animate"
-    />
-
-    {/* elipse.svg - bottom right - floating */}
-    <motion.img
-      src="/elipse.svg"
-      alt="Elipse Bottom Right"
-      className="absolute bottom-8 right-8 w-32 h-32 opacity-60"
-      variants={floatAnimation}
-      custom={{ 
-        yStart: 0, 
-        yEnd: 15, 
-        xStart: 0, 
-        xEnd: -5, 
-        rotStart: 0, 
-        rotEnd: 10, 
-        duration: 7 
-      }}
-      initial="initial"
-      animate="animate"
-    />
-
-    {/* elipse21.svg - bottom left - floating */}
-    <motion.img
-      src="/elipse21.svg"
-      alt="Elipse21 Bottom Left"
-      className="absolute bottom-8 left-8 w-40 h-40 opacity-70"
-      variants={floatAnimation}
-      custom={{ 
-        yStart: 0, 
-        yEnd: 20, 
-        xStart: 0, 
-        xEnd: 10, 
-        rotStart: 0, 
-        rotEnd: -5, 
-        duration: 8 
-      }}
-      initial="initial"
-      animate="animate"
-    />
-
-    {/* elipse21.svg - mid right - floating */}
-    <motion.img
-      src="/elipse21.svg"
-      alt="Elipse21 Mid Right"
-      className="absolute top-1/2 right-4 transform -translate-y-1/2 w-36 h-36 opacity-70"
-      variants={floatAnimation}
-      custom={{ 
-        yStart: 0, 
-        yEnd: -25, 
-        xStart: 0, 
-        xEnd: -15, 
-        rotStart: 0, 
-        rotEnd: 15, 
-        duration: 9 
-      }}
-      initial="initial"
-      animate="animate"
-    />
-
-    {/* Logo - slide up */}
-    <motion.div 
-      className="mb-10 relative z-10"
-      variants={slideUp}
-      custom={0}
-    >
-      <img src="/sfx-funded-2.png" alt="SFX Funded" className="h-14 sm:h-16" />
-    </motion.div>
-
-    {/* Main Heading - slide up */}
-    <motion.h1 
-      className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 relative z-10 font-['Inter']"
-      variants={slideUp}
-      custom={1}
-      style={{fontFamily: "'Inter',sans-serif"}}
-    >
-      Are You an Expert
-    </motion.h1>
-    
-    <motion.h1 
-      className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 relative z-10 font-['Inter']"
-      variants={slideUp}
-      custom={2}
-      style={{fontFamily: "'Inter',sans-serif"}}
-    >
-      Affiliate Marketer?
-    </motion.h1>
-
-    {/* CTA Button - slide up */}
-    <motion.div 
-      className="flex flex-col sm:flex-row gap-4 mb-10 w-full max-w-md justify-center relative z-10"
-      variants={slideUp}
-      custom={3}
-    >
-      <motion.button
-        className="py-3 px-6 rounded-full bg-fuchsia-500 text-white font-medium hover:bg-fuchsia-600 transition-colors font-['Inter']"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        style={{fontFamily: "'Inter',sans-serif"}}
-      >
-        Contact SFX Funded
-      </motion.button>
-    </motion.div>
+    <img src="/sfx-funded-2.png" alt="SFX Funded" className="h-14 sm:h-16" />
   </motion.div>
+
+  {/* Main Heading - slide up */}
+  <motion.h1 
+    className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 relative z-10 font-['Inter']"
+    variants={slideUp}
+    custom={1}
+    style={{fontFamily: "'Inter',sans-serif"}}
+  >
+    Are You an Expert
+  </motion.h1>
+  
+  <motion.h1 
+    className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 relative z-10 font-['Inter']"
+    variants={slideUp}
+    custom={2}
+    style={{fontFamily: "'Inter',sans-serif"}}
+  >
+    Affiliate Marketer?
+  </motion.h1>
+
+  {/* CTA Button - slide up */}
+  <motion.div 
+    className="flex flex-col sm:flex-row gap-4 mb-10 w-full max-w-md justify-center relative z-10"
+    variants={slideUp}
+    custom={3}
+  >
+    <motion.button
+      className="py-4 px-8 rounded-full text-white font-semibold text-lg shadow-2xl border-2 border-transparent hover:border-white transition-all duration-300 font-['Inter']"
+      style={{
+        background: 'linear-gradient(135deg, #F800EA 0%, #DE00DE 50%, #C000B0 100%)',
+        boxShadow: '0 0 30px rgba(248, 0, 234, 0.5), 0 8px 32px rgba(0, 0, 0, 0.3)',
+        fontFamily: "'Inter',sans-serif"
+      }}
+      whileHover={{ 
+        scale: 1.08,
+        boxShadow: '0 0 40px rgba(248, 0, 234, 0.7), 0 12px 40px rgba(0, 0, 0, 0.4)'
+      }}
+      whileTap={{ scale: 0.95 }}
+    >
+      Contact SFX Funded
+      <motion.svg
+        className="ml-2 inline-block"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        whileHover={{ x: 3 }}
+        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+      >
+        <path d="M5 12h14M12 5l7 7-7 7" />
+      </motion.svg>
+    </motion.button>
+  </motion.div>
+</motion.div>
 </div>
 
 

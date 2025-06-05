@@ -21,7 +21,6 @@ const Card = ({i, title, description, image, url, color, progress, range, target
   }, []);
 
   const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
-  const scale = useTransform(progress, range, [1, targetScale]);
   
   // Common styles
   const fontFamily = "'Inter', sans-serif";
@@ -44,10 +43,10 @@ const Card = ({i, title, description, image, url, color, progress, range, target
       alignItems: 'center',
       justifyContent: 'center',
       padding: isMobile ? '0' : '0',
-    }}>      <motion.div 
+    }}>
+      <motion.div 
         style={{
           backgroundColor: "#F5F5F7", 
-          scale,
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',

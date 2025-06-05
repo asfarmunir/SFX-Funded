@@ -21,7 +21,6 @@ const Card2 = ({i, title, description, image, url, color, progress, range, targe
   }, []);
 
   const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
-  const scale = useTransform(progress, range, [1, targetScale]);
   
   // Common styles
   const fontFamily = "'Inter', sans-serif";
@@ -49,10 +48,10 @@ const Card2 = ({i, title, description, image, url, color, progress, range, targe
       <motion.div 
         style={{
           backgroundColor: "#F5F5F7", 
-          scale,
           display: 'flex',
           flexDirection: 'column',
-          position: 'relative',          width: cardWidth,
+          position: 'relative',
+          width: cardWidth,
           maxWidth: isMobile ? 'calc(100vw - 20px)' : '422px',
           height: cardHeight,
           minHeight: isMobile ? '250px' : '353px',

@@ -182,8 +182,9 @@ export default function FAQ() {
               Check out our most frequently asked questions here or click the link below to see all of our frequently asked questions.
             </motion.p>
 
+            {/* Desktop Button - Hidden on mobile */}
             <motion.div
-              className="mt-8 md:mt-12 lg:mt-16"
+              className="mt-8 md:mt-12 lg:mt-16 hidden md:block"
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               variants={textVariants}
@@ -259,6 +260,33 @@ export default function FAQ() {
             ))}
           </motion.div>
         </div>
+
+        {/* Mobile Button - Show only on mobile, at bottom */}
+        <motion.div
+          className="mt-8 md:hidden"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={textVariants}
+          transition={{ delay: 0.4 }}
+        >
+          <motion.button
+            className="py-3 px-6 text-black font-bold text-base rounded-full text-center flex items-center justify-center transition-all duration-300 w-full"
+            style={{ 
+              backgroundColor: '#F800EA',
+              maxWidth: '320px',
+              margin: '0 auto'
+            }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="flex items-center justify-center">
+              Start Trading
+              <svg className="ml-2 w-4 h-4" viewBox="0 0 24 24" fill="none">
+                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+              </svg>
+            </span>
+          </motion.button>
+        </motion.div>
       </div>
     </div>
   );

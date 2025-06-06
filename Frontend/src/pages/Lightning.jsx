@@ -3,6 +3,8 @@ import { Rocket, Banknote, Clock, Users, Shield, Star } from "lucide-react";
 import Newsletter from '../components/Newsletter';
 import Navbar from '../components/Navbar';
 import { motion } from 'framer-motion';
+import LightningStackCards from '../components/Step3';
+
 export default function LightningChallenge() {
   const slideUpVariant = {
     hidden: { opacity: 0, y: 50 },
@@ -337,7 +339,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
     </motion.div>
 
     {/* Grid Cards */}
-    <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 p-4">
+    <div className="hidden lg:flex lg:flex-row gap-6 sm:gap-8 p-4">
       {/* First Column - Rocket Card */}
       <motion.div
         className="w-full lg:w-1/3"
@@ -347,7 +349,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
         viewport={{ once: false }}
       >
         <div className="bg-white rounded-3xl p-6 sm:p-8 flex flex-col h-full min-h-[280px] sm:min-h-[315px] relative">
-          <div className="pr-16"> {/* Add padding to prevent text overlap with icon */}
+          <div className="pr-16">
             <h3 className="text-xl sm:text-2xl font-semibold mb-4">
               Low Target
             </h3>
@@ -375,7 +377,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
           transition={{ duration: 0.6 }}
           viewport={{ once: false }}
         >
-          <div className="pr-14"> {/* Add padding to prevent text overlap with icon */}
+          <div className="pr-14">
             <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-green-600">
               Upto 90% Performance Split
             </h3>
@@ -400,7 +402,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
           transition={{ duration: 0.6 }}
           viewport={{ once: false }}
         >
-          <div className="pr-16"> {/* Add padding to prevent text overlap with icon */}
+          <div className="pr-16">
             <h3 className="text-xl sm:text-2xl font-semibold mb-2">
               Faster Process Evaluation
             </h3>
@@ -428,7 +430,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
           transition={{ duration: 0.6 }}
           viewport={{ once: false }}
         >
-          <div className="pr-16"> {/* Add padding to prevent text overlap with icon */}
+          <div className="pr-16">
             <h3 className="text-xl sm:text-2xl font-semibold mb-2">
               Tailored Accounts
             </h3>
@@ -457,7 +459,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
             backdropFilter: "blur(73px)",
           }}
         >
-          <div className="pr-16"> {/* Add padding to prevent text overlap with icon */}
+          <div className="pr-16">
             <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-fuchsia-500">
               Platform 5
             </h3>
@@ -474,6 +476,14 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
           </div>
         </motion.div>
       </div>
+    </div>
+
+    {/* Mobile Stacking Cards */}
+    <div className="md:hidden"style={{
+        position: 'relative',
+        minHeight: '0vh', // Ensure enough height
+      }}>
+      <LightningStackCards />
     </div>
   </div>
 </div>

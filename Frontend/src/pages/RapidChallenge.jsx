@@ -1322,15 +1322,23 @@ const getTransform = (columnIndex) => {
                       </Swiper>
                     </div>
           
-                    {/* Start Trading Button */}
-                    <div className="flex justify-center mb-16">
-                      <button className="bg-[#F800EA] text-black px-8 py-3 rounded-full font-medium flex items-center">
-                        Start Trading
-                        <svg className="ml-2 w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
-                        </svg>
-                      </button>
-                    </div>
+                     <div className="flex justify-center items-center mb-3">
+                          <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+                            Start Trading
+                            <svg
+                              className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+                                fill="currentColor"
+                              />
+                            </svg>
+                          </button>
+          
+                        </div>
           
                     {/* Platform Section */}
                     <div className="mb-16 px-4">

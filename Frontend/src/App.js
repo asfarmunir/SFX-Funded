@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Lenis from '@studio-freight/lenis';
 import Ticker from './components/Ticker';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -17,21 +18,8 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Debug: log scroll positions
-    console.log("window.scrollY:", window.scrollY);
-    const main = document.querySelector("#main-app-container");
-    if (main) {
-      console.log("main-app-container.scrollTop:", main.scrollTop);
-    }
-    // Try scrolling window
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-    // Try scrolling main container
-    if (main) {
-      main.scrollTop = 0;
-    }
-    // Try scrolling document.documentElement and body
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    // Scroll to top smoothly with Lenis
+    window.lenis?.scrollTo(0, { duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
   }, [pathname]);
 
   return null;
@@ -41,6 +29,37 @@ function App() {
   const [tickerHeight, setTickerHeight] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+  const lenisRef = useRef();
+
+  // Initialize Lenis
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    lenisRef.current = lenis;
+    window.lenis = lenis;
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+      window.lenis = null;
+    };
+  }, []);
 
   // Get ticker height and window width on component mount and resize
   useEffect(() => {
@@ -62,21 +81,26 @@ function App() {
     return () => window.removeEventListener('resize', updateMeasurements);
   }, []);
   
-  // Handle scroll events
+  // Handle scroll events with Lenis
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (e) => {
       const scrollThreshold = 50;
-      if (window.scrollY > scrollThreshold) {
+      if (e.scroll > scrollThreshold) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    if (lenisRef.current) {
+      lenisRef.current.on('scroll', handleScroll);
+    }
     
-    // Cleanup
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      if (lenisRef.current) {
+        lenisRef.current.off('scroll', handleScroll);
+      }
+    };
   }, []);
 
   // Determine if we're in mobile view
@@ -106,9 +130,7 @@ function App() {
             width: '100%',
             zIndex: 40,
             marginTop: isMobile ? '1.5rem' : '2.5rem',
-            
-            transition: ' 0.3s ease',
-           
+            transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
           }}
         >
           {!isScrolled ? (

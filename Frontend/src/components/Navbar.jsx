@@ -102,7 +102,7 @@ export default function Navbar({ shouldStick = true, isScrolled = false }) {
           ${scrolledState 
             ? 'w-full max-w-full rounded-none bg-[#FFE6FD]/95 backdrop-blur-sm' 
             : 'w-full max-w-full mx-auto bg-[#FFE6FD] rounded-full'}
-          px-4 sm:px-6 lg:px-5 py-1 lg:py-1 h-16 transition-all duration-300  transform  
+          px-4 sm:px-6 lg:px-5 py-1 lg:py-1 h-16 transition-all duration-[800ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] transform  
         `}
       >
         <div className={`flex items-center justify-between h-full ${scrolledState ? '' : ''}`}>

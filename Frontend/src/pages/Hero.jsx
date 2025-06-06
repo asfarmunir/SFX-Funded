@@ -1654,7 +1654,7 @@ const mobileCardScales = {
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               <span className="text-black">Trade On Our</span>
-              <span className="text-black">Trade On Our</span>
+              
                         <br />
                         
                         <span className="text-[#F800EA]">Leading Platform </span>

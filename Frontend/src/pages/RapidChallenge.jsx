@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
+import LightningStackCards from '../components/Step4';
 
 
 
@@ -331,7 +332,7 @@ const getTransform = (columnIndex) => {
   
 
   return (
-     <div className="font-inter w-full overflow-x-hidden">
+     <div className="font-inter w-full">
        
  
        <div className="w-full mx-0 px-2 sm:px-6 py-8 sm:py-2 md:py-4 lg:py-5 rounded-[40px] my-6 sm:my-8 relative overflow-hidden"
@@ -742,7 +743,7 @@ const getTransform = (columnIndex) => {
       </div>
 
       {/* Advantages Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* First Column */}
         <div className="flex flex-col gap-6 h-full">
           {/* SFX Reward Guarantee */}
@@ -866,7 +867,15 @@ const getTransform = (columnIndex) => {
           {/* Spacer */}
           <div className="flex-1 hidden md:block"></div>
         </div>
+         
       </div>
+      {/* Mobile Stacking Cards */}
+            <div className="md:hidden"style={{
+                position: 'relative',
+                minHeight: '0vh', // Ensure enough height
+              }}>
+              <LightningStackCards />
+            </div>
     </div>
   
  

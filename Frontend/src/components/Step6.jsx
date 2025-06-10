@@ -6,44 +6,43 @@ import { useScroll } from 'framer-motion';
 const projects = [
   {
     index: 0,
-    title: 'Low Target',
-    description: 'Hit 5% in your evaluation to get funded',
-    image: '/rocket.svg',
+    title: 'SFX Reward Guarantee',
+    description: 'Get paid in 48-HRS or we pay you $300 extra',
+    image: '/shield.svg',
     backgroundColor: '#FFFFFF'
   },
   {
     index: 1,
-    title: 'Upto 90% Performance Split',
-    description: 'Choose Account sizes up to $100k and earn up to 90% performance split.',
+    title: 'Instant Payouts',
+    description: 'Start earning from day one as an SFX Funded Trader.',
     image: '/dollar.svg',
     backgroundColor: '#F0FDF4',
     textColor: '#16A34A'
   },
   {
     index: 2,
-    title: 'Faster Process Evaluation',
-    description: 'Prove your skills just once by meeting all the trading objective in 7 days.',
-    image: '/timer.svg',
+    title: 'Up to 100% Performance Split',
+    description: 'Scale your profits up to 100%.',
+    image: '/refund.svg',
     backgroundColor: '#FFFFFF'
   },
   {
     index: 3,
-    title: 'Tailored Accounts',
-    description: 'Customize your account for the best experience with your unique add-ons at checkout.',
-    image: '/users.png',
+    title: 'No Evaluation',
+    description: 'Get funded instantly, no challenge required.',
+    image: '/timer.svg',
     backgroundColor: '#FFFFFF'
   },
   {
     index: 4,
-    title: 'Platform 5',
-    description: 'Trade on the most popular platform in the industry. Stick to what you are comfortable with.',
-    image: '/badge.svg',
-    backgroundColor: 'rgba(229, 242, 255, 1)',
-    textColor: '#C026D3'
+    title: 'Scale Up To $3.2 Million Capital',
+    description: 'Choose from accounts up to $40k and scale up',
+    image: '/profit2.svg',
+    backgroundColor: '#FFFFFF'
   },
 ]
 
-export default function Step3() {
+export default function Step6() {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,

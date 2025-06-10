@@ -63,7 +63,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
   return (
-    <div className="font-inter w-full overflow-x-hidden">
+    <div className="font-inter w-full ">
       
 
       <div className="w-full mx-0 px-2 sm:px-6 py-8 sm:py-2 md:py-4 lg:py-5 rounded-[40px] my-6 sm:my-8 relative overflow-hidden"

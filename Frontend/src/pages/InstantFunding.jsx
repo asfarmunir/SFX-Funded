@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
+import LightningStackCards from '../components/Step6';
 
 export default function InstantFunding() {
   
@@ -409,7 +410,7 @@ export default function InstantFunding() {
    };
      
     return (
-       <div className="font-inter w-full overflow-x-hidden">
+       <div className="font-inter w-full ">
          
    
          <div className="w-full mx-0 px-2 sm:px-6 py-8 sm:py-2 md:py-4 lg:py-5 rounded-[40px] my-6 sm:my-8 relative overflow-hidden"
@@ -890,7 +891,7 @@ export default function InstantFunding() {
 
   {/* Features Grid */}
 <motion.div 
-  className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6"
+  className="hidden md:grid md:grid-cols-3 gap-4 md:gap-6"
   variants={{
     visible: {
       transition: {
@@ -1059,6 +1060,13 @@ export default function InstantFunding() {
     </motion.div>
   </motion.div>
 </motion.div>
+{/* Mobile Stacking Cards */}
+            <div className="md:hidden"style={{
+                position: 'relative',
+                minHeight: '0vh', // Ensure enough height
+              }}>
+              <LightningStackCards />
+            </div>
 </motion.div>
     
     

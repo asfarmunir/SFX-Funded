@@ -166,7 +166,8 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
             initial="hidden"
             whileInView="visible"
             viewport={{ amount: 0.3, once: true }}
-            className="lg:w-1/2"
+            className="lg:w-1/2 lg:sticky lg:top-[140px] lg:self-start lg:mt-[140px]"
+            style={{ height: 'fit-content' }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold leading-tight">
               ONE STEP. 5% TARGET.
@@ -176,90 +177,181 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
             <p className="mt-3 text-lg sm:text-xl md:text-2xl text-gray-600">
               Prove your skills, get funded — all in record time.
             </p>
-            <button className="mt-6 text-white px-6 py-3 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center">
-              Get Started
-              <svg className="ml-2" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
-              </svg>
-            </button>
+             {/* CTA Button */}
+              <motion.div
+                className="mt-4 sm:mt-6 mb-8 sm:mb-10"
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    transition: {
+                      duration: 0.8,
+                      ease: "easeOut",
+                      delay: 0.6
+                    }
+                  }
+                }}
+              >
+                <button className="mt-8 text-white px-6 py-3 sm:px-10 sm:py-5 text-lg sm:text-xl font-bold rounded-full bg-gradient-to-r from-[#DE00DE] to-[#FF00E6] hover:from-[#C000B0] hover:to-[#E600CC] transition-all duration-300 flex items-center shadow-2xl hover:shadow-[#DE00DE]/50 hover:scale-105 transform border-2 border-white/20 backdrop-blur-sm">
+                  Get Funded
+                  <svg className="ml-2 sm:ml-3" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
+                  </svg>
+                </button>
+              </motion.div>
           </motion.div>
 
      {/* Right Side Steps */}
-<div className="w-full lg:w-1/2 space-y-4 sm:space-y-6">
-  {/* Step 1 */}
-  <motion.div
-    variants={slideUpVariant}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ amount: 0.3, once: true }}
-    transition={{ delay: 0, duration: 0.5 }}
-    className="p-5 sm:p-8 relative bg-[#F8EAF8] rounded-3xl w-full h-auto min-h-[200px] sm:min-h-[280px] sm:h-[331px] flex flex-col justify-center"
+<div className="w-full lg:w-1/2 relative">
+  <div 
+    style={{
+      position: "relative",
+      marginTop: "2vh",
+      width: "100%",
+      height: "1200px",
+    }}
   >
-    <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-      <img 
-        src="/step1.svg" 
-        alt="Step 1 Icon" 
-        className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
-      />
-      <h3 className="text-xl sm:text-3xl font-bold mb-2">SIGN UP</h3>
-      <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
-        Choose from account sizes up to $100,000
-      </p>
-    </div>
-    <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-[#DE00DE] flex items-center justify-center text-xs font-bold">
-      1
-    </div>
-  </motion.div>
+    {/* Step 1 */}
+    <motion.div
+      variants={slideUpVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3, once: true }}
+      transition={{ delay: 0, duration: 0.5 }}
+      className="h-[350px] w-full sticky flex items-center justify-center z-[1] mb-5"
+      style={{
+        top: isMobile ? '0px' : '100px',
+      }}
+    >
+      <div 
+        style={{
+          backgroundColor: "#F8EAF8",
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          width: isMobile ? 'calc(100vw - 20px)' : '100%',
+          maxWidth: '100%',
+          height: 'auto',
+          minHeight: isMobile ? '250px' : '280px',
+          borderRadius: '24px',
+          padding: isMobile ? '24px' : '32px',
+          fontFamily: "'Inter', sans-serif",
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        }}
+      >
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <img 
+            src="/step1.svg" 
+            alt="Step 1 Icon" 
+            className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
+          />
+          <h3 className="text-xl sm:text-3xl font-bold mb-2">SIGN UP</h3>
+          <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
+            Choose from account sizes up to $100,000
+          </p>
+        </div>
+        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-[#DE00DE] flex items-center justify-center text-xs font-bold">
+          1
+        </div>
+      </div>
+    </motion.div>
 
-  {/* Step 2 */}
-  <motion.div
-    variants={slideUpVariant}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ amount: 0.3, once: true }}
-    transition={{ delay: 0.05, duration: 0.5 }}
-    className="p-5 sm:p-8 relative bg-blue-50 rounded-3xl w-full h-auto min-h-[200px] sm:min-h-[280px] sm:h-[331px] flex flex-col justify-center"
-  >
-    <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-      <img 
-        src="/step3.svg" 
-        alt="Step 2 Icon" 
-        className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
-      />
-      <h3 className="text-xl sm:text-3xl font-bold mb-2">PASS</h3>
-      <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
-        Prove your skills by meeting the trading objective in just 7 days.
-      </p>
-    </div>
-    <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-blue-800 flex items-center justify-center text-xs font-bold">
-      2
-    </div>
-  </motion.div>
+    {/* Step 2 */}
+    <motion.div
+      variants={slideUpVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3, once: true }}
+      transition={{ delay: 0.05, duration: 0.5 }}
+      className="h-[350px] w-full sticky flex items-center justify-center z-[2] mb-5"
+      style={{
+        top: isMobile ? '0px' : '100px',
+        marginTop: isMobile ? '10px' : '-10px',
+      }}
+    >
+      <div 
+        style={{
+          backgroundColor: "#DBEAFE",
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          width: isMobile ? 'calc(100vw - 20px)' : '100%',
+          maxWidth: '100%',
+          height: 'auto',
+          minHeight: isMobile ? '250px' : '280px',
+          borderRadius: '24px',
+          padding: isMobile ? '24px' : '32px',
+          fontFamily: "'Inter', sans-serif",
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        }}
+      >
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <img 
+            src="/step3.svg" 
+            alt="Step 2 Icon" 
+            className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
+          />
+          <h3 className="text-xl sm:text-3xl font-bold mb-2">PASS</h3>
+          <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
+            Prove your skills by meeting the trading objective in just 7 days.
+          </p>
+        </div>
+        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-blue-800 flex items-center justify-center text-xs font-bold">
+          2
+        </div>
+      </div>
+    </motion.div>
 
-  {/* Step 3 */}
-  <motion.div
-    variants={slideUpVariant}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ amount: 0.3, once: true }}
-    transition={{ delay: 0.1, duration: 0.5 }}
-    className="p-5 sm:p-8 relative bg-green-50 rounded-3xl w-full h-auto min-h-[200px] sm:min-h-[280px] sm:h-[331px] flex flex-col justify-center"
-  >
-    <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-      <img 
-        src="/step2.svg" 
-        alt="Step 3 Icon" 
-        className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
-      />
-      <h3 className="text-xl sm:text-3xl font-bold mb-2">GET FUNDED</h3>
-      <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
-        Trade our funds and start earning up to 90% performance split.
-      </p>
-    </div>
-    <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-green-600 flex items-center justify-center text-xs font-bold">
-      3
-    </div>
-  </motion.div>
+    {/* Step 3 */}
+    <motion.div
+      variants={slideUpVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3, once: true }}
+      transition={{ delay: 0.1, duration: 0.5 }}
+      className="h-[350px] w-full sticky flex items-center justify-center z-[3] mb-5"
+      style={{
+        top: isMobile ? '0px' : '100px',
+        marginTop: isMobile ? '10px' : '-10px',
+      }}
+    >
+      <div 
+        style={{
+          backgroundColor: "#DCFCE7",
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          width: isMobile ? 'calc(100vw - 20px)' : '100%',
+          maxWidth: '100%',
+          height: 'auto',
+          minHeight: isMobile ? '250px' : '280px',
+          borderRadius: '24px',
+          padding: isMobile ? '24px' : '32px',
+          fontFamily: "'Inter', sans-serif",
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        }}
+      >
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <img 
+            src="/step2.svg" 
+            alt="Step 3 Icon" 
+            className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
+          />
+          <h3 className="text-xl sm:text-3xl font-bold mb-2">GET FUNDED</h3>
+          <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
+            Trade our funds and start earning up to 90% performance split.
+          </p>
+        </div>
+        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-green-600 flex items-center justify-center text-xs font-bold">
+          3
+        </div>
+      </div>
+    </motion.div>
+    
+    {/* Spacer to maintain container height */}
+    <div style={{ height: '200px' }}></div>
+  </div>
 </div>
 
         </div>

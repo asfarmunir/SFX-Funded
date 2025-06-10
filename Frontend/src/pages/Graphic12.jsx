@@ -595,156 +595,247 @@ const targetRef = useRef(null);
           </div>
         </div>
       </div>
-      {/* Process Steps Section */}
-      <div className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
-            
-            {/* Left Side Text */}
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { 
-                  opacity: 1, 
-                  y: 0,
-                  transition: {
-                duration: 0.5,
-                
-                delay: 0
+     
+{/* Process Steps Section */}
+<div className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 bg-gray-50">
+  <div className="max-w-7xl mx-auto">
+    <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
+      
+      {/* Left Side Text */}
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { 
+            opacity: 1, 
+            y: 0,
+            transition: {
+              duration: 0.5,
+              delay: 0
+            }
+          }
+        }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.3, once: true }}
+        className="lg:w-1/2 lg:sticky lg:top-[140px] lg:self-start lg:mt-[140px]"
+        style={{ height: 'fit-content' }}
+      >
+        <h2 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+          HOW TO GET FUNDED WITH OUR
+          <br />
+          <span className="text-[#DE00DE] font-semibold"> 2-STEP CHALLENGE</span>
+        </h2>
+        <p className="mt-3 text-lg sm:text-xl md:text-2xl text-gray-600">
+          Pass two simple phases and access up to $3.2M in capital
+        </p>
+        
+        {/* Enhanced CTA Button */}
+        <motion.div
+          className="mt-4 sm:mt-6 mb-8 sm:mb-10"
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { 
+              opacity: 1, 
+              y: 0,
+              transition: {
+                duration: 0.8,
+                ease: "easeOut",
+                delay: 0.6
               }
+            }
+          }}
+        >
+          <button className="mt-8 text-white px-6 py-3 sm:px-10 sm:py-5 text-lg sm:text-xl font-bold rounded-full bg-gradient-to-r from-[#DE00DE] to-[#FF00E6] hover:from-[#C000B0] hover:to-[#E600CC] transition-all duration-300 flex items-center shadow-2xl hover:shadow-[#DE00DE]/50 hover:scale-105 transform border-2 border-white/20 backdrop-blur-sm">
+            Start Trading
+            <svg className="ml-2 sm:ml-3" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
+            </svg>
+          </button>
+        </motion.div>
+      </motion.div>
+
+      {/* Right Side Steps */}
+      <div className="w-full lg:w-1/2 relative">
+        <div 
+          style={{
+            position: "relative",
+            marginTop: "2vh",
+            width: "100%",
+            height: "1200px",
+          }}
+        >
+          {/* Step 1 */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: {
+                  duration: 0.5,
+                  delay: 0
                 }
+              }
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.3, once: true }}
+            className="h-[350px] w-full sticky flex items-center justify-center z-[1] mb-5"
+            style={{
+              top: isMobile ? '0px' : '100px',
+            }}
+          >
+            <div 
+              style={{
+                backgroundColor: "#F8EAF8",
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                width: isMobile ? 'calc(100vw - 20px)' : '100%',
+                maxWidth: '100%',
+                height: 'auto',
+                minHeight: isMobile ? '250px' : '280px',
+                borderRadius: '24px',
+                padding: isMobile ? '24px' : '32px',
+                fontFamily: "'Inter', sans-serif",
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
               }}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              className="lg:w-1/2"
             >
-              <h2 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
-  HOW TO GET FUNDED WITH OUR
-  <br />
-                <span className="text-[#DE00DE] font-semibold"> 2-STEP CHALLENGE</span>
-              </h2>
-              <p className="mt-3 text-lg sm:text-xl md:text-2xl text-gray-600">
-                Pass two simple phases and access up to $3.2M in capital
-              </p>
-              <button className="mt-6 text-white px-10 py-4 sm:px-12 sm:py-5 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center font-semibold text-lg sm:text-xl shadow-lg hover:shadow-xl">
-  Start Trading
-  <svg className="ml-3" width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
-  </svg>
-</button>
-            </motion.div>
-
-            {/* Right Side Steps */}
-            <div className="w-full lg:w-1/2 space-y-4 sm:space-y-6">
-              {/* Step 1 */}
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 40 },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0,
-                    transition: {
-                      duration: 0.5,
-                      
-                      delay: 0
-                    }
-                  }
-                }}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ amount: 0.3, once: true }}
-                className="p-5 sm:p-8 relative bg-[#F8EAF8] rounded-3xl w-full h-auto min-h-[200px] sm:min-h-[280px] sm:h-[331px] flex flex-col justify-center"
-              >
-                <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                  <img 
-                    src="/step1.svg" 
-                    alt="Step 1 Icon" 
-                    className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
-                  />
-                  <h3 className="text-xl sm:text-3xl font-bold mb-2">CHOOSE YOU CHALLENGE</h3>
-                  <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
-                    Pick the evaluation that fits your trading style.
-                  </p>
-                </div>
-                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-[#DE00DE] flex items-center justify-center text-xs font-bold">
-                  1
-                </div>
-              </motion.div>
-
-              {/* Step 2 */}
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 40 },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0,
-                    transition: {
-                      duration: 0.5,
-                      
-                      delay: 0.05
-                    }
-                  }
-                }}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ amount: 0.3, once: true }}
-                className="p-5 sm:p-8 relative bg-blue-50 rounded-3xl w-full h-auto min-h-[200px] sm:min-h-[280px] sm:h-[331px] flex flex-col justify-center"
-              >
-                <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                  <img 
-                    src="/step3.svg" 
-                    alt="Step 2 Icon" 
-                    className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
-                  />
-                  <h3 className="text-xl sm:text-3xl font-bold mb-2">PASS THE 2-STEP EVALUATION</h3>
-                  <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
-                    Complete two phases - simple target, fair rules.
-                  </p>
-                </div>
-                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-blue-800 flex items-center justify-center text-xs font-bold">
-                  2
-                </div>
-              </motion.div>
-
-              {/* Step 3 */}
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 40 },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0,
-                    transition: {
-                      duration: 0.5,
-                      
-                      delay: 0.05
-                    }
-                  }
-                }}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ amount: 0.3, once: true }}
-                className="p-5 sm:p-8 relative bg-green-50 rounded-3xl w-full h-auto min-h-[200px] sm:min-h-[280px] sm:h-[331px] flex flex-col justify-center"
-              >
-                <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                  <img 
-                    src="/step2.svg" 
-                    alt="Step 3 Icon" 
-                    className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
-                  />
-                  <h3 className="text-xl sm:text-3xl font-bold mb-2">GET FUNDED & START EARNING</h3>
-                  <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
-                    Scale to $3.2 million in capital with up to 100% profit split
-                  </p>
-                </div>
-                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-green-600 flex items-center justify-center text-xs font-bold">
-                  3
-                </div>
-              </motion.div>
+              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                <img 
+                  src="/step1.svg" 
+                  alt="Step 1 Icon" 
+                  className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
+                />
+                <h3 className="text-xl sm:text-3xl font-bold mb-2">CHOOSE YOUR CHALLENGE</h3>
+                <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
+                  Pick the evaluation that fits your trading style.
+                </p>
+              </div>
+              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-[#DE00DE] flex items-center justify-center text-xs font-bold">
+                1
+              </div>
             </div>
-          </div>
+          </motion.div>
+
+          {/* Step 2 */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: {
+                  duration: 0.5,
+                  delay: 0.05
+                }
+              }
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.3, once: true }}
+            className="h-[350px] w-full sticky flex items-center justify-center z-[2] mb-5"
+            style={{
+              top: isMobile ? '0px' : '100px',
+              marginTop: isMobile ? '10px' : '-10px',
+            }}
+          >
+            <div 
+              style={{
+                backgroundColor: "#DBEAFE",
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                width: isMobile ? 'calc(100vw - 20px)' : '100%',
+                maxWidth: '100%',
+                height: 'auto',
+                minHeight: isMobile ? '250px' : '280px',
+                borderRadius: '24px',
+                padding: isMobile ? '24px' : '32px',
+                fontFamily: "'Inter', sans-serif",
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+              }}
+            >
+              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                <img 
+                  src="/step3.svg" 
+                  alt="Step 2 Icon" 
+                  className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
+                />
+                <h3 className="text-xl sm:text-3xl font-bold mb-2">PASS THE 2-STEP EVALUATION</h3>
+                <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
+                  Complete two phases - simple target, fair rules.
+                </p>
+              </div>
+              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-blue-800 flex items-center justify-center text-xs font-bold">
+                2
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Step 3 */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: {
+                  duration: 0.5,
+                  delay: 0.1
+                }
+              }
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.3, once: true }}
+            className="h-[350px] w-full sticky flex items-center justify-center z-[3] mb-5"
+            style={{
+              top: isMobile ? '0px' : '100px',
+              marginTop: isMobile ? '10px' : '-10px',
+            }}
+          >
+            <div 
+              style={{
+                backgroundColor: "#DCFCE7",
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                width: isMobile ? 'calc(100vw - 20px)' : '100%',
+                maxWidth: '100%',
+                height: 'auto',
+                minHeight: isMobile ? '250px' : '280px',
+                borderRadius: '24px',
+                padding: isMobile ? '24px' : '32px',
+                fontFamily: "'Inter', sans-serif",
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+              }}
+            >
+              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                <img 
+                  src="/step2.svg" 
+                  alt="Step 3 Icon" 
+                  className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
+                />
+                <h3 className="text-xl sm:text-3xl font-bold mb-2">GET FUNDED & START EARNING</h3>
+                <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
+                  Scale to $3.2 million in capital with up to 100% profit split
+                </p>
+              </div>
+              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-green-600 flex items-center justify-center text-xs font-bold">
+                3
+              </div>
+            </div>
+          </motion.div>
+          
+          {/* Spacer to maintain container height */}
+          <div style={{ height: '200px' }}></div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
 
       <div className="font-sans max-w-5xl mx-auto px-4 py-8">
         {/* Header */}

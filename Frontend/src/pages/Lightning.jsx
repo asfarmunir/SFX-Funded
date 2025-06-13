@@ -6,6 +6,12 @@ import { motion } from 'framer-motion';
 import LightningStackCards from '../components/Step3';
 
 export default function LightningChallenge() {
+  // Add missing state variables and refs
+  const targetRef = useRef(null);
+  const [selectedProgram, setSelectedProgram] = useState('rapid');
+  const [selectedSize, setSelectedSize] = useState(7500);
+  const [isMobile, setIsMobile] = useState(false);
+
   const slideUpVariant = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -18,6 +24,207 @@ export default function LightningChallenge() {
     }
   };
 
+  // The styles for the SVG colors
+  const svgStyles = {
+    // Pink to white filter (for SVGs that are originally pink and need to be white when selected)
+    pinkToWhite: {
+      filter: 'brightness(0) invert(1)'
+    },
+    // Default style for pink SVGs when unselected (no filter needed)
+    pink: {},
+    // White to pink filter (for SVGs that are originally white and need to be pink when unselected)
+    whiteToPink: {
+      filter: ' invert(70%) sepia(100%) saturate(5500%) hue-rotate(295deg) brightness(92%) contrast(110%)'
+    }
+  };
+
+  // Function to determine which SVG style to use
+  const getSvgStyle = (program, originalColor = 'pink') => {
+    const isSelected = selectedProgram === program;
+
+    if (originalColor === 'pink') {
+      // If the original SVG is pink
+      return isSelected ? svgStyles.pinkToWhite : svgStyles.pink;
+    } else {
+      // If the original SVG is white (like ascend.svg)
+      return isSelected ? svgStyles.pink : svgStyles.whiteToPink;
+    }
+  };
+
+  // Handle program selection
+  const handleProgramClick = (program) => {
+    setSelectedProgram(program);
+    setSelectedSize(accountSizes[program][0]);
+  };
+
+  // Handle size selection
+  const handleSizeClick = (size) => {
+    setSelectedSize(size);
+  };
+
+  // Table rows configuration
+  const tableRows = [
+    { label: "Trading Period", key: "tradingPeriod" },
+    { label: "Maximum Daily Loss", key: "maxDailyLoss", bgColor: "bg-fuchsia-50" },
+    { label: "Maximum Loss", key: "maxLoss" },
+    { label: "Profit Target", key: "profitTarget", bgColor: "bg-fuchsia-50" },
+    { label: "Leverage", key: "leverage" },
+    { label: "Reward Schedule", key: "rewardSchedule", bgColor: "bg-fuchsia-50" },
+    { label: "Profit Split", key: "profitSplit" }
+  ];
+
+  // Check mobile view on mount and resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+ const pricingData = {
+    rapid: {
+      7500: { original: 55, discounted: 36 },
+      15000: { original: 89, discounted: 58 },
+      30000: { original: 139, discounted: 91 },
+      60000: { original: 210, discounted: 137 },
+      120000: { original: 338, discounted: 220 }
+    },
+    ignite: {
+      5000: { original: 57, discounted: 38 },
+      10000: { original: 77, discounted: 51 },
+      25000: { original: 147, discounted: 96 },
+      50000: { original: 222, discounted: 145 },
+      100000: { original: 350, discounted: 228 }
+    },
+    ascend: {
+      7500: { original: 69, discounted: 45 },
+      15000: { original: 99, discounted: 65 },
+      30000: { original: 199, discounted: 130 },
+      60000: { original: 299, discounted: 195 },
+      120000: { original: 499, discounted: 325 }
+    },
+    instant: {
+      1250: { original: 65, discounted: 43 },
+      2000: { original: 90, discounted: 59 },
+      5000: { original: 195, discounted: 127 },
+      10000: { original: 395, discounted: 257 },
+      20000: { original: 795, discounted: 517 },
+      40000: { original: 1680, discounted: 1092 }
+    }
+  };
+    // Define account sizes for each program
+  const accountSizes = {
+    rapid: [7500, 15000, 30000, 60000, 120000],
+    ignite: [5000, 10000, 25000, 50000, 100000],
+    ascend: [7500, 15000, 30000, 60000, 120000],
+    instant: [1250, 2000, 5000, 10000, 20000, 40000]
+  };
+
+  // Handler for funding program selection
+  // Table data structure (as provided)
+  const tableData = {
+    rapid: {
+      7500: { phase1: { tradingPeriod: "7 days", maxDailyLoss: "3%", maxLoss: "4%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" } },
+      15000: { phase1: { tradingPeriod: "7 days", maxDailyLoss: "3%", maxLoss: "4%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" } },
+      30000: { phase1: { tradingPeriod: "7 days", maxDailyLoss: "3%", maxLoss: "4%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" } },
+      60000: { phase1: { tradingPeriod: "7 days", maxDailyLoss: "3%", maxLoss: "4%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" } },
+      120000: { phase1: { tradingPeriod: "7 days", maxDailyLoss: "3%", maxLoss: "4%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" } }
+    },
+    ignite: {
+      5000: {
+        phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+      },
+      10000: {
+        phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+      },
+      25000: {
+        phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+      },
+      50000: {
+        phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+      },
+      100000: {
+        phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+      }
+    },
+    ascend: {
+      7500: {
+        phase1: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "8%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+      },
+      15000: {
+        phase1: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "8%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+      },
+      30000: {
+        phase1: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "8%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+      },
+      60000: {
+        phase1: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "8%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+      },
+      120000: {
+        phase1: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "8%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+      }
+    },
+    instant: {
+      1250: {},
+      2000: {},
+      5000: {},
+      10000: {},
+      20000: {},
+      40000: {}
+
+    }
+  };
+
+  // Funded account data
+  const fundedData = {
+    rapid: {
+      tradingPeriod: "Indefinite",
+      maxDailyLoss: "3%",
+      maxLoss: "4%",
+      profitTarget: "-",
+      leverage: "1:30",
+      rewardSchedule: "On demand/Bi-weekly",
+      profitSplit: "Up to 100%"
+    },
+    ignite: {
+      tradingPeriod: "Indefinite",
+      maxDailyLoss: "3%",
+      maxLoss: "8%",
+      profitTarget: "-",
+      leverage: "1:30",
+      rewardSchedule: "On demand/Bi-weekly",
+      profitSplit: "Up to 100%"
+    },
+    ascend: {
+      tradingPeriod: "Indefinite",
+      maxDailyLoss: "4%",
+      maxLoss: "8%",
+      profitTarget: "-",
+      leverage: "1:30",
+      rewardSchedule: "On demand/Bi-weekly",
+      profitSplit: "Up to 100%"
+    },
+    instant: {
+      tradingPeriod: "Indefinite",
+      maxDailyLoss: "4%",
+      maxLoss: "7%",
+      profitTarget: "-",
+      leverage: "1:30",
+      rewardSchedule: "On demand/Bi-weekly",
+      profitSplit: "Up to 100%"
+    }
+  };
 
   const [selectedFeeOption, setSelectedFeeOption] = useState(0);
  
@@ -31,8 +238,7 @@ export default function LightningChallenge() {
       },
     },
   };
-  
-  const [selectedAccountIndex, setSelectedAccountIndex] = useState(0);
+    const [selectedAccountIndex, setSelectedAccountIndex] = useState(0);
 const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
 
   const item = {
@@ -46,22 +252,6 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
       },
     },
   };
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-    
-    // Check initially
-    checkIfMobile();
-    
-    // Add event listener
-    window.addEventListener("resize", checkIfMobile);
-    
-    // Clean up
-    return () => window.removeEventListener("resize", checkIfMobile);
-  }, []);
   return (
     <div className="font-inter w-full ">
       
@@ -580,263 +770,296 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
   </div>
 </div>
 
-      {/* Account Table Section */}
-      <div className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 font-sans text-[#21001E]">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6">
-            Choose Your Lightning Account
+      <div className="font-sans max-w-6xl mx-auto px-4 py-12">
+        {/* Header */}
+        <div className="text-center mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900">
+            Top Funded Trader Programs
           </h2>
-
-          <div className="w-full flex justify-center my-6 sm:my-8">
-            <div className="bg-[#FFEFFE] rounded-full px-4 py-2 sm:px-6 sm:py-2 border border-[#D90BC6]">
-              <p className="text-center text-black font-semibold text-base sm:text-lg md:text-xl">
-                Trade Forex, Indices, Metals & Crypto
-              </p>
-            </div>
+          <div className="mt-4 inline-block bg-fuchsia-50 px-6 py-2 rounded-full border border-fuchsia-200">
+            <span className="text-lg font-medium">Trade Forex, Indices, Metals & Crypto</span>
           </div>
-
-          <div className="mt-8 sm:mt-12 bg-white rounded-3xl overflow-hidden mb-8 sm:mb-12 border border-[#D90BC6]">
-  {/* Mobile Account Selector */}
-  <div className="block sm:hidden p-4">
-    <select 
-      className="w-full p-3 rounded-lg bg-[#F001E1] text-white font-medium text-center"
-      onChange={(e) => setSelectedAccountIndex(parseInt(e.target.value))}
-    >
-      <option value="" disabled>Select Account Size</option>
-      {['$10k', '$25k', '$50k', '$100k'].map((size, idx) => (
-        <option key={idx} value={idx}>{size}</option>
-      ))}
-    </select>
-  </div>
-
- {/* Desktop Account Tabs */}
-<div className="hidden sm:block px-4 mt-6 sm:mt-8">
-  <div className="max-w-7xl mx-7 bg-white rounded-2xl border border-[#D90BC6] px-4 py-2 my-7 flex flex-wrap items-center justify-between gap-2">
-    {/* Left-aligned static tile */}
-    <div className="w-[120px] sm:w-[140px] md:w-[220px] h-[40px] sm:h-[47px] bg-[#F001E1] rounded-md flex items-center justify-center text-white font-medium text-sm sm:text-base">
-      Account Size
-    </div>
-
-    {/* Right-aligned selectable tiles */}
-    <div className="flex flex-wrap justify-end gap-2 ml-auto">
-      {['$10k', '$25k', '$50k', '$100k'].map((size, idx) => (
-        <div 
-          key={idx}
-          className={`w-[120px] sm:w-[140px] md:w-[220px] h-[40px] sm:h-[47px] ${
-            selectedAccountIndex === idx ? 'bg-[#D90BC6] text-white' : 'bg-[#FFDBFD] text-black'
-          } rounded-md flex items-center justify-center font-medium text-sm sm:text-base cursor-pointer`}
-          onClick={() => setSelectedAccountIndex(idx)}
-        >
-          {size}
         </div>
-      ))}
-    </div>
-  </div>
-</div>
 
-<div className="w-full">
-  {[
-    { 
-      label: 'Target',
-      values: ['5%', '5%', '5%', '5%']
-    },
-    { 
-      label: 'Max Drawdown',
-      values: ['4% Trailing', '4% Trailing', '4% Trailing', '4% Trailing']
-    },
-    { 
-      label: 'Daily Drawdown',
-      values: ['3% EOD Balance', '3% EOD Balance', '3% EOD Balance', '3% EOD Balance']
-    },
-    { 
-      label: 'Leverage',
-      values: ['Up to 1:30', 'Up to 1:30', 'Up to 1:30', 'Up to 1:30']
-    },
-    { 
-      label: 'Performance Split',
-      values: ['Up to 80%', 'Up to 85%', 'Up to 88%', 'Up to 90%']
-    },
-    { 
-      label: 'Max Trading Days',
-      values: ['7 days (Evaluation)', '7 days (Evaluation)', '7 days (Evaluation)', '7 days (Evaluation)']
-    },
-    { 
-      label: 'Initial Payout Timeframe',
-      values: ['7 days', '7 days', '7 days', '7 days']
-    },
-    { 
-      label: 'Stop Loss Required?',
-      values: ['Yes', 'Yes', 'Yes', 'Yes']
-    },
-    { 
-      label: '30% Consistency Rule',
-      values: ['Evaluation & Funded', 'Evaluation & Funded', 'Evaluation & Funded', 'Evaluation & Funded']
-    },
-    { 
-      label: 'Fee',
-      values: [
-        ['$59', '$99 ', '$149 ', '$199 '],
-        ['$119', '$199', '$299', '$399 '],
-        ['$209 ', '$349 ', '$499 ', '$699 '],
-        ['$399 ', '$599 ', '$899 ', '$1199 ']
-      ],
-      special: true
-    },
-  ].map((item, idx) => (
-    <div
-      key={idx}
-      className={`flex flex-col sm:flex-row w-full ${idx % 2 === 0 ? 'bg-white' : 'bg-[#FFEFFE]'} border-t border-[#E5E7EB]`}
-    >
-      <div className="p-3 sm:p-4 w-full sm:w-[165px] font-medium text-black pl-4 sm:pl-6">
-        {item.label}
-      </div>
-      
-      {item.special ? (
-        <>
-          {/* Mobile fee view with dropdown */}
-          <div className="block sm:hidden p-3 flex-1">
-            {showFeesOnMobile ? (
-              <div className="space-y-3">
-                {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0].map((val, i) => (
-                  <div 
-                    key={i} 
-                    className="flex items-center justify-between p-2 bg-[#FFDBFD] rounded-md"
-                    onClick={() => {
-                      setSelectedFeeOption(i);
-                      setShowFeesOnMobile(false);
-                    }}
-                  >
-                    <span className="font-medium">{val}</span>
-                    {selectedFeeOption === i && (
-                      <svg className="w-5 h-5 text-[#F001E1]" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    )}
-                  </div>
-                ))}
-                <button 
-                  className="w-full p-2 text-center text-[#F001E1] font-medium border border-[#F001E1] rounded-md mt-2"
-                  onClick={() => setShowFeesOnMobile(false)}
-                >
-                  Close
-                </button>
-              </div>
-            ) : (
-              <div className="flex flex-col gap-2">
-                <button 
-                  className="w-full p-2 bg-[#F001E1] text-white rounded-md font-medium"
-                  onClick={() => setShowFeesOnMobile(true)}
-                >
-                  {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0][selectedFeeOption !== null ? selectedFeeOption : 0]}
-                </button>
-                <p className="text-xs text-gray-500 text-center">Tap to change fee option</p>
-              </div>
-            )}
+
+        <div className="px-4 sm:px-6 max-w-full overflow-hidden">
+          {/* Program Selection Tiles */}
+          <div className={`flex flex-wrap justify-center gap-4 mt-6 ${isMobile ? 'gap-y-3' : ''}`}>
+            <button
+              className={`w-[160px] sm:w-[180px] ${selectedProgram === 'rapid'
+                ? 'bg-[#D90BC6] text-white'
+                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+                } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
+              onClick={() => handleProgramClick('rapid')}
+            >
+              <img
+                src="/thunder.svg"
+                alt="Rapid"
+                className="w-5 h-5 mr-2"
+                style={getSvgStyle('rapid')}
+              />
+              <span>Rapid</span>
+            </button>
+
+            <button
+              className={`w-[160px] sm:w-[180px] ${selectedProgram === 'ignite'
+                ? 'bg-[#D90BC6] text-white'
+                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+                } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
+              onClick={() => handleProgramClick('ignite')}
+            >
+              <img
+                src="/ignite1.svg"
+                alt="Ignite"
+                className="w-5 h-5 mr-2"
+                style={getSvgStyle('ignite')}
+              />
+              <span>Ignite</span>
+            </button>
+
+            <button
+              className={`w-[160px] sm:w-[180px] ${selectedProgram === 'ascend'
+                ? 'bg-[#D90BC6] text-white'
+                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+                } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
+              onClick={() => handleProgramClick('ascend')}
+            >
+              <img
+                src="/ascend.svg"
+                alt="Ascend"
+                className="w-5 h-5 mr-2"
+                style={getSvgStyle('ascend', 'white')} // Assume ascend.svg is originally white
+              />
+              <span>Ascend</span>
+            </button>
+
+            <button
+              className={`w-[160px] sm:w-[180px] ${selectedProgram === 'instant'
+                ? 'bg-[#D90BC6] text-white'
+                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+                } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
+              onClick={() => handleProgramClick('instant')}
+            >
+              <img
+                src="/rocket.svg"
+                alt="Instant Funding"
+                className="w-5 h-5 mr-2"
+                style={getSvgStyle('instant')}
+              />
+              <span className="whitespace-nowrap text-sm sm:text-base">Instant Funding</span>
+            </button>
           </div>
-          
-          {/* Desktop fees view - show all 4 fee options for the SELECTED account */}
-          <div className="hidden sm:grid sm:grid-cols-4 gap-2 sm:gap-0 w-full">
-            {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0].map((fee, feeIdx) => (
-              <div 
-                key={feeIdx} 
-                className={`p-2 sm:p-4 text-center text-black flex flex-col items-center justify-center text-sm sm:text-base ${
-                  selectedFeeOption === feeIdx ? 'font-base text-[#F001E1]' : 'font-base'
-                }`}
+        </div>
+
+        {/* Account Table */}
+        {selectedProgram !== 'instant' ? (
+          <div ref={targetRef} className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
+            {/* Mobile Account Selector */}
+            <div className="block sm:hidden px-4 py-3">
+              <select
+                className="w-full p-3 rounded-lg bg-[#D90BC6] text-white font-medium text-center"
+                onChange={(e) => handleSizeClick(parseInt(e.target.value))}
+                value={selectedSize}
               >
-                {fee}
+                <option value="" disabled>Select Account Size</option>
+                {accountSizes[selectedProgram].map((size, idx) => (
+                  <option key={idx} value={size}>${size.toLocaleString()}</option>
+                ))}
+              </select>
+            </div>
+            {/* Account Size Tabs */}
+            <div className="p-4">
+              <div className="hidden sm:flex max-w-7xl  bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7  flex-wrap justify-center gap-2">
+                {accountSizes[selectedProgram].map((size) => (
+                  <button
+                    key={size}
+                    className={`w-[130px]  sm:w-[140px] md:w-[175px] h-[40px] sm:h-[47px] mx-1 sm:mx-2 ${selectedSize === size ? 'bg-[#D90BC6]' : 'bg-fuchsia-100'
+                      } rounded-md flex items-center justify-center ${selectedSize === size ? 'text-white' : 'text-black'
+                      } font-medium text-sm sm:text-base`}
+                    onClick={() => handleSizeClick(size)}
+                  >
+                    ${size.toLocaleString()}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Phase Headers */}
+            <div className="grid grid-cols-4 border-b border-gray-200">
+              <div className="invisible"></div>
+              <div className="text-center py-3">
+                <span className="text-[#D90BC6] font-medium">Phase 1</span>
+              </div>
+              <div className="text-center py-3">
+                <span className="text-[#D90BC6] font-medium">
+                  {selectedProgram !== 'rapid' ? 'Phase 2' : ' '}
+                </span>
+              </div>
+              <div className="text-center py-3">
+                <span className="text-[#D90BC6] font-medium">Funded</span>
+              </div>
+            </div>
+
+
+            {/* Table Rows */}
+            {tableRows.map((row, index) => (
+              <div
+                key={row.key}
+                className={`grid grid-cols-4 border-b border-gray-200 ${row.bgColor || ''}`}
+              >
+                <div className="py-3 pl-4 font-medium">{row.label}</div>
+                <div className="text-center py-3">
+                  {tableData[selectedProgram][selectedSize]?.phase1?.[row.key] || "-"}
+                </div>
+                <div className="text-center py-3">
+                  {selectedProgram === 'instant' ? ' ' : (tableData[selectedProgram][selectedSize]?.phase2?.[row.key] || " ")}
+                </div>
+                <div className="text-center py-3">
+                  {fundedData[selectedProgram][row.key]}
+                </div>
               </div>
             ))}
           </div>
-        </>
-      ) : (
-        <>
-          {/* Mobile view - show only selected account value */}
-          <div className="block sm:hidden p-3 flex-1 text-center text-black">
-            {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0]}
-          </div>
-          
-          {/* Desktop view - show selected account values in a row */}
-          <div className="hidden sm:flex sm:flex-1">
-            <div className="p-2 sm:p-4 text-center text-black flex items-center justify-center text-sm sm:text-base font-base flex-1">
-              {item.values[selectedAccountIndex !== null ? selectedAccountIndex : 0]}
+        ) : (
+          // Instant Funding Program View (simpler version)
+          <div className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
+            {/* Mobile Account Selector */}
+            <div className="block sm:hidden px-4 py-3">
+              <select
+                className="w-full p-3 rounded-lg bg-[#D90BC6] text-white font-medium text-center"
+                onChange={(e) => handleSizeClick(parseInt(e.target.value))}
+                value={selectedSize}
+              >
+                <option value="" disabled>Select Account Size</option>
+                {accountSizes[selectedProgram].map((size, idx) => (
+                  <option key={idx} value={size}>${size.toLocaleString()}</option>
+                ))}
+              </select>
+            </div>
+            {/* Account Size Tabs */}
+            <div className="p-4">
+              <div className="hidden sm:flex max-w-7xl bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7 flex-wrap justify-center gap-2">
+                {accountSizes[selectedProgram].map((size) => (
+                  <button
+                    key={size}
+                    className={`w-[120px]  sm:w-[140px] md:w-[135px] h-[40px] sm:h-[47px] mx-1 sm:mx-2 ${selectedSize === size ? 'bg-[#D90BC6]' : 'bg-fuchsia-100'
+                      } rounded-md flex items-center justify-center ${selectedSize === size ? 'text-white' : 'text-black'
+                      } font-medium text-sm sm:text-base`}
+                    onClick={() => handleSizeClick(size)}
+                  >
+                    ${size.toLocaleString()}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Funded Account Details */}
+            <div className="grid grid-cols-2 border-b border-gray-200">
+              <div className="py-3 pl-4 font-medium"></div>
+              <div className="text-center py-3 text-[#D90BC6] font-medium">Funded</div>
+            </div>
+            <div className="grid grid-cols-2 border-b border-gray-200 ">
+              <div className="py-3 pl-4 font-medium">Trading Period</div>
+              <div className="text-center py-3">{fundedData.instant.tradingPeriod}</div>
+            </div>
+            <div className="grid grid-cols-2 border-b border-gray-200  bg-fuchsia-50">
+              <div className="py-3 pl-4 font-medium">Maximum Daily Loss</div>
+              <div className="text-center py-3">{fundedData.instant.maxDailyLoss}</div>
+            </div>
+            <div className="grid grid-cols-2 border-b border-gray-200">
+              <div className="py-3 pl-4 font-medium">Profit Target</div>
+              <div className="text-center py-3">-</div>
+            </div>
+            <div className="grid grid-cols-2 border-b border-gray-200  bg-fuchsia-50">
+              <div className="py-3 pl-4 font-medium">Maximum Loss</div>
+              <div className="text-center py-3">{fundedData.instant.maxLoss}</div>
+            </div>
+            <div className="grid grid-cols-2 border-b border-gray-200 ">
+              <div className="py-3 pl-4 font-medium">Leverage</div>
+              <div className="text-center py-3">{fundedData.instant.leverage}</div>
+            </div>
+            <div className="grid grid-cols-2 border-b border-gray-200  bg-fuchsia-50">
+              <div className="py-3 pl-4 font-medium">Reward Schedule</div>
+              <div className="text-center py-3">{fundedData.instant.rewardSchedule}</div>
+            </div>
+            <div className="grid grid-cols-2 ">
+              <div className="py-3 pl-4 font-medium">Profit Split</div>
+              <div className="text-center py-3">{fundedData.instant.profitSplit}</div>
             </div>
           </div>
-        </>
-      )}
-    </div>
-  ))}
+        )}
 
-  {/* Desktop - show 4 buttons aligned with fee options */}
-  <div className="hidden sm:grid sm:grid-cols-4 gap-4 p-4 ml-[165px] w-[calc(100%-165px)]">
-    {['Monthly', 'One-time', 'Quarterly', 'Yearly'].map((plan, idx) => (
-      <div key={idx} className="flex justify-center">
-        <button
-          className="w-[140px] sm:w-[140px] md:w-[165px] h-[40px] sm:h-[47px] text-white rounded-lg bg-[#F001E1] hover:bg-[#D900D1] transition-colors font-medium text-sm sm:text-base flex items-center justify-center"
-        >
-          Start Trading
-        </button>
-      </div>
-    ))}
-  </div>
-  
-  {/* Mobile - show only selected button */}
-  <div className="flex sm:hidden justify-center p-4">
-    <button
-      className="w-[200px] h-[40px] text-white rounded-lg bg-[#F001E1] hover:bg-[#D900D1] transition-colors font-medium text-sm flex items-center justify-center"
-    >
-      Start Trading - {selectedAccountIndex !== null ? ['$10k', '$25k', '$50k', '$100k'][selectedAccountIndex] : '$10k'}
-    </button>
-  </div>
-</div>
-</div>
 
-          {/* Pricing Box */}
-<div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
-  <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-    <div className="flex flex-col items-center md:items-start gap-2">
-      <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-        {/* Original Price (strikethrough) */}
-        <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
-          {selectedAccountIndex === 0 ? '$69' : 
-           selectedAccountIndex === 1 ? '$149' : 
-           selectedAccountIndex === 2 ? '$299' : '$599'}
-        </div>
-        {/* Discounted Price */}
-        <div className="text-[#F001E1] font-bold"style={{ fontSize: '48px' }}>
-          {selectedAccountIndex === 0 ? '$34' : 
-           selectedAccountIndex === 1 ? '$74' : 
-           selectedAccountIndex === 2 ? '$149' : '$299'}
-        </div>
-        {/* Account Size */}
-        <div className="text-[#F001E1] font-medium "style={{ fontSize: '36px' }}>
-          {selectedAccountIndex === 0 ? '$10,000' : 
-           selectedAccountIndex === 1 ? '$25,000' : 
-           selectedAccountIndex === 2 ? '$50,000' : '$100,000'}
-        </div>
-      </div>
-      <div className="text-[#F001E1] font-medium text-base sm:text-lg text-center md:text-left">
-        One-Time Fee • 100% Refundable
-      </div>
-    </div>
 
-    <button
-      className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
-    >
-      Start Challenge →
-    </button>
-  </div>
 
-  <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
-    {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
-      <img 
-        key={img} 
-        src={`/${img}.png`} 
-        alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)} 
-        className="h-6 sm:h-8" 
-      />
-    ))}
-  </div>
-</div>
+
+        <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+            <div className="flex flex-col items-center md:items-start gap-2 w-full">
+              {/* Mobile View - Stacked layout */}
+              <div className="flex flex-col items-center md:hidden w-full gap-1">
+                {/* 1st line - Account Size with Program */}
+                <div className="text-[#F001E1] font-medium text-2xl">
+                  ${selectedSize.toLocaleString()} {selectedProgram.charAt(0).toUpperCase() + selectedProgram.slice(1)}
+                </div>
+
+                {/* 2nd line - Original Price (strikethrough) */}
+                <div className="text-[#F001E1] font-bold text-xl line-through">
+                  ${pricingData[selectedProgram][selectedSize]?.original || 'N/A'}
+                </div>
+
+                {/* 3rd line - Discounted Price */}
+                <div className="text-[#F001E1] font-bold text-4xl">
+                  ${pricingData[selectedProgram][selectedSize]?.discounted || 'N/A'}
+                </div>
+
+                {/* 4th line - One-Time Fee text */}
+                <div className="text-[#F001E1] font-medium text-base">
+                  One-Time Fee
+                  {selectedProgram !== "instant" && " • 100% Refundable"}
+                </div>
+              </div>
+
+              {/* Desktop View - Row layout */}
+              <div className="hidden md:flex items-center gap-2 sm:gap-4 flex-wrap">
+                {/* Original Price (strikethrough) */}
+                <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
+                  ${pricingData[selectedProgram][selectedSize]?.original || 'N/A'}
+                </div>
+                {/* Discounted Price */}
+                <div className="text-[#F001E1] font-bold text-4xl sm:text-5xl">
+                  ${pricingData[selectedProgram][selectedSize]?.discounted || 'N/A'}
+                </div>
+                {/* Account Size with Program */}
+                <div className="text-[#F001E1] font-medium text-2xl sm:text-3xl">
+                  ${selectedSize.toLocaleString()} {selectedProgram.charAt(0).toUpperCase() + selectedProgram.slice(1)}
+                </div>
+              </div>
+
+              {/* Desktop - One-Time Fee text */}
+              <div className="hidden md:block text-[#F001E1] font-medium text-base sm:text-lg text-left">
+                One-Time Fee
+                {selectedProgram !== "instant" && " • 100% Refundable"}
+              </div>
+            </div>
+
+            <button
+              className="text-white font-semibold text-base sm:text-lg w-full sm:w-[300px] md:w-[400px] h-[50px] sm:h-[65px] rounded-lg bg-gradient-to-r from-[#F800EA] to-[#BB00A3] hover:from-[#E600D2] hover:to-[#AA0099] transition-colors flex items-center justify-center"
+            >
+              Start Challenge →
+            </button>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
+            {['btc', 'eth', 'visa', 'mcard', 'amex', 'paypal'].map((img) => (
+              <img
+                key={img}
+                src={`/${img}.png`}
+                alt={img === 'mcard' ? 'Mastercard' : img.charAt(0).toUpperCase() + img.slice(1)}
+                className="h-6 sm:h-8"
+              />
+            ))}
+          </div>
         </div>
       </div>
 

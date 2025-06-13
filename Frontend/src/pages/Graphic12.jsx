@@ -11,109 +11,222 @@ import 'swiper/css/autoplay';
 import LightningStackCards from '../components/Step5';
 
 export default function Graphic() {
+  // Add missing state variables and refs
+  const targetRef = useRef(null);
+  const [selectedProgram, setSelectedProgram] = useState('rapid');
+  const [selectedSize, setSelectedSize] = useState(7500);
+  const [isMobile, setIsMobile] = useState(false);
+
   const [activeFundingType, setActiveFundingType] = useState("ignite");
   const [activeAccountSize, setActiveAccountSize] = useState("7500");
 
+  // The styles for the SVG colors
+  const svgStyles = {
+    // Pink to white filter (for SVGs that are originally pink and need to be white when selected)
+    pinkToWhite: {
+      filter: 'brightness(0) invert(1)'
+    },
+    // Default style for pink SVGs when unselected (no filter needed)
+    pink: {},
+    // White to pink filter (for SVGs that are originally white and need to be pink when unselected)
+    whiteToPink: {
+      filter: ' invert(70%) sepia(100%) saturate(5500%) hue-rotate(295deg) brightness(92%) contrast(110%)'
+    }
+  };
+
+  // Function to determine which SVG style to use
+  const getSvgStyle = (program, originalColor = 'pink') => {
+    const isSelected = selectedProgram === program;
+
+    if (originalColor === 'pink') {
+      // If the original SVG is pink
+      return isSelected ? svgStyles.pinkToWhite : svgStyles.pink;
+    } else {
+      // If the original SVG is white (like ascend.svg)
+      return isSelected ? svgStyles.pink : svgStyles.whiteToPink;
+    }
+  };
+
+  // Handle program selection
+  const handleProgramClick = (program) => {
+    setSelectedProgram(program);
+    setSelectedSize(accountSizes[program][0]);
+  };
+
+  // Handle size selection
+  const handleSizeClick = (size) => {
+    setSelectedSize(size);
+  };
+
+  // Table rows configuration
+  const tableRows = [
+    { label: "Trading Period", key: "tradingPeriod" },
+    { label: "Maximum Daily Loss", key: "maxDailyLoss", bgColor: "bg-fuchsia-50" },
+    { label: "Maximum Loss", key: "maxLoss" },
+    { label: "Profit Target", key: "profitTarget", bgColor: "bg-fuchsia-50" },
+    { label: "Leverage", key: "leverage" },
+    { label: "Reward Schedule", key: "rewardSchedule", bgColor: "bg-fuchsia-50" },
+    { label: "Profit Split", key: "profitSplit" }
+  ];
+
+  // Check mobile view on mount and resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Table content data based on funding type AND account size
-  const tableData = {
+   const pricingData = {
+    rapid: {
+      7500: { original: 55, discounted: 36 },
+      15000: { original: 89, discounted: 58 },
+      30000: { original: 139, discounted: 91 },
+      60000: { original: 210, discounted: 137 },
+      120000: { original: 338, discounted: 220 }
+    },
     ignite: {
-      "7500": {
-        tradingPeriod: ["Unlimited", "Unlimited", "Indefinite"],
-        maxDailyLoss: ["4%", "4%", "4%"],
-        maxLoss: ["8%", "8%", "8%"],
-        profitTarget: ["8%", "5%", "-"],
-        leverage: ["1:30", "1:30", "1:30"],
-        rewardSchedule: ["-", "-", "On demand/Bi-weekly"],
-        profitSplit: ["-", "-", "up to 100%"]
+      5000: { original: 57, discounted: 38 },
+      10000: { original: 77, discounted: 51 },
+      25000: { original: 147, discounted: 96 },
+      50000: { original: 222, discounted: 145 },
+      100000: { original: 350, discounted: 228 }
+    },
+    ascend: {
+      7500: { original: 69, discounted: 45 },
+      15000: { original: 99, discounted: 65 },
+      30000: { original: 199, discounted: 130 },
+      60000: { original: 299, discounted: 195 },
+      120000: { original: 499, discounted: 325 }
+    },
+    instant: {
+      1250: { original: 65, discounted: 43 },
+      2000: { original: 90, discounted: 59 },
+      5000: { original: 195, discounted: 127 },
+      10000: { original: 395, discounted: 257 },
+      20000: { original: 795, discounted: 517 },
+      40000: { original: 1680, discounted: 1092 }
+    }
+  };
+    // Define account sizes for each program
+  const accountSizes = {
+    rapid: [7500, 15000, 30000, 60000, 120000],
+    ignite: [5000, 10000, 25000, 50000, 100000],
+    ascend: [7500, 15000, 30000, 60000, 120000],
+    instant: [1250, 2000, 5000, 10000, 20000, 40000]
+  };
+
+  
+
+  // Handler for funding program selection
+  // Table data structure (as provided)
+  const tableData = {
+    rapid: {
+      7500: { phase1: { tradingPeriod: "7 days", maxDailyLoss: "3%", maxLoss: "4%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" } },
+      15000: { phase1: { tradingPeriod: "7 days", maxDailyLoss: "3%", maxLoss: "4%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" } },
+      30000: { phase1: { tradingPeriod: "7 days", maxDailyLoss: "3%", maxLoss: "4%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" } },
+      60000: { phase1: { tradingPeriod: "7 days", maxDailyLoss: "3%", maxLoss: "4%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" } },
+      120000: { phase1: { tradingPeriod: "7 days", maxDailyLoss: "3%", maxLoss: "4%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" } }
+    },
+    ignite: {
+      5000: {
+        phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       },
-      "15000": {
-        tradingPeriod: ["Unlimited", "Unlimited", "Indefinite"],
-        maxDailyLoss: ["4.5%", "4.5%", "4.5%"],
-        maxLoss: ["9%", "9%", "9%"],
-        profitTarget: ["9%", "6%", "-"],
-        leverage: ["1:25", "1:25", "1:25"],
-        rewardSchedule: ["-", "-", "On demand/Bi-weekly"],
-        profitSplit: ["-", "-", "up to 90%"]
+      10000: {
+        phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       },
-      "30000": {
-        tradingPeriod: ["Unlimited", "Unlimited", "Indefinite"],
-        maxDailyLoss: ["5%", "5%", "5%"],
-        maxLoss: ["10%", "10%", "10%"],
-        profitTarget: ["10%", "7%", "-"],
-        leverage: ["1:20", "1:20", "1:20"],
-        rewardSchedule: ["-", "-", "Weekly"],
-        profitSplit: ["-", "-", "up to 85%"]
+      25000: {
+        phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       },
-      "60000": {
-        tradingPeriod: ["Unlimited", "Unlimited", "Indefinite"],
-        maxDailyLoss: ["5.5%", "5.5%", "5.5%"],
-        maxLoss: ["11%", "11%", "11%"],
-        profitTarget: ["11%", "8%", "-"],
-        leverage: ["1:15", "1:15", "1:15"],
-        rewardSchedule: ["-", "-", "Weekly"],
-        profitSplit: ["-", "-", "up to 80%"]
+      50000: {
+        phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       },
-      "120000": {
-        tradingPeriod: ["Unlimited", "Unlimited", "Indefinite"],
-        maxDailyLoss: ["6%", "6%", "6%"],
-        maxLoss: ["12%", "12%", "12%"],
-        profitTarget: ["12%", "9%", "-"],
-        leverage: ["1:10", "1:10", "1:10"],
-        rewardSchedule: ["-", "-", "Daily"],
-        profitSplit: ["-", "-", "up to 75%"]
+      100000: {
+        phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       }
     },
     ascend: {
-      "7500": {
-        tradingPeriod: ["30 days", "30 days", "Indefinite"],
-        maxDailyLoss: ["5%", "5%", "5%"],
-        maxLoss: ["10%", "10%", "10%"],
-        profitTarget: ["10%", "7%", "-"],
-        leverage: ["1:20", "1:20", "1:20"],
-        rewardSchedule: ["-", "-", "Monthly"],
-        profitSplit: ["-", "-", "up to 90%"]
+      7500: {
+        phase1: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "8%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       },
-      "15000": {
-        tradingPeriod: ["25 days", "25 days", "Indefinite"],
-        maxDailyLoss: ["5.5%", "5.5%", "5.5%"],
-        maxLoss: ["11%", "11%", "11%"],
-        profitTarget: ["11%", "8%", "-"],
-        leverage: ["1:18", "1:18", "1:18"],
-        rewardSchedule: ["-", "-", "Bi-weekly"],
-        profitSplit: ["-", "-", "up to 85%"]
+      15000: {
+        phase1: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "8%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       },
-      "30000": {
-        tradingPeriod: ["20 days", "20 days", "Indefinite"],
-        maxDailyLoss: ["6%", "6%", "6%"],
-        maxLoss: ["12%", "12%", "12%"],
-        profitTarget: ["12%", "9%", "-"],
-        leverage: ["1:15", "1:15", "1:15"],
-        rewardSchedule: ["-", "-", "Weekly"],
-        profitSplit: ["-", "-", "up to 80%"]
+      30000: {
+        phase1: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "8%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       },
-      "60000": {
-        tradingPeriod: ["15 days", "15 days", "Indefinite"],
-        maxDailyLoss: ["6.5%", "6.5%", "6.5%"],
-        maxLoss: ["13%", "13%", "13%"],
-        profitTarget: ["13%", "10%", "-"],
-        leverage: ["1:12", "1:12", "1:12"],
-        rewardSchedule: ["-", "-", "Weekly"],
-        profitSplit: ["-", "-", "up to 75%"]
+      60000: {
+        phase1: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "8%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       },
-      "120000": {
-        tradingPeriod: ["10 days", "10 days", "Indefinite"],
-        maxDailyLoss: ["7%", "7%", "7%"],
-        maxLoss: ["14%", "14%", "14%"],
-        profitTarget: ["14%", "11%", "-"],
-        leverage: ["1:10", "1:10", "1:10"],
-        rewardSchedule: ["-", "-", "Daily"],
-        profitSplit: ["-", "-", "up to 70%"]
+      120000: {
+        phase1: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "8%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "Unlimited", maxDailyLoss: "4%", maxLoss: "8%", profitTarget: "5%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       }
+    },
+    instant: {
+      1250: {},
+      2000: {},
+      5000: {},
+      10000: {},
+      20000: {},
+      40000: {}
+
     }
   };
-const targetRef = useRef(null);
-  // Account sizes data
-  const accountSizes = ["7500", "15000", "30000", "60000", "120000"];
+
+  // Funded account data
+  const fundedData = {
+    rapid: {
+      tradingPeriod: "Indefinite",
+      maxDailyLoss: "3%",
+      maxLoss: "4%",
+      profitTarget: "-",
+      leverage: "1:30",
+      rewardSchedule: "On demand/Bi-weekly",
+      profitSplit: "Up to 100%"
+    },
+    ignite: {
+      tradingPeriod: "Indefinite",
+      maxDailyLoss: "3%",
+      maxLoss: "8%",
+      profitTarget: "-",
+      leverage: "1:30",
+      rewardSchedule: "On demand/Bi-weekly",
+      profitSplit: "Up to 100%"
+    },
+    ascend: {
+      tradingPeriod: "Indefinite",
+      maxDailyLoss: "4%",
+      maxLoss: "8%",
+      profitTarget: "-",
+      leverage: "1:30",
+      rewardSchedule: "On demand/Bi-weekly",
+      profitSplit: "Up to 100%"
+    },
+    instant: {
+      tradingPeriod: "Indefinite",
+      maxDailyLoss: "4%",
+      maxLoss: "7%",
+      profitTarget: "-",
+      leverage: "1:30",
+      rewardSchedule: "On demand/Bi-weekly",
+      profitSplit: "Up to 100%"
+    }
+  };
+
+
 
   // Current active data
   const activeData = tableData[activeFundingType][activeAccountSize];
@@ -132,7 +245,7 @@ const targetRef = useRef(null);
     { amount: '$2,537.55', name: 'Lukas M.', certificate: 'kenta.svg' }
   ];
   const countryData = [
-    { flag: "USA", percent: 85 },
+    { flag: "malay", percent: 85 },
     { flag: "GERMANY", percent: 70 },
     { flag: "GB", percent: 55 },
     { flag: "FRANCE", percent: 30 }
@@ -275,7 +388,7 @@ const targetRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const animationRef = useRef(null);
 
-  const [isMobile, setIsMobile] = useState(false);
+ 
 
   // Add this useEffect to detect mobile screens
   useEffect(() => {
@@ -915,191 +1028,276 @@ const targetRef = useRef(null);
         </div>
       </div>
 
-      <div className="font-sans max-w-6xl mx-auto px-4 py-12">
+       <div className="font-sans max-w-6xl mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            CHOOSE YOUR <span className="text-fuchsia-500">2-STEP CHALLENGE</span>
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900">
+            Top Funded Trader Programs
           </h2>
           <div className="mt-4 inline-block bg-fuchsia-50 px-6 py-2 rounded-full border border-fuchsia-200">
             <span className="text-lg font-medium">Trade Forex, Indices, Metals & Crypto</span>
           </div>
         </div>
 
-        <div className="p-6 font-sans max-w-4xl mx-auto">
-        </div>
-        {/* Ignite and Ascend Tiles */}
-        <div className="flex justify-center gap-4 mt-6">
-          <div
-            className={`w-[180px] rounded-lg py-3 px-6 text-white font-medium flex items-center justify-center cursor-pointer transition-all duration-200 ${activeFundingType === "ignite"
-                ? "bg-[#D90BC6] transform -translate-y-1 shadow-lg"
-                : "bg-[#D90BC6] hover:bg-fuchsia-500"
-              }`}
-            onClick={() => setActiveFundingType("ignite")}
-          >
-            <img src="/ignite.svg" alt="Ignite" className="w-5 h-5 mr-2" />
-            <span>Ignite</span>
-          </div>
-          <div
-            className={`w-[180px] rounded-lg py-3 px-6 text-white font-medium flex items-center justify-center cursor-pointer transition-all duration-200 ${activeFundingType === "ascend"
-                ? "bg-[#D90BC6] transform -translate-y-1 shadow-lg"
-                : "bg-[#D90BC6] hover:bg-fuchsia-500"
-              }`}
-            onClick={() => setActiveFundingType("ascend")}
-          >
-            <img src="/ascend.svg" alt="Ascend" className="w-5 h-5 mr-2" />
-            <span>Ascend</span>
-          </div>
-        </div>
 
+        <div className="px-4 sm:px-6 max-w-full overflow-hidden">
+          {/* Program Selection Tiles */}
+          <div className={`flex flex-wrap justify-center gap-4 mt-6 ${isMobile ? 'gap-y-3' : ''}`}>
+            <button
+              className={`w-[160px] sm:w-[180px] ${selectedProgram === 'rapid'
+                ? 'bg-[#D90BC6] text-white'
+                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+                } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
+              onClick={() => handleProgramClick('rapid')}
+            >
+              <img
+                src="/thunder.svg"
+                alt="Rapid"
+                className="w-5 h-5 mr-2"
+                style={getSvgStyle('rapid')}
+              />
+              <span>Rapid</span>
+            </button>
 
+            <button
+              className={`w-[160px] sm:w-[180px] ${selectedProgram === 'ignite'
+                ? 'bg-[#D90BC6] text-white'
+                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+                } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
+              onClick={() => handleProgramClick('ignite')}
+            >
+              <img
+                src="/ignite1.svg"
+                alt="Ignite"
+                className="w-5 h-5 mr-2"
+                style={getSvgStyle('ignite')}
+              />
+              <span>Ignite</span>
+            </button>
+
+            <button
+              className={`w-[160px] sm:w-[180px] ${selectedProgram === 'ascend'
+                ? 'bg-[#D90BC6] text-white'
+                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+                } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
+              onClick={() => handleProgramClick('ascend')}
+            >
+              <img
+                src="/ascend.svg"
+                alt="Ascend"
+                className="w-5 h-5 mr-2"
+                style={getSvgStyle('ascend', 'white')} // Assume ascend.svg is originally white
+              />
+              <span>Ascend</span>
+            </button>
+
+            <button
+              className={`w-[160px] sm:w-[180px] ${selectedProgram === 'instant'
+                ? 'bg-[#D90BC6] text-white'
+                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+                } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
+              onClick={() => handleProgramClick('instant')}
+            >
+              <img
+                src="/rocket.svg"
+                alt="Instant Funding"
+                className="w-5 h-5 mr-2"
+                style={getSvgStyle('instant')}
+              />
+              <span className="whitespace-nowrap text-sm sm:text-base">Instant Funding</span>
+            </button>
+          </div>
+        </div>
 
         {/* Account Table */}
-        <div className="mt-8 border border-[#D90BC6] rounded-2xl overflow-hidden bg-white w-full max-w-none">
-
-
-          {/* Mobile Account Selector - Added to match table 1 */}
-          <div className="block md:hidden px-4 py-3">
-            <select
-              className="w-full p-3 rounded-lg bg-[#F001E1] text-white font-medium text-center"
-              onChange={(e) => setActiveAccountSize(e.target.value)}
-              value={activeAccountSize}
-            >
-              <option value="" disabled>Select Account Size</option>
-              {accountSizes.map((size, idx) => (
-                <option key={idx} value={size}>${size}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Account Size Tabs - Desktop only */}
-          <div className="hidden md:flex max-w-7xl bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-5 mx-4 sm:mx-7 flex-wrap justify-center gap-2">
-            {accountSizes.map((size) => (
-              <div
-                key={size}
-                className={`w-[90px] sm:w-[110px] md:w-[170px] h-[34px] sm:h-[40px] rounded-md flex items-center justify-center font-medium text-xs sm:text-sm md:text-base cursor-pointer transition-all duration-200 mx-1 sm:mx-2 ${activeAccountSize === size
-                    ? "bg-[#D90BC6] transform -translate-y-1 shadow-md text-white"
-                    : "bg-fuchsia-100 text-black hover:bg-fuchsia-200"
-                  }`}
-                onClick={() => setActiveAccountSize(size)}
+        {selectedProgram !== 'instant' ? (
+          <div ref={targetRef} className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
+            {/* Mobile Account Selector */}
+            <div className="block sm:hidden px-4 py-3">
+              <select
+                className="w-full p-3 rounded-lg bg-[#D90BC6] text-white font-medium text-center"
+                onChange={(e) => handleSizeClick(parseInt(e.target.value))}
+                value={selectedSize}
               >
-                ${size}
-              </div>
-            ))}
-          </div>
-
-          {/* Phase Headers - Desktop only */}
-          <div className="hidden md:grid grid-cols-4 border-b border-gray-200">
-            <div className="invisible"></div> {/* Empty space for alignment */}
-            <div className="text-center py-3">
-              <span className="text-[#D90BC6] font-medium">Phase 1</span>
+                <option value="" disabled>Select Account Size</option>
+                {accountSizes[selectedProgram].map((size, idx) => (
+                  <option key={idx} value={size}>${size.toLocaleString()}</option>
+                ))}
+              </select>
             </div>
-            <div className="text-center py-3">
-              <span className="text-fuchsia-600 font-medium">Phase 2</span>
-            </div>
-            <div className="text-center py-3">
-              <span className="text-[#D90BC6] font-medium">Funded</span>
-            </div>
-          </div>
-
-          {/* Table Content */}
-          <div>
-            {[
-              {
-                label: "Trading Period",
-                values: activeData.tradingPeriod
-              },
-              {
-                label: "Maximum Daily Loss",
-                values: activeData.maxDailyLoss,
-                bg: "bg-fuchsia-50"
-              },
-              {
-                label: "Maximum Loss",
-                values: activeData.maxLoss
-              },
-              {
-                label: "Profit Target",
-                values: activeData.profitTarget,
-                bg: "bg-fuchsia-50"
-              },
-              {
-                label: "Leverage",
-                values: activeData.leverage
-              },
-              {
-                label: "Reward Schedule",
-                values: activeData.rewardSchedule,
-                bg: "bg-fuchsia-50"
-              },
-              {
-                label: "Profit Split",
-                values: activeData.profitSplit
-              }
-            ].map((row, idx) => (
-              <div
-                key={idx}
-                className={`grid md:grid-cols-4 flex flex-col md:flex-row border-b border-gray-200 ${row.bg || ""}`}
-              >
-                <div className="py-3 pl-6 font-medium">{row.label}</div>
-
-                {/* Mobile phase titles inline */}
-                {["Phase 1", "Phase 2", "Funded"].map((phase, i) => (
-                  <div
-                    key={i}
-                    className="py-3 flex justify-between px-6 md:block md:text-center"
+            {/* Account Size Tabs */}
+            <div className="p-4">
+              <div className="hidden sm:flex max-w-7xl  bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7  flex-wrap justify-center gap-2">
+                {accountSizes[selectedProgram].map((size) => (
+                  <button
+                    key={size}
+                    className={`w-[130px]  sm:w-[140px] md:w-[175px] h-[40px] sm:h-[47px] mx-1 sm:mx-2 ${selectedSize === size ? 'bg-[#D90BC6]' : 'bg-fuchsia-100'
+                      } rounded-md flex items-center justify-center ${selectedSize === size ? 'text-white' : 'text-black'
+                      } font-medium text-sm sm:text-base`}
+                    onClick={() => handleSizeClick(size)}
                   >
-                    <span className="text-sm font-medium text-fuchsia-500 md:hidden">
-                      {phase}
-                    </span>
-                    <span>{row.values[i]}</span>
-                  </div>
+                    ${size.toLocaleString()}
+                  </button>
                 ))}
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+
+            {/* Phase Headers */}
+            <div className="grid grid-cols-4 border-b border-gray-200">
+              <div className="invisible"></div>
+              <div className="text-center py-3">
+                <span className="text-[#D90BC6] font-medium">Phase 1</span>
+              </div>
+              <div className="text-center py-3">
+                <span className="text-[#D90BC6] font-medium">
+                  {selectedProgram !== 'rapid' ? 'Phase 2' : ' '}
+                </span>
+              </div>
+              <div className="text-center py-3">
+                <span className="text-[#D90BC6] font-medium">Funded</span>
+              </div>
+            </div>
 
 
-
-
-
-        {/* Pricing Box */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-            <div className="flex flex-col items-center md:items-start gap-2">
-              <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-                {/* Original Price (strikethrough) */}
-                <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
-                  {activeFundingType === 'ignite' ?
-                    (activeAccountSize === '7500' ? '$69' :
-                      activeAccountSize === '15000' ? '$129' :
-                        activeAccountSize === '30000' ? '$249' :
-                          activeAccountSize === '60000' ? '$499' : '$999') :
-                    (activeAccountSize === '7500' ? '$59' :
-                      activeAccountSize === '15000' ? '$109' :
-                        activeAccountSize === '30000' ? '$199' :
-                          activeAccountSize === '60000' ? '$399' : '$799')}
+            {/* Table Rows */}
+            {tableRows.map((row, index) => (
+              <div
+                key={row.key}
+                className={`grid grid-cols-4 border-b border-gray-200 ${row.bgColor || ''}`}
+              >
+                <div className="py-3 pl-4 font-medium">{row.label}</div>
+                <div className="text-center py-3">
+                  {tableData[selectedProgram][selectedSize]?.phase1?.[row.key] || "-"}
                 </div>
-                {/* Discounted Price */}
-                <div className="text-[#F001E1] font-bold text-xl sm:text-2xl md:text-3xl" style={{ fontSize: '48px' }}>
-                  {activeFundingType === 'ignite' ?
-                    (activeAccountSize === '7500' ? '$34' :
-                      activeAccountSize === '15000' ? '$64' :
-                        activeAccountSize === '30000' ? '$124' :
-                          activeAccountSize === '60000' ? '$249' : '$499') :
-                    (activeAccountSize === '7500' ? '$29' :
-                      activeAccountSize === '15000' ? '$54' :
-                        activeAccountSize === '30000' ? '$99' :
-                          activeAccountSize === '60000' ? '$199' : '$399')}
+                <div className="text-center py-3">
+                  {selectedProgram === 'instant' ? ' ' : (tableData[selectedProgram][selectedSize]?.phase2?.[row.key] || " ")}
                 </div>
-                {/* Account Size with Program */}
-                <div className="text-[#F001E1] font-medium " style={{ fontSize: '36px' }}>
-                  ${parseInt(activeAccountSize).toLocaleString()} {activeFundingType.charAt(0).toUpperCase() + activeFundingType.slice(1)}
+                <div className="text-center py-3">
+                  {fundedData[selectedProgram][row.key]}
                 </div>
               </div>
-              <div className="text-[#F001E1] font-medium text-base sm:text-lg text-center md:text-left">
-                One-Time Fee • 100% Refundable
+            ))}
+          </div>
+        ) : (
+          // Instant Funding Program View (simpler version)
+          <div className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
+            {/* Mobile Account Selector */}
+            <div className="block sm:hidden px-4 py-3">
+              <select
+                className="w-full p-3 rounded-lg bg-[#D90BC6] text-white font-medium text-center"
+                onChange={(e) => handleSizeClick(parseInt(e.target.value))}
+                value={selectedSize}
+              >
+                <option value="" disabled>Select Account Size</option>
+                {accountSizes[selectedProgram].map((size, idx) => (
+                  <option key={idx} value={size}>${size.toLocaleString()}</option>
+                ))}
+              </select>
+            </div>
+            {/* Account Size Tabs */}
+            <div className="p-4">
+              <div className="hidden sm:flex max-w-7xl bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7 flex-wrap justify-center gap-2">
+                {accountSizes[selectedProgram].map((size) => (
+                  <button
+                    key={size}
+                    className={`w-[120px]  sm:w-[140px] md:w-[135px] h-[40px] sm:h-[47px] mx-1 sm:mx-2 ${selectedSize === size ? 'bg-[#D90BC6]' : 'bg-fuchsia-100'
+                      } rounded-md flex items-center justify-center ${selectedSize === size ? 'text-white' : 'text-black'
+                      } font-medium text-sm sm:text-base`}
+                    onClick={() => handleSizeClick(size)}
+                  >
+                    ${size.toLocaleString()}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Funded Account Details */}
+            <div className="grid grid-cols-2 border-b border-gray-200">
+              <div className="py-3 pl-4 font-medium"></div>
+              <div className="text-center py-3 text-[#D90BC6] font-medium">Funded</div>
+            </div>
+            <div className="grid grid-cols-2 border-b border-gray-200 ">
+              <div className="py-3 pl-4 font-medium">Trading Period</div>
+              <div className="text-center py-3">{fundedData.instant.tradingPeriod}</div>
+            </div>
+            <div className="grid grid-cols-2 border-b border-gray-200  bg-fuchsia-50">
+              <div className="py-3 pl-4 font-medium">Maximum Daily Loss</div>
+              <div className="text-center py-3">{fundedData.instant.maxDailyLoss}</div>
+            </div>
+            <div className="grid grid-cols-2 border-b border-gray-200">
+              <div className="py-3 pl-4 font-medium">Profit Target</div>
+              <div className="text-center py-3">-</div>
+            </div>
+            <div className="grid grid-cols-2 border-b border-gray-200  bg-fuchsia-50">
+              <div className="py-3 pl-4 font-medium">Maximum Loss</div>
+              <div className="text-center py-3">{fundedData.instant.maxLoss}</div>
+            </div>
+            <div className="grid grid-cols-2 border-b border-gray-200 ">
+              <div className="py-3 pl-4 font-medium">Leverage</div>
+              <div className="text-center py-3">{fundedData.instant.leverage}</div>
+            </div>
+            <div className="grid grid-cols-2 border-b border-gray-200  bg-fuchsia-50">
+              <div className="py-3 pl-4 font-medium">Reward Schedule</div>
+              <div className="text-center py-3">{fundedData.instant.rewardSchedule}</div>
+            </div>
+            <div className="grid grid-cols-2 ">
+              <div className="py-3 pl-4 font-medium">Profit Split</div>
+              <div className="text-center py-3">{fundedData.instant.profitSplit}</div>
+            </div>
+          </div>
+        )}
+
+
+
+
+
+        <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+            <div className="flex flex-col items-center md:items-start gap-2 w-full">
+              {/* Mobile View - Stacked layout */}
+              <div className="flex flex-col items-center md:hidden w-full gap-1">
+                {/* 1st line - Account Size with Program */}
+                <div className="text-[#F001E1] font-medium text-2xl">
+                  ${selectedSize.toLocaleString()} {selectedProgram.charAt(0).toUpperCase() + selectedProgram.slice(1)}
+                </div>
+
+                {/* 2nd line - Original Price (strikethrough) */}
+                <div className="text-[#F001E1] font-bold text-xl line-through">
+                  ${pricingData[selectedProgram][selectedSize]?.original || 'N/A'}
+                </div>
+
+                {/* 3rd line - Discounted Price */}
+                <div className="text-[#F001E1] font-bold text-4xl">
+                  ${pricingData[selectedProgram][selectedSize]?.discounted || 'N/A'}
+                </div>
+
+                {/* 4th line - One-Time Fee text */}
+                <div className="text-[#F001E1] font-medium text-base">
+                  One-Time Fee
+                  {selectedProgram !== "instant" && " • 100% Refundable"}
+                </div>
+              </div>
+
+              {/* Desktop View - Row layout */}
+              <div className="hidden md:flex items-center gap-2 sm:gap-4 flex-wrap">
+                {/* Original Price (strikethrough) */}
+                <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
+                  ${pricingData[selectedProgram][selectedSize]?.original || 'N/A'}
+                </div>
+                {/* Discounted Price */}
+                <div className="text-[#F001E1] font-bold text-4xl sm:text-5xl">
+                  ${pricingData[selectedProgram][selectedSize]?.discounted || 'N/A'}
+                </div>
+                {/* Account Size with Program */}
+                <div className="text-[#F001E1] font-medium text-2xl sm:text-3xl">
+                  ${selectedSize.toLocaleString()} {selectedProgram.charAt(0).toUpperCase() + selectedProgram.slice(1)}
+                </div>
+              </div>
+
+              {/* Desktop - One-Time Fee text */}
+              <div className="hidden md:block text-[#F001E1] font-medium text-base sm:text-lg text-left">
+                One-Time Fee
+                {selectedProgram !== "instant" && " • 100% Refundable"}
               </div>
             </div>
 

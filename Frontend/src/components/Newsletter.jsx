@@ -100,7 +100,8 @@ export default function Newsletter() {
           <motion.div 
             className="flex items-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
             style={{
-              minWidth: '340px',
+              width: '100%',
+              maxWidth: '340px',
               height: '60px',
               borderRadius: '100px',
               border: '1px solid rgba(255, 0, 255, 1)',
@@ -129,7 +130,8 @@ export default function Newsletter() {
           <motion.div 
             className="flex items-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
             style={{
-              minWidth: '340px',
+              width: '100%',
+              maxWidth: '340px',
               height: '60px',
               borderRadius: '100px',
               border: '1px solid rgba(255, 0, 255, 1)',

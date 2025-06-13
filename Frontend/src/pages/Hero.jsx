@@ -109,50 +109,7 @@ const mobileCardScales = {
       40000: { original: 1680, discounted: 1092 }
     }
   };
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // The styles for the SVG colors
-  const svgStyles = {
-    // Pink to white filter (for SVGs that are originally pink and need to be white when selected)
-    pinkToWhite: {
-      filter: 'brightness(0) invert(1)'
-    },
-    // Default style for pink SVGs when unselected (no filter needed)
-    pink: {},
-    // White to pink filter (for SVGs that are originally white and need to be pink when unselected)
-    whiteToPink: {
-      filter: ' invert(70%) sepia(100%) saturate(5500%) hue-rotate(295deg) brightness(92%) contrast(110%)'
-
-    }
-  };
-
-  // Function to determine which SVG style to use
-  const getSvgStyle = (program, originalColor = 'pink') => {
-    const isSelected = selectedProgram === program;
-
-    if (originalColor === 'pink') {
-      // If the original SVG is pink
-      return isSelected ? svgStyles.pinkToWhite : svgStyles.pink;
-    } else {
-      // If the original SVG is white (like ascend.svg)
-      return isSelected ? svgStyles.pink : svgStyles.whiteToPink;
-    }
-  };
-
-  const [selectedProgram, setSelectedProgram] = useState('rapid');
-  const [selectedSize, setSelectedSize] = useState(7500);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Define account sizes for each program
+    // Define account sizes for each program
   const accountSizes = {
     rapid: [7500, 15000, 30000, 60000, 120000],
     ignite: [5000, 10000, 25000, 50000, 100000],
@@ -264,6 +221,50 @@ const mobileCardScales = {
       profitSplit: "Up to 100%"
     }
   };
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // The styles for the SVG colors
+  const svgStyles = {
+    // Pink to white filter (for SVGs that are originally pink and need to be white when selected)
+    pinkToWhite: {
+      filter: 'brightness(0) invert(1)'
+    },
+    // Default style for pink SVGs when unselected (no filter needed)
+    pink: {},
+    // White to pink filter (for SVGs that are originally white and need to be pink when unselected)
+    whiteToPink: {
+      filter: ' invert(70%) sepia(100%) saturate(5500%) hue-rotate(295deg) brightness(92%) contrast(110%)'
+
+    }
+  };
+
+  // Function to determine which SVG style to use
+  const getSvgStyle = (program, originalColor = 'pink') => {
+    const isSelected = selectedProgram === program;
+
+    if (originalColor === 'pink') {
+      // If the original SVG is pink
+      return isSelected ? svgStyles.pinkToWhite : svgStyles.pink;
+    } else {
+      // If the original SVG is white (like ascend.svg)
+      return isSelected ? svgStyles.pink : svgStyles.whiteToPink;
+    }
+  };
+
+  const [selectedProgram, setSelectedProgram] = useState('rapid');
+  const [selectedSize, setSelectedSize] = useState(7500);
+  const [isMobile, setIsMobile] = useState(false);
+
+
 
   // Check mobile view on mount and resize
   useEffect(() => {

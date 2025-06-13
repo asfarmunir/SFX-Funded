@@ -73,11 +73,12 @@ export default function FAQ() {
   };
 
   const answerVariants = {
-    hidden: { opacity: 0, height: 0 },
+    hidden: { opacity: 0, height: 0, marginTop: 0 },
     visible: {
       opacity: 1,
       height: "auto",
-      transition: { duration: 0.3 }
+      marginTop: 2, // even less margin
+      transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] }
     }
   };
 
@@ -220,7 +221,7 @@ export default function FAQ() {
             {faqItems.map((item, index) => (
               <motion.div 
                 key={index} 
-                className="mb-4 overflow-hidden"
+                className="mb-px overflow-hidden" // even less gap
                 variants={questionVariants}
               >
                 <motion.button

@@ -2043,7 +2043,7 @@ export default function Graphic() {
         <div className="max-w-7xl mx-auto">
           {/* Purple diamond decoration */}
           <div
-            className="absolute left-16 top-16 md:left-24 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
+            className="absolute right-4 top-16 md:left-24 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
             style={{
               animation: 'float 3s infinite ease-in-out',
             }}

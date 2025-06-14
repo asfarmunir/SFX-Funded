@@ -1740,7 +1740,7 @@ const mobileCardScales = {
               }}
             >
               <motion.h2
-                className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-12"
+                className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-1 md:mb-10 lg:mb-12"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2, delay: 0.7 }}
@@ -2053,196 +2053,195 @@ const mobileCardScales = {
       </div>
 
       <div className="w-full font-sans bg-[#f5f5f7]
- py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          {/* Purple diamond decoration */}
-          <div
-            className="absolute left-16 top-16 md:left-24 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
-            style={{
-              animation: 'float 3s infinite ease-in-out',
-            }}
-          >
-            {/* Diamond SVG */}
-            <div>
-              <img src="/diamond.svg" alt="Diamond Icon" className="w-20 h-20" />
-            </div>
-          </div>
-
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 relative z-10">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
-              What Our Traders Have To Say
-            </h2>
-          </div>
-
-          {/* Mobile Testimonial Column (Visible on small screens) */}
-          <div className="block md:hidden relative h-96 overflow-hidden">
-            <div className="absolute w-full space-y-6" style={{ transform: getTransform(0) }}>
-              {mobileTestimonials.map((testimonial, index) => (
-                <div
-                  key={`mobile-${testimonial.id}-${index}`}
-                  className="bg-white p-6 rounded-lg shadow-lg"
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    backdropFilter: 'blur(24px)'
-                  }}
-                >
-                  {renderStars(testimonial.rating)}
-                  <div className="mb-4">
-                    {highlightText(testimonial.text)}
-                  </div>
-                  <div className="flex items-center">
-                    <span className="font-medium mr-2">{testimonial.name}</span>
-                    <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded">
-                      <img
-                        src={`/${testimonial.flag}.svg`}
-                        alt={testimonial.flag}
-                        className="w-full h-full object-cover"
-                      />
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Desktop 3-Column Testimonial Layout (Hidden on small screens) */}
-          <div className="hidden md:grid md:grid-cols-3 gap-8 relative">
-            {/* Left Column */}
-            <div className="relative h-[32rem] overflow-hidden">
-              <div className="absolute w-full space-y-6" style={{ transform: getTransform(0) }}>
-                {leftColumnTestimonials.map((testimonial, index) => (
-                  <div
-                    key={`left-${testimonial.id}-${index}`}
-                    className="bg-white p-6 rounded-lg shadow-lg"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.8)',
-                      backdropFilter: 'blur(24px)'
-                    }}
-                  >
-                    {renderStars(testimonial.rating)}
-                    <div className="mb-4">
-                      {highlightText(testimonial.text)}
-                    </div>
-                    <div className="flex items-center">
-                      <span className="font-medium mr-2">{testimonial.name}</span>
-                      <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
-                        <img
-                          src={`/${testimonial.flag}.svg`}
-                          alt={testimonial.flag}
-                          className="w-full h-full object-cover"
-                        />
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Center Column */}
-            <div className="relative h-[32rem] overflow-hidden">
-              <div className="absolute w-full space-y-6" style={{ transform: getTransform(1) }}>
-                {centerColumnTestimonials.map((testimonial, index) => (
-                  <div
-                    key={`center-${testimonial.id}-${index}`}
-                    className="bg-white p-6 rounded-lg shadow-lg"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.8)',
-                      backdropFilter: 'blur(24px)'
-                    }}
-                  >
-                    {renderStars(testimonial.rating)}
-                    <div className="mb-4">
-                      {highlightText(testimonial.text)}
-                    </div>
-                    <div className="flex items-center">
-                      <span className="font-medium mr-2">{testimonial.name}</span>
-                      <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
-                        <img
-                          src={`/${testimonial.flag}.svg`}
-                          alt={testimonial.flag}
-                          className="w-full h-full object-cover"
-                        />
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right Column */}
-            <div className="relative h-[32rem] overflow-hidden">
-              <div className="absolute w-full space-y-6" style={{ transform: getTransform(2) }}>
-                {rightColumnTestimonials.map((testimonial, index) => (
-                  <div
-                    key={`right-${testimonial.id}-${index}`}
-                    className="bg-white p-6 rounded-lg shadow-lg"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.8)',
-                      backdropFilter: 'blur(24px)'
-                    }}
-                  >
-                    {renderStars(testimonial.rating)}
-                    <div className="mb-4">
-                      {highlightText(testimonial.text)}
-                    </div>
-                    <div className="flex items-center">
-                      <span className="font-medium mr-2">{testimonial.name}</span>
-                      <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
-                        <img
-                          src={`/${testimonial.flag}.svg`}
-                          alt={testimonial.flag}
-                          className="w-full h-full object-cover"
-                        />
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Centered Start Trading Button at Bottom */}
-          <div className="flex justify-center mt-16">
-            <button onClick={() => targetRef.current?.scrollIntoView({ behavior: "smooth" })} className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform">
-              Start Trading
-              <svg className="ml-3 w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Floating ellipse decoration */}
-          <div
-            className="absolute right-0 bottom-10 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-10"
-            style={{
-              animation: 'float 4s infinite ease-in-out',
-            }}
-          >
-            {/* Floating ellipse decoration */}
-            <motion.img
-              src="/elipse.svg"
-              alt="Floating Elipse"
-              className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-30 z-10"
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </div>
-        </div>
-
-        {/* Animation keyframes */}
-        <style jsx>{`
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-  `}</style>
-      </div>
-
-      {/* FAQ Section */}
+                 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+                        <div className="max-w-7xl mx-auto">
+                          {/* Purple diamond decoration */}
+                          <div
+                            className="absolute left-16 top-16 md:left-24 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
+                            style={{
+                              animation: 'float 3s infinite ease-in-out',
+                            }}
+                          >
+                            {/* Diamond SVG */}
+                            <div>
+                              <img src="/diamond.svg" alt="Diamond Icon" className="w-20 h-20" />
+                            </div>
+                          </div>
+                
+                          <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 relative z-10">
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
+                              What Our Traders Have To Say
+                            </h2>
+                          </div>
+                
+                          {/* Mobile Testimonial Column (Visible on small screens) */}
+                          <div className="block md:hidden relative h-96 overflow-hidden">
+                            <div className="absolute w-full space-y-6" style={{transform: `translateY(-${(scrollPosition * 0.25) % 100}%)`  }}>
+                              {mobileTestimonials.map((testimonial, index) => (
+                                <div
+                                  key={`mobile-${testimonial.id}-${index}`}
+                                  className="bg-white p-6 rounded-lg shadow-lg"
+                                  style={{
+                                    background: 'rgba(255, 255, 255, 0.8)',
+                                    backdropFilter: 'blur(24px)'
+                                  }}
+                                >
+                                  {renderStars(testimonial.rating)}
+                                  <div className="mb-4">
+                                    {highlightText(testimonial.text)}
+                                  </div>
+                                  <div className="flex items-center">
+                                    <span className="font-medium mr-2">{testimonial.name}</span>
+                                    <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded">
+                                      <img
+                                        src={`/${testimonial.flag}.svg`}
+                                        alt={testimonial.flag}
+                                        className="w-full h-full object-cover"
+                                      />
+                                    </span>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                
+                          {/* Desktop 3-Column Testimonial Layout (Hidden on small screens) */}
+                          <div className="hidden md:grid md:grid-cols-3 gap-8 relative">
+                            {/* Left Column */}
+                            <div className="relative h-[32rem] overflow-hidden">
+                              <div className="absolute w-full space-y-6" style={{ transform: getTransform(0) }}>
+                                {leftColumnTestimonials.map((testimonial, index) => (
+                                  <div
+                                    key={`left-${testimonial.id}-${index}`}
+                                    className="bg-white p-6 rounded-lg shadow-lg"
+                                    style={{
+                                      background: 'rgba(255, 255, 255, 0.8)',
+                                      backdropFilter: 'blur(24px)'
+                                    }}
+                                  >
+                                    {renderStars(testimonial.rating)}
+                                    <div className="mb-4">
+                                      {highlightText(testimonial.text)}
+                                    </div>
+                                    <div className="flex items-center">
+                                      <span className="font-medium mr-2">{testimonial.name}</span>
+                                      <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+                                        <img
+                                          src={`/${testimonial.flag}.svg`}
+                                          alt={testimonial.flag}
+                                          className="w-full h-full object-cover"
+                                        />
+                                      </span>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                
+                            {/* Center Column */}
+                            <div className="relative h-[32rem] overflow-hidden">
+                              <div className="absolute w-full space-y-6" style={{ transform: getTransform(1) }}>
+                                {centerColumnTestimonials.map((testimonial, index) => (
+                                  <div
+                                    key={`center-${testimonial.id}-${index}`}
+                                    className="bg-white p-6 rounded-lg shadow-lg"
+                                    style={{
+                                      background: 'rgba(255, 255, 255, 0.8)',
+                                      backdropFilter: 'blur(24px)'
+                                    }}
+                                  >
+                                    {renderStars(testimonial.rating)}
+                                    <div className="mb-4">
+                                      {highlightText(testimonial.text)}
+                                    </div>
+                                    <div className="flex items-center">
+                                      <span className="font-medium mr-2">{testimonial.name}</span>
+                                      <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+                                        <img
+                                          src={`/${testimonial.flag}.svg`}
+                                          alt={testimonial.flag}
+                                          className="w-full h-full object-cover"
+                                        />
+                                      </span>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                
+                            {/* Right Column */}
+                            <div className="relative h-[32rem] overflow-hidden">
+                              <div className="absolute w-full space-y-6" style={{ transform: getTransform(2) }}>
+                                {rightColumnTestimonials.map((testimonial, index) => (
+                                  <div
+                                    key={`right-${testimonial.id}-${index}`}
+                                    className="bg-white p-6 rounded-lg shadow-lg"
+                                    style={{
+                                      background: 'rgba(255, 255, 255, 0.8)',
+                                      backdropFilter: 'blur(24px)'
+                                    }}
+                                  >
+                                    {renderStars(testimonial.rating)}
+                                    <div className="mb-4">
+                                      {highlightText(testimonial.text)}
+                                    </div>
+                                    <div className="flex items-center">
+                                      <span className="font-medium mr-2">{testimonial.name}</span>
+                                      <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+                                        <img
+                                          src={`/${testimonial.flag}.svg`}
+                                          alt={testimonial.flag}
+                                          className="w-full h-full object-cover"
+                                        />
+                                      </span>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                
+                          {/* Centered Start Trading Button at Bottom */}
+                          <div className="flex justify-center mt-16">
+                            <button className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform">
+                              Start Trading
+                              <svg className="ml-3 w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+                              </svg>
+                            </button>
+                          </div>
+                
+                          {/* Floating ellipse decoration */}
+                          <div
+                            className="absolute right-0 bottom-10 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-10"
+                            style={{
+                              animation: 'float 4s infinite ease-in-out',
+                            }}
+                          >
+                            {/* Floating ellipse decoration */}
+                            <motion.img
+                              src="/elipse.svg"
+                              alt="Floating Elipse"
+                              className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 -mr-24 -mb-24 opacity-30 z-10"
+                              animate={{ y: [0, -15, 0] }}
+                              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                            />
+                          </div>
+                        </div>
+                
+                        {/* Animation keyframes */}
+                        <style jsx>{`
+                    @keyframes float {
+                      0%, 100% { transform: translateY(0); }
+                      50% { transform: translateY(-15px); }
+                    }
+                  `}</style>
+                      </div>
+     {/* FAQ Section */}
       <FAQ />
 
       {/* Newsletter Section */}
       <Newsletter />
-    </div>
+      </div>
   );
 }

@@ -1952,7 +1952,7 @@ export default function Graphic() {
               }}
             >
               <motion.h2
-                className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-12"
+                className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-1 md:mb-10 lg:mb-12"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2, delay: 0.7 }}
@@ -2062,7 +2062,7 @@ export default function Graphic() {
 
           {/* Mobile Testimonial Column (Visible on small screens) */}
           <div className="block md:hidden relative h-96 overflow-hidden">
-            <div className="absolute w-full space-y-6" style={{ transform: getTransform(0) }}>
+            <div className="absolute w-full space-y-6" style={{ transform: `translateY(-${(scrollPosition * 0.25) % 100}%)`  }}>
               {mobileTestimonials.map((testimonial, index) => (
                 <div
                   key={`mobile-${testimonial.id}-${index}`}

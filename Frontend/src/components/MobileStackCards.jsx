@@ -45,7 +45,7 @@ export default function MobileStackCards() {
   // Calculate exactly enough height for the container to end with the last card
   // projects.length - 1 accounts for the last card being sticky
   const lastCardOffset = 75; // Top offset of the sticky cards
-  const totalHeight = (projects.length - 1) * cardHeight + lastCardOffset + 225;
+  const totalHeight = (projects.length - 1) * cardHeight + lastCardOffset + 100;
 
   return (
     <div 

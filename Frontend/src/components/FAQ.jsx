@@ -73,11 +73,11 @@ export default function FAQ() {
   };
 
   const answerVariants = {
-    hidden: { opacity: 0, height: 0, marginTop: 0 },
+    hidden: { opacity: 0, height: 0, marginBottom: 0 },
     visible: {
       opacity: 1,
       height: "auto",
-      marginTop: 2, // even less margin
+      marginBottom: 16,
       transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] }
     }
   };
@@ -146,7 +146,7 @@ export default function FAQ() {
         className="absolute hidden sm:block"
         style={{ 
           bottom: '20%', 
-          left: '5%', 
+          left: '1%', 
           width: windowWidth > 1024 ? '10rem' : '6rem',
           height: windowWidth > 1024 ? '10rem' : '6rem',
           zIndex: 0,
@@ -158,7 +158,7 @@ export default function FAQ() {
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* 2 Column Flex Layout - Better responsive behavior */}
+        {/* 2 Column Flex Layout */}
         <div className="flex flex-col md:flex-row md:gap-8 lg:gap-12">
           {/* Left Column */}
           <div className="w-full md:w-2/5 mb-12 md:mb-0">
@@ -218,47 +218,59 @@ export default function FAQ() {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
           >
-            {faqItems.map((item, index) => (
-              <motion.div 
-                key={index} 
-                className="mb-px overflow-hidden" // even less gap
-                variants={questionVariants}
-              >
-                <motion.button
-                  className="w-full flex items-center justify-between bg-white p-4 sm:p-5 rounded-md shadow-sm text-left focus:outline-none"
-                  onClick={() => toggleQuestion(index)}
-                  whileHover={{ backgroundColor: "#fafafa" }}
-                  whileTap={{ scale: 0.99 }}
+            <div className="space-y-0"> {/* Changed to space-y-0 to remove gaps */}
+              {faqItems.map((item, index) => (
+                <motion.div 
+                  key={index}
+                  className="overflow-hidden"
+                  variants={questionVariants}
                 >
-                  <span className="font-medium pr-4 text-sm sm:text-base">{item.question}</span>
-                  <motion.svg
-                    width="16"
-                    height="16"
-                    className="flex-shrink-0"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    animate={{ rotate: activeQuestion === index ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
+                  <motion.button
+                    className={`w-full flex items-center justify-between bg-white p-4 sm:p-5 text-left focus:outline-none border-0 ${index === 0 ? 'rounded-t-md' : ''} ${index === faqItems.length - 1 && activeQuestion !== index ? 'rounded-b-md' : ''}`}
+                    style={{ 
+                      margin: 0,
+                      padding: '16px 20px',
+                      boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)'
+                    }}
+                    onClick={() => toggleQuestion(index)}
+                    whileHover={{ backgroundColor: "#fafafa" }}
+                    whileTap={{ scale: 0.99 }}
                   >
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                  </motion.svg>
-                </motion.button>
+                    <span className="font-medium pr-4 text-sm sm:text-base">{item.question}</span>
+                    <motion.svg
+                      width="16"
+                      height="16"
+                      className="flex-shrink-0"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      animate={{ rotate: activeQuestion === index ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </motion.svg>
+                  </motion.button>
 
-                <motion.div
-                  className="bg-white p-4 sm:p-5 rounded-b-md shadow-sm mt-[-1px] overflow-hidden"
-                  variants={answerVariants}
-                  initial="hidden"
-                  animate={activeQuestion === index ? "visible" : "hidden"}
-                  exit="hidden"
-                >
-                  <p className="text-gray-600 text-sm sm:text-base">{item.answer}</p>
+                  <motion.div
+                    className="bg-white overflow-hidden"
+                    variants={answerVariants}
+                    initial="hidden"
+                    animate={activeQuestion === index ? "visible" : "hidden"}
+                    style={{
+                      boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+                      marginBottom: activeQuestion === index ? '16px' : '0px'
+                    }}
+                  >
+                    <div className="p-4 sm:p-5">
+                      <p className="text-gray-600 text-sm sm:text-base">{item.answer}</p>
+                    </div>
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </motion.div>
         </div>
 

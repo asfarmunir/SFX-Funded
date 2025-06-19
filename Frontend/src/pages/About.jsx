@@ -38,6 +38,37 @@ export default function About() {
     // Handle form submission here
     console.log('Form submitted:', formData);
   };
+
+  const leftContainerRef = useRef(null);
+  const rightContainerRef = useRef(null);
+  const [containerHeight, setContainerHeight] = useState('auto');
+  
+  // Function to adjust heights of the containers
+  const adjustContainerHeights = () => {
+    if (window.innerWidth >= 1024) { // lg breakpoint
+      const leftHeight = leftContainerRef.current?.offsetHeight || 0;
+      const rightHeight = rightContainerRef.current?.offsetHeight || 0;
+      const maxHeight = Math.max(leftHeight, rightHeight);
+      setContainerHeight(`${maxHeight}px`);
+    } else {
+      setContainerHeight('auto');
+    }
+  };
+
+  // Effect for initial load and window resize
+  useEffect(() => {
+    adjustContainerHeights();
+    window.addEventListener('resize', adjustContainerHeights);
+    
+    // Run again after images might have loaded
+    const timer = setTimeout(adjustContainerHeights, 500);
+    
+    return () => {
+      window.removeEventListener('resize', adjustContainerHeights);
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <div className="font-inter w-full overflow-x-hidden">
 
@@ -69,7 +100,7 @@ export default function About() {
     fontWeight: 600,
                 fontSize: "clamp(3rem, 5vw, 5rem)",// Responsive font size
     letterSpacing: "-0.45rem",
-    marginTop: '40px'
+    marginTop: '80px'
   }}
 >
   <span>ABOUT</span>{" "}
@@ -92,114 +123,181 @@ export default function About() {
         className="flex flex-col lg:flex-row gap-6 mb-12"
         variants={slideUp}
       >
-        {/* Left Side - Full Image */}
-        <motion.div 
-          className="w-full lg:w-1/2 flex justify-center"
-          variants={slideUp}
-        >
-          <img
-            src="/about.png"
-            alt="SFX Funded Team"
-            className="w-full h-full object-cover rounded-xl"
-          />
-        </motion.div>
-
-        {/* Right Side - Text Content */}
-        <motion.div
-          className="w-full lg:w-[736px] rounded-xl p-6 flex flex-col"
-          style={{
-            border: '3px solid rgba(217, 11, 198, 1)',
-          }}
-          variants={slideUp}
-        >
-          {/* Main Heading */}
-          <motion.h2
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 600,
-              fontSize: '50px',
-              lineHeight: '100%',
-              letterSpacing: '0%',
-              color: 'rgba(248, 0, 234, 1)',
-            }}
-            className="mb-2"
-            variants={slideUp}
-          >
-            Know You're Meant for More?
-          </motion.h2>
-
-          {/* Sub Heading */}
-          <motion.p
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 600,
-              fontSize: '32px',
-              lineHeight: '41.6px',
-              letterSpacing: '0%',
-              color: 'rgba(32, 36, 43, 1)',
-              verticalAlign: 'middle',
-            }}
-            className="mb-6"
-            variants={slideUp}
-          >
-            We Thought So Too.
-         </motion.p>
-<motion.div
-  style={{
-    fontFamily: 'Inter, sans-serif',
-    fontWeight: 400,
-    fontSize: 'clamp(0.9375rem, 4vw, 1.25rem)', 
-    lineHeight: '1.6',
-    letterSpacing: '0.01em',
-    color: 'rgba(32, 36, 43, 1)',
-    textAlign: 'justify',
-  }}
-  className="space-y-3 sm:space-y-4 md:space-y-5"
+         {/* Left Side - Full Image */}
+<motion.div 
+  className="w-full lg:w-1/2 flex justify-center"
   variants={slideUp}
+  ref={leftContainerRef}
+  style={{ height: window.innerWidth >= 1024 ? containerHeight : 'auto' }}
 >
-  <motion.p variants={slideUp}>
-    At SFX Funded, our leadership embodies a unique blend of trading expertise and business savvy, setting us apart as a premier proprietary trading firm.
-  </motion.p>
-  <motion.p variants={slideUp}>
-    Husam Samy, our CEO and co-founder, comes from a background in civil engineering and aviation accompanied with over 7 years industry experience trading and strategic thinking, paired with his passion for global markets, make him a great leader for aspiring traders. Franca Kraut, our COO and co-founder, brings a wealth of entrepreneurial experience, having co-founded a thriving real estate business before making a seven-figure exit. Her strategic vision and leadership have consistently set high standards, both in business and now in financial markets.
-  </motion.p>
-  <motion.p variants={slideUp}>
-    Together, Husam and Franca are the driving force behind SFX Funded. Their combined expertise and diverse backgrounds create a supportive and innovative environment where traders can thrive.
-  </motion.p>
+  <div className="w-full h-full flex items-center">
+    <img
+      src="/about.png"
+      alt="SFX Funded Team"
+      className="w-full h-auto object-contain rounded-xl"
+      style={{
+        maxWidth: '100%',
+        maxHeight: '705px'
+      }}
+      onLoad={adjustContainerHeights}
+    />
+  </div>
 </motion.div>
 
+      {/* Right Side - Text Content */}
+<motion.div
+  className="w-full lg:w-[736px] rounded-xl p-6 flex flex-col"
+  style={{
+    border: '3px solid rgba(217, 11, 198, 1)',
+    height: window.innerWidth >= 1024 ? containerHeight : '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  }}
+  variants={slideUp}
+  ref={rightContainerRef}
+>
+  {/* Main Heading */}
+  <div className="mb-6">
+    {/* Mobile-only combined heading */}
+    <motion.div
+      className="block md:hidden w-full"
+      variants={slideUp}
+    >
+      <p
+        style={{
+          fontFamily: 'Inter, sans-serif',
+          fontWeight: 600,
+          fontSize: '23.3px',
+          lineHeight: '1.3',
+          letterSpacing: '0',
+          color: 'rgba(32, 36, 43, 1)',
+          display: 'block',
+          width: '100%'
+        }}
+      >
+        Know You&apos;re{' '}
+        <span style={{ color: 'rgba(248, 0, 234, 1)' }}>Meant for More? </span>
+        
+        We Thought So Too.
+      </p>
+    </motion.div>
 
-          {/* Button */}
-          <motion.div 
-            className="mt-4 sm:mt-6 pt-2 sm:pt-4 flex justify-center"
-            variants={slideUp}
-          >
-            <motion.button
-              style={{
-                backgroundColor: 'rgba(248, 0, 234, 1)',
-                color: 'rgba(0, 0, 0, 1)',
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: 600,
-                fontSize: 'clamp(1rem, 5vw, 1.25rem)',
-                lineHeight: '100%',
-                letterSpacing: '0%',
-                textTransform: 'capitalize',
-                width: 'clamp(180px, 60vw, 252px)',
-                height: 'clamp(45px, 12vw, 57px)',
-                borderRadius: '100px',
-              }}
-              className="flex items-center justify-center transition-colors"
-              variants={slideUp}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Start Trading
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </motion.button>
-          </motion.div>
-        </motion.div>
+    {/* Desktop-only separate headings */}
+    <motion.h2
+      style={{
+        fontFamily: 'Inter, sans-serif',
+        fontWeight: 600,
+        fontSize: '50px',
+        lineHeight: '100%',
+        letterSpacing: '0%',
+        color: 'rgba(248, 0, 234, 1)',
+      }}
+      className="hidden md:block mb-2"
+      variants={slideUp}
+    >
+      Know You're Meant for More?
+    </motion.h2>
+
+    <motion.p
+      style={{
+        fontFamily: 'Inter, sans-serif',
+        fontWeight: 600,
+        fontSize: '32px',
+        lineHeight: '41.6px',
+        letterSpacing: '0%',
+        color: 'rgba(32, 36, 43, 1)',
+        verticalAlign: 'middle',
+      }}
+      className="hidden md:block"
+      variants={slideUp}
+    >
+      We Thought So Too.
+    </motion.p>
+  </div>
+
+  {/* Paragraph content - restored */}
+  <motion.div
+    style={{
+      fontFamily: 'Inter, sans-serif',
+      fontSize: 'clamp(0.9375rem, 3vw, 1.125rem)', 
+      lineHeight: '1.5',
+      letterSpacing: '0.01em',
+      color: 'rgba(32, 36, 43, 1)',
+      textAlign: 'left',
+    }}
+    className="space-y-2 sm:space-y-3 md:space-y-4"
+    variants={slideUp}
+  >
+    <motion.p 
+      variants={slideUp}
+      className="block opacity-100 mb-2"
+      style={{ 
+        color: 'rgba(32, 36, 43, 1)',
+        fontWeight: 400,
+        maxWidth: '100%',
+        visibility: 'visible',
+        fontSize: 'inherit'
+      }}
+    >
+      At SFX Funded, our leadership embodies a unique blend of trading expertise and business savvy, setting us apart as a premier proprietary trading firm.
+    </motion.p>
+    <motion.p 
+      variants={slideUp}
+      className="block text-base opacity-100"
+      style={{ 
+        color: 'rgba(32, 36, 43, 1)',
+        fontWeight: 400,
+        maxWidth: '100%',
+        visibility: 'visible' 
+      }}
+    >
+      Husam Samy, our CEO and co-founder, comes from a background in civil engineering and aviation accompanied with over 7 years industry experience trading and strategic thinking, paired with his passion for global markets, make him a great leader for aspiring traders. Franca Kraut, our COO and co-founder, brings a wealth of entrepreneurial experience, having co-founded a thriving real estate business before making a seven-figure exit. Her strategic vision and leadership have consistently set high standards, both in business and now in financial markets.
+    </motion.p>
+    <motion.p 
+      variants={slideUp}
+      className="block text-base opacity-100"
+      style={{ 
+        color: 'rgba(32, 36, 43, 1)',
+        fontWeight: 400,
+        maxWidth: '100%',
+        visibility: 'visible' 
+      }}
+    >
+      Together, Husam and Franca are the driving force behind SFX Funded. Their combined expertise and diverse backgrounds create a supportive and innovative environment where traders can thrive.
+    </motion.p>
+  </motion.div>
+
+  {/* Button - positioned at bottom with flex grow and margin-top auto */}
+  <motion.div 
+    className="flex justify-center mt-auto pt-6"
+    variants={slideUp}
+  >
+    <motion.button
+      style={{
+        backgroundColor: 'rgba(248, 0, 234, 1)',
+        color: 'rgba(0, 0, 0, 1)',
+        fontFamily: 'Inter, sans-serif',
+        fontWeight: 600,
+        fontSize: 'clamp(1rem, 5vw, 1.25rem)',
+        lineHeight: '100%',
+        letterSpacing: '0%',
+        textTransform: 'capitalize',
+        width: 'clamp(180px, 60vw, 252px)',
+        height: 'clamp(45px, 12vw, 57px)',
+        borderRadius: '100px',
+      }}
+      className="flex items-center justify-center transition-colors"
+      variants={slideUp}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      Start Trading
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </motion.button>
+  </motion.div>
+</motion.div>
       </motion.div>
 
       {/* Heading */}
@@ -221,7 +319,7 @@ export default function About() {
           }}
           variants={slideUp}
         >
-          We're not your average{' '}
+          We&apos;re not your average{' '}
           <span style={{ color: 'rgba(248, 0, 234, 1)' }}>PropFirm.</span>
         </motion.h1>
       </motion.div>
@@ -282,7 +380,7 @@ export default function About() {
           className="text-justify"
           variants={slideUp}
         >
-          Need help? We've got your back! Our streamlined support means you'll get solutions quickly and get back to trading in no time.
+          Need help? We&apos;ve got your back! Our streamlined support means you&apos;ll get solutions quickly and get back to trading in no time.
         </motion.p>
       </motion.div>
 
@@ -388,7 +486,7 @@ export default function About() {
           className="text-justify"
           variants={slideUp}
         >
-          SFX Funded is all about open communication. We're transparent in our dealings because we value your trust. Think of us as your trading partner, not just a prop firm.
+          SFX Funded is all about open communication. We&apos;re transparent in our dealings because we value your trust. Think of us as your trading partner, not just a prop firm.
         </motion.p>
       </motion.div>
 
@@ -441,7 +539,7 @@ export default function About() {
           className="text-justify"
           variants={slideUp}
         >
-          We know trading can be tough. That's why we do things the right way - guidelines and rules you can trust that have your back.
+          We know trading can be tough. That&apos;s why we do things the right way - guidelines and rules you can trust that have your back.
         </motion.p>
       </motion.div>
     </motion.div>

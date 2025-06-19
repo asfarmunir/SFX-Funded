@@ -36,7 +36,7 @@ const Card2 = ({i, title, description, image, url, color, progress, range, targe
   
   return (
     <div ref={container} style={{
-      height: isMobile ? '250px' : '50vh',
+      height: isMobile ? '230px' : '50vh',
       width: '100%',
       position: 'sticky',
       top: '100px',

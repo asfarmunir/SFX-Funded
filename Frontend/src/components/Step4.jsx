@@ -78,7 +78,7 @@ export default function Step4() {
         position: "relative",
         marginTop: "2vh",
         width: "100%",
-        height: `${totalHeight}px`,
+        height: `${totalHeight - 250}px`,
       }}
     >
       {projects.map((project, i) => {

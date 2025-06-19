@@ -904,29 +904,30 @@ export default function RapidChallenge() {
         <div className="border border-[#F800EA] rounded-3xl p-6 mb-16">
           {/* Package Selection */}
           <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {/* All buttons adjusted to have equal width */}
             <button
-              className={`px-6 py-2 rounded-md flex items-center gap-2 ${selectedPackage === 'Starter' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
+              className={`px-6 py-2 rounded-md flex items-center justify-center gap-2 w-[120px] h-[45px] ${selectedPackage === 'Starter' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
               onClick={() => setSelectedPackage('Starter')}
             >
               <img src="/image 49.svg" alt="Starter" className="w-5 h-5" />
               Starter
             </button>
             <button
-              className={`px-6 py-2 rounded-md flex items-center gap-2 ${selectedPackage === 'Builder' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
+              className={`px-6 py-2 rounded-md flex items-center justify-center gap-2 w-[120px] h-[45px] ${selectedPackage === 'Builder' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
               onClick={() => setSelectedPackage('Builder')}
             >
               <img src="/image 50.svg" alt="Builder" className="w-5 h-5" />
               Builder
             </button>
             <button
-              className={`px-6 py-2 rounded-md flex items-center gap-2 ${selectedPackage === 'Leader' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
+              className={`px-6 py-2 rounded-md flex items-center justify-center gap-2 w-[120px] h-[45px] ${selectedPackage === 'Leader' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
               onClick={() => setSelectedPackage('Leader')}
             >
               <img src="/image 51.svg" alt="Leader" className="w-5 h-5" />
               Leader
             </button>
             <button
-              className={`px-6 py-2 rounded-md flex items-center gap-2 ${selectedPackage === 'Elite' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
+              className={`px-6 py-2 rounded-md flex items-center justify-center gap-2 w-[120px] h-[45px] ${selectedPackage === 'Elite' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
               onClick={() => setSelectedPackage('Elite')}
             >
               <img src="/image 52.svg" alt="Elite" className="w-5 h-5" />
@@ -934,7 +935,7 @@ export default function RapidChallenge() {
             </button>
           </div>
 
-          {/* Slider */}
+          {/* Slider - Fixed for mobile */}
           <div className="mb-8">
             <div className="relative w-full">
               <input
@@ -946,8 +947,8 @@ export default function RapidChallenge() {
                 step="1"
                 className="w-full h-2 rounded-lg appearance-none cursor-pointer custom-slider"
                 style={{
-                  // Adjust gradient to align with the center of the thumb (12.5px offset since thumb is 25px wide)
-                  background: `linear-gradient(to right, #F800EA 0%, #F800EA calc(${sliderValue}% - 12.5px), #f5f5f5 calc(${sliderValue}% - 12.5px), #f5f5f5 100%)`
+                  // Improved calculation for mobile compatibility
+                  background: `linear-gradient(to right, #F800EA 0%, #F800EA ${sliderValue}%, #f5f5f5 ${sliderValue}%, #f5f5f5 100%)`
                 }}
               />
               <div className="absolute -bottom-8 left-0 right-0 flex justify-between text-sm">
@@ -972,6 +973,7 @@ export default function RapidChallenge() {
       cursor: pointer;
       position: relative;
       z-index: 10;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
 
     .custom-slider::-moz-range-thumb {
@@ -981,6 +983,7 @@ export default function RapidChallenge() {
       background: rgba(255, 255, 255, 1);
       border: 4.5px solid rgba(248, 0, 234, 1);
       cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
 
     .custom-slider::-ms-thumb {
@@ -990,6 +993,7 @@ export default function RapidChallenge() {
       background: rgba(255, 255, 255, 1);
       border: 4.5px solid rgba(248, 0, 234, 1);
       cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
 
     /* Remove default track styling */
@@ -1012,11 +1016,22 @@ export default function RapidChallenge() {
       color: transparent;
       border-radius: 999px;
     }
+
+    /* Improve touch target size on mobile */
+    @media (max-width: 768px) {
+      .custom-slider::-webkit-slider-thumb {
+        width: 28px;
+        height: 28px;
+        border-width: 5px;
+      }
+      .custom-slider::-moz-range-thumb {
+        width: 28px;
+        height: 28px;
+        border-width: 5px;
+      }
+    }
   `}</style>
           </div>
-
-
-
 
           {/* Results Table */}
           <div className="mt-12">
@@ -1039,67 +1054,69 @@ export default function RapidChallenge() {
             How Our <span className="text-[#F800EA]">Affiliate Model</span> Works
           </h2>
 
-          <div className="flex flex-col lg:flex-row justify-between items-center mb-8">
+          {/* First row of steps - equal spacing for mobile */}
+          <div className="flex flex-col lg:flex-row justify-between items-stretch mb-6 lg:mb-8 gap-6 lg:gap-2">
             {/* Step 1 */}
-            <div className="border-[1.82px] border-[#20242B] rounded-xl p-6 w-full lg:w-1/3 mb-6 lg:mb-0 mx-2">
+            <div className="border-[1.82px] border-[#20242B] rounded-xl p-6 w-full lg:w-1/3 mx-0 lg:mx-2 h-auto flex flex-col">
               <div className="flex items-center mb-3">
                 <img src="/register.svg" alt="Register" className="w-8 h-8 mr-3" />
                 <h3 className="text-xl font-bold">Register</h3>
               </div>
-              <p className="text-sm text-gray-600">Register For The Affiliate Program</p>
+              <p className="text-sm text-gray-600 flex-grow">Register For The Affiliate Program</p>
             </div>
 
             {/* Arrow */}
-            <div className="hidden lg:flex justify-center items-center mb-6 lg:mb-0">
+            <div className="hidden lg:flex justify-center items-center">
               <img src="/arrow.svg" alt="Arrow" className="w-8 h-8" />
             </div>
 
             {/* Step 2 */}
-            <div className="border-[1.82px] border-[#20242B] rounded-xl p-6 w-full lg:w-1/3 mb-6 lg:mb-0 mx-2">
+            <div className="border-[1.82px] border-[#20242B] rounded-xl p-6 w-full lg:w-1/3 mx-0 lg:mx-2 h-auto flex flex-col">
               <div className="flex items-center mb-3">
                 <img src="/personalized.svg" alt="Personalized Link" className="w-8 h-8 mr-3" />
                 <h3 className="text-xl font-bold">Personalized Link</h3>
               </div>
-              <p className="text-sm text-gray-600">Access Your Personal Affiliate Link</p>
+              <p className="text-sm text-gray-600 flex-grow">Access Your Personal Affiliate Link</p>
             </div>
 
             {/* Arrow */}
-            <div className="hidden lg:flex justify-center items-center mb-6 lg:mb-0">
+            <div className="hidden lg:flex justify-center items-center">
               <img src="/arrow.svg" alt="Arrow" className="w-8 h-8" />
             </div>
 
             {/* Step 3 */}
-            <div className="border-[1.82px] border-[#20242B] rounded-xl p-6 w-full lg:w-1/3 mb-6 lg:mb-0 mx-2">
+            <div className="border-[1.82px] border-[#20242B] rounded-xl p-6 w-full lg:w-1/3 mx-0 lg:mx-2 h-auto flex flex-col">
               <div className="flex items-center mb-3">
                 <img src="/share.svg" alt="Share the Love" className="w-8 h-8 mr-3" />
                 <h3 className="text-xl font-bold">Share the Love</h3>
               </div>
-              <p className="text-sm text-gray-600">Promote SFX Funded To Your Network & Start Earning</p>
+              <p className="text-sm text-gray-600 flex-grow">Promote SFX Funded To Your Network & Start Earning</p>
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-center items-center mt-4">
+          {/* Second row of steps - equal spacing for mobile */}
+          <div className="flex flex-col lg:flex-row justify-center items-stretch mt-0 lg:mt-4 gap-6 lg:gap-2">
             {/* Step 4 */}
-            <div className="border-[1.82px] border-[#20242B] rounded-xl p-6 w-full lg:w-1/3 mb-6 lg:mb-0 mx-2">
+            <div className="border-[1.82px] border-[#20242B] rounded-xl p-6 w-full lg:w-1/3 mx-0 lg:mx-2 h-auto flex flex-col">
               <div className="flex items-center mb-3">
                 <img src="/track.svg" alt="Track" className="w-8 h-8 mr-3" />
                 <h3 className="text-xl font-bold">Track</h3>
               </div>
-              <p className="text-sm text-gray-600">Watch Your Earnings Growth In Our Dashboard</p>
+              <p className="text-sm text-gray-600 flex-grow">Watch Your Earnings Growth In Our Dashboard</p>
             </div>
 
             {/* Arrow */}
-            <div className="hidden lg:flex justify-center items-center mb-6 lg:mb-0">
+            <div className="hidden lg:flex justify-center items-center">
               <img src="/arrow.svg" alt="Arrow" className="w-8 h-8" />
             </div>
 
             {/* Step 5 */}
-            <div className="border-[1.82px] border-[#20242B] rounded-xl p-6 w-full lg:w-1/3 mb-6 lg:mb-0 mx-2">
+            <div className="border-[1.82px] border-[#20242B] rounded-xl p-6 w-full lg:w-1/3 mx-0 lg:mx-2 h-auto flex flex-col">
               <div className="flex items-center mb-3">
                 <img src="/payout.svg" alt="Get Payout" className="w-8 h-8 mr-3" />
                 <h3 className="text-xl font-bold">Get Payout</h3>
               </div>
-              <p className="text-sm text-gray-600">Request Payout And Get Paid Within 24 Hours</p>
+              <p className="text-sm text-gray-600 flex-grow">Request Payout And Get Paid Within 24 Hours</p>
             </div>
           </div>
         </div>

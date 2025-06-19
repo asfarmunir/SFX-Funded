@@ -63,7 +63,7 @@ export default function Step3() {
   const cardHeight = 300; // Minimum height per card in mobile
   // Calculate exactly enough height for the container to end with the last card
   const lastCardOffset = 75; // Top offset of the sticky cards
-  const totalHeight = (projects.length - 1) * cardHeight + lastCardOffset + 225;
+  const totalHeight = (projects.length - 1) * cardHeight + lastCardOffset + 125;
 
   return (
     <div 
@@ -72,7 +72,7 @@ export default function Step3() {
         position: "relative",
         marginTop: "2vh",
         width: "100%",
-        height: `${totalHeight}px`,
+        height: `${totalHeight - 125}px`,
       }}
     >
       {projects.map((project, i) => {

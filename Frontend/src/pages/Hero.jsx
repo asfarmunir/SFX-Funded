@@ -1070,7 +1070,7 @@ const mobileCardScales = {
         {/* Header */}
        
 <div className="text-center mb-6">
-  <h2 className="text-[22px] leading-tight sm:text-2xl md:text-6xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2">
+  <h2 className="text-[25px] leading-tight sm:text-2xl md:text-6xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2">
     Top Funded Trader Programs
   </h2>
   <div className="mt-4 inline-block bg-fuchsia-50 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border border-fuchsia-200">
@@ -1601,7 +1601,7 @@ const mobileCardScales = {
       <div className="w-full font-inter bg-gray-50 mt-8 mb-8">
         {/* Real Traders, Real Success Section */}
         <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
-          <h2 className="text-center text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2">
+          <h2 className="text-center text-[26px] sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2">
             <span className="text-black">Real Traders, </span>
             <span className="text-[#F800EA]">Real Success</span>
           </h2>
@@ -1655,16 +1655,16 @@ const mobileCardScales = {
           <div className="mb-4 sm:mb-4 px-4">
             {/* Heading */}
             <motion.h2
-              className="text-center text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4"
+              className="text-center text-[19.4px] sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               <span className="text-black">Trade On Our</span>
               
-                        <br />
+                      
                         
-                        <span className="text-[#F800EA]">Leading Platform </span>
+                        <span className="text-[#F800EA]"> Leading Platform </span>
             </motion.h2>
 
             {/* Description */}
@@ -2032,7 +2032,7 @@ const mobileCardScales = {
 
   {/* Mobile CTA Button - Shown only on mobile at bottom */}
   <motion.div
-    className="md:hidden mt-1 mb-16 flex justify-center"
+    className="md:hidden mt-5 mb-16 flex justify-center"
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: 0.3 }}

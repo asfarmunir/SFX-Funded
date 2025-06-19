@@ -772,7 +772,7 @@ export default function Graphic() {
       position: "relative",
       marginTop: "2vh",
       width: "100%",
-      height: isMobile ? "850px" : "1200px", // Adjusted for mobile
+      height: isMobile ? "720px" : "1200px", // Adjusted for mobile
     }}
   >
     {/* Step 1 */}
@@ -791,9 +791,10 @@ export default function Graphic() {
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.3, once: true }}
-      className={`w-full sticky flex items-center justify-center z-[1] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
+      className={`w-full sticky flex items-center justify-center z-[1] ${isMobile ? 'h-[270px] ' : 'h-[350px] mb-5'}`}
       style={{
         top: isMobile ? '100px' : '100px',
+              marginBottom: isMobile ? '-30px' : undefined,
       }}
     >
       <div 
@@ -845,10 +846,10 @@ export default function Graphic() {
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.3, once: true }}
-      className={`w-full sticky flex items-center justify-center z-[2] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
+      className={`w-full sticky flex items-center justify-center z-[2] ${isMobile ? 'h-[270px] ' : 'h-[350px] mb-5'}`}
       style={{
         top: isMobile ? '100px' : '100px',
-        marginTop: isMobile ? '6px' : '-10px',
+              marginBottom: isMobile ? '-30px' : undefined,
       }}
     >
       <div 
@@ -900,10 +901,10 @@ export default function Graphic() {
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.3, once: true }}
-      className={`w-full sticky flex items-center justify-center z-[3] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
+      className={`w-full sticky flex items-center justify-center z-[3] ${isMobile ? 'h-[270px] ' : 'h-[350px] mb-5'}`}
       style={{
         top: isMobile ? '100px' : '100px',
-        marginTop: isMobile ? '6px' : '-10px',
+            marginBottom: isMobile ? '-30px' : undefined,
       }}
     >
       <div 
@@ -949,7 +950,7 @@ export default function Graphic() {
 </div>
 
 
-      <div className="font-sans max-w-5xl mx-auto px-4 py-8 mb-8 mt-8">
+      <div className="font-sans max-w-5xl mx-auto px-4 py-8 mb-4 mt-8">
         {/* Header */}
         <motion.div
           className="text-center mb-8"
@@ -1027,11 +1028,11 @@ export default function Graphic() {
         </div>
       </div>
 
-       <div className="font-sans max-w-6xl mx-auto px-4 py-12 mb-8 mt-8">
+       <div className="font-sans max-w-6xl mx-auto px-4 py-12 mb-2 mt-8">
           {/* Header */}
        
 <div className="text-center mb-6">
-  <h2 className="text-[32px] leading-tight sm:text-2xl md:text-6xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2">
+  <h2 className="text-[25px] leading-tight sm:text-2xl md:text-6xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2">
     Top Funded Trader Programs
   </h2>
   <div className="mt-4 inline-block bg-fuchsia-50 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border border-fuchsia-200">
@@ -1325,7 +1326,7 @@ export default function Graphic() {
 
 
 
-        <div style={{ fontFamily: "'Inter', sans-serif" }} className="max-w-6xl mb-4 mt-4 mx-auto px-4 py-12 sm:py-16">
+        <div style={{ fontFamily: "'Inter', sans-serif" }} className="max-w-6xl mb-4 mt-2 mx-auto px-4 py-12 sm:py-16">
   {/* Header */}
   <motion.h2
     className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-10 sm:mb-16"
@@ -1808,7 +1809,7 @@ export default function Graphic() {
       <div className="w-full font-inter bg-gray-50 mb-4 mt-4">
         {/* Real Traders, Real Success Section */}
         <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
-          <h2 className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-2">
+          <h2 className="text-center text-[26px] md:text-4xl lg:text-5xl font-bold mb-2">
             <span className="text-black">Real Traders, </span>
             <span className="text-[#F800EA]">Real Success</span>
           </h2>
@@ -1862,16 +1863,16 @@ export default function Graphic() {
           <div className="mb-16 mt-16 px-4">
             {/* Heading */}
             <motion.h2
-              className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+              className="text-center text-[19.4px] md:text-4xl lg:text-5xl font-bold mb-4"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               <span className="text-black">Trade On Our</span>
               
-                        <br />
+                      
                         
-                        <span className="text-[#F800EA]">Leading Platform </span>
+                        <span className="text-[#F800EA]"> Leading Platform </span>
             </motion.h2>
 
             {/* Description */}

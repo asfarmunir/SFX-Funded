@@ -570,96 +570,96 @@ const mobileCardScales = {
           </motion.p>
 
           <motion.div
-            className="w-full flex flex-col sm:flex-row justify-center gap-2 sm:gap-3 mb-4 sm:mb-5"
-            initial={{ opacity: 0, y: 42 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.7, delay: 0.6 }}
-          >
-            {/* Left Container - larger on laptop */}
-            <motion.div
-              className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-40 md:w-52"
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontWeight: 600
-              }}
-            >
-              {/* Green tick SVG */}
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 6L9 17L4 12"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="text-black text-xs md:text-base whitespace-nowrap">Payout on Demand</span>
-            </motion.div>
+  className="w-full flex flex-col sm:flex-row justify-center gap-2 sm:gap-3 mb-4 sm:mb-5"
+  initial={{ opacity: 0, y: 42 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: false }}
+  transition={{ duration: 0.7, delay: 0.6 }}
+>
+  {/* Left Container - larger on laptop */}
+  <motion.div
+    className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-48 sm:w-48 md:w-60 lg:w-64"
+    style={{
+      fontFamily: "Inter, sans-serif",
+      fontWeight: 600
+    }}
+  >
+    {/* Green tick SVG */}
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M20 6L9 17L4 12"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+    <span className="text-black text-xs md:text-base whitespace-nowrap">Payout on Demand</span>
+  </motion.div>
 
-            <motion.div
-              className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-64 md:w-80 px-3 md:px-5"
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontWeight: 600
-              }}
-            >
-              {/* Green tick SVG */}
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 6L9 17L4 12"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="text-black text-xs md:text-base whitespace-nowrap">
-                Evaluation & Funded Stage Reset
-              </span>
-            </motion.div>
+  <motion.div
+    className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-64 md:w-80 px-3 md:px-5"
+    style={{
+      fontFamily: "Inter, sans-serif",
+      fontWeight: 600
+    }}
+  >
+    {/* Green tick SVG */}
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M20 6L9 17L4 12"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+    <span className="text-black text-xs md:text-base whitespace-nowrap">
+      Evaluation & Funded Stage Reset
+    </span>
+  </motion.div>
 
-            <motion.div
-              className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-40 md:w-52"
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontWeight: 600
-              }}
-            >
-              {/* Green tick SVG */}
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 6L9 17L4 12"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="text-black text-xs md:text-base whitespace-nowrap">Up to 100% Profit Split</span>
-            </motion.div>
-          </motion.div>
+  <motion.div
+    className="bg-white rounded-full flex items-center justify-center shadow-md mx-auto sm:mx-0 h-7 md:h-10 w-52 sm:w-48 md:w-60 lg:w-64 px-1 sm:px-0"
+    style={{
+      fontFamily: "Inter, sans-serif",
+      fontWeight: 600
+    }}
+  >
+     {/* Green tick SVG */}
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2 text-green-500"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M20 6L9 17L4 12"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+    <span className="text-black text-xs md:text-base whitespace-nowrap">Up to 100% Profit Split</span>
+  </motion.div>
+</motion.div>
 
           {/* CTA Button */}
           <motion.div onClick={() => targetRef.current?.scrollIntoView({ behavior: "smooth" })}

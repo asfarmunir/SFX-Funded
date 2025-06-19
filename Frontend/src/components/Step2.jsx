@@ -36,29 +36,43 @@ export default function Step2() {
     }
     requestAnimationFrame(raf)
   }, [])
-  // Calculate dynamic height based on number of cards
+  
+  // Calculate dynamic height for perfect alignment with last card
   const cardHeight = 300; // Minimum height per card in mobile
-  const dynamicHeight = `${(projects.length * cardHeight) + 100}px`; // Extra 100px for spacing
-
+  // Calculate exactly enough height for the container to end with the last card
+  // projects.length - 1 accounts for the last card being sticky
+  const lastCardOffset = 75; // Top offset of the sticky cards
+  const totalHeight = (projects.length - 1) * cardHeight + lastCardOffset + 225;
+  
   return (
     <div 
       ref={container}
       style={{
         position: "relative",
-        marginTop: "2vh",
+        marginTop: "0vh",
         width: "100%",
-        height: dynamicHeight,
+        height: `${totalHeight}px`,
+        // Debug border to see container bounds
+        // border: "1px dashed red"
       }}
     >
       {projects.map((project, i) => {
         const targetScale = 1 - ((projects.length - i) * 0.05);
+        
+        // Refined range calculation for perfect sticky behavior
+        const isLastCard = i === projects.length - 1;
+        const segmentSize = 1 / projects.length;
+        const start = i * segmentSize;
+        // Make sure the last card sticks through the end of scroll
+        const end = isLastCard ? 1 : start + segmentSize * 0.9;
+        
         return (
           <Card 
             key={`p_${i}`} 
             i={i} 
             {...project} 
             progress={scrollYProgress} 
-            range={[i * .25, 1]} 
+            range={[start, end]} 
             targetScale={targetScale}
           />
         )

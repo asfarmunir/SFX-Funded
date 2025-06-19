@@ -1068,84 +1068,85 @@ const mobileCardScales = {
       {/* PROGRAMS SECTION */}
       <div className="font-sans max-w-6xl mx-auto px-4 py-12 mt-8 mb-8">
         {/* Header */}
-        <div className="text-center mb-6">
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900">
-            Top Funded Trader Programs
-          </h2>
-          <div className="mt-4 inline-block bg-fuchsia-50 px-6 py-2 rounded-full border border-fuchsia-200">
-            <span className="text-lg font-medium">Trade Forex, Indices, Metals & Crypto</span>
-          </div>
-        </div>
+        {/* Header */}
+<div className="text-center mb-6">
+  <h2 className="text-[22px] leading-tight sm:text-2xl md:text-6xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2">
+    Top Funded Trader Programs
+  </h2>
+  <div className="mt-4 inline-block bg-fuchsia-50 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border border-fuchsia-200">
+    <span className="text-[11px] sm:text-md font-medium whitespace-nowrap">Trade Forex, Indices, Metals & Crypto</span>
+  </div>
+</div>
 
 
         <div className="px-4 sm:px-6 max-w-full overflow-hidden">
-          {/* Program Selection Tiles */}
-          <div className={`flex flex-wrap justify-center gap-4 mt-6 ${isMobile ? 'gap-y-3' : ''}`}>
-            <button
-              className={`w-[160px] sm:w-[180px] ${selectedProgram === 'rapid'
-                ? 'bg-[#D90BC6] text-white'
-                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
-                } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
-              onClick={() => handleProgramClick('rapid')}
-            >
-              <img
-                src="/thunder.svg"
-                alt="Rapid"
-                className="w-5 h-5 mr-2"
-                style={getSvgStyle('rapid')}
-              />
-              <span>Rapid</span>
-            </button>
+  {/* Program Selection Tiles */}
+  <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 sm:gap-4 mt-6">
+    <button
+      className={`w-full sm:w-[180px] ${selectedProgram === 'rapid'
+        ? 'bg-[#D90BC6] text-white'
+        : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+        } rounded-lg py-3 px-2 sm:px-6 font-medium flex items-center justify-center`}
+      onClick={() => handleProgramClick('rapid')}
+    >
+      <img
+        src="/thunder.svg"
+        alt="Rapid"
+        className="w-5 h-5 mr-1 sm:mr-2"
+        style={getSvgStyle('rapid')}
+      />
+      <span>Rapid</span>
+    </button>
 
-            <button
-              className={`w-[160px] sm:w-[180px] ${selectedProgram === 'ignite'
-                ? 'bg-[#D90BC6] text-white'
-                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
-                } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
-              onClick={() => handleProgramClick('ignite')}
-            >
-              <img
-                src="/ignite1.svg"
-                alt="Ignite"
-                className="w-5 h-5 mr-2"
-                style={getSvgStyle('ignite')}
-              />
-              <span>Ignite</span>
-            </button>
+    <button
+      className={`w-full sm:w-[180px] ${selectedProgram === 'ignite'
+        ? 'bg-[#D90BC6] text-white'
+        : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+        } rounded-lg py-3 px-2 sm:px-6 font-medium flex items-center justify-center`}
+      onClick={() => handleProgramClick('ignite')}
+    >
+      <img
+        src="/ignite1.svg"
+        alt="Ignite"
+        className="w-5 h-5 mr-1 sm:mr-2"
+        style={getSvgStyle('ignite')}
+      />
+      <span>Ignite</span>
+    </button>
 
-            <button
-              className={`w-[160px] sm:w-[180px] ${selectedProgram === 'ascend'
-                ? 'bg-[#D90BC6] text-white'
-                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
-                } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
-              onClick={() => handleProgramClick('ascend')}
-            >
-              <img
-                src="/ascend.svg"
-                alt="Ascend"
-                className="w-5 h-5 mr-2"
-                style={getSvgStyle('ascend', 'white')} // Assume ascend.svg is originally white
-              />
-              <span>Ascend</span>
-            </button>
+    <button
+      className={`w-full sm:w-[180px] ${selectedProgram === 'ascend'
+        ? 'bg-[#D90BC6] text-white'
+        : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+        } rounded-lg py-3 px-2 sm:px-6 font-medium flex items-center justify-center`}
+      onClick={() => handleProgramClick('ascend')}
+    >
+      <img
+        src="/ascend.svg"
+        alt="Ascend"
+        className="w-5 h-5 mr-1 sm:mr-2"
+        style={getSvgStyle('ascend', 'white')} // Assume ascend.svg is originally white
+      />
+      <span>Ascend</span>
+    </button>
 
-            <button
-              className={`w-[160px] sm:w-[180px] ${selectedProgram === 'instant'
-                ? 'bg-[#D90BC6] text-white'
-                : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
-                } rounded-lg py-3 px-4 sm:px-6 font-medium flex items-center justify-center`}
-              onClick={() => handleProgramClick('instant')}
-            >
-              <img
-                src="/rocket.svg"
-                alt="Instant Funding"
-                className="w-5 h-5 mr-2"
-                style={getSvgStyle('instant')}
-              />
-              <span className="whitespace-nowrap text-sm sm:text-base">Instant Funding</span>
-            </button>
-          </div>
-        </div>
+    <button
+      className={`w-full sm:w-[180px] ${selectedProgram === 'instant'
+        ? 'bg-[#D90BC6] text-white'
+        : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
+        } rounded-lg py-3 px-2 sm:px-6 font-medium flex items-center justify-center`}
+      onClick={() => handleProgramClick('instant')}
+    >
+      <img
+        src="/rocket.svg"
+        alt="Instant Funding"
+        className="w-5 h-5 mr-1 sm:mr-2"
+        style={getSvgStyle('instant')}
+      />
+      <span className="whitespace-nowrap text-xs sm:text-base">Instant Funding</span>
+    </button>
+  </div>
+</div>
 
         {/* Account Table */}
         {selectedProgram !== 'instant' ? (
@@ -1396,16 +1397,16 @@ const mobileCardScales = {
 
 >
         {/* Heading Section */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
           Start Your <span className="text-fuchsia-500">SFX Funded Trading Journey</span>
         </h2>
-        <p className="text-white text-lg mb-12">
+        <p className="text-white text-sm mb-12">
           Your Strategy, No risk. You're Not Liable For Losses.
         </p>
 
         <div className="w-full max-w-6xl mx-auto px-2 sm:px-4">
           {/* Step Buttons with exact dimensions for laptop */}      
-             <motion.div
+           <motion.div
   initial={{ opacity: 0, y: 50 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6, delay: 0.1 }}
@@ -1413,28 +1414,28 @@ const mobileCardScales = {
   className="flex gap-2 sm:gap-4 justify-center items-stretch w-full"
 >
   {[1, 2, 3].map((step) => (
- <button
-  key={step}
-  onClick={() => handleStepClick(step)}
-  className={`
-    rounded-[10px] 
-    px-6 py-2 sm:px-6 sm:py-5 mb-6 sm:mb-12
-    w-full max-w-[100%] md:max-w-[200px] lg:max-w-[220px] 
-    transition-all duration-300 text-center 
-    flex flex-col justify-center items-center border-[1.5px] 
-    ${activeStep === step 
-      ? "bg-fuchsia-600 text-white border-transparent" 
-      : "bg-white text-black border-fuchsia-600"
-    }
-  `}
->
-      <p className="font-medium text-xs sm:text-base md:text-lg">{`Step ${step}:`}</p>
+    <button
+      key={step}
+      onClick={() => handleStepClick(step)}
+      className={`
+        rounded-[10px] 
+        px-5 py-2.5 sm:px-6 sm:py-5 mb-5 sm:mb-12
+        w-full max-w-[120%] md:max-w-[200px] lg:max-w-[220px] 
+        transition-all duration-300 text-center 
+        flex flex-col justify-center items-center border-[1.5px] 
+        ${activeStep === step 
+          ? "bg-fuchsia-600 text-white border-transparent" 
+          : "bg-white text-black border-fuchsia-600"
+        }
+      `}
+    >
+      <p className="font-medium text-xs sm:text-base md:text-lg">{`Step ${step}`}</p>
       <p className="font-medium text-xs sm:text-base md:text-lg leading-tight">
         {step === 1
-          ? "Choose a Plan"
+          ? "Choose Plan" // Shorter text for mobile
           : step === 2
-          ? "Get Funded"
-          : "Start Your Trading Journey"}
+          ? "Get Funded" 
+          : "Start Trading"} {/* Shorter text for mobile */}
       </p>
     </button>
   ))}
@@ -1600,7 +1601,7 @@ const mobileCardScales = {
       <div className="w-full font-inter bg-gray-50 mt-8 mb-8">
         {/* Real Traders, Real Success Section */}
         <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
-          <h2 className="text-center text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2">
+          <h2 className="text-center text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2">
             <span className="text-black">Real Traders, </span>
             <span className="text-[#F800EA]">Real Success</span>
           </h2>
@@ -1744,14 +1745,14 @@ const mobileCardScales = {
               }}
             >
               <motion.h2
-                className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-1 md:mb-10 lg:mb-12"
+                className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-1 md:mb-10 lg:mb-12"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2, delay: 0.7 }}
               >
                 <span className="text-black">A </span>
                 <span className="text-[#F800EA]">Firm </span>
-                <span className="text-black">You Can Rely On</span>
+                <span className="text-black">You Can Trust</span>
               </motion.h2>
 
               {/* Swiper for Badges */}

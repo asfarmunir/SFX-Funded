@@ -495,11 +495,12 @@ const mobileCardScales = {
   
 
   return (
-    <div className="font-inter w-full ">
+    <div className="font-inter w-full">
 
 
-      <div className="w-full mx-0 px-2 sm:px-4 pt-4 sm:pt-2 md:pt-3 lg:pt-4 pb-0 rounded-[30px] mt-6 mb-4 sm:mt-6 sm:mb-6
- relative overflow-hidden"
+      {/* HERO SECTION */}
+      <div
+        className="w-full mx-0 px-4 pt-6 pb-0 rounded-[30px] mt-8 mb-8 sm:px-4 sm:pt-2 md:pt-3 lg:pt-4 sm:mt-6 sm:mb-6 relative overflow-hidden"
         style={{
           background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
         }}
@@ -522,17 +523,16 @@ const mobileCardScales = {
           <div className="text-center mb-3 sm:mb-4 md:mb-5">
             {/* Main Heading */}
             <motion.h1
-              className="text-white font-bold 
-  text-3xl sm:text-3xl md:text-4xl lg:text-5xl
-  leading-none tracking-tight"
+              className="text-white font-bold text-3xl sm:text-3xl md:text-4xl lg:text-5xl leading-none tracking-tight"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.7, delay: 0.1 }}
               style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "Oswald, sans-serif",
                 fontWeight: 600,
-                fontSize: "clamp(3rem, 5vw, 5rem)", // Increased from 1.5rem to 2rem for mobile
+                fontSize: "clamp(2rem, 7vw, 5rem)", // mobile: 2rem, desktop unchanged
+                letterSpacing: "-1px",
               }}
             >
               <span>Power</span>{" "}
@@ -541,9 +541,7 @@ const mobileCardScales = {
 
             {/* Subheading */}
             <motion.h1
-              className="text-white font-bold 
-  text-3xl sm:text-3xl md:text-4xl lg:text-5xl
-  leading-none tracking-tight"
+              className="text-white font-bold text-3xl sm:text-3xl md:text-4xl lg:text-5xl leading-none tracking-tight"
               initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
@@ -551,7 +549,7 @@ const mobileCardScales = {
               style={{
                 fontFamily: "Oswald, sans-serif",
                 fontWeight: 600,
-                fontSize: "clamp(2.5rem, 5vw, 5rem)", // Increased from 1.5rem to 2rem for mobile
+                fontSize: "clamp(2rem, 7vw, 5rem)", // mobile: 2rem, desktop unchanged
                 letterSpacing: "-1px",
               }}
             >
@@ -702,7 +700,8 @@ const mobileCardScales = {
       </div>
 
 
-      <div className="flex justify-center w-full max-w-5xl mx-auto px-5 sm:px-6 md:px-7 lg:px-10 ">
+      {/* PAYOUTS SECTION */}
+      <div className="flex justify-center w-full max-w-5xl mx-auto px-4 mt-8 mb-8 sm:px-6 md:px-7 lg:px-10 ">
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 p-4 bg-gray-50 rounded-[20px] font-['Inter'] max-w-7xl w-full">
 
           {/* Recent Verified Payouts Section */}
@@ -825,7 +824,8 @@ const mobileCardScales = {
         </div>
       </div>
 
-      <div className="w-full max-w-7xl mx-auto px-4">
+      {/* CARDS SECTION */}
+      <div className="w-full max-w-7xl mx-auto px-4 mt-8 mb-8">
         {/* Desktop Grid */}
         <div className="hidden md:grid grid-cols-3 gap-6 mb-8">
           {cards.map((card, index) => (
@@ -894,7 +894,7 @@ const mobileCardScales = {
   initial={{ opacity: 0, y: 50 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.5 }}
-  className="bg-gray-100 rounded-[10px] py-8 px-6 my-5 flex justify-center items-center"
+  className="bg-gray-100 rounded-[10px] py-8 px-6 my-5 flex justify-center items-center mt-8 mb-8"
 >
   <div className="flex flex-col md:flex-row items-center text-center">
     <div className="w-20 h-20 text-fuchsia-600 mb-4 md:mb-0 md:mr-6">
@@ -912,8 +912,9 @@ const mobileCardScales = {
       </div>
 
 
-      <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
-        <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
+      {/* STATS SECTION */}
+      <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12 mt-8 mb-8">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
           Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
         </h1>
 
@@ -1064,10 +1065,11 @@ const mobileCardScales = {
 
       </div>
 
-      <div className="font-sans max-w-6xl mx-auto px-4 py-12">
+      {/* PROGRAMS SECTION */}
+      <div className="font-sans max-w-6xl mx-auto px-4 py-12 mt-8 mb-8">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900">
             Top Funded Trader Programs
           </h2>
           <div className="mt-4 inline-block bg-fuchsia-50 px-6 py-2 rounded-full border border-fuchsia-200">
@@ -1357,7 +1359,8 @@ const mobileCardScales = {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 mb-12 w-full max-w-6xl mx-auto">
+      {/* FEATURES SECTION */}
+      <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 mb-12 w-full max-w-6xl mx-auto mt-8 mb-8 px-4">
         <div className="border-2 border-[#F800EA] rounded-xl px-5 py-4 md:px-8 md:py-6 flex items-center justify-center hover:shadow-lg transition-all duration-300 flex-1">
           <img
             src="/blue.svg"
@@ -1389,7 +1392,7 @@ const mobileCardScales = {
   initial={{ opacity: 0, y: 50 }} // Start below with 0 opacity
   whileInView={{ opacity: 1, y: 0 }} // Slide up into view  transition={{ duration: 0.6, ease: "easeOut" }} // Smooth ease
   viewport={{ once: true, amount: 0.3 }} // Trigger when 30% in view, only once
-  className="w-full bg-black rounded-3xl p-4 pt-6 pb-6 sm:p-8 my-8 md:p-16 text-center"
+  className="w-full bg-black rounded-3xl p-4 pt-6 pb-6 sm:p-8 my-8 md:p-16 text-center mt-8 mb-8"
 
 >
         {/* Heading Section */}
@@ -1498,6 +1501,7 @@ const mobileCardScales = {
         animate="visible"
         exit="exit"
         className="hidden md:block bg-white rounded-[10px] py-8 px-6 text-center shadow-lg shadow-fuchsia-600/20"
+     
       >
         <div className="flex justify-center mb-4">
           <div className="flex items-center justify-center">
@@ -1593,10 +1597,10 @@ const mobileCardScales = {
 
 
 
-      <div className="w-full font-inter bg-gray-50">
+      <div className="w-full font-inter bg-gray-50 mt-8 mb-8">
         {/* Real Traders, Real Success Section */}
         <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
-          <h2 className="text-center text-5xl md:text-5xl lg:text-6xl font-bold mb-2">
+          <h2 className="text-center text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2">
             <span className="text-black">Real Traders, </span>
             <span className="text-[#F800EA]">Real Success</span>
           </h2>
@@ -1650,7 +1654,7 @@ const mobileCardScales = {
           <div className="mb-4 sm:mb-4 px-4">
             {/* Heading */}
             <motion.h2
-              className="text-center text-5xl md:text-6xl lg:text-7xl font-bold mb-4"
+              className="text-center text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -1813,17 +1817,17 @@ const mobileCardScales = {
 
             </div>
           </div>
-
         </div>
       </div>
 
-      <div style={{ fontFamily: "'Inter', sans-serif" }} className="max-w-6xl mx-auto px-4 pt-4 sm:py-12"> {/* Changed from py-12 sm:py-16 to pt-4 sm:py-12 sm:py-16 */}
-        {/* Header with increased font size on mobile */}
+      {/* WHY CHOOSE SFX SECTION */}
+      <div style={{ fontFamily: "'Inter', sans-serif" }} className="max-w-6xl mx-auto px-4 pt-4 mt-8 mb-8">
         <motion.h2
-          className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-10 sm:mb-16"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-10 sm:mb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}        >
+          transition={{ duration: 0.5 }}
+        >
           Why Traders Choose <span className="text-fuchsia-500">SFX </span> Funded
         </motion.h2>
         
@@ -2053,15 +2057,15 @@ const mobileCardScales = {
       </div>
 
       <div className="w-full font-sans bg-[#f5f5f7]
-                 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+                 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden mt-8 mb-8">
                         <div className="max-w-7xl mx-auto">
                           {/* Purple diamond decoration */}
                           <div
-                            className="absolute right-4 top-16 md:left-24 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
-                            style={{
-                              animation: 'float 3s infinite ease-in-out',
-                            }}
-                          >
+  className="absolute right-4 top-16 md:right-4 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
+  style={{
+    animation: 'float 3s infinite ease-in-out',
+  }}
+>
                             {/* Diamond SVG */}
                             <div>
                               <img src="/diamond.svg" alt="Diamond Icon" className="w-20 h-20" />
@@ -2069,7 +2073,7 @@ const mobileCardScales = {
                           </div>
                 
                           <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 relative z-10">
-                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
                               What Our Traders Have To Say
                             </h2>
                           </div>

@@ -1839,12 +1839,12 @@ const getTransform = (columnIndex) => {
            py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
                   <div className="max-w-7xl mx-auto">
                     {/* Purple diamond decoration */}
-                    <div
-                      className="absolute right-4 top-16 md:left-24 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
-                      style={{
-                        animation: 'float 3s infinite ease-in-out',
-                      }}
-                    >
+                   <div
+  className="absolute right-4 top-16 md:right-4 md:top-24 w-16 h-16 md:w-24 md:h-24 opacity-80"
+  style={{
+    animation: 'float 3s infinite ease-in-out',
+  }}
+>
                       {/* Diamond SVG */}
                       <div>
                         <img src="/diamond.svg" alt="Diamond Icon" className="w-20 h-20" />

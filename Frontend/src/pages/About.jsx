@@ -62,7 +62,7 @@ export default function About() {
 >
   {/* Hero Heading */}
   <div className="text-center mb-6 sm:mb-8 md:mb-10">
-  <h1
+ <h1
   className="text-white uppercase font-oswald font-bold leading-none tracking-tight"
   style={{
     fontFamily: "Oswald, sans-serif",
@@ -146,30 +146,34 @@ export default function About() {
           </motion.p>
 
           {/* Body Text */}
-          <motion.div
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 400,
-              fontSize: '20px',
-              lineHeight: '30px',
-              letterSpacing: '5%',
-              color: 'rgba(32, 36, 43, 1)',
-              textAlign: 'justify',
-              verticalAlign: 'middle',
-            }}
-            className="space-y-4"
-            variants={slideUp}
-          >
-            <motion.p variants={slideUp}>
-              At SFX Funded, our leadership embodies a unique blend of trading expertise and business savvy, setting us apart as a premier proprietary trading firm.
-            </motion.p>
-            <motion.p variants={slideUp}>
-              Husam Samy, our CEO and co-founder, comes from a background in civil engineering and aviation accompanied with over 7 years industry experience trading and strategic thinking, paired with his passion for global markets, make him a great leader for aspiring traders. Franca Kraut, our COO and co-founder, brings a wealth of entrepreneurial experience, having co-founded a thriving real estate business before making a seven-figure exit. Her strategic vision and leadership have consistently set high standards, both in business and now in financial markets.
-            </motion.p>
-            <motion.p variants={slideUp}>
-              Together, Husam and Franca are the driving force behind SFX Funded. Their combined expertise and diverse backgrounds create a supportive and innovative environment where traders can thrive.
-            </motion.p>
-          </motion.div>
+         
+<motion.div
+  style={{
+    fontFamily: 'Inter, sans-serif',
+    fontWeight: 400,
+    fontSize: 'clamp(1rem, 3vw, 1.25rem)', // Responsive font size
+    lineHeight: 'clamp(1.6rem, 4vw, 2rem)', // Responsive line height
+    letterSpacing: '0.01em', // Use em or px for consistency
+    color: 'rgba(32, 36, 43, 1)',
+    textAlign: 'justify',
+    verticalAlign: 'start',
+    marginTop: '1.5rem',
+    marginBottom: '1.5rem',
+  }}
+  className="space-y-4 sm:space-y-6"
+  variants={slideUp}
+>
+  <motion.p variants={slideUp}>
+    At SFX Funded, our leadership embodies a unique blend of trading expertise and business savvy, setting us apart as a premier proprietary trading firm.
+  </motion.p>
+  <motion.p variants={slideUp}>
+    Husam Samy, our CEO and co-founder, comes from a background in civil engineering and aviation accompanied with over 7 years industry experience trading and strategic thinking, paired with his passion for global markets, make him a great leader for aspiring traders. Franca Kraut, our COO and co-founder, brings a wealth of entrepreneurial experience, having co-founded a thriving real estate business before making a seven-figure exit. Her strategic vision and leadership have consistently set high standards, both in business and now in financial markets.
+  </motion.p>
+  <motion.p variants={slideUp}>
+    Together, Husam and Franca are the driving force behind SFX Funded. Their combined expertise and diverse backgrounds create a supportive and innovative environment where traders can thrive.
+  </motion.p>
+</motion.div>
+
 
           {/* Button */}
           <motion.div 

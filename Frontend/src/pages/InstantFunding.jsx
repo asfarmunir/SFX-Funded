@@ -461,429 +461,428 @@ const tableRows = [
    };
      
     return (
-       <div className="font-inter w-full ">
-         
+  <div className="font-inter w-full ">
    
-         <div className="w-full mx-0 px-2 sm:px-6 py-8 sm:py-2 md:py-4 lg:py-5 rounded-[40px] my-6 sm:my-8 relative overflow-hidden"
-     style={{
-       background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
-     }}
-   >
-     
-     {/* Main Content */}
-<motion.div 
-  className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center mt-8 sm:mt-12 md:mt-16 lg:mt-20"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: false }}
-  variants={{
-    visible: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }}
->
-  {/* Small Tagline */}
-  <motion.div
-    className="bg-black text-white mb-6 sm:mb-8 md:mb-10 border-2 border-white rounded-full px-6 py-3 sm:px-8 sm:py-4 font-semibold text-base sm:text-lg w-max font-inter"
-    variants={{
-      hidden: { opacity: 0, y: 20 },
-      visible: { 
-        opacity: 1, 
-        y: 0,
-        transition: {
-          duration: 0.6,
-          ease: "easeOut"
-        }
-      }
-    }}
-    style={{marginTop: '40px'}}>
-    Funded From Day One
-  </motion.div>
-
-  {/* Hero Heading */}
-  <motion.div 
-    className="text-center mb-6 sm:mb-8 md:mb-10"
-    variants={{
-      hidden: { opacity: 0, y: 20 },
-      visible: { 
-        opacity: 1, 
-        y: 0,
-        transition: {
-          duration: 0.6,
-          ease: "easeOut"
-        }
-      }
-    }}
-  >
-    {/* Main Heading */}
-    <h1 className="text-white uppercase font-oswald font-bold 
-      text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
-      leading-none tracking-tight"style={{
-        fontFamily: "Oswald, sans-serif",
-        fontWeight: 600,
-                fontSize: "clamp(3rem, 5vw, 5rem)",
-        letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
-      }}>
-      <span className="text-[#DE00DE]">FASTEST </span> <span className="text-[#fcfbfc]"> WAY TO A </span>{" "} <br />
-      <span className="text-[#DE00DE]">FUNDED </span>
-      <span className="text-[#fcfbfc]"> TRADING</span>
-      <span className="text-[#DE00DE]"> ACCOUNT</span>
+    {/* HERO SECTION */}
+    <div className="w-full mx-0 px-4 pt-6 pb-0 rounded-[40px] mt-6 mb-8 sm:my-6 relative overflow-hidden"
+      style={{
+        background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
+      }}
+    >
       
-    </h1>
-
-    {/* Subheading */}
-    <h2 className="text-white uppercase font-oswald font-bold 
-      text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
-      leading-none tracking-tight mt-3 sm:mt-4 md:mt-5"style={{
-        fontFamily: "Oswald, sans-serif",
-        fontWeight: 600,
-        fontSize: "clamp(1.5rem, 8vw, 60px)",
-        letterSpacing: window.innerWidth < 640 ? "-3px" : "-5.64px",
-      }}>
-      <span >CAPITAL IN </span> <span className="text-[#DE00DE]">MINUTES. </span> <span> REWARD IN </span> <span className="text-[#DE00DE]">DAYS. </span>{" "}
-    </h2>
-  </motion.div>
-
-  {/* Description */}
-  <motion.p
-    className="text-white text-base sm:text-lg md:text-xl lg:text-2xl max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl font-inter mb-8 sm:mb-10 md:mb-12"
-    variants={{
-      hidden: { opacity: 0, y: 20 },
-      visible: { 
-        opacity: 1, 
-        y: 0,
-        transition: {
-          duration: 0.6,
-          ease: "easeOut",
-          delay: 0.1
-        }
-      }
-    }}
-  >
-    No phases, No targets, Just instant access to trading capital.
-  </motion.p>
-
-  {/* CTA Button */}
-  <motion.div
-    className="mt-4 sm:mt-6 mb-8 sm:mb-10"
-    variants={{
-      hidden: { opacity: 0, y: 20 },
-      visible: { 
-        opacity: 1, 
-        y: 0,
-        transition: {
-          duration: 0.6,
-          ease: "easeOut",
-          delay: 0.2
-        }
-      }
-    }}
-  >
-    <button className="text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center justify-center mx-auto font-inter text-base sm:text-lg md:text-xl">
-      Instant Funding
-      <svg
-        className="ml-3"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+      {/* Main Content */}
+      <motion.div 
+        className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center mt-8 sm:mt-12 md:mt-16 lg:mt-20"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false }}
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 0.1
+            }
+          }
+        }}
       >
-        <path
-          d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
-          fill="white"
-        />
-      </svg>
-    </button>
-  </motion.div>
-</motion.div>
-   </div>
-   
-  
+        {/* Small Tagline */}
+        <motion.div
+          className="bg-black text-white mb-6 sm:mb-8 md:mb-10 border-2 border-white rounded-full px-6 py-3 sm:px-8 sm:py-4 font-semibold text-base sm:text-lg w-max font-inter"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { 
+              opacity: 1, 
+              y: 0,
+              transition: {
+                duration: 0.6,
+                ease: "easeOut"
+              }
+            }
+          }}
+          style={{marginTop: '50px'}}>
+          Funded From Day One
+        </motion.div>
 
+        {/* Hero Heading */}
+        <motion.div 
+          className="text-center mb-6 sm:mb-8 md:mb-10"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { 
+              opacity: 1, 
+              y: 0,
+              transition: {
+                duration: 0.6,
+                ease: "easeOut"
+              }
+            }
+          }}
+        >
+          {/* Main Heading */}
+          <h1 className="text-white uppercase font-oswald font-bold 
+            text-3xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
+            leading-none tracking-tight"
+            style={{
+              fontFamily: "Oswald, sans-serif",
+              fontWeight: 600,
+              fontSize: "clamp(2rem, 5vw, 5rem)", // Adjusted for mobile consistency
+              letterSpacing: window.innerWidth < 640 ? "-1px" : "-7.64px",
+            }}
+          >
+            <span className="text-[#DE00DE]">FASTEST </span> <span className="text-[#fcfbfc]"> WAY TO A </span>{" "} <br />
+            <span className="text-[#DE00DE]">FUNDED </span>
+            <span className="text-[#fcfbfc]"> TRADING</span>
+            <span className="text-[#DE00DE]"> ACCOUNT</span>
+            
+          </h1>
 
+          {/* Subheading */}
+          <h2 className="text-white uppercase font-oswald font-bold 
+            text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
+            leading-none tracking-tight mt-3 sm:mt-4 md:mt-5"
+            style={{
+              fontFamily: "Oswald, sans-serif",
+              fontWeight: 600,
+              fontSize: "clamp(1.5rem, 5vw, 60px)", // Adjusted for mobile consistency
+              letterSpacing: window.innerWidth < 640 ? "-1px" : "-5.64px",
+            }}
+          >
+            <span >CAPITAL IN </span> <span className="text-[#DE00DE]">MINUTES. </span> <span> REWARD IN </span> <span className="text-[#DE00DE]">DAYS. </span>{" "}
+          </h2>
+        </motion.div>
+
+        {/* Description */}
+        <motion.p
+          className="text-white text-base sm:text-lg md:text-xl lg:text-2xl max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl font-inter mb-8 sm:mb-10 md:mb-12"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { 
+              opacity: 1, 
+              y: 0,
+              transition: {
+                duration: 0.6,
+                ease: "easeOut",
+                delay: 0.1
+              }
+            }
+          }}
+        >
+          No phases, No targets, Just instant access to trading capital.
+        </motion.p>
+
+        {/* CTA Button */}
+        <motion.div
+          className="mt-4 sm:mt-6 mb-8 sm:mb-10"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { 
+              opacity: 1, 
+              y: 0,
+              transition: {
+                duration: 0.6,
+                ease: "easeOut",
+                delay: 0.2
+              }
+            }
+          }}
+        >
+          <button className="text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center justify-center mx-auto font-inter text-base sm:text-lg md:text-xl">
+            Instant Funding
+            <svg
+              className="ml-3"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </motion.div>
+      </motion.div>
+    </div>
    
-        {/* Process Steps Section */}
-<div className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 bg-gray-50">
-  <div className="max-w-7xl mx-auto">
-    <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
-      
-      {/* Left Side Text */}
+    {/* Process Steps Section */}
+    <div className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 bg-gray-50 mt-8 mb-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
+          
+          {/* Left Side Text */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: {
+                    duration: 0.5,
+                    delay: 0
+                  }
+                
+              }
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.3, once: true }}
+            className="lg:w-1/2 lg:sticky lg:top-[225px] lg:self-start lg:mt-[140px]"
+            style={{ height: 'fit-content' }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              GET FUNDED INSTANTLY IN
+              <br />
+              <span className="text-[#DE00DE] font-semibold">3 SIMPLE STEPS</span>
+            </h2>
+            <p className="mt-3 text-lg sm:text-xl md:text-2xl text-gray-600">
+              If you got the skill, we'll handle you the capital
+            </p>
+             {/* CTA Button */}
+              <motion.div
+                className="mt-4 sm:mt-6 mb-8 sm:mb-10"
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    transition: {
+                      duration: 0.8,
+                      ease: "easeOut",
+                      delay: 0.6
+                    }
+                  }
+                }}
+              >
+                <button className="mt-8 text-white px-6 py-3 sm:px-10 sm:py-5 text-lg sm:text-xl font-bold rounded-full bg-gradient-to-r from-[#DE00DE] to-[#FF00E6] hover:from-[#C000B0] hover:to-[#E600CC] transition-all duration-300 flex items-center shadow-2xl hover:shadow-[#DE00DE]/50 hover:scale-105 transform border-2 border-white/20 backdrop-blur-sm">
+                  Start Trading
+                  <svg className="ml-2 sm:ml-3" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
+                  </svg>
+                </button>
+              </motion.div>
+          </motion.div>
+
+          {/* Right Side Steps */}
+<div className="w-full lg:w-1/2 relative">
+  <div 
+    style={{
+      position: "relative",
+      marginTop: "2vh",
+      width: "100%",
+      height: isMobile ? "850px" : "1200px", // Adjusted for mobile
+    }}
+  >
+    {/* Step 1 */}
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+          opacity: 1, 
+          y: 0,
+          transition: {
+            duration: 0.5,
+            delay: 0
+          }
+        }
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3, once: true }}
+      className={`w-full sticky flex items-center justify-center z-[1] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
+      style={{
+        top: isMobile ? '75px' : '100px',
+      }}
+    >
+      <div 
+        style={{
+          backgroundColor: "#F8EAF8",
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          width: isMobile ? 'calc(100vw - 20px)' : '100%',
+          maxWidth: '100%',
+          height: 'auto',
+          minHeight: isMobile ? '220px' : '280px',
+          borderRadius: '24px',
+          padding: isMobile ? '20px' : '32px',
+          fontFamily: "'Inter', sans-serif",
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        }}
+      >
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <img 
+            src="/step1.svg" 
+            alt="Step 1 Icon" 
+            className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
+          />
+          <h3 className="text-xl sm:text-3xl font-bold mb-2">SIGN UP</h3>
+          <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
+            Choose your preferred account size up to $40,000
+          </p>
+        </div>
+        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-[#DE00DE] flex items-center justify-center text-xs font-bold">
+          1
+        </div>
+      </div>
+    </motion.div>
+
+    {/* Step 2 */}
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+          opacity: 1, 
+          y: 0,
+          transition: {
+            duration: 0.5,
+            delay: 0.05
+          }
+        }
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3, once: true }}
+      className={`w-full sticky flex items-center justify-center z-[2] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
+      style={{
+        top: isMobile ? '75px' : '100px',
+        marginTop: isMobile ? '6px' : '-10px',
+      }}
+    >
+      <div 
+        style={{
+          backgroundColor: "#DBEAFE",
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          width: isMobile ? 'calc(100vw - 20px)' : '100%',
+          maxWidth: '100%',
+          height: 'auto',
+          minHeight: isMobile ? '220px' : '280px',
+          borderRadius: '24px',
+          padding: isMobile ? '20px' : '32px',
+          fontFamily: "'Inter', sans-serif",
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        }}
+      >
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <img 
+            src="/step3.svg" 
+            alt="Step 2 Icon" 
+            className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
+          />
+          <h3 className="text-xl sm:text-3xl font-bold mb-2">TRADE</h3>
+          <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
+            Get instant access to your funded account and start trading immediately. No waiting, no targets.
+          </p>
+        </div>
+        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-blue-800 flex items-center justify-center text-xs font-bold">
+          2
+        </div>
+      </div>
+    </motion.div>
+
+    {/* Step 3 */}
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+          opacity: 1, 
+          y: 0,
+          transition: {
+            duration: 0.5,
+            delay: 0.1
+          }
+        }
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3, once: true }}
+      className={`w-full sticky flex items-center justify-center z-[3] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
+      style={{
+        top: isMobile ? '75px' : '100px',
+        marginTop: isMobile ? '6px' : '-10px',
+      }}
+    >
+      <div 
+        style={{
+          backgroundColor: "#DCFCE7",
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          width: isMobile ? 'calc(100vw - 20px)' : '100%',
+          maxWidth: '100%',
+          height: 'auto',
+          minHeight: isMobile ? '220px' : '280px',
+          borderRadius: '24px',
+          padding: isMobile ? '20px' : '32px',
+          fontFamily: "'Inter', sans-serif",
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        }}
+      >
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <img 
+            src="/step2.svg" 
+            alt="Step 3 Icon" 
+            className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
+          />
+          <h3 className="text-xl sm:text-3xl font-bold mb-2">EARN REWARD</h3>
+          <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
+            Start earning from day one and receive up to 100% reward split, paid bi-weekly.
+          </p>
+        </div>
+        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-green-600 flex items-center justify-center text-xs font-bold">
+          3
+        </div>
+      </div>
+    </motion.div>
+
+    {/* Spacer to maintain container height */}
+    <div style={{ height: isMobile ? '0px' : '200px' }}></div>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    {/* Comparison Section */}
+    <motion.div 
+      className="font-sans max-w-5xl mt-8 mb-8 mx-auto px-4 py-8"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false }}
+      variants={{
+        visible: {
+          transition: {
+            staggerChildren: 0.2
+          }
+        }
+      }}
+    >
+      {/* Header */}
       <motion.div
+        className="text-center mb-8"
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: { 
             opacity: 1, 
             y: 0,
             transition: {
-                duration: 0.5,
-                delay: 0
-              }
-            
+              duration: 0.6,
+              ease: "easeOut"
+            }
           }
         }}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ amount: 0.3, once: true }}
-        className="lg:w-1/2 lg:sticky lg:top-[140px] lg:self-start lg:mt-[140px]"
-        style={{ height: 'fit-content' }}
       >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-          GET FUNDED INSTANTLY IN
-          <br />
-          <span className="text-[#DE00DE] font-semibold">3 SIMPLE STEPS</span>
-        </h2>
-        <p className="mt-3 text-lg sm:text-xl md:text-2xl text-gray-600">
-          If you got the skill, we'll handle you the capital
-        </p>
-         {/* CTA Button */}
-          <motion.div
-            className="mt-4 sm:mt-6 mb-8 sm:mb-10"
-            variants={{
-              hidden: { opacity: 0, y: 30 },
-              visible: { 
-                opacity: 1, 
-                y: 0,
-                transition: {
-                  duration: 0.8,
-                  ease: "easeOut",
-                  delay: 0.6
-                }
-              }
-            }}
-          >
-            <button className="mt-8 text-white px-6 py-3 sm:px-10 sm:py-5 text-lg sm:text-xl font-bold rounded-full bg-gradient-to-r from-[#DE00DE] to-[#FF00E6] hover:from-[#C000B0] hover:to-[#E600CC] transition-all duration-300 flex items-center shadow-2xl hover:shadow-[#DE00DE]/50 hover:scale-105 transform border-2 border-white/20 backdrop-blur-sm">
-              Start Trading
-              <svg className="ml-2 sm:ml-3" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="white" />
-              </svg>
-            </button>
-          </motion.div>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+  <span className="block sm:inline">Instant Funding</span>
+  <span className="block sm:inline"> VS </span>
+  <span className="text-fuchsia-500 block sm:inline">Evaluation Models</span>
+</h1>
+        <p className="text-xl">Compare the rapid challenge with the 1-Step Model</p>
       </motion.div>
 
-      {/* Right Side Steps */}
-      <div className="w-full lg:w-1/2 relative">
-        <div 
-          style={{
-            position: "relative",
-            marginTop: "2vh",
-            width: "100%",
-            height: "1200px",
-          }}
-        >
-          {/* Step 1 */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { 
-                opacity: 1, 
-                y: 0,
-                transition: {
-                  duration: 0.5,
-                  
-                  delay: 0
-                }
-              }
-            }}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.3, once: true }}
-            className="h-[350px] w-full sticky flex items-center justify-center z-[1] mb-5"
-            style={{
-              top: isMobile ? '0px' : '100px',
-            }}
-          >
-            <div 
-              style={{
-                backgroundColor: "#F8EAF8",
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                width: isMobile ? 'calc(100vw - 20px)' : '100%',
-                maxWidth: '100%',
-                height: 'auto',
-                minHeight: isMobile ? '250px' : '280px',
-                borderRadius: '24px',
-                padding: isMobile ? '24px' : '32px',
-                fontFamily: "'Inter', sans-serif",
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-              }}
-            >
-              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                <img 
-                  src="/step1.svg" 
-                  alt="Step 1 Icon" 
-                  className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
-                />
-                <h3 className="text-xl sm:text-3xl font-bold mb-2">SIGN UP</h3>
-                <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
-                  Choose your preferred account size up to $40,000
-                </p>
-              </div>
-              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-[#DE00DE] flex items-center justify-center text-xs font-bold">
-                1
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Step 2 */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { 
-                opacity: 1, 
-                y: 0,
-                transition: {
-                  duration: 0.5,
-                  
-                  delay: 0.05
-                }
-              }
-            }}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.3, once: true }}
-            className="h-[350px] w-full sticky flex items-center justify-center z-[2] mb-5"
-            style={{
-              top: isMobile ? '0px' : '100px',
-              marginTop: isMobile ? '10px' : '-10px',
-            }}
-          >
-            <div 
-              style={{
-                backgroundColor: "#DBEAFE",
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                width: isMobile ? 'calc(100vw - 20px)' : '100%',
-                maxWidth: '100%',
-                height: 'auto',
-                minHeight: isMobile ? '250px' : '280px',
-                borderRadius: '24px',
-                padding: isMobile ? '24px' : '32px',
-                fontFamily: "'Inter', sans-serif",
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-              }}
-            >
-              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                <img 
-                  src="/step3.svg" 
-                  alt="Step 2 Icon" 
-                  className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
-                />
-                <h3 className="text-xl sm:text-3xl font-bold mb-2">TRADE</h3>
-                <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
-                  Get instant access to your funded account and start trading immediately. No waiting, no targets.
-                </p>
-              </div>
-              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-blue-800 flex items-center justify-center text-xs font-bold">
-                2
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Step 3 */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { 
-                opacity: 1, 
-                y: 0,
-                transition: {
-                  duration: 0.5,
-                  
-                  delay: 0.1
-                }
-              }
-            }}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.3, once: true }}
-            className="h-[350px] w-full sticky flex items-center justify-center z-[3] mb-5"
-            style={{
-              top: isMobile ? '0px' : '100px',
-              marginTop: isMobile ? '10px' : '-10px',
-            }}
-          >
-            <div 
-              style={{
-                backgroundColor: "#DCFCE7",
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                width: isMobile ? 'calc(100vw - 20px)' : '100%',
-                maxWidth: '100%',
-                height: 'auto',
-                minHeight: isMobile ? '250px' : '280px',
-                borderRadius: '24px',
-                padding: isMobile ? '24px' : '32px',
-                fontFamily: "'Inter', sans-serif",
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-              }}
-            >
-              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                <img 
-                  src="/step2.svg" 
-                  alt="Step 3 Icon" 
-                  className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
-                />
-                <h3 className="text-xl sm:text-3xl font-bold mb-2">EARN REWARD</h3>
-                <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
-                  Start earning from day one and receive up to 100% reward split, paid bi-weekly.
-                </p>
-              </div>
-              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-green-600 flex items-center justify-center text-xs font-bold">
-                3
-              </div>
-            </div>
-          </motion.div>
-          
-          {/* Spacer to maintain container height */}
-          <div style={{ height: '200px' }}></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-{/* Comparison Section */}
-<motion.div 
-  className="font-sans max-w-5xl mx-auto px-4 py-8"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: false }}
-  variants={{
-    visible: {
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  }}
->
-  {/* Header */}
-  <motion.div
-    className="text-center mb-8"
-    variants={{
-      hidden: { opacity: 0, y: 20 },
-      visible: { 
-        opacity: 1, 
-        y: 0,
-        transition: {
-          duration: 0.6,
-          ease: "easeOut"
-        }
-      }
-    }}
-  >
-    <h1 className="text-4xl md:text-5xl font-bold mb-4">
-      Instant Funding VS <span className="text-fuchsia-500">Evaluation Models</span>
-    </h1>
-    <p className="text-xl">Compare the rapid challenge with the 1-Step Model</p>
-  </motion.div>
-
-  {/* Comparison Cards */}
+      {/* Comparison Cards */}
 <motion.div 
   className="flex flex-col md:flex-row gap-6"
   variants={{
@@ -987,51 +986,48 @@ const tableRows = [
     </div>
   </motion.div>
 </motion.div>
-</motion.div>
-      
-   
-     
-  
-<motion.div 
-  className="bg-[#F5F5F7] py-12 font-sans w-full max-w-6xl mx-auto px-4 rounded-lg"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: false }}
-  variants={{
-    visible: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }}
->
-  {/* Header */}
-  <motion.div
-    className="text-center mb-8"
-    variants={{
-      hidden: { opacity: 0, y: 20 },
-      visible: { 
-        opacity: 1, 
-        y: 0,
-        transition: {
-          duration: 0.6,
-          ease: "easeOut"
+    </motion.div>
+    {/* Features Section */}
+    <motion.div 
+      className="bg-[#F5F5F7] py-12 font-sans w-full max-w-6xl mx-auto px-4 rounded-lg mt-8 mb-8"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false }}
+      variants={{
+        visible: {
+          transition: {
+            staggerChildren: 0.1
+          }
         }
-      }
-    }}
-  >
-    <h2 className="text-3xl md:text-4xl font-bold mb-2">
-      TOP INSTANT FUNDING FEATURES
-    </h2>
-    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-fuchsia-500">
-      FOR TRADERS
-    </h3>
-    <p className="text-base font-medium text-gray-700">
-      Here are key benefits that make SFX funded the best instant funding prop firm
-    </p>
-  </motion.div>
+      }}
+    >
+      {/* Header */}
+      <motion.div
+        className="text-center mb-8"
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { 
+            opacity: 1, 
+            y: 0,
+            transition: {
+              duration: 0.6,
+              ease: "easeOut"
+            }
+          }
+        }}
+      >
+        <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold mb-2">
+          TOP INSTANT FUNDING FEATURES
+        </h2>
+        <h3 className="text-3xl sm:text-3xl font-bold mb-4 text-fuchsia-500">
+          FOR TRADERS
+        </h3>
+        <p className="text-base font-medium text-gray-700">
+          Here are key benefits that make SFX funded the best instant funding prop firm
+        </p>
+      </motion.div>
 
-  {/* Features Grid */}
+      {/* Features Grid */}
 <motion.div 
   className="hidden md:grid md:grid-cols-3 gap-4 md:gap-6"
   variants={{
@@ -1213,10 +1209,10 @@ const tableRows = [
     
     
    
-      <div className="font-sans max-w-6xl mx-auto px-4 py-12">
+      <div className="font-sans max-w-6xl mx-auto px-4 py-12 mt-8 mb-8">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900">
             Top Funded Trader Programs
           </h2>
           <div className="mt-4 inline-block bg-fuchsia-50 px-6 py-2 rounded-full border border-fuchsia-200">
@@ -1596,8 +1592,8 @@ const tableRows = [
                       />
                     </div>
 
-         <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
-                        <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
+         <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12 mt-8 mb-8">
+                        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
                           Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
                         </h1>
                         
@@ -1748,7 +1744,7 @@ const tableRows = [
                   
                       </div>
   
-      <div className="w-full font-inter bg-gray-50">
+      <div className="w-full font-inter bg-gray-50 mt-8 mb-8">
               {/* Real Traders, Real Success Section */}
               <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
                 <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
@@ -1963,7 +1959,7 @@ const tableRows = [
               </div>
             </div>
       <div className="w-full font-sans bg-[#f5f5f7]
-       py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+       py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden mt-8 mb-8">
               <div className="max-w-7xl mx-auto">
                 {/* Purple diamond decoration */}
                 <div
@@ -1979,7 +1975,7 @@ const tableRows = [
                 </div>
       
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 relative z-10">
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
                     What Our Traders Have To Say
                   </h2>
                 </div>
@@ -2280,3 +2276,5 @@ const tableRows = [
        </div>
      );
    }
+      
+   

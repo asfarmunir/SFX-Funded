@@ -253,10 +253,9 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
     },
   };
   return (
-    <div className="font-inter w-full ">
-      
-
-      <div className="w-full mx-0 px-2 sm:px-6 py-8 sm:py-2 md:py-4 lg:py-5 rounded-[40px] my-6 sm:my-8 relative overflow-hidden"
+    <div className="font-inter w-full">
+      {/* HERO SECTION */}
+      <div className="w-full mx-0 px-4 pt-6 pb-0 rounded-[30px] mt-6 mb-8 sm:px-4 sm:pt-2 md:pt-3 lg:pt-4 sm:mt-6 sm:mb-6 relative overflow-hidden"
   style={{
     background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
   }}
@@ -269,13 +268,13 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
   initial="hidden"
   whileInView="show"
   viewport={{ once: false, amount: 0.2 }}
-  className="max-w-7xl mx-auto text-center flex flex-col items-center justify-center mt-8 sm:mt-12 md:mt-16 lg:mt-20"
+  className="max-w-5xl mx-auto text-center flex flex-col items-center justify-center mt-4 sm:mt-6 md:mt-8 lg:mt-10"
 >
   {/* Small Tagline */}
   <motion.div
     variants={item}
     className="bg-black text-white mb-6 sm:mb-8 md:mb-10 border-2 border-white rounded-full px-6 py-3 sm:px-8 sm:py-4 font-semibold text-base sm:text-lg w-max font-inter"
-  style={{marginTop: '40px'}}>
+  style={{marginTop: '50px'}}>
     The Fastest Evaluation
   </motion.div>
 
@@ -285,16 +284,15 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
       <h1
   className="
     font-oswald font-semibold 
-    text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl
-    leading-tight tracking-tighter
+    text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl
+    leading-none tracking-tight
     uppercase text-center
   "
   style={{
     fontFamily: "Oswald, sans-serif",
     fontWeight: 600,
-                fontSize: "clamp(3rem, 5vw, 5rem)",
-    letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
-
+                fontSize: "clamp(2rem, 7vw, 5rem)", // mobile: 2rem, desktop unchanged
+    letterSpacing: "-1px",
   }}
 >
           {/* First line - Lightning Challenge */}
@@ -356,7 +354,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
             initial="hidden"
             whileInView="visible"
             viewport={{ amount: 0.3, once: true }}
-            className="lg:w-1/2 lg:sticky lg:top-[140px] lg:self-start lg:mt-[140px]"
+            className="lg:w-1/2 lg:sticky lg:top-[225px] lg:self-start lg:mt-[140px]"
             style={{ height: 'fit-content' }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold leading-tight">
@@ -392,26 +390,35 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
               </motion.div>
           </motion.div>
 
-     {/* Right Side Steps */}
+    {/* Right Side Steps */}
 <div className="w-full lg:w-1/2 relative">
   <div 
     style={{
       position: "relative",
       marginTop: "2vh",
       width: "100%",
-      height: "1200px",
+      height: isMobile ? "850px" : "1200px", // Adjusted for mobile
     }}
   >
     {/* Step 1 */}
     <motion.div
-      variants={slideUpVariant}
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+          opacity: 1, 
+          y: 0,
+          transition: {
+            duration: 0.5,
+            delay: 0
+          }
+        }
+      }}
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.3, once: true }}
-      transition={{ delay: 0, duration: 0.5 }}
-      className="h-[350px] w-full sticky flex items-center justify-center z-[1] mb-5"
+      className={`w-full sticky flex items-center justify-center z-[1] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
       style={{
-        top: isMobile ? '0px' : '100px',
+        top: isMobile ? '75px' : '100px',
       }}
     >
       <div 
@@ -423,9 +430,9 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
           width: isMobile ? 'calc(100vw - 20px)' : '100%',
           maxWidth: '100%',
           height: 'auto',
-          minHeight: isMobile ? '250px' : '280px',
+          minHeight: isMobile ? '220px' : '280px',
           borderRadius: '24px',
-          padding: isMobile ? '24px' : '32px',
+          padding: isMobile ? '20px' : '32px',
           fontFamily: "'Inter', sans-serif",
           boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         }}
@@ -449,15 +456,24 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
 
     {/* Step 2 */}
     <motion.div
-      variants={slideUpVariant}
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+          opacity: 1, 
+          y: 0,
+          transition: {
+            duration: 0.5,
+            delay: 0.05
+          }
+        }
+      }}
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.3, once: true }}
-      transition={{ delay: 0.05, duration: 0.5 }}
-      className="h-[350px] w-full sticky flex items-center justify-center z-[2] mb-5"
+      className={`w-full sticky flex items-center justify-center z-[2] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
       style={{
-        top: isMobile ? '0px' : '100px',
-        marginTop: isMobile ? '10px' : '-10px',
+        top: isMobile ? '75px' : '100px',
+        marginTop: isMobile ? '6px' : '-10px',
       }}
     >
       <div 
@@ -469,9 +485,9 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
           width: isMobile ? 'calc(100vw - 20px)' : '100%',
           maxWidth: '100%',
           height: 'auto',
-          minHeight: isMobile ? '250px' : '280px',
+          minHeight: isMobile ? '220px' : '280px',
           borderRadius: '24px',
-          padding: isMobile ? '24px' : '32px',
+          padding: isMobile ? '20px' : '32px',
           fontFamily: "'Inter', sans-serif",
           boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         }}
@@ -495,15 +511,24 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
 
     {/* Step 3 */}
     <motion.div
-      variants={slideUpVariant}
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+          opacity: 1, 
+          y: 0,
+          transition: {
+            duration: 0.5,
+            delay: 0.1
+          }
+        }
+      }}
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.3, once: true }}
-      transition={{ delay: 0.1, duration: 0.5 }}
-      className="h-[350px] w-full sticky flex items-center justify-center z-[3] mb-5"
+      className={`w-full sticky flex items-center justify-center z-[3] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
       style={{
-        top: isMobile ? '0px' : '100px',
-        marginTop: isMobile ? '10px' : '-10px',
+        top: isMobile ? '75px' : '100px',
+        marginTop: isMobile ? '6px' : '-10px',
       }}
     >
       <div 
@@ -515,9 +540,9 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
           width: isMobile ? 'calc(100vw - 20px)' : '100%',
           maxWidth: '100%',
           height: 'auto',
-          minHeight: isMobile ? '250px' : '280px',
+          minHeight: isMobile ? '220px' : '280px',
           borderRadius: '24px',
-          padding: isMobile ? '24px' : '32px',
+          padding: isMobile ? '20px' : '32px',
           fontFamily: "'Inter', sans-serif",
           boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         }}
@@ -538,11 +563,12 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
         </div>
       </div>
     </motion.div>
-    
+
     {/* Spacer to maintain container height */}
-    <div style={{ height: '200px' }}></div>
+    <div style={{ height: isMobile ? '0px' : '200px' }}></div>
   </div>
 </div>
+
 
         </div>
       </div>
@@ -773,7 +799,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
       <div className="font-sans max-w-6xl mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900">
             Top Funded Trader Programs
           </h2>
           <div className="mt-4 inline-block bg-fuchsia-50 px-6 py-2 rounded-full border border-fuchsia-200">
@@ -1070,3 +1096,4 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
     </div>
   );
 }
+  

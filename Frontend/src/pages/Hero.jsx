@@ -500,7 +500,7 @@ const mobileCardScales = {
 
       {/* HERO SECTION */}
       <div
-        className="w-full mx-0 px-4 pt-6 pb-0 rounded-[30px] mt-8 mb-8 sm:px-4 sm:pt-2 md:pt-3 lg:pt-4 sm:mt-6 sm:mb-6 relative overflow-hidden"
+        className="w-full mx-0 px-4 pt-6 pb-0 rounded-[30px] mt-6 mb-8 sm:px-4 sm:pt-2 md:pt-3 lg:pt-4 sm:mt-6 sm:mb-6 relative overflow-hidden"
         style={{
           background: 'radial-gradient(150% 150% at 50% 0%, #000000 40%, #000000 55%, #96008D 65%, #DE00DE 100%)'
         }}
@@ -1360,7 +1360,7 @@ const mobileCardScales = {
       </div>
 
       {/* FEATURES SECTION */}
-      <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 mb-12 w-full max-w-6xl mx-auto mt-8 mb-8 px-4">
+      <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 mb-12 w-full max-w-6xl mx-auto mt-2 mb-16 px-4">
         <div className="border-2 border-[#F800EA] rounded-xl px-5 py-4 md:px-8 md:py-6 flex items-center justify-center hover:shadow-lg transition-all duration-300 flex-1">
           <img
             src="/blue.svg"
@@ -2031,7 +2031,7 @@ const mobileCardScales = {
 
   {/* Mobile CTA Button - Shown only on mobile at bottom */}
   <motion.div
-    className="md:hidden mt-8 mb-6 flex justify-center"
+    className="md:hidden mt-1 mb-16 flex justify-center"
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: 0.3 }}

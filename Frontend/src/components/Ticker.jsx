@@ -90,12 +90,15 @@ export default function Ticker() {
   
   return (
     <div 
-      className="fixed top-0 left-0 w-full bg-orange-400 flex items-center overflow-hidden py-1 sm:py-2 md:py-2 lg:py-2 mb-0"
+      className="fixed top-0 left-0 w-full bg-orange-400 flex items-center overflow-hidden py-2 sm:py-2 md:py-2 lg:py-2 mb-0"
       style={{ 
         position: 'sticky',
         backgroundColor: 'rgba(255, 165, 0, 1)',
         zIndex: 100,
         height: 'auto',
+        minHeight: 'clamp(2.5rem, 8vw, 3rem)', // Added minimum height for mobile
+        paddingTop: 'clamp(0.5rem, 2vw, 0.75rem)',
+        paddingBottom: 'clamp(0.5rem, 2vw, 0.75rem)',
         marginBottom: 0
       }}
       ref={tickerRef}
@@ -110,7 +113,8 @@ export default function Ticker() {
             transform: `translateX(${position}px)`,
             fontFamily: 'Segoe UI Symbol, system-ui, sans-serif',
             fontWeight: 700,
-            whiteSpace: 'nowrap'
+            whiteSpace: 'nowrap',
+            padding: 'clamp(2px, 1vw, 4px) 0' // Added vertical padding to the content
           }}
         >
           {Array(5).fill(message).map((text, index) => (

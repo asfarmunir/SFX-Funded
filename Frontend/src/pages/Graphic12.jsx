@@ -516,12 +516,11 @@ export default function Graphic() {
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               style={{
-                fontFamily: "Oswald, sans-serif",
-                
-                letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
-                 fontWeight: 600,
-                fontSize: "clamp(3rem, 5vw, 5rem)",
-              }}
+    fontFamily: "Oswald, sans-serif",
+    fontWeight: 600,
+                fontSize: "clamp(2rem, 7vw, 5rem)", // mobile: 2rem, desktop unchanged
+    letterSpacing: "-1px",
+  }}
               transition={{ duration: 0.4, delay: 0.2 }}
             >
               GET FUNDED WITH OUR 2-STEP
@@ -535,12 +534,11 @@ export default function Graphic() {
               initial={{ opacity: 0, y: 70 }}
               whileInView={{ opacity: 1, y: 0 }}
               style={{
-                fontFamily: "Oswald, sans-serif",
-                
-                letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
-                 fontWeight: 600,
-                fontSize: "clamp(3rem, 5vw, 5rem)",
-              }}
+    fontFamily: "Oswald, sans-serif",
+    fontWeight: 600,
+                fontSize: "clamp(2rem, 7vw, 5rem)", // mobile: 2rem, desktop unchanged
+    letterSpacing: "-1px",
+  }}
               transition={{ duration: 0.4, delay: 0.4 }}
             >
                CHALLENGE
@@ -730,7 +728,7 @@ export default function Graphic() {
         initial="hidden"
         whileInView="visible"
         viewport={{ amount: 0.3, once: true }}
-        className="lg:w-1/2 lg:sticky lg:top-[140px] lg:self-start lg:mt-[140px]"
+        className="lg:w-1/2 lg:sticky lg:top-[225px] lg:self-start lg:mt-[140px]"
         style={{ height: 'fit-content' }}
       >
         <h2 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
@@ -768,189 +766,190 @@ export default function Graphic() {
       </motion.div>
 
       {/* Right Side Steps */}
-      <div className="w-full lg:w-1/2 relative">
-        <div 
-          style={{
-            position: "relative",
-            marginTop: "2vh",
-            width: "100%",
-            height: "1200px",
-          }}
-        >
-          {/* Step 1 */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { 
-                opacity: 1, 
-                y: 0,
-                transition: {
-                  duration: 0.5,
-                  delay: 0
-                }
-              }
-            }}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.3, once: true }}
-            className="h-[350px] w-full sticky flex items-center justify-center z-[1] mb-5"
-            style={{
-              top: isMobile ? '0px' : '100px',
-            }}
-          >
-            <div 
-              style={{
-                backgroundColor: "#F8EAF8",
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                width: isMobile ? 'calc(100vw - 20px)' : '100%',
-                maxWidth: '100%',
-                height: 'auto',
-                minHeight: isMobile ? '250px' : '280px',
-                borderRadius: '24px',
-                padding: isMobile ? '24px' : '32px',
-                fontFamily: "'Inter', sans-serif",
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-              }}
-            >
-              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                <img 
-                  src="/step1.svg" 
-                  alt="Step 1 Icon" 
-                  className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
-                />
-                <h3 className="text-xl sm:text-3xl font-bold mb-2">CHOOSE YOUR CHALLENGE</h3>
-                <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
-                  Pick the evaluation that fits your trading style.
-                </p>
-              </div>
-              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-[#DE00DE] flex items-center justify-center text-xs font-bold">
-                1
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Step 2 */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { 
-                opacity: 1, 
-                y: 0,
-                transition: {
-                  duration: 0.5,
-                  delay: 0.05
-                }
-              }
-            }}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.3, once: true }}
-            className="h-[350px] w-full sticky flex items-center justify-center z-[2] mb-5"
-            style={{
-              top: isMobile ? '0px' : '100px',
-              marginTop: isMobile ? '10px' : '-10px',
-            }}
-          >
-            <div 
-              style={{
-                backgroundColor: "#DBEAFE",
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                width: isMobile ? 'calc(100vw - 20px)' : '100%',
-                maxWidth: '100%',
-                height: 'auto',
-                minHeight: isMobile ? '250px' : '280px',
-                borderRadius: '24px',
-                padding: isMobile ? '24px' : '32px',
-                fontFamily: "'Inter', sans-serif",
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-              }}
-            >
-              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                <img 
-                  src="/step3.svg" 
-                  alt="Step 2 Icon" 
-                  className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
-                />
-                <h3 className="text-xl sm:text-3xl font-bold mb-2">PASS THE 2-STEP EVALUATION</h3>
-                <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
-                  Complete two phases - simple target, fair rules.
-                </p>
-              </div>
-              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-blue-800 flex items-center justify-center text-xs font-bold">
-                2
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Step 3 */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { 
-                opacity: 1, 
-                y: 0,
-                transition: {
-                  duration: 0.5,
-                  delay: 0.1
-                }
-              }
-            }}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.3, once: true }}
-            className="h-[350px] w-full sticky flex items-center justify-center z-[3] mb-5"
-            style={{
-              top: isMobile ? '0px' : '100px',
-              marginTop: isMobile ? '10px' : '-10px',
-            }}
-          >
-            <div 
-              style={{
-                backgroundColor: "#DCFCE7",
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                width: isMobile ? 'calc(100vw - 20px)' : '100%',
-                maxWidth: '100%',
-                height: 'auto',
-                minHeight: isMobile ? '250px' : '280px',
-                borderRadius: '24px',
-                padding: isMobile ? '24px' : '32px',
-                fontFamily: "'Inter', sans-serif",
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-              }}
-            >
-              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                <img 
-                  src="/step2.svg" 
-                  alt="Step 3 Icon" 
-                  className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
-                />
-                <h3 className="text-xl sm:text-3xl font-bold mb-2">GET FUNDED & START EARNING</h3>
-                <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
-                  Scale to $3.2 million in capital with up to 100% profit split
-                </p>
-              </div>
-              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-green-600 flex items-center justify-center text-xs font-bold">
-                3
-              </div>
-            </div>
-          </motion.div>
-          
-          {/* Spacer to maintain container height */}
-          <div style={{ height: '200px' }}></div>
+<div className="w-full lg:w-1/2 relative">
+  <div 
+    style={{
+      position: "relative",
+      marginTop: "2vh",
+      width: "100%",
+      height: isMobile ? "850px" : "1200px", // Adjusted for mobile
+    }}
+  >
+    {/* Step 1 */}
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+          opacity: 1, 
+          y: 0,
+          transition: {
+            duration: 0.5,
+            delay: 0
+          }
+        }
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3, once: true }}
+      className={`w-full sticky flex items-center justify-center z-[1] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
+      style={{
+        top: isMobile ? '75px' : '100px',
+      }}
+    >
+      <div 
+        style={{
+          backgroundColor: "#F8EAF8",
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          width: isMobile ? 'calc(100vw - 20px)' : '100%',
+          maxWidth: '100%',
+          height: 'auto',
+          minHeight: isMobile ? '220px' : '280px',
+          borderRadius: '24px',
+          padding: isMobile ? '20px' : '32px',
+          fontFamily: "'Inter', sans-serif",
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        }}
+      >
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <img 
+            src="/step1.svg" 
+            alt="Step 1 Icon" 
+            className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
+          />
+          <h3 className="text-xl sm:text-3xl font-bold mb-2">CHOOSE YOUR CHALLENGE</h3>
+          <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
+            Pick the evaluation that fits your trading style.
+          </p>
+        </div>
+        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-[#DE00DE] flex items-center justify-center text-xs font-bold">
+          1
         </div>
       </div>
+    </motion.div>
+
+    {/* Step 2 */}
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+          opacity: 1, 
+          y: 0,
+          transition: {
+            duration: 0.5,
+            delay: 0.05
+          }
+        }
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3, once: true }}
+      className={`w-full sticky flex items-center justify-center z-[2] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
+      style={{
+        top: isMobile ? '75px' : '100px',
+        marginTop: isMobile ? '6px' : '-10px',
+      }}
+    >
+      <div 
+        style={{
+          backgroundColor: "#DBEAFE",
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          width: isMobile ? 'calc(100vw - 20px)' : '100%',
+          maxWidth: '100%',
+          height: 'auto',
+          minHeight: isMobile ? '220px' : '280px',
+          borderRadius: '24px',
+          padding: isMobile ? '20px' : '32px',
+          fontFamily: "'Inter', sans-serif",
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        }}
+      >
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <img 
+            src="/step3.svg" 
+            alt="Step 2 Icon" 
+            className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
+          />
+          <h3 className="text-xl sm:text-3xl font-bold mb-2">PASS THE 2-STEP EVALUATION</h3>
+          <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
+            Complete two phases - simple target, fair rules.
+          </p>
+        </div>
+        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-blue-800 flex items-center justify-center text-xs font-bold">
+          2
+        </div>
+      </div>
+    </motion.div>
+
+    {/* Step 3 */}
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+          opacity: 1, 
+          y: 0,
+          transition: {
+            duration: 0.5,
+            delay: 0.1
+          }
+        }
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3, once: true }}
+      className={`w-full sticky flex items-center justify-center z-[3] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
+      style={{
+        top: isMobile ? '75px' : '100px',
+        marginTop: isMobile ? '6px' : '-10px',
+      }}
+    >
+      <div 
+        style={{
+          backgroundColor: "#DCFCE7",
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          width: isMobile ? 'calc(100vw - 20px)' : '100%',
+          maxWidth: '100%',
+          height: 'auto',
+          minHeight: isMobile ? '220px' : '280px',
+          borderRadius: '24px',
+          padding: isMobile ? '20px' : '32px',
+          fontFamily: "'Inter', sans-serif",
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        }}
+      >
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <img 
+            src="/step2.svg" 
+            alt="Step 3 Icon" 
+            className="w-12 h-16 sm:w-[80px] sm:h-[100px] mb-3 sm:mb-4" 
+          />
+          <h3 className="text-xl sm:text-3xl font-bold mb-2">GET FUNDED & START EARNING</h3>
+          <p className="text-sm sm:text-lg text-black font-semibold sm:font-medium">
+            Scale to $3.2 million in capital with up to 100% profit split
+          </p>
+        </div>
+        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 rounded-full bg-white text-green-600 flex items-center justify-center text-xs font-bold">
+          3
+        </div>
+      </div>
+    </motion.div>
+
+    {/* Spacer */}
+    <div style={{ height: isMobile ? '0px' : '200px' }}></div>
+  </div>
+</div>
+
     </div>
   </div>
 </div>
 
 
-      <div className="font-sans max-w-5xl mx-auto px-4 py-8">
+      <div className="font-sans max-w-5xl mx-auto px-4 py-8 mb-8 mt-8">
         {/* Header */}
         <motion.div
           className="text-center mb-8"
@@ -958,7 +957,7 @@ export default function Graphic() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">
             Compare our <span className="text-fuchsia-500">2-Step Prop Firm Challenge </span>
           </h1>
           <p className="text-xl">Choose the evaluation style that fits your strategy.</p>
@@ -1028,10 +1027,10 @@ export default function Graphic() {
         </div>
       </div>
 
-       <div className="font-sans max-w-6xl mx-auto px-4 py-12">
+       <div className="font-sans max-w-6xl mx-auto px-4 py-12 mb-8 mt-8">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-6xl font-bold text-gray-900">
             Top Funded Trader Programs
           </h2>
           <div className="mt-4 inline-block bg-fuchsia-50 px-6 py-2 rounded-full border border-fuchsia-200">
@@ -1325,10 +1324,10 @@ export default function Graphic() {
 
 
 
-        <div style={{ fontFamily: "'Inter', sans-serif" }} className="max-w-6xl mx-auto px-4 py-12 sm:py-16">
+        <div style={{ fontFamily: "'Inter', sans-serif" }} className="max-w-6xl mb-4 mt-4 mx-auto px-4 py-12 sm:py-16">
   {/* Header */}
   <motion.h2
-    className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-10 sm:mb-16"
+    className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-10 sm:mb-16"
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
@@ -1534,7 +1533,7 @@ export default function Graphic() {
 
   {/* Mobile CTA Button - Shown only on mobile at bottom */}
   <motion.div
-    className="md:hidden mt-8 mb-6 flex justify-center"
+    className="md:hidden mt-1 mb-16 flex justify-center"
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: 0.3 }}
@@ -1653,8 +1652,8 @@ export default function Graphic() {
       </div>
 
 
-      <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
-        <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
+      <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12 mt-4 mb-4">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
           Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
         </h1>
 
@@ -1805,7 +1804,7 @@ export default function Graphic() {
 
       </div>
 
-      <div className="w-full font-inter bg-gray-50">
+      <div className="w-full font-inter bg-gray-50 mb-4 mt-4">
         {/* Real Traders, Real Success Section */}
         <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
           <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
@@ -1859,7 +1858,7 @@ export default function Graphic() {
                         </div>
 
           {/* Platform Section */}
-          <div className="mb-16 px-4">
+          <div className="mb-16 mt-16 px-4">
             {/* Heading */}
             <motion.h2
               className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4"

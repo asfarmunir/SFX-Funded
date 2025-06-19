@@ -239,7 +239,7 @@ export default function RapidChallenge() {
             style={{
               fontFamily: "Inter, sans-serif",
               fontWeight: 600,
-                fontSize: "clamp(3rem, 5vw, 5rem)",
+                fontSize: "clamp(2.5rem, 5vw, 5rem)",
               letterSpacing: window.innerWidth < 640 ? "-2px" : "-7.64px",
               marginTop: '40px'
             }}
@@ -893,7 +893,7 @@ export default function RapidChallenge() {
       <div className="font-sans max-w-6xl mx-auto px-4 py-8">
         {/* Calculator Section */}
         <div className="text-center mb-6">
-          <h2 className="text-4xl font-bold"style={{fontFamily: "'Inter',sans-serif"}}>
+          <h2 className="text-3xl font-bold"style={{fontFamily: "'Inter',sans-serif"}}>
             Calculate Your <span className="text-[#F800EA]">Future Earnings</span>
           </h2>
           <p className="mt-2 text-gray-700"style={{fontFamily: "'Inter',sans-serif"}}>
@@ -1034,8 +1034,8 @@ export default function RapidChallenge() {
         </div>
 
         {/* Affiliate Model Section */}
-        <div className="my-16">
-          <h2 className="text-4xl font-bold text-center mb-12">
+        <div className="my-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
             How Our <span className="text-[#F800EA]">Affiliate Model</span> Works
           </h2>
 

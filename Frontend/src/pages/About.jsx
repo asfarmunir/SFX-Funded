@@ -143,24 +143,18 @@ export default function About() {
             variants={slideUp}
           >
             We Thought So Too.
-          </motion.p>
-
-          {/* Body Text */}
-         
+         </motion.p>
 <motion.div
   style={{
     fontFamily: 'Inter, sans-serif',
     fontWeight: 400,
-    fontSize: 'clamp(1rem, 3vw, 1.25rem)', // Responsive font size
-    lineHeight: 'clamp(1.6rem, 4vw, 2rem)', // Responsive line height
-    letterSpacing: '0.01em', // Use em or px for consistency
+    fontSize: 'clamp(0.9375rem, 4vw, 1.25rem)', 
+    lineHeight: '1.6',
+    letterSpacing: '0.01em',
     color: 'rgba(32, 36, 43, 1)',
     textAlign: 'justify',
-    verticalAlign: 'start',
-    marginTop: '1.5rem',
-    marginBottom: '1.5rem',
   }}
-  className="space-y-4 sm:space-y-6"
+  className="space-y-3 sm:space-y-4 md:space-y-5"
   variants={slideUp}
 >
   <motion.p variants={slideUp}>
@@ -177,7 +171,7 @@ export default function About() {
 
           {/* Button */}
           <motion.div 
-            className="mt-auto pt-6 flex justify-start"
+            className="mt-4 sm:mt-6 pt-2 sm:pt-4 flex justify-start"
             variants={slideUp}
           >
             <motion.button
@@ -186,12 +180,12 @@ export default function About() {
                 color: 'rgba(0, 0, 0, 1)',
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 600,
-                fontSize: '20px',
+                fontSize: 'clamp(1rem, 5vw, 1.25rem)',
                 lineHeight: '100%',
                 letterSpacing: '0%',
                 textTransform: 'capitalize',
-                width: '252px',
-                height: '57px',
+                width: 'clamp(180px, 60vw, 252px)',
+                height: 'clamp(45px, 12vw, 57px)',
                 borderRadius: '100px',
               }}
               className="flex items-center justify-center transition-colors"
@@ -200,7 +194,7 @@ export default function About() {
               whileTap={{ scale: 0.95 }}
             >
               Start Trading
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </motion.button>
@@ -210,14 +204,14 @@ export default function About() {
 
       {/* Heading */}
       <motion.div 
-        className="text-center mb-12"
+        className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 px-2"
         initial="hidden"
         whileInView="show"
         viewport={{ once: false }}
         variants={slideUp}
       >
         <motion.h1
-          className="text-3xl md:text-4xl lg:text-5xl font-semibold text-center break-words"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-center"
           style={{
             fontFamily: 'Inter, sans-serif',
             fontWeight: 600,
@@ -234,24 +228,24 @@ export default function About() {
 
       {/* Four Feature Cards Grid - Mobile First Approach */}
       <motion.div 
-      className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 sm:px-6"
+      className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 px-2 sm:px-4"
       initial="hidden"
       whileInView="show"
       viewport={{ once: false }}
     >
       {/* Card 1 - Rapid Resolve */}
       <motion.div 
-        className="bg-gray-100 rounded-3xl p-6 md:p-8" 
-        style={{ borderRadius: '25px', height: 'auto', minHeight: '20rem' }}
+        className="bg-gray-100 rounded-3xl p-4 sm:p-6 md:p-8" 
+        style={{ borderRadius: '25px', height: 'auto', minHeight: 'clamp(16rem, 50vh, 20rem)' }}
         variants={slideUp}
       >
         <motion.div 
-          className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6"
+          className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mb-3 sm:mb-4 md:mb-6"
           variants={slideUp}
         >
           <motion.div 
             className="bg-white rounded-full flex items-center justify-center aspect-square"
-            style={{ width: 'clamp(60px, 15vw, 80px)' }}
+            style={{ width: 'clamp(50px, 12vw, 80px)' }}
             variants={slideUp}
             whileHover={{ scale: 1.1, rotate: 5 }}
           >
@@ -265,12 +259,12 @@ export default function About() {
             style={{
               fontFamily: 'Inter, sans-serif',
               fontWeight: 600,
-              fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+              fontSize: 'clamp(1.25rem, 6vw, 2.5rem)',
               lineHeight: '1.2',
               letterSpacing: '0%',
               color: 'rgba(248, 0, 234, 1)'
             }}
-            className="mt-2 sm:mt-0"
+            className="mt-2 sm:mt-0 self-center sm:self-start"
             variants={slideUp}
           >
             Rapid Resolve
@@ -280,9 +274,9 @@ export default function About() {
           style={{
             fontFamily: 'Inter, sans-serif',
             fontWeight: 400,
-            fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-            lineHeight: '1.5em',
-            letterSpacing: '5%',
+            fontSize: 'clamp(0.9375rem, 4vw, 1.25rem)',
+            lineHeight: '1.5',
+            letterSpacing: '0.01em',
             color: 'rgba(32, 36, 43, 1)'
           }}
           className="text-justify"
@@ -294,17 +288,17 @@ export default function About() {
 
       {/* Card 2 - Empowering */}
       <motion.div 
-        className="bg-gray-100 rounded-3xl p-6 md:p-8" 
-        style={{ borderRadius: '25px', height: 'auto', minHeight: '20rem' }}
+        className="bg-gray-100 rounded-3xl p-4 sm:p-6 md:p-8" 
+        style={{ borderRadius: '25px', height: 'auto', minHeight: 'clamp(16rem, 50vh, 20rem)' }}
         variants={slideUp}
       >
         <motion.div 
-          className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6"
+          className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mb-3 sm:mb-4 md:mb-6"
           variants={slideUp}
         >
           <motion.div 
             className="bg-white rounded-full flex items-center justify-center aspect-square"
-            style={{ width: 'clamp(60px, 15vw, 80px)' }}
+            style={{ width: 'clamp(50px, 12vw, 80px)' }}
             variants={slideUp}
             whileHover={{ scale: 1.1, rotate: 5 }}
           >
@@ -318,12 +312,12 @@ export default function About() {
             style={{
               fontFamily: 'Inter, sans-serif',
               fontWeight: 600,
-              fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+              fontSize: 'clamp(1.25rem, 6vw, 2.5rem)',
               lineHeight: '1.2',
               letterSpacing: '0%',
               color: 'rgba(248, 0, 234, 1)'
             }}
-            className="mt-2 sm:mt-0"
+            className="mt-2 sm:mt-0 self-center sm:self-start"
             variants={slideUp}
           >
             Empowering
@@ -333,9 +327,9 @@ export default function About() {
           style={{
             fontFamily: 'Inter, sans-serif',
             fontWeight: 400,
-            fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-            lineHeight: '1.5em',
-            letterSpacing: '5%',
+            fontSize: 'clamp(0.9375rem, 4vw, 1.25rem)',
+            lineHeight: '1.5',
+            letterSpacing: '0.01em',
             color: 'rgba(32, 36, 43, 1)'
           }}
           className="text-justify"
@@ -347,17 +341,17 @@ export default function About() {
 
       {/* Card 3 - Transparency - With pink background */}
       <motion.div 
-        className="rounded-3xl p-6 md:p-8" 
-        style={{ background: 'rgba(255, 230, 253, 1)', borderRadius: '25px', height: 'auto', minHeight: '20rem' }}
+        className="rounded-3xl p-4 sm:p-6 md:p-8" 
+        style={{ background: 'rgba(255, 230, 253, 1)', borderRadius: '25px', height: 'auto', minHeight: 'clamp(16rem, 50vh, 20rem)' }}
         variants={slideUp}
       >
         <motion.div 
-          className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6"
+          className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mb-3 sm:mb-4 md:mb-6"
           variants={slideUp}
         >
           <motion.div 
             className="bg-white rounded-full flex items-center justify-center aspect-square"
-            style={{ width: 'clamp(60px, 15vw, 80px)' }}
+            style={{ width: 'clamp(50px, 12vw, 80px)' }}
             variants={slideUp}
             whileHover={{ scale: 1.1, rotate: 5 }}
           >
@@ -371,12 +365,12 @@ export default function About() {
             style={{
               fontFamily: 'Inter, sans-serif',
               fontWeight: 600,
-              fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+              fontSize: 'clamp(1.25rem, 6vw, 2.5rem)',
               lineHeight: '1.2',
               letterSpacing: '0%',
               color: 'rgba(0, 0, 0, 1)'
             }}
-            className="mt-2 sm:mt-0"
+            className="mt-2 sm:mt-0 self-center sm:self-start"
             variants={slideUp}
           >
             Transparency
@@ -386,9 +380,9 @@ export default function About() {
           style={{
             fontFamily: 'Inter, sans-serif',
             fontWeight: 400,
-            fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-            lineHeight: '1.5em',
-            letterSpacing: '5%',
+            fontSize: 'clamp(0.9375rem, 4vw, 1.25rem)',
+            lineHeight: '1.5',
+            letterSpacing: '0.01em',
             color: 'rgba(32, 36, 43, 1)'
           }}
           className="text-justify"
@@ -400,17 +394,17 @@ export default function About() {
 
       {/* Card 4 - Integrity - With pink background */}
       <motion.div 
-        className="rounded-3xl p-6 md:p-8" 
-        style={{ background: 'rgba(255, 230, 253, 1)', borderRadius: '25px', height: 'auto', minHeight: '20rem' }}
+        className="rounded-3xl p-4 sm:p-6 md:p-8" 
+        style={{ background: 'rgba(255, 230, 253, 1)', borderRadius: '25px', height: 'auto', minHeight: 'clamp(16rem, 50vh, 20rem)' }}
         variants={slideUp}
       >
         <motion.div 
-          className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6"
+          className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mb-3 sm:mb-4 md:mb-6"
           variants={slideUp}
         >
           <motion.div 
             className="bg-white rounded-full flex items-center justify-center aspect-square"
-            style={{ width: 'clamp(60px, 15vw, 80px)' }}
+            style={{ width: 'clamp(50px, 12vw, 80px)' }}
             variants={slideUp}
             whileHover={{ scale: 1.1, rotate: 5 }}
           >
@@ -424,12 +418,12 @@ export default function About() {
             style={{
               fontFamily: 'Inter, sans-serif',
               fontWeight: 600,
-              fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+              fontSize: 'clamp(1.25rem, 6vw, 2.5rem)',
               lineHeight: '1.2',
               letterSpacing: '0%',
               color: 'rgba(0, 0, 0, 1)'
             }}
-            className="mt-2 sm:mt-0"
+            className="mt-2 sm:mt-0 self-center sm:self-start"
             variants={slideUp}
           >
             Integrity
@@ -439,9 +433,9 @@ export default function About() {
           style={{
             fontFamily: 'Inter, sans-serif',
             fontWeight: 400,
-            fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-            lineHeight: '1.5em',
-            letterSpacing: '5%',
+            fontSize: 'clamp(0.9375rem, 4vw, 1.25rem)',
+            lineHeight: '1.5',
+            letterSpacing: '0.01em',
             color: 'rgba(32, 36, 43, 1)'
           }}
           className="text-justify"

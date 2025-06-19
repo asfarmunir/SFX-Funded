@@ -132,9 +132,9 @@ export default function Footer() {
         </div>
       </div>
   
-        {/* Disclaimer */}
+        {/* Disclaimer - Reduced top margin from mt-8 to mt-2 for mobile, keeping larger for bigger screens */}
         <motion.div 
-          className="mx-4 md:mx-auto mt-8 p-6 rounded-2xl border border-gray-700 bg-zinc-800 bg-opacity-50 max-w-6xl"
+          className="mx-4 md:mx-auto mt-2 sm:mt-4 md:mt-6 p-6 rounded-2xl border border-gray-700 bg-zinc-800 bg-opacity-50 max-w-6xl"
           initial="hidden"
           whileInView="visible"
           viewport={{ margin: "-100px" }}
@@ -154,8 +154,8 @@ export default function Footer() {
         </motion.div>
   
       
-        {/* Copyright */}
-        <div className="max-w-6xl mx-auto px-4 py-4 mt-8">
+        {/* Copyright - Also adjusting the spacing here for consistency */}
+        <div className="max-w-6xl mx-auto px-4 py-4 mt-4 md:mt-8">
           <div className="flex flex-col md:flex-row justify-center md:justify-between items-center text-xs md:text-sm text-gray-400">
             <div className="mb-4 md:mb-0 text-center md:text-left">
               © 2025 AquaFunded. All rights reserved.

@@ -106,14 +106,13 @@ export default function Navbar({ shouldStick = true, isScrolled = false }) {
         `}
       >
         <div className={`flex items-center justify-between h-full ${scrolledState ? '' : ''}`}>
-          {/* Logo */}
-          <div className="flex items-center cursor-pointer" onClick={() => navigateTo('/')}>
-          <img 
-  src="/navbar.svg" 
-  alt="SFX Funded Logo" 
-  className="w-28 h-8 sm:w-28 sm:h-8 md:w-32 md:h-12 object-contain" 
-/>
-
+          {/* Logo - Adjusted positioning for mobile */}
+          <div className="flex items-center cursor-pointer -ml-6 sm:ml-0" onClick={() => navigateTo('/')}>
+            <img 
+              src="/navbar.svg" 
+              alt="SFX Funded Logo" 
+              className="w-24 h-8 sm:w-28 sm:h-8 md:w-32 md:h-12 object-contain" 
+            />
           </div>
 
           {/* Mobile Menu Button */}
@@ -224,8 +223,16 @@ export default function Navbar({ shouldStick = true, isScrolled = false }) {
         <div className="md:hidden fixed inset-0 z-40 bg-black bg-opacity-50">
           <div className="fixed inset-y-0 right-0 w-64 bg-white p-6 shadow-lg transform translate-x-0 transition-transform duration-300 ease-in-out">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-lg font-bold text-[#21001E]" style={{marginTop: '20px'}}>Menu</h3>
-              <button onClick={toggleMenu} className="text-gray-600 focus:outline-none"style={{marginTop: '20px'}}>
+              {/* Added logo to mobile menu */}
+              <div onClick={() => navigateTo('/')} className="cursor-pointer">
+                <img 
+                  src="/navbar.svg" 
+                  alt="SFX Funded Logo" 
+                  className="w-24 h-6 object-contain" 
+                  style={{marginTop: '20px'}}
+                />
+              </div>
+              <button onClick={toggleMenu} className="text-gray-600 focus:outline-none" style={{marginTop: '20px'}}>
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>

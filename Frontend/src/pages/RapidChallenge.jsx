@@ -668,7 +668,7 @@ const getTransform = (columnIndex) => {
       viewport={{ amount: 0.3, once: true }}
       className={`w-full sticky flex items-center justify-center z-[1] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
       style={{
-        top: isMobile ? '75px' : '100px',
+        top: isMobile ? '100px' : '100px',
       }}
     >
       <div 
@@ -722,7 +722,7 @@ const getTransform = (columnIndex) => {
       viewport={{ amount: 0.3, once: true }}
       className={`w-full sticky flex items-center justify-center z-[2] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
       style={{
-        top: isMobile ? '75px' : '100px',
+        top: isMobile ? '100px' : '100px',
         marginTop: isMobile ? '6px' : '-10px',
       }}
     >
@@ -777,7 +777,7 @@ const getTransform = (columnIndex) => {
       viewport={{ amount: 0.3, once: true }}
       className={`w-full sticky flex items-center justify-center z-[3] ${isMobile ? 'h-[270px] mb-2' : 'h-[350px] mb-5'}`}
       style={{
-        top: isMobile ? '75px' : '100px',
+        top: isMobile ? '100px' : '100px',
         marginTop: isMobile ? '6px' : '-10px',
       }}
     >
@@ -1088,7 +1088,7 @@ const getTransform = (columnIndex) => {
           {/* Header */}
        
 <div className="text-center mb-6">
-  <h2 className="text-[22px] leading-tight sm:text-2xl md:text-6xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2">
+  <h2 className="text-[32px] leading-tight sm:text-2xl md:text-6xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2">
     Top Funded Trader Programs
   </h2>
   <div className="mt-4 inline-block bg-fuchsia-50 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border border-fuchsia-200">

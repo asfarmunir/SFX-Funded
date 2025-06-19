@@ -1,6 +1,6 @@
 import { useTransform, motion, useScroll } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import "./Card1.css";
+import "./Card2.css";
 
 const Card1 = ({i, title, description, image, url, color, progress, range, targetScale, question}) => {
   const container = useRef(null);
@@ -28,7 +28,7 @@ const Card1 = ({i, title, description, image, url, color, progress, range, targe
   const isMobile = windowWidth < 768;
   const cardWidth = isMobile ? 'calc(100vw - 20px)' : '422px'; // Fixed max width for mobile with margin
   const cardHeight = isMobile ? 'auto' : '353px';
-  const cardPadding = isMobile ? '24px' : '40px';
+  const cardPadding = isMobile ? '20px' : '40px';
   const titleFontSize = isMobile ? '24px' : '32px';
   const questionFontSize = isMobile ? '18px' : '20px';
   const descriptionFontSize = isMobile ? '16px' : '18px';
@@ -36,15 +36,16 @@ const Card1 = ({i, title, description, image, url, color, progress, range, targe
   
   return (
     <div ref={container} style={{
-      height: isMobile ? '300px' : '50vh',
+      height: isMobile ? '225px' : '50vh',
       width: '100%',
       position: 'sticky',
-      top: '75px',
+      top: '100px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       padding: isMobile ? '0' : '0',
-    }}>      <motion.div 
+    }}>
+      <motion.div 
         style={{
           backgroundColor: "#F5F5F7", 
           display: 'flex',
@@ -53,7 +54,7 @@ const Card1 = ({i, title, description, image, url, color, progress, range, targe
           width: cardWidth,
           maxWidth: isMobile ? 'calc(100vw - 20px)' : '422px',
           height: cardHeight,
-          minHeight: isMobile ? '250px' : '353px',
+          minHeight: isMobile ? '200px' : '353px',
           borderRadius: '10px', // Fixed 10px radius for all
           padding: cardPadding,
           fontFamily: fontFamily,
@@ -63,7 +64,7 @@ const Card1 = ({i, title, description, image, url, color, progress, range, targe
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          marginBottom: isMobile ? '16px' : '24px',
+          marginBottom: isMobile ? '12px' : '24px',
         }}>
           <h2 style={{
             fontFamily: fontFamily,

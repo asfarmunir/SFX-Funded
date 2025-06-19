@@ -38,7 +38,7 @@ const Card3 = ({i, title, description, image, url, color, progress, range, targe
       height: isMobile ? '300px' : '50vh',
       width: '100%',
       position: 'sticky',
-      top: '75px',
+      top: '100px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',

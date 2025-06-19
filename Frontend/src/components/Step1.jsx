@@ -43,12 +43,12 @@ export default function Step1() {
     requestAnimationFrame(raf)
   }, [])
   
-  // Calculate dynamic height for perfect alignment with last card
+ // Calculate dynamic height for perfect alignment with last card
   const cardHeight = 300; // Minimum height per card in mobile
   // Calculate exactly enough height for the container to end with the last card
   // projects.length - 1 accounts for the last card being sticky
   const lastCardOffset = 75; // Top offset of the sticky cards
-  const totalHeight = (projects.length - 1) * cardHeight + lastCardOffset + 225; 
+  const totalHeight = (projects.length - 1) * cardHeight + lastCardOffset + 1; 
   
   return (
     <div 

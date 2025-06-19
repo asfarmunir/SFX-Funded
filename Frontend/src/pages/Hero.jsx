@@ -901,8 +901,8 @@ const mobileCardScales = {
       <img src="/hero4.svg" alt="" className="w-full h-full" />
     </div>
     <div>
-      <h3 className="text-3xl font-semibold mb-2">SFX Payout Guarantee</h3>
-      <p className="text-lg font-semibold">
+      <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2">SFX Payout Guarantee</h3>
+      <p className="text-md font-semibold">
         Get Paid in 48 Hours or We Pay You an Extra $300
       </p>
     </div>
@@ -1414,30 +1414,30 @@ const mobileCardScales = {
   className="flex gap-2 sm:gap-4 justify-center items-stretch w-full"
 >
   {[1, 2, 3].map((step) => (
-    <button
-      key={step}
-      onClick={() => handleStepClick(step)}
-      className={`
-        rounded-[10px] 
-        px-5 py-2.5 sm:px-6 sm:py-5 mb-5 sm:mb-12
-        w-full max-w-[120%] md:max-w-[200px] lg:max-w-[220px] 
-        transition-all duration-300 text-center 
-        flex flex-col justify-center items-center border-[1.5px] 
-        ${activeStep === step 
-          ? "bg-fuchsia-600 text-white border-transparent" 
-          : "bg-white text-black border-fuchsia-600"
-        }
-      `}
-    >
-      <p className="font-medium text-xs sm:text-base md:text-lg">{`Step ${step}`}</p>
-      <p className="font-medium text-xs sm:text-base md:text-lg leading-tight">
-        {step === 1
-          ? "Choose Plan" // Shorter text for mobile
-          : step === 2
-          ? "Get Funded" 
-          : "Start Trading"} {/* Shorter text for mobile */}
-      </p>
-    </button>
+   <button
+  key={step}
+  onClick={() => handleStepClick(step)}
+  className={`
+    rounded-[10px] 
+    px-4 py-2.5 sm:px-6 sm:py-5 mb-5 sm:mb-12
+    w-[92vw] sm:w-full md:max-w-[200px] lg:max-w-[220px] 
+    transition-all duration-300 text-center 
+    flex flex-col justify-center items-center border-[1.5px] 
+    ${activeStep === step 
+      ? "bg-fuchsia-600 text-white border-transparent" 
+      : "bg-white text-black border-fuchsia-600"
+    }
+  `}
+>
+  <p className="font-medium text-[12px] sm:text-base md:text-lg whitespace-nowrap">{`Step ${step}`}</p>
+  <p className="font-medium text-[12px] sm:text-base md:text-lg leading-tight whitespace-nowrap">
+    {step === 1
+      ? "Choose Plan"
+      : step === 2
+      ? "Get Funded" 
+      : "Start Trading"}
+  </p>
+</button>
   ))}
 </motion.div>
 

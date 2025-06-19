@@ -1068,7 +1068,7 @@ const mobileCardScales = {
       {/* PROGRAMS SECTION */}
       <div className="font-sans max-w-6xl mx-auto px-4 py-12 mt-8 mb-8">
         {/* Header */}
-        {/* Header */}
+       
 <div className="text-center mb-6">
   <h2 className="text-[22px] leading-tight sm:text-2xl md:text-6xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2">
     Top Funded Trader Programs

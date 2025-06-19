@@ -1089,7 +1089,7 @@ const getTransform = (columnIndex) => {
           {/* Header */}
        
 <div className="text-center mb-6">
-  <h2 className="text-[25px] leading-tight sm:text-2xl md:text-6xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2">
+  <h2 className="text-[22px] leading-tight sm:text-2xl md:text-6xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2">
     Top Funded Trader Programs
   </h2>
   <div className="mt-4 inline-block bg-fuchsia-50 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border border-fuchsia-200">

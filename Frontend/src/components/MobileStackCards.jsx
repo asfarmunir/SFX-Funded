@@ -45,7 +45,7 @@ export default function MobileStackCards() {
   // Calculate exactly enough height for the container to end with the last card
   // projects.length - 1 accounts for the last card being sticky
   const lastCardOffset = 75; // Top offset of the sticky cards
-  const totalHeight = (projects.length - 1) * cardHeight + lastCardOffset + 100;
+  const totalHeight = (projects.length - 1) * cardHeight + lastCardOffset + 130;
 
   return (
     <div 
@@ -60,12 +60,15 @@ export default function MobileStackCards() {
       {projects.map((project, i) => {
         const targetScale = 1 - ((projects.length - i) * 0.05);
         
-        // Refined range calculation for perfect sticky behavior
-        const isLastCard = i === projects.length - 1;
+        // Equal distribution of card segments for consistent spacing
         const segmentSize = 1 / projects.length;
+        
+        // Ensure equal spacing between cards with consistent range size
         const start = i * segmentSize;
-        // Make sure the last card sticks through the end of scroll
-        const end = isLastCard ? 1 : start + segmentSize * 0.9;
+        // For all cards except the last, use a consistent percentage of the segment
+        const isLastCard = i === projects.length - 1;
+        // Use the full range for last card, and identical ranges for all others
+        const end = isLastCard ? 1 : (i + 1) * segmentSize;
         
         return (
           <Card 

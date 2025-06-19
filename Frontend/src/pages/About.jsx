@@ -171,7 +171,7 @@ export default function About() {
 
           {/* Button */}
           <motion.div 
-            className="mt-4 sm:mt-6 pt-2 sm:pt-4 flex justify-start"
+            className="mt-4 sm:mt-6 pt-2 sm:pt-4 flex justify-center"
             variants={slideUp}
           >
             <motion.button
@@ -211,7 +211,7 @@ export default function About() {
         variants={slideUp}
       >
         <motion.h1
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-center"
+          className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-center"
           style={{
             fontFamily: 'Inter, sans-serif',
             fontWeight: 600,

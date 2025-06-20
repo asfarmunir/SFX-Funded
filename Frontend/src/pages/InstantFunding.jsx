@@ -19,7 +19,13 @@ export default function InstantFunding() {
     instant: [1250, 2000, 5000, 10000, 20000, 40000]
   };
   // States for selected account size and index
+// Always use instant program
 const [selectedProgram, setSelectedProgram] = useState('instant');
+
+// Force reset to instant program when component mounts
+useEffect(() => {
+  setSelectedProgram('instant');
+}, []);
 const [selectedSize, setSelectedSize] = useState(accountSizes['instant'][0]);
   const [selectedAccountIndex, setSelectedAccountIndex] = useState(0);
  
@@ -1215,155 +1221,22 @@ const tableRows = [
           {/* Header */}
        
 <div className="text-center mb-6">
-  <h2 className="text-[22px] leading-tight sm:text-2xl md:text-6xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2">
-    Top Funded Trader Programs
-  </h2>
+  <h2 className="text-[22px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2 leading-snug md:leading-[1.5]">
+  SFX Instant Funding
+</h2>
   <div className="mt-4 inline-block bg-fuchsia-50 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border border-fuchsia-200">
     <span className="text-[11px] sm:text-md font-medium whitespace-nowrap">Trade Forex, Indices, Metals & Crypto</span>
   </div>
-</div>
-
-
-        <div className="px-4 sm:px-6 max-w-full overflow-hidden">
-  {/* Program Selection Tiles */}
-  <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 sm:gap-4 mt-6">
-    <button
-      className={`w-full sm:w-[180px] ${selectedProgram === 'rapid'
-        ? 'bg-[#D90BC6] text-white'
-        : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
-        } rounded-lg py-3 px-2 sm:px-6 font-medium flex items-center justify-center`}
-      onClick={() => handleProgramClick('rapid')}
-    >
-      <img
-        src="/thunder.svg"
-        alt="Rapid"
-        className="w-5 h-5 mr-1 sm:mr-2"
-        style={getSvgStyle('rapid')}
-      />
-      <span>Rapid</span>
-    </button>
-
-    <button
-      className={`w-full sm:w-[180px] ${selectedProgram === 'ignite'
-        ? 'bg-[#D90BC6] text-white'
-        : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
-        } rounded-lg py-3 px-2 sm:px-6 font-medium flex items-center justify-center`}
-      onClick={() => handleProgramClick('ignite')}
-    >
-      <img
-        src="/ignite1.svg"
-        alt="Ignite"
-        className="w-5 h-5 mr-1 sm:mr-2"
-        style={getSvgStyle('ignite')}
-      />
-      <span>Ignite</span>
-    </button>
-
-    <button
-      className={`w-full sm:w-[180px] ${selectedProgram === 'ascend'
-        ? 'bg-[#D90BC6] text-white'
-        : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
-        } rounded-lg py-3 px-2 sm:px-6 font-medium flex items-center justify-center`}
-      onClick={() => handleProgramClick('ascend')}
-    >
-      <img
-        src="/ascend.svg"
-        alt="Ascend"
-        className="w-5 h-5 mr-1 sm:mr-2"
-        style={getSvgStyle('ascend', 'white')} // Assume ascend.svg is originally white
-      />
-      <span>Ascend</span>
-    </button>
-
-    <button
-      className={`w-full sm:w-[180px] ${selectedProgram === 'instant'
-        ? 'bg-[#D90BC6] text-white'
-        : 'bg-white text-[#D90BC6] border border-[rgba(217,11,198,1)]'
-        } rounded-lg py-3 px-2 sm:px-6 font-medium flex items-center justify-center`}
-      onClick={() => handleProgramClick('instant')}
-    >
-      <img
-        src="/rocket.svg"
-        alt="Instant Funding"
-        className="w-5 h-5 mr-1 sm:mr-2"
-        style={getSvgStyle('instant')}
-      />
-      <span className="whitespace-nowrap text-xs sm:text-base">Instant Funding</span>
-    </button>
+  <div className="flex items-center justify-center mt-4">
+    <img
+      src="/rocket.svg"
+      alt="Instant Funding"
+      className="w-6 h-6 mr-2"
+      style={{filter: 'invert(70%) sepia(100%) saturate(5500%) hue-rotate(295deg) brightness(92%) contrast(110%)'}}
+    />
+    <span className="text-[#D90BC6] font-medium text-lg">Start Trading Instantly</span>
   </div>
-</div>
-
-        {/* Account Table */}
-        {selectedProgram !== 'instant' ? (
-          <div ref={targetRef} className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
-            {/* Mobile Account Selector */}
-            <div className="block sm:hidden px-4 py-3">
-              <select
-                className="w-full p-3 rounded-lg bg-[#D90BC6] text-white font-medium text-center"
-                onChange={(e) => handleSizeClick(parseInt(e.target.value))}
-                value={selectedSize}
-              >
-                <option value="" disabled>Select Account Size</option>
-                {accountSizes[selectedProgram].map((size, idx) => (
-                  <option key={idx} value={size}>${size.toLocaleString()}</option>
-                ))}
-              </select>
-            </div>
-            {/* Account Size Tabs */}
-            <div className="p-4">
-              <div className="hidden sm:flex max-w-7xl  bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7  flex-wrap justify-center gap-2">
-                {accountSizes[selectedProgram].map((size) => (
-                  <button
-                    key={size}
-                    className={`w-[130px]  sm:w-[140px] md:w-[175px] h-[40px] sm:h-[47px] mx-1 sm:mx-2 ${selectedSize === size ? 'bg-[#D90BC6]' : 'bg-fuchsia-100'
-                      } rounded-md flex items-center justify-center ${selectedSize === size ? 'text-white' : 'text-black'
-                      } font-medium text-sm sm:text-base`}
-                    onClick={() => handleSizeClick(size)}
-                  >
-                    ${size.toLocaleString()}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Phase Headers */}
-            <div className="grid grid-cols-4 border-b border-gray-200">
-              <div className="invisible"></div>
-              <div className="text-center py-3">
-                <span className="text-[#D90BC6] font-medium">Phase 1</span>
-              </div>
-              <div className="text-center py-3">
-                <span className="text-[#D90BC6] font-medium">
-                  {selectedProgram !== 'rapid' ? 'Phase 2' : ' '}
-                </span>
-              </div>
-              <div className="text-center py-3">
-                <span className="text-[#D90BC6] font-medium">Funded</span>
-              </div>
-            </div>
-
-
-            {/* Table Rows */}
-            {tableRows.map((row, index) => (
-              <div
-                key={row.key}
-                className={`grid grid-cols-4 border-b border-gray-200 ${row.bgColor || ''}`}
-              >
-                <div className="py-3 pl-4 font-medium">{row.label}</div>
-                <div className="text-center py-3">
-                  {tableData[selectedProgram][selectedSize]?.phase1?.[row.key] || "-"}
-                </div>
-                <div className="text-center py-3">
-                  {selectedProgram === 'instant' ? ' ' : (tableData[selectedProgram][selectedSize]?.phase2?.[row.key] || " ")}
-                </div>
-                <div className="text-center py-3">
-                  {fundedData[selectedProgram][row.key]}
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          // Instant Funding Program View (simpler version)
+</div>        {/* Account Table */}
           <div className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
             {/* Mobile Account Selector */}
             <div className="block sm:hidden px-4 py-3">
@@ -1373,7 +1246,7 @@ const tableRows = [
                 value={selectedSize}
               >
                 <option value="" disabled>Select Account Size</option>
-                {accountSizes[selectedProgram].map((size, idx) => (
+                {accountSizes['instant'].map((size, idx) => (
                   <option key={idx} value={size}>${size.toLocaleString()}</option>
                 ))}
               </select>
@@ -1381,10 +1254,10 @@ const tableRows = [
             {/* Account Size Tabs */}
             <div className="p-4">
               <div className="hidden sm:flex max-w-7xl bg-white rounded-2xl border border-[#D90BC6] px-2 py-2 my-7 mx-7 flex-wrap justify-center gap-2">
-                {accountSizes[selectedProgram].map((size) => (
+                {accountSizes['instant'].map((size) => (
                   <button
                     key={size}
-                    className={`w-[120px]  sm:w-[140px] md:w-[135px] h-[40px] sm:h-[47px] mx-1 sm:mx-2 ${selectedSize === size ? 'bg-[#D90BC6]' : 'bg-fuchsia-100'
+                    className={`w-[120px] sm:w-[140px] md:w-[135px] h-[40px] sm:h-[47px] mx-1 sm:mx-2 ${selectedSize === size ? 'bg-[#D90BC6]' : 'bg-fuchsia-100'
                       } rounded-md flex items-center justify-center ${selectedSize === size ? 'text-white' : 'text-black'
                       } font-medium text-sm sm:text-base`}
                     onClick={() => handleSizeClick(size)}
@@ -1429,11 +1302,6 @@ const tableRows = [
               <div className="text-center py-3">{fundedData.instant.profitSplit}</div>
             </div>
           </div>
-        )}
-
-
-
-
 
         <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg mt-6 sm:mt-8 border border-[#D90BC6]">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
@@ -1442,23 +1310,22 @@ const tableRows = [
               <div className="flex flex-col items-center md:hidden w-full gap-1">
                 {/* 1st line - Account Size with Program */}
                 <div className="text-[#F001E1] font-medium text-2xl">
-                  ${selectedSize.toLocaleString()} {selectedProgram.charAt(0).toUpperCase() + selectedProgram.slice(1)}
+                  ${selectedSize.toLocaleString()} Instant
                 </div>
 
                 {/* 2nd line - Original Price (strikethrough) */}
                 <div className="text-[#F001E1] font-bold text-xl line-through">
-                  ${pricingData[selectedProgram][selectedSize]?.original || 'N/A'}
+                  ${pricingData['instant'][selectedSize]?.original || 'N/A'}
                 </div>
 
                 {/* 3rd line - Discounted Price */}
                 <div className="text-[#F001E1] font-bold text-4xl">
-                  ${pricingData[selectedProgram][selectedSize]?.discounted || 'N/A'}
+                  ${pricingData['instant'][selectedSize]?.discounted || 'N/A'}
                 </div>
 
                 {/* 4th line - One-Time Fee text */}
                 <div className="text-[#F001E1] font-medium text-base">
                   One-Time Fee
-                  {selectedProgram !== "instant" && " • 100% Refundable"}
                 </div>
               </div>
 
@@ -1466,22 +1333,21 @@ const tableRows = [
               <div className="hidden md:flex items-center gap-2 sm:gap-4 flex-wrap">
                 {/* Original Price (strikethrough) */}
                 <div className="text-[#F001E1] font-bold text-lg sm:text-xl line-through">
-                  ${pricingData[selectedProgram][selectedSize]?.original || 'N/A'}
+                  ${pricingData['instant'][selectedSize]?.original || 'N/A'}
                 </div>
                 {/* Discounted Price */}
                 <div className="text-[#F001E1] font-bold text-4xl sm:text-5xl">
-                  ${pricingData[selectedProgram][selectedSize]?.discounted || 'N/A'}
+                  ${pricingData['instant'][selectedSize]?.discounted || 'N/A'}
                 </div>
                 {/* Account Size with Program */}
                 <div className="text-[#F001E1] font-medium text-2xl sm:text-3xl">
-                  ${selectedSize.toLocaleString()} {selectedProgram.charAt(0).toUpperCase() + selectedProgram.slice(1)}
+                  ${selectedSize.toLocaleString()} Instant
                 </div>
               </div>
 
               {/* Desktop - One-Time Fee text */}
               <div className="hidden md:block text-[#F001E1] font-medium text-base sm:text-lg text-left">
                 One-Time Fee
-                {selectedProgram !== "instant" && " • 100% Refundable"}
               </div>
             </div>
 

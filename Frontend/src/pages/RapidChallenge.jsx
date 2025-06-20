@@ -855,7 +855,7 @@ const getTransform = (columnIndex) => {
   <h1 className="text-3xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 text-center leading-tight">
   WHY THE <span className="text-fuchsia-500">RAPID CHALLENGE</span>
 </h1>
-<p className="text-sm sm:text-base md:text-lg lg:text-xl whitespace-nowrap">Compare the rapid challenge with the 1-Step Model</p>
+<p className="text-xs sm:text-base md:text-lg lg:text-xl text-center mx-auto max-w-md sm:max-w-lg">Compare the rapid challenge with the 1-Step Model</p>
 </motion.div>
 
   {/* Comparison Cards */}

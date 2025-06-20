@@ -218,7 +218,7 @@ export default function FAQ() {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
           >
-            <div className="space-y-0"> {/* Changed to space-y-0 to remove gaps */}
+            <div className="space-y-2"> {/* Changed to space-y-0 to remove gaps */}
               {faqItems.map((item, index) => (
                 <motion.div 
                   key={index}

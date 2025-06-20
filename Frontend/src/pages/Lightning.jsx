@@ -84,33 +84,33 @@ export default function LightningChallenge() {
   }, []);
  const pricingData = {
     rapid: {
-      7500: { original: 55, discounted: 36 },
-      15000: { original: 89, discounted: 58 },
-      30000: { original: 139, discounted: 91 },
-      60000: { original: 210, discounted: 137 },
-      120000: { original: 338, discounted: 220 }
+      7500: { original: 55, discounted: 22 },
+      15000: { original: 89, discounted: 45 },
+      30000: { original: 139, discounted: 70 },
+      60000: { original: 210, discounted: 105 },
+      120000: { original: 338, discounted: 203 }
     },
     ignite: {
-      5000: { original: 57, discounted: 38 },
-      10000: { original: 77, discounted: 51 },
-      25000: { original: 147, discounted: 96 },
-      50000: { original: 222, discounted: 145 },
-      100000: { original: 350, discounted: 228 }
+      5000: { original: 29, discounted: 20 },
+      10000: { original: 59, discounted: 42 },
+      25000: { original: 109, discounted: 76 },
+      50000: { original: 199, discounted: 140 },
+      100000: { original: 359, discounted: 251 }
     },
     ascend: {
-      7500: { original: 69, discounted: 45 },
-      15000: { original: 99, discounted: 65 },
-      30000: { original: 199, discounted: 130 },
-      60000: { original: 299, discounted: 195 },
-      120000: { original: 499, discounted: 325 }
+      7500: { original: 79, discounted: 32 },
+      15000: { original: 129, discounted: 65 },
+      30000: { original: 199, discounted: 100 },
+      60000: { original: 299, discounted: 150 },
+      120000: { original: 499, discounted: 299 }
     },
     instant: {
-      1250: { original: 65, discounted: 43 },
-      2000: { original: 90, discounted: 59 },
-      5000: { original: 195, discounted: 127 },
-      10000: { original: 395, discounted: 257 },
-      20000: { original: 795, discounted: 517 },
-      40000: { original: 1680, discounted: 1092 }
+      1250: { original: 65, discounted: 33 },
+      2000: { original: 90, discounted: 45 },
+      5000: { original: 195, discounted: 98 },
+      10000: { original: 395, discounted: 198 },
+      20000: { original: 795, discounted: 398 },
+      40000: { original: 1680, discounted: 840 }
     }
   };
     // Define account sizes for each program
@@ -133,24 +133,24 @@ export default function LightningChallenge() {
     },
     ignite: {
       5000: {
-        phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
-        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+        phase1: { tradingPeriod: "Unlimited", maxDailyLoss: "3%", maxLoss: "6%", profitTarget: "6%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
+        phase2: { tradingPeriod: "Unlimited", maxDailyLoss: "3%", maxLoss: "6%", profitTarget: "6%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       },
       10000: {
         phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
-        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "6%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       },
       25000: {
         phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
-        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "6%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       },
       50000: {
         phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
-        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "6%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       },
       100000: {
         phase1: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" },
-        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "7%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
+        phase2: { tradingPeriod: "30 days", maxDailyLoss: "3%", maxLoss: "8%", profitTarget: "6%", leverage: "1:30", rewardSchedule: "-", profitSplit: "-" }
       }
     },
     ascend: {
@@ -216,12 +216,12 @@ export default function LightningChallenge() {
       profitSplit: "Up to 100%"
     },
     instant: {
-      tradingPeriod: "Indefinite",
+      tradingPeriod: "Unlimited",
       maxDailyLoss: "4%",
       maxLoss: "7%",
       profitTarget: "-",
       leverage: "1:30",
-      rewardSchedule: "On demand/Bi-weekly",
+      rewardSchedule: "Bi-weekly",
       profitSplit: "Up to 100%"
     }
   };
@@ -874,7 +874,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
         className="w-5 h-5 mr-1 sm:mr-2"
         style={getSvgStyle('instant')}
       />
-      <span className="whitespace-nowrap text-xs sm:text-base">Instant Funding</span>
+      <span className="whitespace-nowrap text-xs sm:text-base">Instant </span>
     </button>
   </div>
 </div>

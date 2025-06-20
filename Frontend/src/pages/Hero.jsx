@@ -886,7 +886,7 @@ const mobileCardScales = {
  <div className="md:hidden"style={{
         position: 'relative',
         minHeight: '0vh', // Ensure enough height
-        marginBottom: '100px', // Add some space below the card
+        marginBottom: '10px', // Add some space below the card
       }}>
        <MobileStackCards />
       </div>

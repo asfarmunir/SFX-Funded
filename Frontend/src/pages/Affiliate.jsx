@@ -12,9 +12,38 @@ export default function RapidChallenge() {
     { country: "🇨🇭", percentage: 55 },
     { country: "🇨🇦", percentage: 35 },
     { country: "🇳🇴", percentage: 20 }
+  ];  // Mapping between slider positions and values
+  const sliderPositions = [
+    { position: 0, value: 0 },
+    { position: 25, value: 10 },
+    { position: 50, value: 20 },
+    { position: 75, value: 50 },
+    { position: 100, value: 100 }
   ];
+  
   const [selectedPackage, setSelectedPackage] = useState('Starter');
   const [sliderValue, setSliderValue] = useState(10);
+  const [sliderPosition, setSliderPosition] = useState(25);
+    // Function to handle slider change - maps position directly to value
+  const handleSliderChange = (e) => {
+    const position = parseInt(e.target.value);
+    
+    // Direct mapping of position to value
+    let value;
+    if (position === 0) value = 0;
+    else if (position === 25) value = 10;
+    else if (position === 50) value = 20;
+    else if (position === 75) value = 50;
+    else if (position === 100) value = 100;
+    
+    setSliderValue(value);
+    setSliderPosition(position);
+  };
+    // Get current referrals based on slider value
+  const getCurrentReferrals = () => {
+    return sliderValue; // The slider value directly represents the number of referrals
+  };
+  
   const floatAnimation = {
     initial: {},
     animate: (custom) => ({
@@ -39,13 +68,36 @@ export default function RapidChallenge() {
         }
       }
     })
-  };
-  // Package data
+  };  // Package data with different values based on referral counts
   const packages = {
-    'Starter': { amount: '$489', freeAccounts: 'No free account' },
-    'Builder': { amount: '$699', freeAccounts: '1 free account' },
-    'Leader': { amount: '$999', freeAccounts: '2 free accounts' },
-    'Elite': { amount: '$1,499', freeAccounts: '3 free accounts' },
+    'Starter': {
+      0: { amount: '$250', freeAccounts: 'No Free Account' },
+      10: { amount: '$489', freeAccounts: 'No Free Account' },
+      20: { amount: '$978', freeAccounts: 'No Free Account' },
+      50: { amount: '$2,445', freeAccounts: 'No Free Account' },
+      100: { amount: '$4,890', freeAccounts: 'No Free Account' }
+    },
+    'Builder': {
+      0: { amount: '$293', freeAccounts: 'Monthly Free 15k Challenge Account*' },
+      10: { amount: '$587', freeAccounts: 'Monthly Free 15k Challenge Account*' },
+      20: { amount: '$978', freeAccounts: 'Monthly Free 15k Challenge Account*' },
+      50: { amount: '$2,934', freeAccounts: 'Monthly Free 15k Challenge Account*' },
+      100: { amount: '$5,868', freeAccounts: 'Monthly Free 15k Challenge Account*' }
+    },
+    'Leader': {
+      0: { amount: '$367', freeAccounts: 'Monthly Free 30k Challenge Account*' },
+      10: { amount: '$734', freeAccounts: 'Monthly Free 30k Challenge Account*' },
+      20: { amount: '$1,467', freeAccounts: 'Monthly Free 30k Challenge Account*' },
+      50: { amount: '$3,668', freeAccounts: 'Monthly Free 30k Challenge Account*' },
+      100: { amount: '$7,335', freeAccounts: 'Monthly Free 30k Challenge Account*' }
+    },
+    'Elite': {
+      0: { amount: '$428', freeAccounts: 'Monthly Free 60k Challenge Account*' },
+      10: { amount: '$856', freeAccounts: 'Monthly Free 60k Challenge Account*' },
+      20: { amount: '$1,712', freeAccounts: 'Monthly Free 60k Challenge Account*' },
+      50: { amount: '$4,279', freeAccounts: 'Monthly Free 60k Challenge Account*' },
+      100: { amount: '$8,558', freeAccounts: 'Monthly Free 60k Challenge Account*' }
+    }
   };
   const slideUp = {
     hidden: { y: 60, opacity: 0 },
@@ -891,166 +943,169 @@ export default function RapidChallenge() {
 
 
       <div className="font-sans max-w-6xl mx-auto px-4 py-8">
-        {/* Calculator Section */}
-        <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold"style={{fontFamily: "'Inter',sans-serif"}}>
-            Calculate Your <span className="text-[#F800EA]">Future Earnings</span>
-          </h2>
-          <p className="mt-2 text-gray-700"style={{fontFamily: "'Inter',sans-serif"}}>
-            Estimate earnings based on a $120k Challenge purchase.
-          </p>
+  {/* Calculator Section */}
+  <div className="text-center mb-6">
+    <h2 className="text-3xl md:text-5xl font-bold" style={{fontFamily: "'Inter',sans-serif"}}>
+      Calculate Your <span className="text-[#F800EA]">Future Earnings</span>
+    </h2>
+    <p className="mt-2 text-gray-700" style={{fontFamily: "'Inter',sans-serif"}}>
+      Estimate earnings based on a $120k Challenge purchase.
+    </p>
+  </div>
+
+  <div className="border border-[#F800EA] rounded-3xl p-4 sm:p-6 px-4 sm:px-16 mb-8">
+    {/* Package Selection - 2x2 grid on mobile, row on desktop */}
+    <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 mb-8">
+      <button
+        className={`px-3 sm:px-6 py-2 rounded-md flex items-center justify-center gap-1 sm:gap-2 w-full sm:w-[120px] h-[45px] ${selectedPackage === 'Starter' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
+        onClick={() => setSelectedPackage('Starter')}
+      >
+        <img src="/image 49.svg" alt="Starter" className="w-4 h-4 sm:w-5 sm:h-5" />
+        <span className="text-sm sm:text-base">Starter</span>
+      </button>
+      <button
+        className={`px-3 sm:px-6 py-2 rounded-md flex items-center justify-center gap-1 sm:gap-2 w-full sm:w-[120px] h-[45px] ${selectedPackage === 'Builder' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
+        onClick={() => setSelectedPackage('Builder')}
+      >
+        <img src="/image 50.svg" alt="Builder" className="w-4 h-4 sm:w-5 sm:h-5" />
+        <span className="text-sm sm:text-base">Builder</span>
+      </button>
+      <button
+        className={`px-3 sm:px-6 py-2 rounded-md flex items-center justify-center gap-1 sm:gap-2 w-full sm:w-[120px] h-[45px] ${selectedPackage === 'Leader' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
+        onClick={() => setSelectedPackage('Leader')}
+      >
+        <img src="/image 51.svg" alt="Leader" className="w-4 h-4 sm:w-5 sm:h-5" />
+        <span className="text-sm sm:text-base">Leader</span>
+      </button>
+      <button
+        className={`px-3 sm:px-6 py-2 rounded-md flex items-center justify-center gap-1 sm:gap-2 w-full sm:w-[120px] h-[45px] ${selectedPackage === 'Elite' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
+        onClick={() => setSelectedPackage('Elite')}
+      >
+        <img src="/image 52.svg" alt="Elite" className="w-4 h-4 sm:w-5 sm:h-5" />
+        <span className="text-sm sm:text-base">Elite</span>
+      </button>
+    </div>
+    
+    {/* Slider - Better padding for mobile */}
+    <div className="mb-8 px-2 sm:px-0">
+      <div className="relative w-full">
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={sliderPosition}
+          onChange={handleSliderChange}
+          step="25"
+          className="w-full h-2 rounded-lg appearance-none cursor-pointer custom-slider"
+          style={{
+            background: `linear-gradient(to right, #F800EA 0%, #F800EA ${sliderPosition}%, #f5f5f5 ${sliderPosition}%, #f5f5f5 100%)`
+          }}
+        />
+        
+        {/* Labels for slider - better mobile positioning */}
+        <div className="relative w-full mt-6 text-sm h-6">
+          {/* Adjusted for better mobile visibility */}
+          <span className={`absolute left-0 transform -translate-x-1/2 text-xs sm:text-sm ${sliderValue === 0 ? "font-bold text-[#F800EA]" : ""}`}>5</span>
+          <span className={`absolute left-1/4 transform -translate-x-1/2 text-xs sm:text-sm ${sliderValue === 10 ? "font-bold text-[#F800EA]" : ""}`}>10</span>
+          <span className={`absolute left-2/4 transform -translate-x-1/2 text-xs sm:text-sm ${sliderValue === 20 ? "font-bold text-[#F800EA]" : ""}`}>20</span>
+          <span className={`absolute left-3/4 transform -translate-x-1/2 text-xs sm:text-sm ${sliderValue === 50 ? "font-bold text-[#F800EA]" : ""}`}>50</span>
+          <span className={`absolute right-0 transform translate-x-1/2 text-xs sm:text-sm ${sliderValue === 100 ? "font-bold text-[#F800EA]" : ""}`}>100</span>
         </div>
+      </div>
+    </div>
 
-        <div className="border border-[#F800EA] rounded-3xl p-6 mb-16">
-          {/* Package Selection */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {/* All buttons adjusted to have equal width */}
-            <button
-              className={`px-6 py-2 rounded-md flex items-center justify-center gap-2 w-[120px] h-[45px] ${selectedPackage === 'Starter' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
-              onClick={() => setSelectedPackage('Starter')}
-            >
-              <img src="/image 49.svg" alt="Starter" className="w-5 h-5" />
-              Starter
-            </button>
-            <button
-              className={`px-6 py-2 rounded-md flex items-center justify-center gap-2 w-[120px] h-[45px] ${selectedPackage === 'Builder' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
-              onClick={() => setSelectedPackage('Builder')}
-            >
-              <img src="/image 50.svg" alt="Builder" className="w-5 h-5" />
-              Builder
-            </button>
-            <button
-              className={`px-6 py-2 rounded-md flex items-center justify-center gap-2 w-[120px] h-[45px] ${selectedPackage === 'Leader' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
-              onClick={() => setSelectedPackage('Leader')}
-            >
-              <img src="/image 51.svg" alt="Leader" className="w-5 h-5" />
-              Leader
-            </button>
-            <button
-              className={`px-6 py-2 rounded-md flex items-center justify-center gap-2 w-[120px] h-[45px] ${selectedPackage === 'Elite' ? 'bg-[#F800EA] text-white' : 'border border-[#F800EA] text-black'}`}
-              onClick={() => setSelectedPackage('Elite')}
-            >
-              <img src="/image 52.svg" alt="Elite" className="w-5 h-5" />
-              Elite
-            </button>
-          </div>
-
-          {/* Slider - Fixed for mobile */}
-          <div className="mb-8">
-            <div className="relative w-full">
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={sliderValue}
-                onChange={(e) => setSliderValue(e.target.value)}
-                step="1"
-                className="w-full h-2 rounded-lg appearance-none cursor-pointer custom-slider"
-                style={{
-                  // Improved calculation for mobile compatibility
-                  background: `linear-gradient(to right, #F800EA 0%, #F800EA ${sliderValue}%, #f5f5f5 ${sliderValue}%, #f5f5f5 100%)`
-                }}
-              />
-              <div className="absolute -bottom-8 left-0 right-0 flex justify-between text-sm">
-                <span>0</span>
-                <span>10</span>
-                <span>20</span>
-                <span>50</span>
-                <span>100</span>
-              </div>
-            </div>
-
-            <style jsx>{`
-    .custom-slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 1);
-      border: 4.5px solid rgba(248, 0, 234, 1);
-      margin-top: -11.5px; /* To vertically center on 2px track */
-      cursor: pointer;
-      position: relative;
-      z-index: 10;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    }
-
-    .custom-slider::-moz-range-thumb {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 1);
-      border: 4.5px solid rgba(248, 0, 234, 1);
-      cursor: pointer;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    }
-
-    .custom-slider::-ms-thumb {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 1);
-      border: 4.5px solid rgba(248, 0, 234, 1);
-      cursor: pointer;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    }
-
-    /* Remove default track styling */
-    .custom-slider::-webkit-slider-runnable-track {
-      height: 2px;
-      background: transparent;
-      border-radius: 999px;
-    }
-
-    .custom-slider::-moz-range-track {
-      height: 2px;
-      background: transparent;
-      border-radius: 999px;
-    }
-
-    .custom-slider::-ms-track {
-      height: 2px;
-      background: transparent;
-      border-color: transparent;
-      color: transparent;
-      border-radius: 999px;
-    }
-
-    /* Improve touch target size on mobile */
-    @media (max-width: 768px) {
+    <style jsx>{`
       .custom-slider::-webkit-slider-thumb {
-        width: 28px;
-        height: 28px;
-        border-width: 5px;
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 1);
+        border: 4.5px solid rgba(248, 0, 234, 1);
+        margin-top: -11.5px;
+        cursor: pointer;
+        position: relative;
+        z-index: 10;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
       }
-      .custom-slider::-moz-range-thumb {
-        width: 28px;
-        height: 28px;
-        border-width: 5px;
-      }
-    }
-  `}</style>
-          </div>
 
-          {/* Results Table */}
-          <div className="mt-12">
-            <div className="grid grid-cols-3 text-white rounded-t-lg" style={{ fontFamily: "'Inter', sans-serif", backgroundColor: 'rgba(248, 0, 234, 1)' }}>
-              <div className="py-3 text-center font-medium">Package</div>
-              <div className="py-3 text-center font-medium">Amount</div>
-              <div className="py-3 text-center font-medium">Free Accounts</div>
-            </div>
-            <div className="grid grid-cols-3 border-b border-gray-200">
-              <div className="py-3 text-center">{selectedPackage}</div>
-              <div className="py-3 text-center">{packages[selectedPackage].amount}</div>
-              <div className="py-3 text-center">{packages[selectedPackage].freeAccounts}</div>
-            </div>
-          </div>
-        </div>
+      .custom-slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 1);
+        border: 4.5px solid rgba(248, 0, 234, 1);
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      }
+
+      .custom-slider::-ms-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 1);
+        border: 4.5px solid rgba(248, 0, 234, 1);
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      }
+
+      .custom-slider::-webkit-slider-runnable-track {
+        height: 2px;
+        background: transparent;
+        border-radius: 999px;
+      }
+
+      .custom-slider::-moz-range-track {
+        height: 2px;
+        background: transparent;
+        border-radius: 999px;
+      }
+
+      .custom-slider::-ms-track {
+        height: 2px;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+        border-radius: 999px;
+      }
+
+      /* Improve touch target size on mobile */
+      @media (max-width: 768px) {
+        .custom-slider::-webkit-slider-thumb {
+          width: 28px;
+          height: 28px;
+          border-width: 5px;
+        }
+        .custom-slider::-moz-range-thumb {
+          width: 28px;
+          height: 28px;
+          border-width: 5px;
+        }
+      }
+    `}</style>
+  </div>
+  
+  {/* Results Table - Optimized for mobile */}
+  <div className="mt-8 sm:mt-12 overflow-x-auto">
+    <div className="min-w-full">
+      <div className="grid grid-cols-3 text-white rounded-t-lg" style={{ fontFamily: "'Inter', sans-serif", backgroundColor: 'rgba(248, 0, 234, 1)' }}>
+        <div className="py-3 px-2 sm:px-4 text-center font-medium text-sm sm:text-base">Package</div>
+        <div className="py-3 px-2 sm:px-4 text-center font-medium text-sm sm:text-base">Amount</div>
+        <div className="py-3 px-2 sm:px-4 text-center font-medium text-sm sm:text-base">Free Accounts</div>
+      </div>
+      <div className="grid grid-cols-3 border-b border-gray-200">
+        <div className="py-3 px-2 sm:px-4 text-center text-sm sm:text-base">{selectedPackage}</div>
+        <div className="py-3 px-2 sm:px-4 text-center text-sm sm:text-base">{packages[selectedPackage][sliderValue]?.amount || 'N/A'}</div>
+        <div className="py-3 px-2 sm:px-4 text-center text-sm sm:text-base">{packages[selectedPackage][sliderValue]?.freeAccounts || 'None'}</div>
+      </div>
+    </div>
+  </div>
+</div>
 
         {/* Affiliate Model Section */}
-        <div className="my-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+        <div className="my-8">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">
             How Our <span className="text-[#F800EA]">Affiliate Model</span> Works
           </h2>
 
@@ -1120,17 +1175,17 @@ export default function RapidChallenge() {
             </div>
           </div>
         </div>
-
+  {/* NewsLetter Section */}
+      <Newsletter />
       </div>
 
 
 
 
 
-      {/* NewsLetter Section */}
-      <Newsletter />
+    
 
 
-    </div>
+    
   );
 }

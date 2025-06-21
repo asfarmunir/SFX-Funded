@@ -779,7 +779,7 @@ export default function RapidChallenge() {
     }}
   ></div>
 
-  {/* Diamond left of "TURN" - floating */}
+  {/* Diamond left of "TURN" - floating
   <motion.img
     src="/diamond.svg"
     alt="Diamond Left of Turn"
@@ -796,7 +796,7 @@ export default function RapidChallenge() {
     }}
     initial="initial"
     animate="animate"
-  />
+  /> */}
 
   {/* Diamond blurred near logo - floating */}
   <motion.img

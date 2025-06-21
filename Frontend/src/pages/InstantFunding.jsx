@@ -525,36 +525,34 @@ const tableRows = [
           }}
         >
           {/* Main Heading */}
-          <h1 className="text-white uppercase font-oswald font-bold 
-            text-3xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 
-            leading-none tracking-tight"
-            style={{
-              fontFamily: "Oswald, sans-serif",
-              fontWeight: 600,
-              fontSize: "clamp(2rem, 5vw, 5rem)", // Adjusted for mobile consistency
-              letterSpacing: window.innerWidth < 640 ? "-1px" : "-7.64px",
-            }}
-          >
-            <span className="text-[#DE00DE]">FASTEST </span> <span className="text-[#fcfbfc]"> WAY TO A </span>{" "} <br />
-            <span className="text-[#DE00DE]">FUNDED </span>
-            <span className="text-[#fcfbfc]"> TRADING</span>
-            <span className="text-[#DE00DE]"> ACCOUNT</span>
-            
-          </h1>
+<h1 className="text-white uppercase font-oswald font-bold 
+  text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
+  leading-none tracking-tight"
+  style={{
+    fontFamily: "Oswald, sans-serif",
+    fontWeight: 600,
+    fontSize: "clamp(1.5rem, 5vw, 5rem)", // Matched with subheading
+    letterSpacing: window.innerWidth < 640 ? "-1px" : "-5.64px", // Matched with subheading
+  }}
+>
+  <span className="text-white">FASTEST WAY TO A</span>{" "} 
+  <br className="hidden md:block" /> {/* Only visible on md screens and above */}
+  <span className="text-white">FUNDED TRADING ACCOUNT</span>
+</h1>
 
-          {/* Subheading */}
-          <h2 className="text-white uppercase font-oswald font-bold 
-            text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
-            leading-none tracking-tight mt-3 sm:mt-4 md:mt-5"
-            style={{
-              fontFamily: "Oswald, sans-serif",
-              fontWeight: 600,
-              fontSize: "clamp(1.5rem, 5vw, 60px)", // Adjusted for mobile consistency
-              letterSpacing: window.innerWidth < 640 ? "-1px" : "-5.64px",
-            }}
-          >
-            <span >CAPITAL IN </span> <span className="text-[#DE00DE]">MINUTES. </span> <span> REWARD IN </span> <span className="text-[#DE00DE]">DAYS. </span>{" "}
-          </h2>
+{/* Subheading */}
+<h2 className="text-[#DE00DE] uppercase font-oswald font-bold 
+  text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
+  leading-none tracking-tight mt-3 sm:mt-4 md:mt-5"
+  style={{
+    fontFamily: "Oswald, sans-serif",
+    fontWeight: 600,
+    fontSize: "clamp(1.5rem, 5vw, 60px)",
+    letterSpacing: window.innerWidth < 640 ? "-1px" : "-5.64px",
+  }}
+>
+  <span>CAPITAL IN MINUTES. REWARD IN DAYS.</span>
+</h2>
         </motion.div>
 
         {/* Description */}
@@ -637,11 +635,11 @@ const tableRows = [
             className="lg:w-1/2 lg:sticky lg:top-[225px] lg:self-start lg:mt-[140px]"
             style={{ height: 'fit-content' }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-  GET FUNDED INSTANTLY IN
+            <h2 className="text-[#DE00DE] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+  GET FUNDED INSTANTLY 
   <span className="sm:hidden"> </span>
   <br className="hidden sm:block" />
-  <span className="text-[#DE00DE] font-semibold">3 SIMPLE STEPS</span>
+  <span className="text-[#080308] font-semibold">IN 3 SIMPLE STEPS</span>
 </h2>
             <p className="mt-3 text-lg sm:text-xl md:text-2xl text-gray-600">
               If you got the skill, we'll handle you the capital
@@ -1028,9 +1026,7 @@ const tableRows = [
         <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold mb-2">
           TOP INSTANT FUNDING FEATURES
         </h2>
-        <h3 className="text-3xl sm:text-3xl font-bold mb-4 text-fuchsia-500">
-          FOR TRADERS
-        </h3>
+        
         <p className="text-base font-medium text-gray-700">
           Here are key benefits that make SFX funded the best instant funding prop firm
         </p>
@@ -1222,20 +1218,20 @@ const tableRows = [
           {/* Header */}
        
 <div className="text-center mb-6">
-  <h2 className="text-[22px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2 leading-snug md:leading-[1.5]">
+  <h2 className="text-[32px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2 leading-snug md:leading-[1.5]">
   SFX Instant Funding
 </h2>
   <div className="mt-4 inline-block bg-fuchsia-50 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border border-fuchsia-200">
-    <span className="text-[11px] sm:text-md font-medium whitespace-nowrap">Trade Forex, Indices, Metals & Crypto</span>
+    <span className="text-[16px] sm:text-md font-medium whitespace-nowrap">Trade Forex, Indices, Metals & Crypto</span>
   </div>
   <div className="flex items-center justify-center mt-4">
     <img
       src="/rocket.svg"
       alt="Instant Funding"
-      className="w-6 h-6 mr-2"
+      className="w-8 h-8 mr-2"
       style={{filter: 'invert(70%) sepia(100%) saturate(5500%) hue-rotate(295deg) brightness(92%) contrast(110%)'}}
     />
-    <span className="text-[#D90BC6] font-medium text-lg">Start Trading Instantly</span>
+    <span className="text-[#D90BC6]  font-medium text-xl">Start Trading Instantly</span>
   </div>
 </div>        {/* Account Table */}
           <div className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white">
@@ -1372,7 +1368,7 @@ const tableRows = [
         </div>
       </div>
               <div
-                      className="w-full max-w-7xl mx-auto relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 flex flex-col md:flex-row items-center justify-between"
+                      className="w-full max-w-7xl mx-auto relative overflow-hidden rounded-3xl py-12 sm:py-24 px-6 sm:px-12 mb-10 flex flex-col md:flex-row items-center justify-between"
                       style={{
                         backgroundColor: "#000000",
                         borderRadius: "24px",
@@ -1396,11 +1392,11 @@ const tableRows = [
                         viewport={{ once: false }}
                         className="text-white md:w-1/2 z-10 mb-10 md:mb-0"
                       >
-                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        <h2 className="text-[26px] sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
                           SFX Payout <span className="text-fuchsia-500">Guarantee!</span>
                         </h2>
                         <p className="text-lg sm:text-xl mb-4">
-                          Get paid within 48 hours or we add an extra $500 to your withdrawal!
+                          Get paid within 48 hours or we add an extra $300 to your withdrawal!
                         </p>
                         <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-8 max-w-md">
                           At SFX Funded, we stand by our commitment to fast payouts and trader-first policies. You focus on trading, and we ensure you get rewarded on time — every time.
@@ -2038,14 +2034,14 @@ const tableRows = [
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      {/* Floating Decorative Elements */}
+      {/* Floating Decorative Elements
       <motion.img
         src="/diamond.svg"
         alt="Diamond Left of Turn"
         className="absolute left-[10%] top-[30%] w-40 h-40"
         animate={{ y: [0, -10, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-      />
+      /> */}
 
       <motion.img
         src="/diamond.svg"

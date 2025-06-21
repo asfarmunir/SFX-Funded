@@ -541,8 +541,8 @@ const getTransform = (columnIndex) => {
   style={{
     fontFamily: "Oswald, sans-serif",
      fontWeight: 600,
-                fontSize: "clamp(2.5rem, 5vw, 5rem)",
-    letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
+                fontSize: "clamp(2rem, 5vw, 5rem)",
+    letterSpacing: window.innerWidth < 640 ? "-1px" : "-7.64px",
   }}
 >
       <span className="text-[#fcfbfc]">RAPID</span>{" "}
@@ -551,14 +551,14 @@ const getTransform = (columnIndex) => {
 
     <h2 className="text-white uppercase font-oswald font-bold 
       text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
-      leading-none tracking-tight mt-3 sm:mt-4 md:mt-5" style={{
+      leading-none tracking-tight mt-2 sm:mt-4 md:mt-5" style={{
         fontFamily: "Oswald, sans-serif",
          fontWeight: 600,
-                fontSize: "clamp(2.5rem, 5vw, 5rem)",
-        letterSpacing: window.innerWidth < 640 ? "-3px" : "-7.64px",
+                fontSize: "clamp(1.75rem, 5vw, 5rem)",
+        letterSpacing: window.innerWidth < 640 ? "-2px" : "-7.64px",
       }}>
       <span className="text-[#DE00DE]">PASS FAST. </span>{" "}
-      <span className="text-[#DE00DE]">GET FUNDED .</span>
+      <span className="text-[#DE00DE]">GET FUNDED </span>
     </h2>
   </motion.div>
 
@@ -632,7 +632,7 @@ const getTransform = (columnIndex) => {
         style={{ height: 'fit-content' }}
       >
         <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold leading-tight">
-              ONE STEP. 5% TARGET.
+              ONE STEP - 5% TARGET.
               <br />
               <span className="text-[#DE00DE] font-semibold">EARN ON DEMAND.</span>
             </h2>
@@ -865,81 +865,116 @@ const getTransform = (columnIndex) => {
 <p className="text-xs sm:text-base md:text-lg lg:text-xl text-center mx-auto max-w-md sm:max-w-lg">Compare the rapid challenge with the 1-Step Model</p>
 </motion.div>
 
-  {/* Comparison Cards */}
-  <motion.div 
-    className="flex flex-col md:flex-row gap-6"
+    <motion.div 
+  className="flex flex-col md:flex-row gap-6"
+  variants={{
+    visible: {
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  }}
+>
+  {/* 1-Step Evaluation Card */}
+  <motion.div
+    className="w-full md:w-1/2 bg-gray-100 rounded-2xl p-8 text-center"
     variants={{
-      visible: {
+      hidden: { opacity: 0, y: 40 },
+      visible: { 
+        opacity: 1, 
+        y: 0,
         transition: {
-          staggerChildren: 0.3
+          duration: 0.8,
+          ease: "easeOut",
+          delay: 0.3
         }
       }
     }}
   >
-    {/* 1-Step Evaluation Card */}
-    <motion.div
-      className="w-full md:w-1/2 bg-gray-100 rounded-2xl p-8 text-center"
-      variants={{
-        hidden: { opacity: 0, y: 40 },
-        visible: { 
-          opacity: 1, 
-          y: 0,
-          transition: {
-            duration: 0.8,
-            ease: "easeOut",
-            delay: 0.3
-          }
-        }
-      }}
-    >
-      <h2 className="text-3xl font-bold mb-12">
-        1-Step<br />Evaluation
-      </h2>
-      <div className="space-y-6 text-lg">
-        <p className="font-semibold">
-          <span className="text-fuchsia-500">10%</span> Profit Target.
-        </p>
-        <p className="font-semibold">
-          First payout after 30 days
-        </p>
-        <p className="font-semibold">
-          <span className="text-fuchsia-500">$550 for $100K</span> Evaluation
-        </p>
+    <h2 className="text-3xl font-bold mb-12">
+      1-Step<br />Evaluation
+    </h2>
+    
+    <div className="space-y-8">
+      <div className="flex items-center gap-4">
+        <span className="text-2xl">❌</span>
+        <div>
+          <p className="font-semibold text-left">
+            <span className="text-fuchsia-500">10%</span> Profit Target.
+          </p>
+        </div>
       </div>
-    </motion.div>
 
-    {/* Rapid Challenge Card */}
-    <motion.div
-      className="w-full md:w-1/2 bg-fuchsia-50 rounded-2xl p-8 text-center"
-      variants={{
-        hidden: { opacity: 0, y: 40 },
-        visible: { 
-          opacity: 1, 
-          y: 0,
-          transition: {
-            duration: 0.8,
-            ease: "easeOut",
-            delay: 0.6
-          }
-        }
-      }}
-    >
-      <h2 className="text-3xl font-bold text-fuchsia-500 mb-12">
-        Rapid<br />Challenge
-      </h2>
-      <div className="space-y-6 text-lg">
-        <p className="font-semibold">
-          <span className="text-fuchsia-500">5%</span> Profit Target
-        </p>
-        <p className="font-semibold">
-          First Payout On Demand
-        </p>
-        <p className="font-semibold">
-          <span className="text-fuchsia-500">$338 for $120K</span> Evaluation
-        </p>
+      <div className="flex items-center gap-4">
+        <span className="text-2xl">❌</span>
+        <div>
+          <p className="font-semibold text-left">
+            First payout after 30 days
+          </p>
+        </div>
       </div>
-    </motion.div>
+
+      <div className="flex items-center gap-4">
+        <span className="text-2xl">❌</span>
+        <div>
+          <p className="font-semibold text-left">
+            <span className="text-fuchsia-500">$550 for $100K</span> Evaluation
+          </p>
+        </div>
+      </div>
+    </div>
   </motion.div>
+
+  {/* Rapid Challenge Card */}
+  <motion.div
+    className="w-full md:w-1/2 bg-fuchsia-50 rounded-2xl p-8 text-center"
+    variants={{
+      hidden: { opacity: 0, y: 40 },
+      visible: { 
+        opacity: 1, 
+        y: 0,
+        transition: {
+          duration: 0.8,
+          ease: "easeOut",
+          delay: 0.6
+        }
+      }
+    }}
+  >
+    <h2 className="text-3xl font-bold text-fuchsia-500 mb-12">
+      Rapid<br />Challenge
+    </h2>
+    
+    <div className="space-y-8">
+      <div className="flex items-center gap-4">
+        <span className="text-2xl">✅</span>
+        <div>
+          <p className="font-semibold text-left">
+            <span className="text-fuchsia-500">5%</span> Profit Target
+          </p>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-4">
+        <span className="text-2xl">✅</span>
+        <div>
+          <p className="font-semibold text-left">
+            First Payout On Demand
+          </p>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-4">
+        <span className="text-2xl">✅</span>
+        <div>
+          <p className="font-semibold text-left">
+            <span className="text-fuchsia-500">$338 for $120K</span> Evaluation
+          </p>
+        </div>
+      </div>
+    </div>
+  </motion.div>
+</motion.div>
 </motion.div>
     
  
@@ -1096,12 +1131,12 @@ const getTransform = (columnIndex) => {
           {/* Header */}
        
 <div className="text-center mb-6">
-  <h2 className="text-[22px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2 leading-snug md:leading-[1.5]">
+  <h2 className="text-[30px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2 leading-snug md:leading-[1.5]">
   SFX Rapid Challenge
 </h2>
 
   <div className="mt-4 inline-block bg-fuchsia-50 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border border-fuchsia-200">
-    <span className="text-[11px] sm:text-md font-medium whitespace-nowrap">Trade Forex, Indices, Metals & Crypto</span>
+    <span className="text-[16px] sm:text-md font-medium whitespace-nowrap">Trade Forex, Indices, Metals & Crypto</span>
   </div>
   <div className="flex items-center justify-center mt-4">
     <img
@@ -1248,7 +1283,7 @@ const getTransform = (columnIndex) => {
         </div>
       </div>
        <div
-  className="w-full max-w-7xl mx-auto relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 flex flex-col md:flex-row items-center justify-between"
+  className="w-full max-w-7xl mx-auto relative overflow-hidden rounded-3xl py-12 sm:py-24 px-6 sm:px-12 mb-10 flex flex-col md:flex-row items-center justify-between"
   style={{
     backgroundColor: "#000000",
     borderRadius: "24px",
@@ -1272,11 +1307,11 @@ const getTransform = (columnIndex) => {
     viewport={{ once: false }}
     className="text-white md:w-1/2 z-10 mb-10 md:mb-0"
   >
-    <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
+    <h2 className="text-[26px] sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
       SFX Payout <span className="text-fuchsia-500">Guarantee!</span>
     </h2>
     <p className="text-lg sm:text-xl mb-4">
-      Get paid within 48 hours or we add an extra $500 to your withdrawal!
+      Get paid within 48 hours or we add an extra $300 to your withdrawal!
     </p>
     <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-8 max-w-md">
       At SFX Funded, we stand by our commitment to fast payouts and trader-first policies. You focus on trading, and we ensure you get rewarded on time — every time.
@@ -1929,14 +1964,14 @@ const getTransform = (columnIndex) => {
         transition={{ duration: 6, repeat: Infinity }}
       />
 
-      {/* Animated SVG/IMG elements */}
+      {/* Animated SVG/IMG elements
       <motion.img
         src="/diamond.svg"
         alt="Diamond Left of Turn"
-        className="absolute left-[0%] top-[30%] w-40 h-40"
+        className="absolute left-[0%] top-[10%] w-40 h-40"
         animate={{ y: [0, -10, 0], x: [0, 10, 0] }}
         transition={{ duration: 8, repeat: Infinity }}
-      />
+      /> */}
 
       <motion.img
         src="/diamond.svg"

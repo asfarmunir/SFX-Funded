@@ -805,7 +805,7 @@ const [showFeesOnMobile, setShowFeesOnMobile] = useState(false);
    Top Funded Trader Programs
   </h2>
   <div className="mt-4 inline-block bg-fuchsia-50 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border border-fuchsia-200">
-    <span className="text-[11px] sm:text-md font-medium whitespace-nowrap">Trade Forex, Indices, Metals & Crypto</span>
+    <span className="text-[16px] sm:text-md font-medium whitespace-nowrap">Trade Forex, Indices, Metals & Crypto</span>
   </div>
 </div>
 

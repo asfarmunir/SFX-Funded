@@ -505,44 +505,80 @@ export default function Graphic() {  // Add missing state variables and refs
             2-Phase Challenge
           </motion.div>
 
-          {/* Hero Heading */}
-          <div className="text-center mb-6 sm:mb-8 md:mb-10">
-            {/* Main Heading */}
-            <motion.h1
-              className="text-white uppercase font-bold
-        text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl
-        leading-none tracking-tight"
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              style={{
-    fontFamily: "Oswald, sans-serif",
-    fontWeight: 600,
-                fontSize: "clamp(2rem, 7vw, 5rem)", // mobile: 2rem, desktop unchanged
-    letterSpacing: "-1px",
-  }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-            >
-              GET FUNDED WITH OUR 2-STEP
-            </motion.h1>
+       {/* Hero Heading */}
+<div className="text-center mb-6 sm:mb-8 md:mb-10">
+  {/* Desktop version - Single line with pink 2-STEP inline */}
+  <motion.h1
+    className="hidden md:block text-white uppercase font-bold
+    text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl
+    leading-none tracking-tight"
+    initial={{ opacity: 0, y: 60 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    style={{
+      fontFamily: "Oswald, sans-serif",
+      fontWeight: 600,
+      fontSize: "clamp(1.7rem, 7vw, 5rem)",
+      letterSpacing: "-1px",
+    }}
+    transition={{ duration: 0.4, delay: 0.2 }}
+  >
+    GET FUNDED WITH OUR <span className="text-[#DE00DE]">2-STEP</span>
+  </motion.h1>
 
-            {/* Second Line as Part of the Main Heading */}
-            <motion.h1
-              className="text-[#DE00DE] uppercase font-bold
-        text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl
-        leading-none tracking-tight"
-              initial={{ opacity: 0, y: 70 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              style={{
-    fontFamily: "Oswald, sans-serif",
-    fontWeight: 600,
-                fontSize: "clamp(2rem, 7vw, 5rem)", // mobile: 2rem, desktop unchanged
-    letterSpacing: "-1px",
-  }}
-              transition={{ duration: 0.4, delay: 0.4 }}
-            >
-               CHALLENGE
-            </motion.h1>
-          </div>
+  {/* Mobile version - First line */}
+  <motion.h1
+    className="md:hidden text-white uppercase font-bold
+    text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl
+    leading-none tracking-tight"
+    initial={{ opacity: 0, y: 60 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    style={{
+      fontFamily: "Oswald, sans-serif",
+      fontWeight: 600,
+      fontSize: "clamp(1.7rem, 7vw, 5rem)",
+      letterSpacing: "-1px",
+    }}
+    transition={{ duration: 0.4, delay: 0.2 }}
+  >
+    GET FUNDED WITH OUR
+  </motion.h1>
+
+  {/* Mobile version - Second line with 2-STEP in pink */}
+  <motion.h1
+    className="md:hidden text-[#DE00DE] uppercase font-bold
+    text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl
+    leading-none tracking-tight"
+    initial={{ opacity: 0, y: 65 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    style={{
+      fontFamily: "Oswald, sans-serif",
+      fontWeight: 600,
+      fontSize: "clamp(2rem, 7vw, 5rem)",
+      letterSpacing: "-1px",
+    }}
+    transition={{ duration: 0.4, delay: 0.3 }}
+  >
+    2-STEP
+  </motion.h1>
+
+  {/* Challenge line for both mobile and desktop */}
+  <motion.h1
+    className="text-white uppercase font-bold
+    text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl
+    leading-none tracking-tight"
+    initial={{ opacity: 0, y: 70 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    style={{
+      fontFamily: "Oswald, sans-serif",
+      fontWeight: 600,
+      fontSize: "clamp(1.7rem, 7vw, 5rem)",
+      letterSpacing: "-1px",
+    }}
+    transition={{ duration: 0.4, delay: 0.4 }}
+  >
+    CHALLENGE
+  </motion.h1>
+</div>
 
           {/* Description */}
           <motion.p
@@ -958,9 +994,9 @@ export default function Graphic() {  // Add missing state variables and refs
           transition={{ duration: 0.4 }}
         >
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
-            Compare our <span className="text-fuchsia-500">2-Step Prop Firm Challenge </span>
+            Compare Our <span className="text-fuchsia-500">2-Step  </span>Prop Firm Challenge
           </h1>
-          <p className="text-xl">Choose the evaluation style that fits your strategy.</p>
+          <p className="text-xl">Choose the evaluation style <br/> that fits your strategy.</p>
         </motion.div>
 
         {/* Comparison Cards */}
@@ -1011,16 +1047,16 @@ export default function Graphic() {  // Add missing state variables and refs
                 Max account size <span className="font-normal">100K</span>
               </p>
               <p className="font-semibold">
-                Phase 1 & 2 Target: <span className="font-normal">7% & 6%</span>
+                Phase 1 & 2 Target: <span className="font-normal">6%</span>
               </p>
               <p className="font-semibold">
-                Max Drawdown <span className="font-normal">8%</span>
+                Max Drawdown <span className="font-normal">6%</span>
               </p>
               <p className="font-semibold">
                 Daily Drawdown <span className="font-normal">3%</span>
               </p>
               <p className="font-semibold">
-                Bi-weekly Payouts
+                On Demand Payouts
               </p>
             </div>
           </motion.div>
@@ -1031,11 +1067,11 @@ export default function Graphic() {  // Add missing state variables and refs
           {/* Header */}
        
 <div className="text-center mb-6">
- <h2 className="text-[20px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2 leading-snug md:leading-[1.5]">
-    SFX 2-Step Challenge Programs
+ <h2 className="text-[23px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2 leading-snug md:leading-[1.5]">
+    2-Step Challenge Programs
   </h2>
   <div className="mt-4 inline-block bg-fuchsia-50 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border border-fuchsia-200">
-     <span className="text-[11px] sm:text-md font-medium whitespace-nowrap">Trade Forex, Indices, Metals & Crypto</span>
+     <span className="text-[16px] sm:text-md font-medium whitespace-nowrap">Trade Forex, Indices, Metals & Crypto</span>
   </div>
 </div>
 
@@ -1208,20 +1244,20 @@ export default function Graphic() {  // Add missing state variables and refs
         </div>
       </div>
 
-      <div className="bg-gray-50 py-12 font-sans w-full max-w-8xl mx-auto px-4">
+      <div className="bg-gray-50 py-12 font-sans w-full max-w-8xl mx-auto ">
 
 
 
         <div style={{ fontFamily: "'Inter', sans-serif" }} className="max-w-6xl mb-4 mt-2 mx-auto px-4 py-12 sm:py-16">
   {/* Header */}
   <motion.h2
-    className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-10 sm:mb-16"
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-  >
-    Why Traders Choose the <span className="text-fuchsia-500">SFX 2-Step Challenge</span>
-  </motion.h2>
+  className="text-[33px] md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-10 sm:mb-16"
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+>
+  Why The SFX<br className="md:hidden" /> <span className="text-fuchsia-500">2-Step Challenge</span>
+</motion.h2>
 
   {/* Cards Grid - Visible only on md and above */}
   <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -1449,7 +1485,7 @@ export default function Graphic() {  // Add missing state variables and refs
 
 
        <div
-        className="w-full max-w-7xl mx-auto relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 flex flex-col md:flex-row items-center justify-between"
+        className="w-full max-w-7xl mx-auto relative overflow-hidden rounded-3xl py-12 sm:py-24 px-6 sm:px-12 mb-10 flex flex-col md:flex-row items-center justify-between"
         style={{
           backgroundColor: "#000000",
           borderRadius: "24px",
@@ -1473,11 +1509,11 @@ export default function Graphic() {  // Add missing state variables and refs
           viewport={{ once: false }}
           className="text-white md:w-1/2 z-10 mb-10 md:mb-0"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <h2 className="text-[26px] sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
             SFX Payout <span className="text-fuchsia-500">Guarantee!</span>
           </h2>
           <p className="text-lg sm:text-xl mb-4">
-            Get paid within 48 hours or we add an extra $500 to your withdrawal!
+            Get paid within 48 hours or we add an extra $300 to your withdrawal!
           </p>
           <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-8 max-w-md">
             At SFX Funded, we stand by our commitment to fast payouts and trader-first policies. You focus on trading, and we ensure you get rewarded on time — every time.
@@ -1540,8 +1576,9 @@ export default function Graphic() {  // Add missing state variables and refs
       </div>
 
 
-      <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12 mt-4 mb-4">
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
+      {/* STATS SECTION */}
+      <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12 mt-8 mb-8">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
           Trusted by Over <span className="text-fuchsia-600">8,000+</span> Traders World Wide
         </h1>
 
@@ -2121,7 +2158,7 @@ export default function Graphic() {  // Add missing state variables and refs
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: false }}
-          className="w-full relative overflow-hidden rounded-3xl py-24 px-6 sm:px-12 mb-10 sm:mb-14 md:mb-20 lg:mb-24 flex flex-col items-center justify-center text-white"
+          className="w-full relative overflow-hidden rounded-3xl py-12 sm:py-24 px-6 sm:px-12 mb-6 sm:mb-14 md:mb-20 lg:mb-24 flex flex-col items-center justify-center text-white"
           style={{
             backgroundColor: '#000000',
             borderRadius: '24px',
@@ -2138,7 +2175,7 @@ export default function Graphic() {  // Add missing state variables and refs
               }}
             />
 
-            {/* Diamond left of "TURN" */}
+            {/* Diamond left of "TURN"
             <motion.img
               src="/diamond.svg"
               alt="Diamond Left of Turn"
@@ -2147,7 +2184,7 @@ export default function Graphic() {  // Add missing state variables and refs
               whileInView={{ opacity: 0.3, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: false }}
-            />
+            /> */}
 
             {/* Diamond blurred near logo */}
             <motion.img

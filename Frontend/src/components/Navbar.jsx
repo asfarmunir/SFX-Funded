@@ -222,13 +222,13 @@ export default function Navbar({ shouldStick = true, isScrolled = false }) {
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 z-40 bg-black bg-opacity-50">
           <div className="fixed inset-y-0 right-0 w-64 bg-white p-6 shadow-lg transform translate-x-0 transition-transform duration-300 ease-in-out">
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center justify-between mb-8 mt-4">
               {/* Added logo to mobile menu */}
               <div onClick={() => navigateTo('/')} className="cursor-pointer">
                 <img 
                   src="/navbar.svg" 
                   alt="SFX Funded Logo" 
-                  className="w-24 h-6 object-contain" 
+                  className="w-24 h-15 object-contain" 
                   style={{marginTop: '20px'}}
                 />
               </div>

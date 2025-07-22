@@ -13,6 +13,7 @@ import Hero from './pages/Hero';
 import Graphic12 from './pages/Graphic12';
 import InstantFunding from './pages/InstantFunding';
 import RapidChallenge from './pages/RapidChallenge';
+import NotificationPopup from './components/NotificationPopup';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -181,6 +182,8 @@ function App() {
       </div>
       
       <Footer />
+            <NotificationPopup />
+
     </Router>
   );
 }

@@ -535,11 +535,84 @@ export default function Hero() {
     "/c5.png",
     // If you want more badges later, just add paths here
   ];
+  // const traders = [
+  //   { src: "/p1.svg", alt: "Karim" },
+  //   { src: "/p2.svg", alt: "Chad" },
+  //   { src: "/p3.svg", alt: "Alex" },
+  //   { src: "/p4.svg", alt: "Preet" },
+  // ];
+
   const traders = [
-    { src: "/p1.svg", alt: "Karim" },
-    { src: "/p2.svg", alt: "Chad" },
-    { src: "/p3.svg", alt: "Alex" },
-    { src: "/p4.svg", alt: "Preet" },
+    {
+      name: "Karim",
+      src: "/traders/t1.svg",
+      alt: "Karim",
+      payout: "$11,131.92",
+      location: "germany",
+    },
+    {
+      name: "Karim",
+      src: "/traders/t2.svg",
+      alt: "Karim",
+      payout: "$11,131.92",
+      location: "germany",
+    },
+    {
+      name: "Karim",
+      src: "/traders/t3.svg",
+      alt: "Karim",
+      payout: "$11,131.92",
+      location: "germany",
+    },
+    {
+      name: "Karim",
+      src: "/traders/t4.svg",
+      alt: "Karim",
+      payout: "$11,131.92",
+      location: "germany",
+    },
+    {
+      name: "Karim",
+      src: "/traders/t5.svg",
+      alt: "Karim",
+      payout: "$11,131.92",
+      location: "germany",
+    },
+    {
+      name: "Karim",
+      src: "/traders/t6.svg",
+      alt: "Karim",
+      payout: "$11,131.92",
+      location: "germany",
+    },
+    {
+      name: "Karim",
+      src: "/traders/t7.svg",
+      alt: "Karim",
+      payout: "$11,131.92",
+      location: "germany",
+    },
+    {
+      name: "Karim",
+      src: "/traders/t8.svg",
+      alt: "Karim",
+      payout: "$11,131.92",
+      location: "germany",
+    },
+    {
+      name: "Karim",
+      src: "/traders/t9.svg",
+      alt: "Karim",
+      payout: "$11,131.92",
+      location: "germany",
+    },
+    {
+      name: "Karim",
+      src: "/traders/t10.svg",
+      alt: "Karim",
+      payout: "$11,131.92",
+      location: "germany",
+    },
   ];
 
   const testimonials = [
@@ -1969,8 +2042,26 @@ export default function Hero() {
                       <img
                         src={trader.src}
                         alt={trader.alt}
-                        className="w-full object-cover object-center"
+                        className="w-full  object-cover object-center"
                       />
+                      <div
+                        className="absolute inset-0 shadow-inner"
+                        style={{
+                          boxShadow:
+                            "inset 0 -140px 60px -30px rgba(0, 0, 0, 0.7)",
+                        }}
+                      ></div>
+                      <div className="absolute bottom-4 left-4 ">
+                        <p className="font-bold text-white text-xl">
+                          {trader.name}
+                        </p>
+                        <p className="font-bold text-white ">
+                          Payout: {trader.payout}
+                        </p>
+                        <p className="font-bold text-white ">
+                          {trader.location}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </SwiperSlide>

@@ -445,11 +445,11 @@ export default function RapidChallenge() {
               style={{
                 fontFamily: "Oswald, sans-serif",
                 fontWeight: 600,
-                fontSize: "clamp(1.75rem, 5vw, 5rem)",
+                fontSize: "clamp(1.65rem, 5vw, 5rem)",
                 letterSpacing: window.innerWidth < 640 ? "-2px" : "-7.64px",
               }}
             >
-              <span className="text-[#DE00DE]">PASS FAST. </span>{" "}
+              <span className="text-[#DE00DE]">PASS FAST, </span>{" "}
               <span className="text-[#DE00DE]">GET FUNDED </span>
             </h2>
           </motion.div>
@@ -533,7 +533,7 @@ export default function RapidChallenge() {
               style={{ height: "fit-content" }}
             >
               <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold leading-tight">
-                ONE STEP - 5% TARGET.
+                ONE STEP - 5% TARGET
                 <br />
                 <span className="text-[#DE00DE] font-semibold">
                   EARN ON DEMAND.
@@ -1083,7 +1083,7 @@ export default function RapidChallenge() {
       <div className="font-sans max-w-6xl mx-auto px-4 py-12 mb-4 mt-4">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-[30px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2 leading-snug md:leading-[1.5]">
+          <h2 className="text-[27px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis sm:px-2 leading-snug md:leading-[1.5]">
             SFX Rapid Challenge
           </h2>
 
@@ -1523,7 +1523,7 @@ export default function RapidChallenge() {
       <div className="w-full font-inter bg-gray-50">
         {/* Real Traders, Real Success Section */}
         <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16 mb-4 mt-4">
-          <h2 className="text-center text-[26px] md:text-4xl lg:text-5xl font-bold mb-2">
+          <h2 className="text-center text-[28px] md:text-4xl lg:text-5xl font-bold mb-2">
             <span className="text-black">Real Traders, </span>
             <span className="text-[#F800EA]">Real Success</span>
           </h2>
@@ -1672,7 +1672,7 @@ export default function RapidChallenge() {
               }}
             >
               <motion.h2
-                className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-1 md:mb-10 lg:mb-12"
+                className="text-center text-[28px] md:text-4xl lg:text-5xl font-bold mb-1 md:mb-10 lg:mb-12"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2, delay: 0.7 }}
@@ -1689,7 +1689,7 @@ export default function RapidChallenge() {
               {/* Start Trading Button */}
 
               <div className="flex justify-center items-center md:mt-12">
-                <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+                <button className="bg-[#F800EA] text-black px-7 sm:px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
                   Start Trading
                   <svg
                     className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
@@ -2035,7 +2035,7 @@ export default function RapidChallenge() {
             </motion.h1>
 
             <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl text-center mb-12"
+              className="text-xl sm:text-3xl md:text-4xl text-center mb-12"
               initial={{ opacity: 0, y: 50 }}
               style={{
                 fontFamily: "'Inter', sans-serif",

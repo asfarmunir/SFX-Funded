@@ -1812,7 +1812,7 @@ export default function Graphic() {
         <div className="w-full font-inter bg-gray-50 mb-4 mt-4">
           {/* Real Traders, Real Success Section */}
           <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
-            <h2 className="text-center text-[26px] md:text-4xl lg:text-5xl font-bold mb-2">
+            <h2 className="text-center text-[28px] md:text-4xl lg:text-5xl font-bold mb-2">
               <span className="text-black">Real Traders, </span>
               <span className="text-[#F800EA]">Real Success</span>
             </h2>
@@ -1961,7 +1961,7 @@ export default function Graphic() {
                 }}
               >
                 <motion.h2
-                  className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-1 md:mb-10 lg:mb-12"
+                  className="text-center text-[28px] md:text-4xl lg:text-5xl font-bold mb-1 md:mb-10 lg:mb-12"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2, delay: 0.7 }}

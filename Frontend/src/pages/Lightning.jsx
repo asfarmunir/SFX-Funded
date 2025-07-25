@@ -698,11 +698,11 @@ export default function LightningChallenge() {
         </div>
       </div>
 
-      <div className="font-sans max-w-6xl mx-auto px-4 py-12">
+      <div className="font-sans max-w-6xl mx-auto sm:px-4 py-12">
         {/* Header */}
 
         <div className="text-center mb-6">
-          <h2 className="text-[20px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2 leading-snug md:leading-[1.5]">
+          <h2 className="text-[28px] sm:text-2xl md:text-5xl font-bold text-gray-900 overflow-hidden sm:px-2 leading-snug md:leading-[1.5]">
             Top Funded Trader Programs
           </h2>
           <div className="mt-4 inline-block bg-fuchsia-50 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border border-fuchsia-200">

@@ -402,7 +402,7 @@ export default function InstantFunding() {
               style={{
                 fontFamily: "Oswald, sans-serif",
                 fontWeight: 600,
-                fontSize: "clamp(1.5rem, 5vw, 5rem)", // Matched with subheading
+                fontSize: "clamp(1.55rem, 5vw, 5rem)", // Matched with subheading
                 letterSpacing: window.innerWidth < 640 ? "-1px" : "-5.64px", // Matched with subheading
               }}
             >
@@ -420,7 +420,7 @@ export default function InstantFunding() {
               style={{
                 fontFamily: "Oswald, sans-serif",
                 fontWeight: 600,
-                fontSize: "clamp(1.5rem, 5vw, 60px)",
+                fontSize: "clamp(1.6rem, 5vw, 60px)",
                 letterSpacing: window.innerWidth < 640 ? "-1px" : "-5.64px",
               }}
             >
@@ -1158,7 +1158,7 @@ export default function InstantFunding() {
       <div className="font-sans max-w-6xl mx-auto px-4 py-12 mt-8 mb-8">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-[32px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2 leading-snug md:leading-[1.5]">
+          <h2 className="text-[28px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis md:px-2 leading-snug md:leading-[1.5]">
             SFX Instant Funding
           </h2>
           <div className="mt-4 inline-block bg-fuchsia-50 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border border-fuchsia-200">
@@ -1605,7 +1605,7 @@ export default function InstantFunding() {
       <div className="w-full font-inter bg-gray-50 mt-8 mb-8">
         {/* Real Traders, Real Success Section */}
         <div className="w-full max-w-6xl mx-auto px-4 py-12 md:py-16">
-          <h2 className="text-center text-[26px] md:text-4xl lg:text-5xl font-bold mb-2">
+          <h2 className="text-center text-[28px] md:text-4xl lg:text-5xl font-bold mb-2">
             <span className="text-black">Real Traders, </span>
             <span className="text-[#F800EA]">Real Success</span>
           </h2>
@@ -1755,7 +1755,7 @@ export default function InstantFunding() {
               }}
             >
               <motion.h2
-                className="text-center text-2xl md:text-4xl lg:text-5xl font-bold mb-1 md:mb-10 lg:mb-12"
+                className="text-center text-[28px] md:text-4xl lg:text-5xl font-bold mb-1 md:mb-10 lg:mb-12"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2, delay: 0.7 }}

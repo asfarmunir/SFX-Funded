@@ -129,11 +129,11 @@ export const PaymentSlider = () => {
                     {payment.name}
                   </p>
                 </div>
-                <div className=" h-full flex items-center rounded-[20px] overflow-hidden">
+                <div className=" h-full w-fit flex items-center rounded-[20px] overflow-hidden">
                   <img
                     src={payment.certificate}
                     alt="Payment Certificate"
-                    className="w-full h-full object-cover rounded-md"
+                    className="w-fit h-full object-cover rounded-md"
                   />
                 </div>
               </motion.div>

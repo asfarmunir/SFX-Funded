@@ -9,6 +9,8 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import LightningStackCards from "../components/Step6";
 import { accountSizes, fundedData, pricingData } from "./Hero";
+import SuccessfulTraders from "../components/SuccessfulTraders";
+import Certificates from "../components/Certificates";
 
 export default function InstantFunding() {
   // Define account sizes for each program (renamed to avoid conflict)
@@ -1612,7 +1614,7 @@ export default function InstantFunding() {
           </p>
 
           {/* Trader Cards - Responsive Grid */}
-          <div className="mb-8">
+          {/* <div className="mb-8">
             <Swiper
               modules={[Autoplay]}
               autoplay={{ delay: 2000, disableOnInteraction: false }}
@@ -1639,14 +1641,14 @@ export default function InstantFunding() {
                 </SwiperSlide>
               ))}
             </Swiper>
-          </div>
-
+          </div> */}
+          <SuccessfulTraders />
           {/* Start Trading Button */}
-          <div className="flex justify-center mb-16">
-            <button className="bg-[#F800EA] text-black px-8 py-3 rounded-full font-medium flex items-center">
+          <div className="flex justify-center items-center mb-12">
+            <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
               Start Trading
               <svg
-                className="ml-2 w-5 h-5"
+                className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1765,47 +1767,11 @@ export default function InstantFunding() {
 
               {/* Swiper for Badges */}
               {/* Fixed Badge Swiper */}
-              <div className="w-full px-4 max-w-6xl mx-auto">
-                {mounted && (
-                  <Swiper
-                    modules={[Autoplay]}
-                    autoplay={{
-                      delay: 2000,
-                      disableOnInteraction: false,
-                    }}
-                    loop={true}
-                    slidesPerView={1}
-                    spaceBetween={16}
-                    breakpoints={{
-                      640: { slidesPerView: 1 },
-                      768: { slidesPerView: 2 },
-                      1024: { slidesPerView: 3 },
-                    }}
-                    // slidesPerGroup={1} // Important: slides move one by one
-                  >
-                    {/* Duplicate badges for smoother looping */}
-                    {[...badges, ...badges].map((src, index) => (
-                      <SwiperSlide key={index}>
-                        <div className="flex justify-center items-center p-4 h-full">
-                          <img
-                            src={src}
-                            alt={`Badge ${(index % badges.length) + 1}`}
-                            className="h-60 md:h-60 w-full object-contain"
-                            style={{
-                              maxWidth: "100%",
-                              aspectRatio: "1/1",
-                            }}
-                          />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                )}
-              </div>
+              <Certificates />
 
               {/* Start Trading Button */}
 
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center md:mt-12">
                 <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
                   Start Trading
                   <svg

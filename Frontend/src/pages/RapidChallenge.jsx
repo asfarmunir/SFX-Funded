@@ -1,16 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import {
-  Rocket,
-  Banknote,
-  Clock,
-  Users,
-  CheckCircle,
-  Shield,
-  ArrowRight,
-  Star,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Newsletter from "../components/Newsletter";
-import Navbar from "../components/Navbar";
 import FAQ from "../components/FAQ";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,6 +9,8 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import LightningStackCards from "../components/Step4";
 import { accountSizes, fundedData, pricingData, tableData } from "./Hero";
+import SuccessfulTraders from "../components/SuccessfulTraders";
+import Certificates from "../components/Certificates";
 
 export default function RapidChallenge() {
   const countryData = [
@@ -1540,7 +1532,7 @@ export default function RapidChallenge() {
           </p>
 
           {/* Trader Cards - Responsive Grid */}
-          <div className="mb-8">
+          {/* <div className="mb-8">
             <Swiper
               modules={[Autoplay]}
               autoplay={{ delay: 2000, disableOnInteraction: false }}
@@ -1567,8 +1559,8 @@ export default function RapidChallenge() {
                 </SwiperSlide>
               ))}
             </Swiper>
-          </div>
-
+          </div> */}
+          <SuccessfulTraders />
           <div className="flex justify-center items-center mb-3">
             <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
               Start Trading
@@ -1692,47 +1684,11 @@ export default function RapidChallenge() {
 
               {/* Swiper for Badges */}
               {/* Fixed Badge Swiper */}
-              <div className="w-full px-4 max-w-6xl mx-auto">
-                {mounted && (
-                  <Swiper
-                    modules={[Autoplay]}
-                    autoplay={{
-                      delay: 2000,
-                      disableOnInteraction: false,
-                    }}
-                    loop={true}
-                    slidesPerView={1}
-                    spaceBetween={16}
-                    breakpoints={{
-                      640: { slidesPerView: 1 },
-                      768: { slidesPerView: 2 },
-                      1024: { slidesPerView: 3 },
-                    }}
-                    // slidesPerGroup={1} // Important: slides move one by one
-                  >
-                    {/* Duplicate badges for smoother looping */}
-                    {[...badges, ...badges].map((src, index) => (
-                      <SwiperSlide key={index}>
-                        <div className="flex justify-center items-center p-4 h-full">
-                          <img
-                            src={src}
-                            alt={`Badge ${(index % badges.length) + 1}`}
-                            className="h-60 md:h-60 w-full object-contain"
-                            style={{
-                              maxWidth: "100%",
-                              aspectRatio: "1/1",
-                            }}
-                          />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                )}
-              </div>
+              <Certificates />
 
               {/* Start Trading Button */}
 
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center md:mt-12">
                 <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
                   Start Trading
                   <svg

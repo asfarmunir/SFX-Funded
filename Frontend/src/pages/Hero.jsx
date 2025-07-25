@@ -16,6 +16,8 @@ import Step1 from "../components/Step1";
 import Step2 from "../components/Step2";
 import LightningStackCards from "../components/Step5";
 import { PaymentSlider } from "../components/CertificatesSlider";
+import SuccessfulTraders from "../components/SuccessfulTraders";
+import Certificates from "../components/Certificates";
 
 export const tableData = {
   rapid: {
@@ -319,7 +321,7 @@ export const fundedData = {
   instant: {
     tradingPeriod: "Unlimited",
     maxDailyLoss: "3%",
-    maxLoss: "7%",
+    maxLoss: "6%",
     profitTarget: "-",
     leverage: "1:30",
     rewardSchedule: "Bi-weekly",
@@ -332,7 +334,7 @@ export const pricingData = {
     15000: { original: 89, discounted: 45 },
     30000: { original: 139, discounted: 70 },
     60000: { original: 210, discounted: 105 },
-    120000: { original: 338, discounted: 203 },
+    120000: { original: 338, discounted: 169 },
   },
   ignite: {
     5000: { original: 29, discounted: 20 },
@@ -346,15 +348,15 @@ export const pricingData = {
     15000: { original: 129, discounted: 65 },
     30000: { original: 199, discounted: 100 },
     60000: { original: 299, discounted: 150 },
-    120000: { original: 499, discounted: 299 },
+    120000: { original: 499, discounted: 249 },
   },
   instant: {
-    2500: { original: 49, discounted: 32 },
-    5000: { original: 109, discounted: 71 },
-    10000: { original: 149, discounted: 97 },
-    20000: { original: 239, discounted: 156 },
-    40000: { original: 359, discounted: 234 },
-    80000: { original: 599, discounted: 390 },
+    2500: { original: 49, discounted: 25 },
+    5000: { original: 109, discounted: 55 },
+    10000: { original: 149, discounted: 75 },
+    20000: { original: 239, discounted: 119 },
+    40000: { original: 359, discounted: 179 },
+    80000: { original: 599, discounted: 299 },
   },
 };
 // Define account sizes for each program
@@ -524,17 +526,6 @@ export default function Hero() {
     { label: "Profit Split", key: "profitSplit" },
   ];
 
-  const badges = [
-    // "/badge1.png",
-    // "/badge2.png",
-    // "/badge3.png",
-    "/c1.png",
-    "/c2.png",
-    "/c3.png",
-    "/c4.png",
-    "/c5.png",
-    // If you want more badges later, just add paths here
-  ];
   // const traders = [
   //   { src: "/p1.svg", alt: "Karim" },
   //   { src: "/p2.svg", alt: "Chad" },
@@ -2022,53 +2013,7 @@ export default function Hero() {
           </p>
 
           {/* Trader Cards - Responsive Grid */}
-          <div className="mb-8">
-            <Swiper
-              modules={[Autoplay]}
-              autoplay={{ delay: 2000, disableOnInteraction: false }}
-              loop={true}
-              slidesPerView={1}
-              spaceBetween={16}
-              breakpoints={{
-                640: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
-              }}
-            >
-              {traders.map((trader, index) => (
-                <SwiperSlide key={index}>
-                  <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-                    <div className="relative ">
-                      <img
-                        src={trader.src}
-                        alt={trader.alt}
-                        className="w-full  object-cover object-center"
-                      />
-                      <div
-                        className="absolute inset-0 shadow-inner"
-                        style={{
-                          boxShadow:
-                            "inset 0 -140px 60px -30px rgba(0, 0, 0, 0.7)",
-                        }}
-                      ></div>
-                      <div className="absolute bottom-4 left-4 ">
-                        <p className="font-bold text-white text-xl">
-                          {trader.name}
-                        </p>
-                        <p className="font-bold text-white ">
-                          Payout: {trader.payout}
-                        </p>
-                        <p className="font-bold text-white ">
-                          {trader.location}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-
+          <SuccessfulTraders />
           {/* Start Trading Button */}
           <div className="flex justify-center mb-16">
             <button
@@ -2198,7 +2143,7 @@ export default function Hero() {
 
               {/* Swiper for Badges */}
               {/* Fixed Badge Swiper */}
-              <div className="w-full px-4 max-w-6xl mx-auto">
+              {/* <div className="w-full px-4 max-w-6xl mx-auto">
                 {mounted && (
                   <Swiper
                     modules={[Autoplay]}
@@ -2216,7 +2161,6 @@ export default function Hero() {
                     }}
                     // slidesPerGroup={1} // Important: slides move one by one
                   >
-                    {/* Duplicate badges for smoother looping */}
                     {[...badges, ...badges].map((src, index) => (
                       <SwiperSlide key={index}>
                         <div className="flex justify-center items-center p-4 h-72">
@@ -2235,7 +2179,8 @@ export default function Hero() {
                     ))}
                   </Swiper>
                 )}
-              </div>
+              </div> */}
+              <Certificates />
 
               {/* Start Trading Button */}
 

@@ -1,18 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Rocket,
-  Banknote,
-  Clock,
-  Users,
-  CheckCircle,
-  Shield,
-  ArrowRight,
-  Star,
-} from "lucide-react";
-import Newsletter from "../components/Newsletter";
-import Navbar from "../components/Navbar";
-import FAQ from "../components/FAQ";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -101,7 +88,7 @@ export default function Contact() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="max-w-7xl mx-auto px-4 py-12 sm:py-16 md:py-24 flex flex-col md:flex-row gap-8 sm:gap-12"
+        className="max-w-7xl mx-auto px-4  py-12 sm:py-16 md:py-24 flex flex-col md:flex-row gap-8 sm:gap-12"
       >
         {/* Left Column */}
         <motion.div
@@ -109,7 +96,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.05, duration: 0.4 }}
           className="md:w-1/2 flex flex-col justify-between"
-          style={{ minHeight: "auto", marginBottom: "40px" }}
+          style={{ minHeight: "auto", marginBottom: "0px" }}
         >
           <div>
             <h2
@@ -117,7 +104,7 @@ export default function Contact() {
               style={{
                 fontFamily: "Inter, sans-serif",
                 fontWeight: 800,
-                fontSize: "clamp(24px, 5vw, 47px)",
+                fontSize: "clamp(32px, 5vw, 52px)",
                 lineHeight: "110%",
                 letterSpacing: "0%",
                 verticalAlign: "middle",
@@ -133,7 +120,7 @@ export default function Contact() {
                 fontSize: "16px",
                 lineHeight: "1.8",
                 "@media (min-width: 640px)": {
-                  fontSize: "18px",
+                  fontSize: "20px",
                   lineHeight: "2.8",
                 },
               }}
@@ -295,9 +282,7 @@ export default function Contact() {
                     className="h-7 xl:h-9 w-7 xl:w-9 text-purple-600 "
                   />
                 </div>
-                <p className="text-xl my-4 font-bold">
-                  Our Customer Support Hotline
-                </p>
+                <p className="text-xl my-4 font-bold">Operational Hours</p>
                 <span
                   className="text-gray-700"
                   style={{
@@ -308,7 +293,7 @@ export default function Contact() {
                     },
                   }}
                 >
-                  020 3666 0459
+                  Monday - Friday: 8 AM - 8 PM
                 </span>
               </div>
               <div className=" w-full bg-pink-50 rounded-2xl p-6">
@@ -319,7 +304,7 @@ export default function Contact() {
                     className="h-7 xl:h-9 w-7 xl:w-9 text-purple-600 "
                   />
                 </div>
-                <p className="text-xl my-4 font-bold">Our Office Location</p>
+                <p className="text-xl my-4 font-bold">Physical Address</p>
                 <span
                   className="text-gray-700"
                   style={{
@@ -342,9 +327,16 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="md:w-1/2 flex flex-col"
+          className="md:w-1/2 flex flex-col bg-red-50"
         >
-          <div
+          <div className=" w-full h-full bg-cyan-200 rounded-[8px] shadow-md overflow-hidden">
+            <img
+              src="/map.jpeg"
+              alt="Contact Us"
+              className="object-cover w-full h-full"
+            />
+          </div>
+          {/* <div
             className="bg-white rounded-lg shadow-sm p-6 xl:p-8 flex flex-col h-[95%]"
             style={{
               width: "100%",
@@ -491,7 +483,7 @@ export default function Contact() {
                 </button>
               </div>
             </form>
-          </div>
+          </div> */}
         </motion.div>
       </motion.div>
     </div>

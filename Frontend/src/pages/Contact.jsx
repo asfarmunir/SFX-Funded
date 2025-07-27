@@ -29,7 +29,7 @@ export default function Contact() {
       style={{ fontFamily: "Inter, sans-serif" }}
     >
       {/* Hero Section */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
@@ -81,14 +81,14 @@ export default function Contact() {
             the assistance you need!
           </motion.p>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Contact Section */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="max-w-7xl mx-auto px-4  py-12 sm:py-16 md:py-24 flex flex-col md:flex-row gap-8 sm:gap-12"
+        className="max-w-7xl mx-auto px-4 mt-24  py-12 sm:py-16 md:py-24 flex flex-col md:flex-row gap-8 sm:gap-12"
       >
         {/* Left Column */}
         <motion.div

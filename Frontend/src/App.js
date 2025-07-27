@@ -182,7 +182,7 @@ function App() {
       </div>
       
       <Footer />
-            <NotificationPopup />
+            {/* <NotificationPopup /> */}
 
     </Router>
   );

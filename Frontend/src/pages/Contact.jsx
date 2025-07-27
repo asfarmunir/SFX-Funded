@@ -329,7 +329,7 @@ export default function Contact() {
           transition={{ delay: 0.1, duration: 0.4 }}
           className="md:w-1/2 flex flex-col bg-red-50"
         >
-          <div className=" w-full h-full bg-cyan-200 rounded-[8px] shadow-md overflow-hidden">
+          <div className=" w-full h-[450px] sm:h-full bg-cyan-200 rounded-2xl shadow-md overflow-hidden">
             <img
               src="/map.jpeg"
               alt="Contact Us"

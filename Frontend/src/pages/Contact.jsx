@@ -271,7 +271,7 @@ export default function Contact() {
                     },
                   }}
                 >
-                  info@sfxfunded.com
+                  support@sfxfunded.com
                 </span>
               </div>
               <div className=" w-full bg-pink-50 rounded-2xl p-6">
@@ -293,7 +293,7 @@ export default function Contact() {
                     },
                   }}
                 >
-                  Monday - Friday: 8 AM - 8 PM
+                  Monday - Friday: 9-5 GMT+3
                 </span>
               </div>
               <div className=" w-full bg-pink-50 rounded-2xl p-6">
@@ -315,7 +315,8 @@ export default function Contact() {
                     },
                   }}
                 >
-                  7 Gower Street, London WC1E 6HA
+                  23691–001, A2 Building IFZA Business Park, DDP, DSO, Dubai,
+                  UAE
                 </span>
               </div>
             </div>

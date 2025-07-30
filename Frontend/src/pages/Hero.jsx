@@ -1576,42 +1576,42 @@ export default function Hero() {
               </div>
             </div>
             <div className="grid grid-cols-2 border-b border-gray-200 ">
-              <div className="py-3 pl-4 font-medium">Trading Period</div>
-              <div className="text-center py-3">
+              <div className="py-3 pl-4 font-semibold">Trading Period</div>
+              <div className="text-center font-semibold py-3">
                 {fundedData.instant.tradingPeriod}
               </div>
             </div>
             <div className="grid grid-cols-2 border-b border-gray-200  bg-fuchsia-50">
-              <div className="py-3 pl-4 font-medium">Maximum Daily Loss</div>
-              <div className="text-center py-3">
+              <div className="py-3 pl-4 font-semibold">Maximum Daily Loss</div>
+              <div className="text-center font-semibold py-3">
                 {fundedData.instant.maxDailyLoss}
               </div>
             </div>
             <div className="grid grid-cols-2 border-b border-gray-200">
-              <div className="py-3 pl-4 font-medium">Profit Target</div>
-              <div className="text-center py-3">-</div>
+              <div className="py-3 pl-4 font-semibold">Profit Target</div>
+              <div className="text-center font-semibold py-3">-</div>
             </div>
             <div className="grid grid-cols-2 border-b border-gray-200  bg-fuchsia-50">
-              <div className="py-3 pl-4 font-medium">Maximum Loss</div>
-              <div className="text-center py-3">
+              <div className="py-3 pl-4 font-semibold">Maximum Loss</div>
+              <div className="text-center font-semibold py-3">
                 {fundedData.instant.maxLoss}
               </div>
             </div>
             <div className="grid grid-cols-2 border-b border-gray-200 ">
-              <div className="py-3 pl-4 font-medium">Leverage</div>
-              <div className="text-center py-3">
+              <div className="py-3 pl-4 font-semibold">Leverage</div>
+              <div className="text-center font-semibold py-3">
                 {fundedData.instant.leverage}
               </div>
             </div>
             <div className="grid grid-cols-2 border-b border-gray-200  bg-fuchsia-50">
-              <div className="py-3 pl-4 font-medium">Reward Schedule</div>
-              <div className="text-center py-3">
+              <div className="py-3 pl-4 font-semibold">Reward Schedule</div>
+              <div className="text-center font-semibold py-3">
                 {fundedData.instant.rewardSchedule}
               </div>
             </div>
             <div className="grid grid-cols-2 ">
-              <div className="py-3 pl-4 font-medium">Profit Split</div>
-              <div className="text-center py-3">
+              <div className="py-3 pl-4 font-semibold">Profit Split</div>
+              <div className="text-center font-semibold py-3">
                 {fundedData.instant.profitSplit}
               </div>
             </div>

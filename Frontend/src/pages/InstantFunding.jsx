@@ -515,7 +515,7 @@ export default function InstantFunding() {
                 </span>
               </h2>
               <p className="mt-3 text-lg sm:text-xl md:text-2xl text-gray-600">
-                If you got the skill, we'll handle you the capital
+                If you've got the skill, we'll handle you the capital
               </p>
               {/* CTA Button */}
               <motion.div

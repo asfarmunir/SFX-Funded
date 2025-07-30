@@ -405,14 +405,14 @@ export default function Graphic() {
             <motion.h1
               className="hidden md:block text-white uppercase font-bold
     text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl
-    leading-none tracking-tight"
+    leading-none tracking-normal"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               style={{
                 fontFamily: "Oswald, sans-serif",
                 fontWeight: 600,
                 fontSize: "clamp(1.7rem, 7vw, 5rem)",
-                letterSpacing: "-1px",
+                letterSpacing: "0px",
               }}
               transition={{ duration: 0.4, delay: 0.2 }}
             >

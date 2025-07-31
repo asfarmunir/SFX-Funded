@@ -626,7 +626,7 @@ export default function Hero() {
       name: "Emily T.",
       flag: "GB",
       rating: 5,
-      text: "I purchased the Two Step Challenge 10k from AquaFunded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with AquaFunded.",
+      text: "I purchased the Two Step Challenge 10k from SFX Funded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with SFX Funded.",
     },
     {
       id: 4,
@@ -1355,7 +1355,11 @@ export default function Hero() {
       </div>
 
       {/* PROGRAMS SECTION */}
-      <div className="font-sans sm:px-4 max-w-6xl mx-auto  py-12 mt-8 mb-8">
+      <div
+        id="programs"
+        ref={targetRef}
+        className="font-sans sm:px-4 max-w-6xl mx-auto  py-12 mt-8 mb-8"
+      >
         {/* Header */}
 
         <div className="text-center mb-6">
@@ -2185,13 +2189,14 @@ export default function Hero() {
               {/* Start Trading Button */}
 
               <div className="flex justify-center md:mt-12 items-center">
+                {/* <a href="#programs"> */}
                 <button
                   onClick={() =>
                     targetRef.current?.scrollIntoView({ behavior: "smooth" })
                   }
                   className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
                 >
-                  Start Trading
+                  Start Tradi
                   <svg
                     className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
                     viewBox="0 0 24 24"
@@ -2204,6 +2209,7 @@ export default function Hero() {
                     />
                   </svg>
                 </button>
+                {/* </a> */}
               </div>
             </div>
           </div>
@@ -2519,7 +2525,7 @@ export default function Hero() {
                 fill="currentColor"
               />
             </svg>
-          </button>
+          </button>{" "}
         </motion.div>
       </div>
 

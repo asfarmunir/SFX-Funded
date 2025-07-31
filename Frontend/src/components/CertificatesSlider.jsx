@@ -95,7 +95,7 @@ export const PaymentSlider = () => {
       <div className="absolute left-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-r from-white via-white/80 to-transparent" />
       <div className="absolute right-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-l from-white via-white/80 to-transparent" />
 
-      <div className="overflow-hidden rounded-lg bg-gray-50 h-[270px]">
+      <div className="overflow-hidden rounded-lg bg-gray-50 h-[190px]">
         {isMounted && (
           <motion.div
             key={animationKey} // Reset animation on key change
@@ -120,7 +120,7 @@ export const PaymentSlider = () => {
             {duplicatedPayments.map((payment, index) => (
               <motion.div
                 key={index}
-                className="flex items-center gap-4 flex-shrink-0 h-[71%] pl-4 py-1.5 pr-1.5 mx-3 bg-[#eaeaf1] rounded-[20px]"
+                className="flex items-center gap-4 flex-shrink-0 h-[100%] pl-4 py-1.5 pr-1.5 mx-3 bg-[#eaeaf1] rounded-[20px]"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
@@ -140,11 +140,11 @@ export const PaymentSlider = () => {
                   </p>
 
                   {payment.flag && (
-                    <div className="">
+                    <div className=" w-10 h-6 mt-2 flex items-center justify-center overflow-hidden ">
                       <img
                         src={payment.flag}
                         alt={`${payment.name} flag`}
-                        className="w-10  mt-2"
+                        className="w-full h-full object-cover rounded-sm"
                       />
                     </div>
                   )}

@@ -217,7 +217,7 @@ export default function Graphic() {
       name: "Emily T.",
       flag: "GB",
       rating: 5,
-      text: "I purchased the Two Step Challenge 10k from AquaFunded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with AquaFunded.",
+      text: "I purchased the Two Step Challenge 10k from SFX Funded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with SFX Funded.",
     },
     {
       id: 4,
@@ -718,7 +718,12 @@ export default function Graphic() {
                   },
                 }}
               >
-                <button className="mt-8 text-white px-6 py-3 sm:px-10 sm:py-5 text-lg sm:text-xl font-bold rounded-full bg-gradient-to-r from-[#DE00DE] to-[#FF00E6] hover:from-[#C000B0] hover:to-[#E600CC] transition-all duration-300 flex items-center shadow-2xl hover:shadow-[#DE00DE]/50 hover:scale-105 transform border-2 border-white/20 backdrop-blur-sm">
+                <button
+                  onClick={() =>
+                    targetRef.current?.scrollIntoView({ behavior: "smooth" })
+                  }
+                  className="mt-8 text-white px-6 py-3 sm:px-10 sm:py-5 text-lg sm:text-xl font-bold rounded-full bg-gradient-to-r from-[#DE00DE] to-[#FF00E6] hover:from-[#C000B0] hover:to-[#E600CC] transition-all duration-300 flex items-center shadow-2xl hover:shadow-[#DE00DE]/50 hover:scale-105 transform border-2 border-white/20 backdrop-blur-sm"
+                >
                   Start Trading
                   <svg
                     className="ml-2 sm:ml-3"
@@ -1015,13 +1020,16 @@ export default function Graphic() {
                 Daily Drawdown <span className="font-normal">3%</span>
               </p>
               <p className="font-semibold">20% Profit From Challenge</p>
-              <p className="font-semibold">On Demand Payouts</p>
+              <p className="font-semibold">Payouts On Demand</p>
             </div>
           </motion.div>
         </div>
       </div>
 
-      <div className="font-sans max-w-6xl mx-auto px-4 py-12 mb-2 mt-8">
+      <div
+        ref={targetRef}
+        className="font-sans max-w-6xl mx-auto px-4 py-12 mb-2 mt-8"
+      >
         <div className="text-center mb-6">
           <h2 className="text-[23px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2 leading-snug md:leading-[1.5]">
             2-Step Challenge Programs
@@ -1223,7 +1231,7 @@ export default function Graphic() {
         </div>
       </div>
 
-      <div className="bg-gray-50 pt-12 font-sans w-full max-w-7xl mx-auto ">
+      <div className="bg-gray-50 pt-12 font-sans w-full  mx-auto ">
         <div
           style={{ fontFamily: "'Inter', sans-serif" }}
           className="max-w-6xl mb-4 mt-2 mx-auto px-4 py-12 sm:py-16"
@@ -1851,7 +1859,12 @@ export default function Graphic() {
             </div> */}
             <SuccessfulTraders />
             <div className="flex justify-center items-center mb-3">
-              <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+              <button
+                onClick={() =>
+                  targetRef.current?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+              >
                 Start Trading
                 <svg
                   className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
@@ -1977,6 +1990,9 @@ export default function Graphic() {
 
                 <div className="flex justify-center items-center md:mt-12">
                   <button
+                    onClick={() =>
+                      targetRef.current?.scrollIntoView({ behavior: "smooth" })
+                    }
                     className="bg-[#F800EA] text-black 
                     px-6 py-3 lg:px-14 lg:py-5 
                     rounded-full font-bold 
@@ -2184,7 +2200,12 @@ export default function Graphic() {
 
             {/* Centered Start Trading Button at Bottom */}
             <div className="flex justify-center mt-16">
-              <button className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform">
+              <button
+                onClick={() =>
+                  targetRef.current?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform"
+              >
                 Start Trading
                 <svg
                   className="ml-3 w-6 h-6"
@@ -2368,6 +2389,9 @@ export default function Graphic() {
                 viewport={{ once: false }}
               >
                 <button
+                  onClick={() =>
+                    targetRef.current?.scrollIntoView({ behavior: "smooth" })
+                  }
                   className="py-4 px-12 rounded-full bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold text-lg hover:from-fuchsia-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform border-2 border-fuchsia-400/50"
                   style={{
                     fontFamily: "'Inter', sans-serif",

@@ -18,7 +18,7 @@ export default function Navbar({ shouldStick = true, isScrolled = false }) {
       path: "#",
       subLinks: [
         { name: "Rapid Challenge", path: "/rapid" },
-        { name: "Lightning Challenge", path: "/lightning" },
+        // { name: "Lightning Challenge", path: "/lightning" },
         { name: "2 Step Challenge", path: "/graphic" },
         { name: "Instant Funding", path: "/instant-funding" },
       ],

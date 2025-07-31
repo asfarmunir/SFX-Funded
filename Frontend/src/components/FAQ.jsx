@@ -1,11 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 export default function FAQ() {
   const [activeQuestion, setActiveQuestion] = useState(null);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { amount: 0.2, once: false });
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 768);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 768
+  );
 
   // Handle window resize
   useEffect(() => {
@@ -13,33 +15,39 @@ export default function FAQ() {
       setWindowWidth(window.innerWidth);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   const faqItems = [
     {
       question: "What is a proprietary trading firm?",
-      answer: "A proprietary trading firm is a financial company that provides traders with capital to trade in various financial markets. The goal is to generate profits that are shared between the trader and the firm."
+      answer:
+        "A proprietary trading firm is a financial company that provides traders with capital to trade in various financial markets. The goal is to generate profits that are shared between the trader and the firm.",
     },
     {
       question: "What are the pros and cons of trading a funded account?",
-      answer: "Advantages include access to capital, training, and the potential for higher profits. Drawbacks include the risk of losses, performance-related pressure, and the requirement to share profits with the firm."
+      answer:
+        "Advantages include access to capital, training, and the potential for higher profits. Drawbacks include the risk of losses, performance-related pressure, and the requirement to share profits with the firm.",
     },
     {
       question: "What happens if I lose money with a prop firm?",
-      answer: "If a trader consistently incurs losses beyond the firm's risk limits, they may face consequences such as suspended trading, account termination, or being disqualified from the program."
+      answer:
+        "If a trader consistently incurs losses beyond the firm's risk limits, they may face consequences such as suspended trading, account termination, or being disqualified from the program.",
     },
     {
       question: "Do firms pay traders out?",
-      answer: "Yes, any reputable prop firm compensates their traders based on the terms agreed upon and the trader's performance."
+      answer:
+        "Yes, any reputable prop firm compensates their traders based on the terms agreed upon and the trader's performance.",
     },
     {
-      question: "Are there any additional costs for traders to join SFX Funded?",
-      answer: "There are no additional charges or hidden fees when you join us. You can customize your product with some add-ons at checkout. Those incur a one-time fee but are not mandatory for a great experience. We have no ongoing or recurring charges at all."
-    }
+      question:
+        "Are there any additional costs for traders to join SFX Funded?",
+      answer:
+        "There are no additional charges or hidden fees when you join us. You can customize your product with some add-ons at checkout. Those incur a one-time fee but are not mandatory for a great experience. We have no ongoing or recurring charges at all.",
+    },
   ];
 
   const toggleQuestion = (index) => {
@@ -50,8 +58,8 @@ export default function FAQ() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.1 }
-    }
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+    },
   };
 
   const questionVariants = {
@@ -59,8 +67,8 @@ export default function FAQ() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.4, ease: "easeOut" }
-    }
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
   };
 
   const textVariants = {
@@ -68,8 +76,8 @@ export default function FAQ() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const answerVariants = {
@@ -78,79 +86,79 @@ export default function FAQ() {
       opacity: 1,
       height: "auto",
       marginBottom: 16,
-      transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] }
-    }
+      transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] },
+    },
   };
 
   return (
     <div
       ref={sectionRef}
       className="relative w-full overflow-hidden py-16 px-4 sm:px-6 lg:px-8"
-      style={{ fontFamily: 'Inter, sans-serif' }}
+      style={{ fontFamily: "Inter, sans-serif" }}
     >
       {/* Decorative Floating Elements - Responsive positions and sizes */}
-      <motion.img 
-        src="/diamond.svg" 
-        alt="Diamond" 
+      <motion.img
+        src="/diamond.svg"
+        alt="Diamond"
         className="absolute hidden sm:block"
-        style={{ 
-          top: '10%', 
-          left: '5%', 
-          width: windowWidth > 1024 ? '6rem' : '4rem',
-          height: windowWidth > 1024 ? '6rem' : '4rem',
+        style={{
+          top: "10%",
+          left: "5%",
+          width: windowWidth > 1024 ? "6rem" : "4rem",
+          height: windowWidth > 1024 ? "6rem" : "4rem",
           zIndex: 0,
-          opacity: 0.7
+          opacity: 0.7,
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.7 }}
         transition={{ duration: 1 }}
       />
-      
-      <motion.img 
-        src="/elipse.svg" 
-        alt="Elipse" 
+
+      <motion.img
+        src="/elipse.svg"
+        alt="Elipse"
         className="absolute hidden sm:block"
-        style={{ 
-          bottom: '25%', 
-          right: '5%', 
-          width: windowWidth > 1024 ? '8rem' : '5rem',
-          height: windowWidth > 1024 ? '8rem' : '5rem',
+        style={{
+          bottom: "25%",
+          right: "5%",
+          width: windowWidth > 1024 ? "8rem" : "5rem",
+          height: windowWidth > 1024 ? "8rem" : "5rem",
           zIndex: 0,
-          opacity: 0.6
+          opacity: 0.6,
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ duration: 1, delay: 0.3 }}
       />
-      
-      <motion.img 
-        src="/elipse21.svg" 
-        alt="Elipse21" 
+
+      <motion.img
+        src="/elipse21.svg"
+        alt="Elipse21"
         className="absolute hidden sm:block"
-        style={{ 
-          top: '5%', 
-          right: '25%', 
-          width: windowWidth > 1024 ? '6rem' : '4rem',
-          height: windowWidth > 1024 ? '6rem' : '4rem',
+        style={{
+          top: "5%",
+          right: "25%",
+          width: windowWidth > 1024 ? "6rem" : "4rem",
+          height: windowWidth > 1024 ? "6rem" : "4rem",
           zIndex: 0,
-          opacity: 0.5
+          opacity: 0.5,
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.5 }}
         transition={{ duration: 1, delay: 0.2 }}
       />
-      
-      <motion.img 
-        src="/elipse.svg" 
-        alt="Elipse" 
+
+      <motion.img
+        src="/elipse.svg"
+        alt="Elipse"
         className="absolute hidden sm:block"
-        style={{ 
-          bottom: '20%', 
-          left: '1%', 
-          width: windowWidth > 1024 ? '10rem' : '6rem',
-          height: windowWidth > 1024 ? '10rem' : '6rem',
+        style={{
+          bottom: "20%",
+          left: "1%",
+          width: windowWidth > 1024 ? "10rem" : "6rem",
+          height: windowWidth > 1024 ? "10rem" : "6rem",
           zIndex: 0,
-          opacity: 0.4
+          opacity: 0.4,
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.4 }}
@@ -180,7 +188,8 @@ export default function FAQ() {
               variants={textVariants}
               transition={{ delay: 0.2 }}
             >
-              Check out our most frequently asked questions here or click the link below to see all of our frequently asked questions.
+              Check out our most frequently asked questions here or click the
+              link below to see all of our frequently asked questions.
             </motion.p>
 
             {/* Desktop Button - Hidden on mobile */}
@@ -193,18 +202,30 @@ export default function FAQ() {
             >
               <motion.button
                 className="py-3 sm:py-4 px-6 sm:px-8 text-black font-bold text-base sm:text-lg rounded-full text-center flex items-center justify-center transition-all duration-300 mx-0"
-                style={{ 
-                  backgroundColor: '#F800EA',
-                  width: windowWidth < 768 ? '100%' : windowWidth < 1024 ? '80%' : '70%',
-                  maxWidth: '320px'
+                style={{
+                  backgroundColor: "#F800EA",
+                  width:
+                    windowWidth < 768
+                      ? "100%"
+                      : windowWidth < 1024
+                      ? "80%"
+                      : "70%",
+                  maxWidth: "320px",
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="flex items-center justify-center">
                   Start Trading
-                  <svg className="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+                  <svg
+                    className="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+                      fill="currentColor"
+                    />
                   </svg>
                 </span>
               </motion.button>
@@ -218,25 +239,35 @@ export default function FAQ() {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
           >
-            <div className="space-y-2"> {/* Changed to space-y-0 to remove gaps */}
+            <div className="space-y-2">
+              {" "}
+              {/* Changed to space-y-0 to remove gaps */}
               {faqItems.map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="overflow-hidden"
                   variants={questionVariants}
                 >
                   <motion.button
-                    className={`w-full flex items-center justify-between bg-white p-4 sm:p-5 text-left focus:outline-none border-0 ${index === 0 ? 'rounded-t-md' : ''} ${index === faqItems.length - 1 && activeQuestion !== index ? 'rounded-b-md' : ''}`}
-                    style={{ 
+                    className={`w-full flex items-center justify-between bg-white p-4 sm:p-5 text-left focus:outline-none border-0 ${
+                      index === 0 ? "rounded-t-md" : ""
+                    } ${
+                      index === faqItems.length - 1 && activeQuestion !== index
+                        ? "rounded-b-md"
+                        : ""
+                    }`}
+                    style={{
                       margin: 0,
-                      padding: '16px 20px',
-                      boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)'
+                      padding: "16px 20px",
+                      boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
                     }}
                     onClick={() => toggleQuestion(index)}
                     whileHover={{ backgroundColor: "#fafafa" }}
                     whileTap={{ scale: 0.99 }}
                   >
-                    <span className="font-medium pr-4 text-sm sm:text-base">{item.question}</span>
+                    <span className="font-medium pr-4 text-sm sm:text-base">
+                      {item.question}
+                    </span>
                     <motion.svg
                       width="16"
                       height="16"
@@ -260,12 +291,14 @@ export default function FAQ() {
                     initial="hidden"
                     animate={activeQuestion === index ? "visible" : "hidden"}
                     style={{
-                      boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-                      marginBottom: activeQuestion === index ? '16px' : '0px'
+                      boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+                      marginBottom: activeQuestion === index ? "16px" : "0px",
                     }}
                   >
                     <div className="p-4 sm:p-5">
-                      <p className="text-gray-600 text-sm sm:text-base">{item.answer}</p>
+                      <p className="text-gray-600 text-sm sm:text-base">
+                        {item.answer}
+                      </p>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -284,10 +317,10 @@ export default function FAQ() {
         >
           <motion.button
             className="py-3 px-6 text-black font-bold text-base rounded-full text-center flex items-center justify-center transition-all duration-300 w-full"
-            style={{ 
-              backgroundColor: '#F800EA',
-              maxWidth: '320px',
-              margin: '0 auto'
+            style={{
+              backgroundColor: "#F800EA",
+              maxWidth: "320px",
+              margin: "0 auto",
             }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -295,7 +328,10 @@ export default function FAQ() {
             <span className="flex items-center justify-center">
               Start Trading
               <svg className="ml-2 w-4 h-4" viewBox="0 0 24 24" fill="none">
-                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor" />
+                <path
+                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
+                  fill="currentColor"
+                />
               </svg>
             </span>
           </motion.button>

@@ -18,7 +18,7 @@ const traders = [
     name: "Fahad",
     src: trader1,
     alt: "Fahad",
-    payout: "$2,471",
+    payout: "$2,471.73",
     location: "Bangladesh",
   },
   {
@@ -32,56 +32,56 @@ const traders = [
     name: "Bode",
     src: trader3,
     alt: "Bode",
-    payout: "$4,465",
+    payout: "$4,465.12",
     location: "Nigeria",
   },
   {
     name: "Charl",
     src: trader4,
     alt: "Charl",
-    payout: "$7,012",
+    payout: "$7,012.21",
     location: "south africa",
   },
   {
     name: "Karim",
     src: trader5,
     alt: "Karim",
-    payout: "$5,279",
+    payout: "$5,279.99",
     location: "germany",
   },
   {
     name: "Raphael",
     src: trader6,
     alt: "Raphael",
-    payout: "$4,749",
+    payout: "$4,749.00",
     location: "UK",
   },
   {
     name: "Alex",
     src: trader7,
     alt: "Alex",
-    payout: "$3,752",
+    payout: "$3,752.50",
     location: "Germany",
   },
   {
     name: "Looi",
     src: trader8,
     alt: "Looi",
-    payout: "$1,663",
+    payout: "$1,663.42",
     location: "Malaysia",
   },
   {
     name: "Chris",
     src: trader9,
     alt: "Chris",
-    payout: "$3,600",
+    payout: "$3,600.00",
     location: "switzerland",
   },
   {
     name: "Emeka",
     src: trader10,
     alt: "Emeka",
-    payout: "$965",
+    payout: "$965.88",
     location: "nigeria",
   },
 ];
@@ -116,11 +116,15 @@ const SuccessfulTraders = () => {
                   }}
                 ></div>
                 <div className="absolute bottom-4 left-4 ">
-                  <p className="font-bold text-white text-xl">{trader.name}</p>
-                  <p className="font-bold text-white ">
+                  <p className="font-bold capitalize text-white text-xl">
+                    {trader.name}
+                  </p>
+                  <p className="font-normal text-sm  text-white ">
                     Payout: {trader.payout}
                   </p>
-                  <p className="font-bold text-white ">{trader.location}</p>
+                  <p className="font-normal text-sm capitalize text-white ">
+                    {trader.location}
+                  </p>
                 </div>
               </div>
             </div>

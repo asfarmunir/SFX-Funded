@@ -174,7 +174,7 @@ export default function InstantFunding() {
       name: "Emily T.",
       flag: "GB",
       rating: 5,
-      text: "I purchased the Two Step Challenge 10k from AquaFunded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with AquaFunded.",
+      text: "I purchased the Two Step Challenge 10k from SFX Funded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with SFX Funded.",
     },
     {
       id: 4,
@@ -533,7 +533,12 @@ export default function InstantFunding() {
                   },
                 }}
               >
-                <button className="mt-8 text-white px-6 py-3 sm:px-10 sm:py-5 text-lg sm:text-xl font-bold rounded-full bg-gradient-to-r from-[#DE00DE] to-[#FF00E6] hover:from-[#C000B0] hover:to-[#E600CC] transition-all duration-300 flex items-center shadow-2xl hover:shadow-[#DE00DE]/50 hover:scale-105 transform border-2 border-white/20 backdrop-blur-sm">
+                <button
+                  onClick={() =>
+                    targetRef.current?.scrollIntoView({ behavior: "smooth" })
+                  }
+                  className="mt-8 text-white px-6 py-3 sm:px-10 sm:py-5 text-lg sm:text-xl font-bold rounded-full bg-gradient-to-r from-[#DE00DE] to-[#FF00E6] hover:from-[#C000B0] hover:to-[#E600CC] transition-all duration-300 flex items-center shadow-2xl hover:shadow-[#DE00DE]/50 hover:scale-105 transform border-2 border-white/20 backdrop-blur-sm"
+                >
                   Start Trading
                   <svg
                     className="ml-2 sm:ml-3"
@@ -1155,7 +1160,10 @@ export default function InstantFunding() {
         </div>
       </motion.div>
 
-      <div className="font-sans max-w-6xl mx-auto px-4 py-12 mt-8 mb-8">
+      <div
+        ref={targetRef}
+        className="font-sans max-w-6xl mx-auto px-4 py-12 mt-8 mb-8"
+      >
         {/* Header */}
         <div className="text-center mb-6">
           <h2 className="text-[28px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis md:px-2 leading-snug md:leading-[1.5]">
@@ -1645,7 +1653,12 @@ export default function InstantFunding() {
           <SuccessfulTraders />
           {/* Start Trading Button */}
           <div className="flex justify-center items-center mb-12">
-            <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+            <button
+              onClick={() =>
+                targetRef.current?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+            >
               Start Trading
               <svg
                 className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
@@ -1772,7 +1785,12 @@ export default function InstantFunding() {
               {/* Start Trading Button */}
 
               <div className="flex justify-center items-center md:mt-12">
-                <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+                <button
+                  onClick={() =>
+                    targetRef.current?.scrollIntoView({ behavior: "smooth" })
+                  }
+                  className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+                >
                   Start Trading
                   <svg
                     className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
@@ -1966,7 +1984,12 @@ export default function InstantFunding() {
 
           {/* Centered Start Trading Button at Bottom */}
           <div className="flex justify-center mt-16">
-            <button className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform">
+            <button
+              onClick={() =>
+                targetRef.current?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform"
+            >
               Start Trading
               <svg
                 className="ml-3 w-6 h-6"
@@ -2138,6 +2161,9 @@ export default function InstantFunding() {
               transition={{ delay: 0.4, duration: 0.6 }}
             >
               <button
+                onClick={() =>
+                  targetRef.current?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="py-4 px-12 rounded-full bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold text-lg hover:from-fuchsia-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform border-2 border-fuchsia-400/50"
                 style={{
                   fontFamily: "'Inter', sans-serif",

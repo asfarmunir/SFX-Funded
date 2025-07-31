@@ -200,7 +200,7 @@ export default function RapidChallenge() {
       name: "Emily T.",
       flag: "GB",
       rating: 5,
-      text: "I purchased the Two Step Challenge 10k from AquaFunded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with AquaFunded.",
+      text: "I purchased the Two Step Challenge 10k from SFX Funded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with SFX Funded.",
     },
     {
       id: 4,
@@ -1080,7 +1080,10 @@ export default function RapidChallenge() {
         </div>
       </div>
 
-      <div className="font-sans max-w-6xl mx-auto px-4 py-12 mb-4 mt-4">
+      <div
+        ref={targetRef}
+        className="font-sans max-w-6xl mx-auto px-4 py-12 mb-4 mt-4"
+      >
         {/* Header */}
         <div className="text-center mb-6">
           <h2 className="text-[27px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis sm:px-2 leading-snug md:leading-[1.5]">
@@ -1562,7 +1565,12 @@ export default function RapidChallenge() {
           </div> */}
           <SuccessfulTraders />
           <div className="flex justify-center items-center mb-3">
-            <button className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+            <button
+              onClick={() =>
+                targetRef.current?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+            >
               Start Trading
               <svg
                 className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
@@ -1689,7 +1697,12 @@ export default function RapidChallenge() {
               {/* Start Trading Button */}
 
               <div className="flex justify-center items-center md:mt-12">
-                <button className="bg-[#F800EA] text-black px-7 sm:px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300">
+                <button
+                  onClick={() =>
+                    targetRef.current?.scrollIntoView({ behavior: "smooth" })
+                  }
+                  className="bg-[#F800EA] text-black px-7 sm:px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+                >
                   Start Trading
                   <svg
                     className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
@@ -1883,7 +1896,12 @@ export default function RapidChallenge() {
 
           {/* Centered Start Trading Button at Bottom */}
           <div className="flex justify-center mt-16">
-            <button className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform">
+            <button
+              onClick={() =>
+                targetRef.current?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform"
+            >
               Start Trading
               <svg
                 className="ml-3 w-6 h-6"

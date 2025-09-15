@@ -1403,7 +1403,7 @@ export default function RapidChallenge() {
           </div>
 
           {/* Tailwind custom animation */}
-          <style jsx>{`
+          {/* <style jsx>{`
             @keyframes scroll {
               0% {
                 transform: translateX(0);
@@ -1415,7 +1415,7 @@ export default function RapidChallenge() {
             .animate-scroll {
               animation: scroll 5s linear infinite;
             }
-          `}</style>
+          `}</style> */}
         </div>
 
         {/* Stats Cards Container */}
@@ -1459,7 +1459,7 @@ export default function RapidChallenge() {
                 Total Rewards:
               </p>
               <h2 className="text-left text-4xl md:text-5xl font-semibold mb-6">
-                $673,142.91
+                +$1.7 Million
               </h2>
 
               {/* Info containers */}

@@ -1442,7 +1442,7 @@ export default function InstantFunding() {
 
       <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12 mt-8 mb-8">
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
-          Trusted by Over <span className="text-fuchsia-600">8,000+</span>{" "}
+          Trusted By Over <span className="text-fuchsia-600">8,000+</span>{" "}
           Traders World Wide
         </h1>
 
@@ -1490,7 +1490,7 @@ export default function InstantFunding() {
           </div>
 
           {/* Tailwind custom animation */}
-          <style jsx>{`
+          {/* <style jsx>{`
             @keyframes scroll {
               0% {
                 transform: translateX(0);
@@ -1502,7 +1502,7 @@ export default function InstantFunding() {
             .animate-scroll {
               animation: scroll 5s linear infinite;
             }
-          `}</style>
+          `}</style> */}
         </div>
 
         {/* Stats Cards Container */}
@@ -1546,7 +1546,7 @@ export default function InstantFunding() {
                 Total Rewards:
               </p>
               <h2 className="text-left text-4xl md:text-5xl font-semibold mb-6">
-                $673,142.91
+                +$1.7 Million
               </h2>
 
               {/* Info containers */}

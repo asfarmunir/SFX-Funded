@@ -1200,7 +1200,7 @@ export default function Hero() {
       {/* STATS SECTION */}
       <div className="w-full max-w-7xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12 mt-8 mb-8">
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-center leading-none tracking-tight mb-8">
-          Trusted by Over <span className="text-fuchsia-600">8,000+</span>{" "}
+          Trusted By Over <span className="text-fuchsia-600">8,000+</span>{" "}
           Traders World Wide
         </h1>
 
@@ -1248,7 +1248,7 @@ export default function Hero() {
           </div>
 
           {/* Tailwind custom animation */}
-          <style jsx>{`
+          {/* <style jsx>{`
             @keyframes scroll {
               0% {
                 transform: translateX(0);
@@ -1260,7 +1260,7 @@ export default function Hero() {
             .animate-scroll {
               animation: scroll 5s linear infinite;
             }
-          `}</style>
+          `}</style> */}
         </div>
 
         {/* Stats Cards Container */}
@@ -1304,7 +1304,7 @@ export default function Hero() {
                 Total Rewards:
               </p>
               <h2 className="text-left text-4xl md:text-5xl font-semibold mb-6">
-                $673,142.91
+                +$1.7 Million
               </h2>
 
               {/* Info containers */}
@@ -1407,7 +1407,7 @@ export default function Hero() {
               <span>Rapid</span>
             </button>
 
-            <button
+            {/* <button
               className={`w-full sm:w-[180px] ${
                 selectedProgram === "ignite"
                   ? "bg-[#D90BC6] text-white"
@@ -1422,7 +1422,7 @@ export default function Hero() {
                 style={getSvgStyle("ignite")}
               />
               <span>Ignite</span>
-            </button>
+            </button> */}
 
             <button
               className={`w-full sm:w-[180px] ${
@@ -1728,7 +1728,7 @@ export default function Hero() {
             alt="Feature icon"
             className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4 flex-shrink-0"
           />
-          <span className="font-medium text-base md:text-xl lg:text-2xl text-center">
+          <span className="font-medium text-base md:text-lg 2xl:text-xl text-center">
             Reward Guarantee
           </span>
         </div>
@@ -1739,7 +1739,7 @@ export default function Hero() {
             alt="Feature icon"
             className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4 flex-shrink-0"
           />
-          <span className="font-medium text-base md:text-xl lg:text-2xl text-center">
+          <span className="font-medium text-base md:text-lg 2xl:text-xl text-center">
             Account Resets
           </span>
         </div>
@@ -1750,8 +1750,8 @@ export default function Hero() {
             alt="Feature icon"
             className="w-5 h-5 md:w-8 md:h-8 mr-3 md:mr-4 flex-shrink-0"
           />
-          <span className="font-medium text-base md:text-xl lg:text-2xl text-center">
-            Bi-Weekly Rewards
+          <span className="font-medium text-base md:text-lg 2xl:text-xl text-center">
+            Up To 100% Profit Split
           </span>
         </div>
       </div>
@@ -1766,7 +1766,7 @@ export default function Hero() {
           Start Your{" "}
           <span className="text-fuchsia-500">SFX Funded Trading Journey</span>
         </h2>
-        <p className="text-white text-sm mb-12">
+        <p className="text-white text-sm xl:text-base mb-12">
           Your Strategy, No risk. You're Not Liable For Losses.
         </p>
 
@@ -2026,7 +2026,7 @@ export default function Hero() {
             <span className="text-black">Real Traders, </span>
             <span className="text-[#F800EA]">Real Success</span>
           </h2>
-          <p className="text-center text-gray-800 mb-8">
+          <p className="text-center text-lg text-gray-800 mb-8">
             Empowering Traders Globally
           </p>
 
@@ -2210,7 +2210,7 @@ export default function Hero() {
                   }
                   className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
                 >
-                  Start Tradi
+                  Start Trading
                   <svg
                     className="ml-3 w-6 h-6 lg:w-7 lg:h-7"
                     viewBox="0 0 24 24"
@@ -2566,7 +2566,7 @@ export default function Hero() {
           </div>
 
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 relative z-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-0 max-w-lg">
               What Our Traders Have To Say
             </h2>
           </div>

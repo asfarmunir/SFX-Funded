@@ -1988,7 +1988,7 @@ export default function InstantFunding() {
               onClick={() =>
                 targetRef.current?.scrollIntoView({ behavior: "smooth" })
               }
-              className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform"
+              className="bg-[#F800EA] text-white px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform"
             >
               Start Trading
               <svg

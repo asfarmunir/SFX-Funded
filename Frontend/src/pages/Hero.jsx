@@ -391,7 +391,76 @@ export const cards = [
     image: "/hero3.svg",
   },
 ];
+export const leftColumnTestimonials = [
+  {
+    id: 6,
+    name: "Peter S.",
+    flag: "GERMANY",
+    rating: 5,
+    text: "I recently completed the prop trading challenge with SFX Funded and was fortunate to pass on my first attempt. The challenge had clear guidelines and excellent support from the team. I had not used MatchTrader before but found it easy to navigate after watching a few short videos and looking around the platform. The backend of SFX Funded was also easy to navigate and showed me clearly where I was standing during my challenge and verification phases.The payout process is efficient, and I received my first money within 48 hours of making the payout request.",
+  },
+  {
+    id: 2,
+    name: "Liam Carter",
+    flag: "USA",
+    rating: 5,
+    text: "I only trade instant funded accounts. The firm has good offerings for anyone interested in instant funded accounts. More expensive then challenge accounts but well worth the money IMO",
+  },
+  {
+    id: 1,
+    name: "Pierre L.",
+    flag: "FRANCE",
+    rating: 5,
+    text: "Easy and fast payout progess. From requested to funds in my account all within 48 hours.",
+  },
+];
+export const centerColumnTestimonials = [
+  {
+    id: 4,
+    name: "James R.",
+    flag: "AUS",
+    rating: 5,
+    text: "I had some bad experiences with other firms before so I was not sure about joining SFX Funded because of that. But after buying one account now I am glad to know SFX Funded is better. I take nearly 2 months to pass both levels because I dont want to break any rules and now I am funded. I have not yet claimed a payout yet but will try first time after one or two more trades. Thank you sfx funded.",
+  },
+  {
+    id: 5,
+    name: "Ravi K.",
+    flag: "IND",
+    rating: 5,
+    text: "This is my first time with a prop firm ever and they made it so easy for me. Helpful support team and good trading platform.",
+  },
 
+  {
+    id: 3,
+    name: "Emily T.",
+    flag: "GB",
+    rating: 5,
+    text: "I purchased the Two Step Challenge 10k from SFX Funded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with SFX Funded.",
+  },
+];
+export const rightColumnTestimonials = [
+  {
+    id: 7,
+    name: "Ahmed M.",
+    flag: "UAE",
+    rating: 5,
+    text: "I purchased the Two Step Challenge 10k from SFX Funded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with SFX Funded.",
+  },
+  {
+    id: 5,
+    name: "Ravi K.",
+    flag: "IND",
+    rating: 5,
+    text: "This is my first time with a prop firm ever and they made it so easy for me. Helpful support team and good trading platform.",
+  },
+  {
+    id: 6,
+    name: "Peter S.",
+    flag: "GERMANY",
+    rating: 5,
+    text: "I recently completed the prop trading challenge with SFX Funded and was fortunate to pass on my first attempt. The challenge had clear guidelines and excellent support from the team. I had not used MatchTrader before but found it easy to navigate after watching a few short videos and looking around the platform. The backend of SFX Funded was also easy to navigate and showed me clearly where I was standing during my challenge and verification phases.The payout process is efficient, and I received my first money within 48 hours of making the payout request.",
+  },
+];
 export default function Hero() {
   const mobileContainerRef = useRef(null);
   const { scrollYProgress: mobileScrollProgress } = useScroll({
@@ -673,86 +742,19 @@ export default function Hero() {
   //   ...testimonials.slice(0, 2),
   //   ...testimonials.slice(0, 2),
   // ];
-  const leftColumnTestimonials = [
-    {
-      id: 6,
-      name: "Peter S.",
-      flag: "GERMANY",
-      rating: 5,
-      text: "I recently completed the prop trading challenge with SFX Funded and was fortunate to pass on my first attempt. The challenge had clear guidelines and excellent support from the team. I had not used MatchTrader before but found it easy to navigate after watching a few short videos and looking around the platform. The backend of SFX Funded was also easy to navigate and showed me clearly where I was standing during my challenge and verification phases.The payout process is efficient, and I received my first money within 48 hours of making the payout request.Becoming a funded trader with SFX Funded overall has been a smooth experience and for any trader looking to prove their skills and get funded, I highly recommend SFX Funded.",
-    },
-    {
-      id: 2,
-      name: "Liam Carter",
-      flag: "USA",
-      rating: 5,
-      text: "I only trade instant funded accounts. The firm has good offerings for anyone interested in instant funded accounts. More expensive then challenge accounts but well worth the money IMO",
-    },
-    {
-      id: 1,
-      name: "Pierre L.",
-      flag: "FRANCE",
-      rating: 5,
-      text: "Easy and fast payout progess. From requested to funds in my account all within 48 hours.",
-    },
-  ];
+
   // const centerColumnTestimonials = [
   //   ...testimonials.slice(2, 5),
   //   ...testimonials.slice(2, 5),
   //   ...testimonials.slice(2, 5),
   // ];
-  const centerColumnTestimonials = [
-    {
-      id: 4,
-      name: "James R.",
-      flag: "AUS",
-      rating: 5,
-      text: "I had some bad experiences with other firms before so I was not sure about joining SFX Funded because of that. But after buying one account now I am glad to know SFX Funded is better. I take nearly 2 months to pass both levels because I dont want to break any rules and now I am funded. I have not yet claimed a payout yet but will try first time after one or two more trades. Thank you sfx funded.",
-    },
-    {
-      id: 5,
-      name: "Ravi K.",
-      flag: "IND",
-      rating: 5,
-      text: "This is my first time with a prop firm ever and they made it so easy for me. Helpful support team and good trading platform.",
-    },
 
-    {
-      id: 3,
-      name: "Emily T.",
-      flag: "GB",
-      rating: 5,
-      text: "I purchased the Two Step Challenge 10k from SFX Funded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with SFX Funded.",
-    },
-  ];
   // const rightColumnTestimonials = [
   //   ...testimonials.slice(5, 7),
   //   ...testimonials.slice(5, 7),
   //   ...testimonials.slice(5, 7),
   // ];
-  const rightColumnTestimonials = [
-    {
-      id: 7,
-      name: "Ahmed M.",
-      flag: "UAE",
-      rating: 5,
-      text: "I purchased the Two Step Challenge 10k from SFX Funded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with SFX Funded.",
-    },
-    {
-      id: 5,
-      name: "Ravi K.",
-      flag: "IND",
-      rating: 5,
-      text: "This is my first time with a prop firm ever and they made it so easy for me. Helpful support team and good trading platform.",
-    },
-    {
-      id: 6,
-      name: "Peter S.",
-      flag: "GERMANY",
-      rating: 5,
-      text: "I recently completed the prop trading challenge with SFX Funded and was fortunate to pass on my first attempt. The challenge had clear guidelines and excellent support from the team. I had not used MatchTrader before but found it easy to navigate after watching a few short videos and looking around the platform. The backend of SFX Funded was also easy to navigate and showed me clearly where I was standing during my challenge and verification phases.The payout process is efficient, and I received my first money within 48 hours of making the payout request.Becoming a funded trader with SFX Funded overall has been a smooth experience and for any trader looking to prove their skills and get funded, I highly recommend SFX Funded.",
-    },
-  ];
+
   const mobileTestimonials = [
     ...testimonials,
     ...testimonials,

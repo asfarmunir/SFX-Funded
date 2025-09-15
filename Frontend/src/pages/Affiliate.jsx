@@ -415,7 +415,7 @@ export default function RapidChallenge() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Trade With SFX Funded
+              Get Started
               <svg
                 className="ml-3"
                 width="20"
@@ -469,7 +469,7 @@ export default function RapidChallenge() {
             </motion.p>
 
             <motion.button
-              className="flex items-center gap-2 rounded-full px-6 py-3 text-white font-medium font-['Inter']"
+              className="flex items-center gap-2 rounded-full 2xl:text-lg px-6 py-3 text-white font-medium font-['Inter']"
               style={{
                 backgroundColor: "rgba(248, 0, 234, 1)",
                 fontFamily: "'Inter', sans-serif",
@@ -524,7 +524,8 @@ export default function RapidChallenge() {
                 className="w-8 h-8 mb-6 self-start lg:ml-6"
               />
               <p className="text-gray-700 lg:ml-6">
-                Get paid 10% commission when a new customer opens an account.
+                Get paid up to 17.5% commission when a new customer opens an
+                account.
               </p>
             </motion.div>
 
@@ -1699,7 +1700,7 @@ export default function RapidChallenge() {
 
         <div className="flex justify-center mt-16">
           <button className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform">
-            Start Trading
+            Get Started
             <svg
               className="ml-3 w-6 h-6"
               viewBox="0 0 24 24"

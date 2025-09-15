@@ -8,7 +8,15 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import LightningStackCards from "../components/Step4";
-import { accountSizes, fundedData, pricingData, tableData } from "./Hero";
+import {
+  accountSizes,
+  centerColumnTestimonials,
+  fundedData,
+  leftColumnTestimonials,
+  pricingData,
+  rightColumnTestimonials,
+  tableData,
+} from "./Hero";
 import SuccessfulTraders from "../components/SuccessfulTraders";
 import Certificates from "../components/Certificates";
 
@@ -234,21 +242,21 @@ export default function RapidChallenge() {
 
   // Split testimonials for different columns
   // Replace your current column arrays with these:
-  const leftColumnTestimonials = [
-    ...testimonials.slice(0, 2),
-    ...testimonials.slice(0, 2),
-    ...testimonials.slice(0, 2),
-  ];
-  const centerColumnTestimonials = [
-    ...testimonials.slice(2, 5),
-    ...testimonials.slice(2, 5),
-    ...testimonials.slice(2, 5),
-  ];
-  const rightColumnTestimonials = [
-    ...testimonials.slice(5, 7),
-    ...testimonials.slice(5, 7),
-    ...testimonials.slice(5, 7),
-  ];
+  // const leftColumnTestimonials = [
+  //   ...testimonials.slice(0, 2),
+  //   ...testimonials.slice(0, 2),
+  //   ...testimonials.slice(0, 2),
+  // ];
+  // const centerColumnTestimonials = [
+  //   ...testimonials.slice(2, 5),
+  //   ...testimonials.slice(2, 5),
+  //   ...testimonials.slice(2, 5),
+  // ];
+  // const rightColumnTestimonials = [
+  //   ...testimonials.slice(5, 7),
+  //   ...testimonials.slice(5, 7),
+  //   ...testimonials.slice(5, 7),
+  // ];
   const mobileTestimonials = [
     ...testimonials,
     ...testimonials,
@@ -401,7 +409,7 @@ export default function RapidChallenge() {
             }}
             style={{ marginTop: "40px" }}
           >
-            Funded From Day One
+            Fastest Evaluation
           </motion.div>
 
           {/* Hero Heading */}
@@ -446,7 +454,7 @@ export default function RapidChallenge() {
                 fontFamily: "Oswald, sans-serif",
                 fontWeight: 600,
                 fontSize: "clamp(1.65rem, 5vw, 5rem)",
-                letterSpacing: window.innerWidth < 640 ? "-2px" : "-7.64px",
+                letterSpacing: window.innerWidth < 640 ? "-2px" : "-5.64px",
               }}
             >
               <span className="text-[#DE00DE]">PASS FAST, </span>{" "}
@@ -1293,7 +1301,7 @@ export default function RapidChallenge() {
             rewarded on time — every time.
           </p>
           <button className="bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white rounded-full px-8 py-4 flex items-center gap-3 text-base sm:text-lg hover:from-fuchsia-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform border-2 border-fuchsia-400/50">
-            Read More
+            Get Started
             <ArrowRight size={20} />
           </button>
         </motion.div>
@@ -1530,7 +1538,7 @@ export default function RapidChallenge() {
             <span className="text-black">Real Traders, </span>
             <span className="text-[#F800EA]">Real Success</span>
           </h2>
-          <p className="text-center text-gray-800 mb-8">
+          <p className="text-center 2xl:text-lg text-gray-800 mb-8">
             Empowering Traders Globally
           </p>
 
@@ -1569,7 +1577,7 @@ export default function RapidChallenge() {
               onClick={() =>
                 targetRef.current?.scrollIntoView({ behavior: "smooth" })
               }
-              className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+              className="bg-[#F800EA] text-white px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
             >
               Start Trading
               <svg
@@ -1701,7 +1709,7 @@ export default function RapidChallenge() {
                   onClick={() =>
                     targetRef.current?.scrollIntoView({ behavior: "smooth" })
                   }
-                  className="bg-[#F800EA] text-black px-7 sm:px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+                  className="bg-[#F800EA] text-white px-7 sm:px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
                 >
                   Start Trading
                   <svg
@@ -1784,8 +1792,7 @@ export default function RapidChallenge() {
           </div>
 
           {/* Desktop 3-Column Testimonial Layout (Hidden on small screens) */}
-          <div className="hidden md:grid md:grid-cols-3 gap-8 relative">
-            {/* Left Column */}
+          {/* <div className="hidden md:grid md:grid-cols-3 gap-8 relative">
             <div className="relative h-[32rem] overflow-hidden">
               <div
                 className="absolute w-full space-y-6"
@@ -1821,7 +1828,6 @@ export default function RapidChallenge() {
               </div>
             </div>
 
-            {/* Center Column */}
             <div className="relative h-[32rem] overflow-hidden">
               <div
                 className="absolute w-full space-y-6"
@@ -1857,7 +1863,6 @@ export default function RapidChallenge() {
               </div>
             </div>
 
-            {/* Right Column */}
             <div className="relative h-[32rem] overflow-hidden">
               <div
                 className="absolute w-full space-y-6"
@@ -1892,15 +1897,102 @@ export default function RapidChallenge() {
                 ))}
               </div>
             </div>
-          </div>
+          </div> */}
+          <div className="hidden md:grid md:grid-cols-3 gap-8 relative">
+            {/* Left Column - Static, 3 items */}
+            <div className="space-y-6">
+              {leftColumnTestimonials.slice(0, 3).map((testimonial, index) => (
+                <div
+                  key={`left-${testimonial.id}-${index}`}
+                  className="bg-white p-6 rounded-lg shadow-lg"
+                  style={{
+                    background: "rgba(255, 255, 255, 0.8)",
+                    backdropFilter: "blur(24px)",
+                  }}
+                >
+                  {renderStars(testimonial.rating)}
+                  <div className="mb-4">{highlightText(testimonial.text)}</div>
+                  <div className="flex items-center">
+                    <span className="font-medium mr-2">{testimonial.name}</span>
+                    <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+                      <img
+                        src={`/${testimonial.flag}.svg`}
+                        alt={testimonial.flag}
+                        className="w-full h-full object-cover"
+                      />
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
 
+            {/* Center Column - Static, 3 items */}
+            <div className="space-y-6">
+              {centerColumnTestimonials
+                .slice(0, 3)
+                .map((testimonial, index) => (
+                  <div
+                    key={`center-${testimonial.id}-${index}`}
+                    className="bg-white p-6 rounded-lg shadow-lg"
+                    style={{
+                      background: "rgba(255, 255, 255, 0.8)",
+                      backdropFilter: "blur(24px)",
+                    }}
+                  >
+                    {renderStars(testimonial.rating)}
+                    <div className="mb-4">
+                      {highlightText(testimonial.text)}
+                    </div>
+                    <div className="flex items-center">
+                      <span className="font-medium mr-2">
+                        {testimonial.name}
+                      </span>
+                      <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+                        <img
+                          src={`/${testimonial.flag}.svg`}
+                          alt={testimonial.flag}
+                          className="w-full h-full object-cover"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                ))}
+            </div>
+
+            {/* Right Column - Static, 3 items */}
+            <div className="space-y-6">
+              {rightColumnTestimonials.slice(0, 3).map((testimonial, index) => (
+                <div
+                  key={`right-${testimonial.id}-${index}`}
+                  className="bg-white p-6 rounded-lg shadow-lg"
+                  style={{
+                    background: "rgba(255, 255, 255, 0.8)",
+                    backdropFilter: "blur(24px)",
+                  }}
+                >
+                  {renderStars(testimonial.rating)}
+                  <div className="mb-4">{highlightText(testimonial.text)}</div>
+                  <div className="flex items-center">
+                    <span className="font-medium mr-2">{testimonial.name}</span>
+                    <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+                      <img
+                        src={`/${testimonial.flag}.svg`}
+                        alt={testimonial.flag}
+                        className="w-full h-full object-cover"
+                      />
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
           {/* Centered Start Trading Button at Bottom */}
           <div className="flex justify-center mt-16">
             <button
               onClick={() =>
                 targetRef.current?.scrollIntoView({ behavior: "smooth" })
               }
-              className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform"
+              className="bg-[#F800EA] text-white px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform"
             >
               Start Trading
               <svg
@@ -2081,16 +2173,16 @@ export default function RapidChallenge() {
               >
                 Get Funded Now
               </button>
-              <button
+              {/* <button
                 className="py-3 px-6 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-colors"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 Sign Up
-              </button>
+              </button> */}
             </motion.div>
 
             {/* Social Icons */}
-            <motion.div
+            {/* <motion.div
               className="flex gap-3 mb-4"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -2106,7 +2198,7 @@ export default function RapidChallenge() {
                   })}
                 </a>
               ))}
-            </motion.div>
+            </motion.div> */}
           </div>
         </motion.div>
       </div>

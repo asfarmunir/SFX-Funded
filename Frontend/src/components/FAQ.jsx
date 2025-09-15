@@ -201,7 +201,7 @@ export default function FAQ() {
               transition={{ delay: 0.4 }}
             >
               <motion.button
-                className="py-3 sm:py-4 px-6 sm:px-8 text-black font-bold text-base sm:text-lg rounded-full text-center flex items-center justify-center transition-all duration-300 mx-0"
+                className="py-3 sm:py-4 px-6 sm:px-8 text-white font-bold text-base sm:text-lg rounded-full text-center flex items-center justify-center transition-all duration-300 mx-0"
                 style={{
                   backgroundColor: "#F800EA",
                   width:
@@ -316,7 +316,7 @@ export default function FAQ() {
           transition={{ delay: 0.4 }}
         >
           <motion.button
-            className="py-3 px-6 text-black font-bold text-base rounded-full text-center flex items-center justify-center transition-all duration-300 w-full"
+            className="py-3 px-6 text-white font-bold text-base rounded-full text-center flex items-center justify-center transition-all duration-300 w-full"
             style={{
               backgroundColor: "#F800EA",
               maxWidth: "320px",

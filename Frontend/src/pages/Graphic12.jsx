@@ -18,7 +18,15 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import LightningStackCards from "../components/Step5";
-import { accountSizes, fundedData, pricingData, tableData } from "./Hero";
+import {
+  accountSizes,
+  centerColumnTestimonials,
+  fundedData,
+  leftColumnTestimonials,
+  pricingData,
+  rightColumnTestimonials,
+  tableData,
+} from "./Hero";
 import SuccessfulTraders from "../components/SuccessfulTraders";
 import Certificates from "../components/Certificates";
 
@@ -250,21 +258,21 @@ export default function Graphic() {
   ];
   // Split testimonials for different columns
   // Replace your current column arrays with these:
-  const leftColumnTestimonials = [
-    ...testimonials.slice(0, 2),
-    ...testimonials.slice(0, 2),
-    ...testimonials.slice(0, 2),
-  ];
-  const centerColumnTestimonials = [
-    ...testimonials.slice(2, 5),
-    ...testimonials.slice(2, 5),
-    ...testimonials.slice(2, 5),
-  ];
-  const rightColumnTestimonials = [
-    ...testimonials.slice(5, 7),
-    ...testimonials.slice(5, 7),
-    ...testimonials.slice(5, 7),
-  ];
+  // const leftColumnTestimonials = [
+  //   ...testimonials.slice(0, 2),
+  //   ...testimonials.slice(0, 2),
+  //   ...testimonials.slice(0, 2),
+  // ];
+  // const centerColumnTestimonials = [
+  //   ...testimonials.slice(2, 5),
+  //   ...testimonials.slice(2, 5),
+  //   ...testimonials.slice(2, 5),
+  // ];
+  // const rightColumnTestimonials = [
+  //   ...testimonials.slice(5, 7),
+  //   ...testimonials.slice(5, 7),
+  //   ...testimonials.slice(5, 7),
+  // ];
   const mobileTestimonials = [
     ...testimonials,
     ...testimonials,
@@ -940,8 +948,7 @@ export default function Graphic() {
         </div>
       </div>
 
-      <div className="font-sans max-w-5xl mx-auto px-4 py-8 mb-4 mt-8">
-        {/* Header */}
+      {/* <div className="font-sans max-w-5xl mx-auto px-4 py-8 mb-4 mt-8">
         <motion.div
           className="text-center mb-8"
           initial={{ opacity: 0, y: 50 }}
@@ -958,9 +965,7 @@ export default function Graphic() {
           </p>
         </motion.div>
 
-        {/* Comparison Cards */}
         <div className="flex flex-col md:flex-row gap-6">
-          {/* 1-Step Evaluation Card */}
           <motion.div
             className="w-full md:w-1/2 bg-black rounded-2xl p-8 text-center"
             initial={{ opacity: 0, y: 70 }}
@@ -992,7 +997,6 @@ export default function Graphic() {
             </div>
           </motion.div>
 
-          {/* Rapid Challenge Card */}
           <motion.div
             className="w-full md:w-1/2 bg-black rounded-2xl p-8 text-center"
             initial={{ opacity: 0, y: 70 }}
@@ -1024,7 +1028,7 @@ export default function Graphic() {
             </div>
           </motion.div>
         </div>
-      </div>
+      </div> */}
 
       <div
         ref={targetRef}
@@ -1032,7 +1036,7 @@ export default function Graphic() {
       >
         <div className="text-center mb-6">
           <h2 className="text-[23px] sm:text-2xl md:text-5xl font-bold text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis px-2 leading-snug md:leading-[1.5]">
-            2-Step Challenge Programs
+            2-Step Challenge Program
           </h2>
           <div className="mt-4 inline-block bg-fuchsia-50 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border border-fuchsia-200">
             <span className="text-[16px] sm:text-md font-medium whitespace-nowrap">
@@ -1040,7 +1044,7 @@ export default function Graphic() {
             </span>
           </div>
         </div>
-        <div className="px-4 sm:px-6 max-w-full overflow-hidden">
+        {/* <div className="px-4 sm:px-6 max-w-full overflow-hidden">
           <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 sm:gap-4 mt-6">
             <button
               className={`w-full sm:w-[180px] ${
@@ -1076,7 +1080,7 @@ export default function Graphic() {
               <span>Ascend</span>
             </button>
           </div>
-        </div>{" "}
+        </div> */}
         <div
           ref={targetRef}
           className="mt-8 border border-fuchsia-200 rounded-2xl overflow-hidden bg-white"
@@ -1394,7 +1398,7 @@ export default function Graphic() {
                   onClick={() =>
                     targetRef.current?.scrollIntoView({ behavior: "smooth" })
                   }
-                  className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+                  className="bg-[#F800EA] text-white px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
                 >
                   Start Trading
                   <svg
@@ -1529,7 +1533,7 @@ export default function Graphic() {
               onClick={() =>
                 targetRef.current?.scrollIntoView({ behavior: "smooth" })
               }
-              className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+              className="bg-[#F800EA] text-white px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
             >
               Start Trading
               <svg
@@ -1586,7 +1590,7 @@ export default function Graphic() {
               rewarded on time — every time.
             </p>
             <button className="bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white rounded-full px-8 py-4 flex items-center gap-3 text-base sm:text-lg hover:from-fuchsia-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform border-2 border-fuchsia-400/50">
-              Read More
+              Get Started
               <ArrowRight size={20} />
             </button>
           </motion.div>
@@ -1753,7 +1757,7 @@ export default function Graphic() {
                   Total Rewards:
                 </p>
                 <h2 className="text-left text-4xl md:text-5xl font-semibold mb-6">
-                  $673,142.91
+                  +$1.7 Million
                 </h2>
 
                 {/* Info containers */}
@@ -1824,7 +1828,7 @@ export default function Graphic() {
               <span className="text-black">Real Traders, </span>
               <span className="text-[#F800EA]">Real Success</span>
             </h2>
-            <p className="text-center text-gray-800 mb-8">
+            <p className="text-center 2xl:text-lg text-gray-800 mb-8">
               Empowering Traders Globally
             </p>
 
@@ -1863,7 +1867,7 @@ export default function Graphic() {
                 onClick={() =>
                   targetRef.current?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+                className="bg-[#F800EA] text-white px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
               >
                 Start Trading
                 <svg
@@ -1993,7 +1997,7 @@ export default function Graphic() {
                     onClick={() =>
                       targetRef.current?.scrollIntoView({ behavior: "smooth" })
                     }
-                    className="bg-[#F800EA] text-black 
+                    className="bg-[#F800EA] text-white 
                     px-6 py-3 lg:px-14 lg:py-5 
                     rounded-full font-bold 
                     text-base lg:text-xl 
@@ -2089,13 +2093,11 @@ export default function Graphic() {
 
             {/* Desktop 3-Column Testimonial Layout (Hidden on small screens) */}
             <div className="hidden md:grid md:grid-cols-3 gap-8 relative">
-              {/* Left Column */}
-              <div className="relative h-[32rem] overflow-hidden">
-                <div
-                  className="absolute w-full space-y-6"
-                  style={{ transform: getTransform(0) }}
-                >
-                  {leftColumnTestimonials.map((testimonial, index) => (
+              {/* Left Column - Static, 3 items */}
+              <div className="space-y-6">
+                {leftColumnTestimonials
+                  .slice(0, 3)
+                  .map((testimonial, index) => (
                     <div
                       key={`left-${testimonial.id}-${index}`}
                       className="bg-white p-6 rounded-lg shadow-lg"
@@ -2122,16 +2124,13 @@ export default function Graphic() {
                       </div>
                     </div>
                   ))}
-                </div>
               </div>
 
-              {/* Center Column */}
-              <div className="relative h-[32rem] overflow-hidden">
-                <div
-                  className="absolute w-full space-y-6"
-                  style={{ transform: getTransform(1) }}
-                >
-                  {centerColumnTestimonials.map((testimonial, index) => (
+              {/* Center Column - Static, 3 items */}
+              <div className="space-y-6">
+                {centerColumnTestimonials
+                  .slice(0, 3)
+                  .map((testimonial, index) => (
                     <div
                       key={`center-${testimonial.id}-${index}`}
                       className="bg-white p-6 rounded-lg shadow-lg"
@@ -2158,16 +2157,13 @@ export default function Graphic() {
                       </div>
                     </div>
                   ))}
-                </div>
               </div>
 
-              {/* Right Column */}
-              <div className="relative h-[32rem] overflow-hidden">
-                <div
-                  className="absolute w-full space-y-6"
-                  style={{ transform: getTransform(2) }}
-                >
-                  {rightColumnTestimonials.map((testimonial, index) => (
+              {/* Right Column - Static, 3 items */}
+              <div className="space-y-6">
+                {rightColumnTestimonials
+                  .slice(0, 3)
+                  .map((testimonial, index) => (
                     <div
                       key={`right-${testimonial.id}-${index}`}
                       className="bg-white p-6 rounded-lg shadow-lg"
@@ -2194,7 +2190,6 @@ export default function Graphic() {
                       </div>
                     </div>
                   ))}
-                </div>
               </div>
             </div>
 
@@ -2204,7 +2199,7 @@ export default function Graphic() {
                 onClick={() =>
                   targetRef.current?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform"
+                className="bg-[#F800EA] text-white px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform"
               >
                 Start Trading
                 <svg
@@ -2259,7 +2254,7 @@ export default function Graphic() {
 
         {/* FAQ Section */}
         <FAQ />
-        <div className="flex flex-col items-center w-full font-['Inter']">
+        <div className="flex max-w-7xl mx-auto flex-col items-center w-full font-['Inter']">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -288,7 +288,7 @@ export default function Newsletter() {
 
         <motion.a
           href="#"
-          className="text-black text-center font-bold relative z-10 hover:opacity-90 transition-opacity"
+          className="text-white text-center font-bold relative z-10 hover:opacity-90 transition-opacity"
           style={{
             width: "100%",
             maxWidth: "299px",

@@ -2110,7 +2110,7 @@ export default function Hero() {
               onClick={() =>
                 targetRef.current?.scrollIntoView({ behavior: "smooth" })
               }
-              className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+              className="bg-[#F800EA] text-white px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
             >
               Start Trading
               <svg
@@ -2280,7 +2280,7 @@ export default function Hero() {
                   onClick={() =>
                     targetRef.current?.scrollIntoView({ behavior: "smooth" })
                   }
-                  className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+                  className="bg-[#F800EA] text-white px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
                 >
                   Start Trading
                   <svg
@@ -2463,7 +2463,7 @@ export default function Hero() {
                 onClick={() =>
                   targetRef.current?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+                className="bg-[#F800EA] text-white px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
               >
                 Start Trading
                 <svg
@@ -2597,7 +2597,7 @@ export default function Hero() {
             onClick={() =>
               targetRef.current?.scrollIntoView({ behavior: "smooth" })
             }
-            className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+            className="bg-[#F800EA] text-white px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
           >
             Start Trading
             <svg
@@ -2769,7 +2769,7 @@ export default function Hero() {
 
           {/* Centered Start Trading Button at Bottom */}
           <div className="flex justify-center mt-16">
-            <button className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform">
+            <button className="bg-[#F800EA] text-white px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform">
               Start Trading
               <svg
                 className="ml-3 w-6 h-6"

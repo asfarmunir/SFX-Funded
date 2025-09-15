@@ -282,7 +282,6 @@ export default function About() {
               <motion.button
                 style={{
                   backgroundColor: "rgba(248, 0, 234, 1)",
-                  color: "rgba(0, 0, 0, 1)",
                   fontFamily: "Inter, sans-serif",
                   fontWeight: 600,
                   fontSize: "clamp(1rem, 5vw, 1.25rem)",
@@ -293,7 +292,7 @@ export default function About() {
                   height: "clamp(45px, 12vw, 57px)",
                   borderRadius: "100px",
                 }}
-                className="flex items-center justify-center transition-colors"
+                className="flex items-center justify-center text-white transition-colors"
                 variants={slideUp}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

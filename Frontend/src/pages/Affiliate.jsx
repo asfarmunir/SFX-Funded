@@ -1699,7 +1699,7 @@ export default function RapidChallenge() {
         </div>
 
         <div className="flex justify-center mt-16">
-          <button className="bg-[#F800EA] text-black px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform">
+          <button className="bg-[#F800EA] text-white px-8 py-4 rounded-full font-bold text-xl md:text-2xl flex items-center transform hover:scale-105 transition-transform">
             Get Started
             <svg
               className="ml-3 w-6 h-6"

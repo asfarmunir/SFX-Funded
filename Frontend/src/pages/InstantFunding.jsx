@@ -8,7 +8,14 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import LightningStackCards from "../components/Step6";
-import { accountSizes, fundedData, pricingData } from "./Hero";
+import {
+  accountSizes,
+  centerColumnTestimonials,
+  fundedData,
+  leftColumnTestimonials,
+  pricingData,
+  rightColumnTestimonials,
+} from "./Hero";
 import SuccessfulTraders from "../components/SuccessfulTraders";
 import Certificates from "../components/Certificates";
 
@@ -208,21 +215,21 @@ export default function InstantFunding() {
 
   // Split testimonials for different columns
   // Replace your current column arrays with these:
-  const leftColumnTestimonials = [
-    ...testimonials.slice(0, 2),
-    ...testimonials.slice(0, 2),
-    ...testimonials.slice(0, 2),
-  ];
-  const centerColumnTestimonials = [
-    ...testimonials.slice(2, 5),
-    ...testimonials.slice(2, 5),
-    ...testimonials.slice(2, 5),
-  ];
-  const rightColumnTestimonials = [
-    ...testimonials.slice(5, 7),
-    ...testimonials.slice(5, 7),
-    ...testimonials.slice(5, 7),
-  ];
+  // const leftColumnTestimonials = [
+  //   ...testimonials.slice(0, 2),
+  //   ...testimonials.slice(0, 2),
+  //   ...testimonials.slice(0, 2),
+  // ];
+  // const centerColumnTestimonials = [
+  //   ...testimonials.slice(2, 5),
+  //   ...testimonials.slice(2, 5),
+  //   ...testimonials.slice(2, 5),
+  // ];
+  // const rightColumnTestimonials = [
+  //   ...testimonials.slice(5, 7),
+  //   ...testimonials.slice(5, 7),
+  //   ...testimonials.slice(5, 7),
+  // ];
   const mobileTestimonials = [
     ...testimonials,
     ...testimonials,
@@ -463,7 +470,7 @@ export default function InstantFunding() {
               },
             }}
           >
-            <button className="text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center justify-center mx-auto font-inter text-base sm:text-lg md:text-xl">
+            <button className="text-white px-8 py-4 font-semibold  sm:px-10 sm:py-5 rounded-full bg-[#DE00DE] hover:bg-[#C000B0] transition-colors duration-300 flex items-center justify-center mx-auto font-inter text-base sm:text-lg md:text-xl">
               Instant Funding
               <svg
                 className="ml-3"
@@ -1380,7 +1387,7 @@ export default function InstantFunding() {
             rewarded on time — every time.
           </p>
           <button className="bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white rounded-full px-8 py-4 flex items-center gap-3 text-base sm:text-lg hover:from-fuchsia-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform border-2 border-fuchsia-400/50">
-            Read More
+            Get Started
             <ArrowRight size={20} />
           </button>
         </motion.div>
@@ -1617,7 +1624,7 @@ export default function InstantFunding() {
             <span className="text-black">Real Traders, </span>
             <span className="text-[#F800EA]">Real Success</span>
           </h2>
-          <p className="text-center text-gray-800 mb-8">
+          <p className="text-center 2xl:text-lg text-gray-800 mb-8">
             Empowering Traders Globally
           </p>
 
@@ -1657,7 +1664,7 @@ export default function InstantFunding() {
               onClick={() =>
                 targetRef.current?.scrollIntoView({ behavior: "smooth" })
               }
-              className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+              className="bg-[#F800EA] text-white px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
             >
               Start Trading
               <svg
@@ -1789,7 +1796,7 @@ export default function InstantFunding() {
                   onClick={() =>
                     targetRef.current?.scrollIntoView({ behavior: "smooth" })
                   }
-                  className="bg-[#F800EA] text-black px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
+                  className="bg-[#F800EA] text-white px-10 py-4 lg:px-14 lg:py-5 rounded-full font-bold text-lg lg:text-xl flex items-center shadow-md hover:shadow-lg transition-all duration-300"
                 >
                   Start Trading
                   <svg
@@ -1832,7 +1839,7 @@ export default function InstantFunding() {
           </div>
 
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 relative z-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-0 max-w-md">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-0 max-w-lg">
               What Our Traders Have To Say
             </h2>
           </div>
@@ -1873,49 +1880,38 @@ export default function InstantFunding() {
 
           {/* Desktop 3-Column Testimonial Layout (Hidden on small screens) */}
           <div className="hidden md:grid md:grid-cols-3 gap-8 relative">
-            {/* Left Column */}
-            <div className="relative h-[32rem] overflow-hidden">
-              <div
-                className="absolute w-full space-y-6"
-                style={{ transform: getTransform(0) }}
-              >
-                {leftColumnTestimonials.map((testimonial, index) => (
-                  <div
-                    key={`left-${testimonial.id}-${index}`}
-                    className="bg-white p-6 rounded-lg shadow-lg"
-                    style={{
-                      background: "rgba(255, 255, 255, 0.8)",
-                      backdropFilter: "blur(24px)",
-                    }}
-                  >
-                    {renderStars(testimonial.rating)}
-                    <div className="mb-4">
-                      {highlightText(testimonial.text)}
-                    </div>
-                    <div className="flex items-center">
-                      <span className="font-medium mr-2">
-                        {testimonial.name}
-                      </span>
-                      <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
-                        <img
-                          src={`/${testimonial.flag}.svg`}
-                          alt={testimonial.flag}
-                          className="w-full h-full object-cover"
-                        />
-                      </span>
-                    </div>
+            {/* Left Column - Static, 3 items */}
+            <div className="space-y-6">
+              {leftColumnTestimonials.slice(0, 3).map((testimonial, index) => (
+                <div
+                  key={`left-${testimonial.id}-${index}`}
+                  className="bg-white p-6 rounded-lg shadow-lg"
+                  style={{
+                    background: "rgba(255, 255, 255, 0.8)",
+                    backdropFilter: "blur(24px)",
+                  }}
+                >
+                  {renderStars(testimonial.rating)}
+                  <div className="mb-4">{highlightText(testimonial.text)}</div>
+                  <div className="flex items-center">
+                    <span className="font-medium mr-2">{testimonial.name}</span>
+                    <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+                      <img
+                        src={`/${testimonial.flag}.svg`}
+                        alt={testimonial.flag}
+                        className="w-full h-full object-cover"
+                      />
+                    </span>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
 
-            {/* Center Column */}
-            <div className="relative h-[32rem] overflow-hidden">
-              <div
-                className="absolute w-full space-y-6"
-                style={{ transform: getTransform(1) }}
-              >
-                {centerColumnTestimonials.map((testimonial, index) => (
+            {/* Center Column - Static, 3 items */}
+            <div className="space-y-6">
+              {centerColumnTestimonials
+                .slice(0, 3)
+                .map((testimonial, index) => (
                   <div
                     key={`center-${testimonial.id}-${index}`}
                     className="bg-white p-6 rounded-lg shadow-lg"
@@ -1942,43 +1938,33 @@ export default function InstantFunding() {
                     </div>
                   </div>
                 ))}
-              </div>
             </div>
 
-            {/* Right Column */}
-            <div className="relative h-[32rem] overflow-hidden">
-              <div
-                className="absolute w-full space-y-6"
-                style={{ transform: getTransform(2) }}
-              >
-                {rightColumnTestimonials.map((testimonial, index) => (
-                  <div
-                    key={`right-${testimonial.id}-${index}`}
-                    className="bg-white p-6 rounded-lg shadow-lg"
-                    style={{
-                      background: "rgba(255, 255, 255, 0.8)",
-                      backdropFilter: "blur(24px)",
-                    }}
-                  >
-                    {renderStars(testimonial.rating)}
-                    <div className="mb-4">
-                      {highlightText(testimonial.text)}
-                    </div>
-                    <div className="flex items-center">
-                      <span className="font-medium mr-2">
-                        {testimonial.name}
-                      </span>
-                      <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
-                        <img
-                          src={`/${testimonial.flag}.svg`}
-                          alt={testimonial.flag}
-                          className="w-full h-full object-cover"
-                        />
-                      </span>
-                    </div>
+            {/* Right Column - Static, 3 items */}
+            <div className="space-y-6">
+              {rightColumnTestimonials.slice(0, 3).map((testimonial, index) => (
+                <div
+                  key={`right-${testimonial.id}-${index}`}
+                  className="bg-white p-6 rounded-lg shadow-lg"
+                  style={{
+                    background: "rgba(255, 255, 255, 0.8)",
+                    backdropFilter: "blur(24px)",
+                  }}
+                >
+                  {renderStars(testimonial.rating)}
+                  <div className="mb-4">{highlightText(testimonial.text)}</div>
+                  <div className="flex items-center">
+                    <span className="font-medium mr-2">{testimonial.name}</span>
+                    <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded overflow-hidden">
+                      <img
+                        src={`/${testimonial.flag}.svg`}
+                        alt={testimonial.flag}
+                        className="w-full h-full object-cover"
+                      />
+                    </span>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
 

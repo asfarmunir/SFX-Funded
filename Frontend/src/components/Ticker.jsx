@@ -1,14 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 
 export default function Ticker() {
+  // Position state for transform
   const [position, setPosition] = useState(0);
   const tickerRef = useRef(null);
+  // Measure a single content block (we'll render two blocks to loop seamlessly)
   const contentRef = useRef(null);
   const [contentWidth, setContentWidth] = useState(0);
-  const [containerWidth, setContainerWidth] = useState(0);
+  // No container width needed for seamless wrap
   const animationRef = useRef(null);
+  const lastTimeRef = useRef(null);
   const [slowDown, setSlowDown] = useState(false);
-  const [speed, setSpeed] = useState(1); // Base speed
+  // Pixels per second (slow by default)
+  const [speed, setSpeed] = useState(30);
 
   const message = "Up To 60% Off + 120% Refund | COUPON: Auto Applied";
 
@@ -17,7 +21,6 @@ export default function Ticker() {
     const handleResize = () => {
       if (contentRef.current && tickerRef.current) {
         setContentWidth(contentRef.current.offsetWidth);
-        setContainerWidth(tickerRef.current.offsetWidth);
       }
     };
 
@@ -36,35 +39,42 @@ export default function Ticker() {
     };
   }, []);
 
-  // Update base speed based on screen width
+  // Optionally adapt base speed to screen size a bit, but keep overall slow
   useEffect(() => {
     const updateSpeed = () => {
-      const baseSpeed = Math.max(0.5, Math.min(window.innerWidth / 1000, 2));
-      setSpeed(baseSpeed);
+      // Range ~24-36 px/sec; still slow, slightly responsive
+      const base =
+        24 + Math.min(12, Math.max(0, (window.innerWidth - 360) / 100));
+      setSpeed(base);
     };
-
     updateSpeed();
     window.addEventListener("resize", updateSpeed);
-
-    return () => {
-      window.removeEventListener("resize", updateSpeed);
-    };
+    return () => window.removeEventListener("resize", updateSpeed);
   }, []);
 
-  // Animation effect
+  // Animation effect (time-based, seamless loop)
   useEffect(() => {
     const ticker = tickerRef.current;
     const content = contentRef.current;
-
     if (!ticker || !content || !contentWidth) return;
 
-    const animate = () => {
-      setPosition((prevPosition) => {
-        if (prevPosition < -contentWidth) {
-          return containerWidth;
+    const animate = (time) => {
+      if (lastTimeRef.current == null) {
+        lastTimeRef.current = time;
+      }
+      const deltaMs = time - lastTimeRef.current;
+      lastTimeRef.current = time;
+
+      const pixelsPerSec = slowDown ? speed * 0.5 : speed;
+      const deltaPx = (pixelsPerSec * deltaMs) / 1000;
+
+      setPosition((prev) => {
+        let next = prev - deltaPx;
+        // When we've moved past one full content width, wrap by that width
+        if (next <= -contentWidth) {
+          next += contentWidth;
         }
-        const currentSpeed = slowDown ? speed * 0.5 : speed; // Slow down to 50% of normal speed
-        return prevPosition - currentSpeed;
+        return next;
       });
 
       animationRef.current = requestAnimationFrame(animate);
@@ -73,11 +83,10 @@ export default function Ticker() {
     animationRef.current = requestAnimationFrame(animate);
 
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      lastTimeRef.current = null;
     };
-  }, [contentWidth, containerWidth, speed, slowDown]);
+  }, [contentWidth, speed, slowDown]);
 
   // Slow down on hover
   const handleMouseEnter = () => {
@@ -105,29 +114,57 @@ export default function Ticker() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="flex whitespace-nowrap w-full overflow-hidden">
+      <div className="w-full overflow-hidden">
+        {/* Track with two identical content blocks for seamless loop */}
         <div
-          ref={contentRef}
-          className="inline-block text-sm sm:text-base md:text-lg"
-          style={{
-            transform: `translateX(${position}px)`,
-            fontFamily: "Segoe UI Symbol, system-ui, sans-serif",
-            fontWeight: 700,
-            whiteSpace: "nowrap",
-            padding: "clamp(2px, 1vw, 4px) 0", // Added vertical padding to the content
-          }}
+          className="flex whitespace-nowrap"
+          style={{ transform: `translateX(${position}px)` }}
         >
-          {Array(5)
-            .fill(message)
-            .map((text, index) => (
-              <span key={index} className="mr-4 sm:mr-6 md:mr-8">
-                <span className="text-white">
-                  <span className="mr-1 sm:mr-2">🎁</span>
-                  {text.split("|")[0]}
+          {/* Block A */}
+          <div
+            ref={contentRef}
+            className="inline-block text-sm sm:text-base md:text-lg"
+            style={{
+              fontFamily: "Segoe UI Symbol, system-ui, sans-serif",
+              fontWeight: 700,
+              whiteSpace: "nowrap",
+              padding: "clamp(2px, 1vw, 4px) 0",
+            }}
+          >
+            {Array(6)
+              .fill(message)
+              .map((text, index) => (
+                <span key={`a-${index}`} className="mr-4 sm:mr-6 md:mr-8">
+                  <span className="text-white">
+                    <span className="mr-1 sm:mr-2">🎁</span>
+                    {text.split("|")[0]}
+                  </span>
+                  <span className="text-black">| {text.split("|")[1]}</span>
                 </span>
-                <span className="text-black">| {text.split("|")[1]}</span>
-              </span>
-            ))}
+              ))}
+          </div>
+          {/* Block B (duplicate of A) */}
+          <div
+            className="inline-block text-sm sm:text-base md:text-lg"
+            style={{
+              fontFamily: "Segoe UI Symbol, system-ui, sans-serif",
+              fontWeight: 700,
+              whiteSpace: "nowrap",
+              padding: "clamp(2px, 1vw, 4px) 0",
+            }}
+          >
+            {Array(6)
+              .fill(message)
+              .map((text, index) => (
+                <span key={`b-${index}`} className="mr-4 sm:mr-6 md:mr-8">
+                  <span className="text-white">
+                    <span className="mr-1 sm:mr-2">🎁</span>
+                    {text.split("|")[0]}
+                  </span>
+                  <span className="text-black">| {text.split("|")[1]}</span>
+                </span>
+              ))}
+          </div>
         </div>
       </div>
     </div>

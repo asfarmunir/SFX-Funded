@@ -111,10 +111,10 @@ const NotificationPopup = () => {
       <AnimatePresence>
         {visible && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            initial={{ opacity: 0, x: 120 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 120 }}
+            transition={{ type: "spring", stiffness: 420, damping: 32 }}
             className="bg-gradient-to-r from-[#96008D] to-[#DE00DE] text-white rounded-xl shadow-lg overflow-hidden max-w-xs"
           >
             <div className="p-4">

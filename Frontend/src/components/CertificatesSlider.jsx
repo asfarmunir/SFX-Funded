@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const payments = [
   {
@@ -65,29 +64,119 @@ const payments = [
 ];
 
 export const PaymentSlider = () => {
+  // Seamless, slow, infinite slider state
+  const [position, setPosition] = useState(0); // in px
   const [isMounted, setIsMounted] = useState(false);
-  const [animationKey, setAnimationKey] = useState(0);
+  const [contentWidth, setContentWidth] = useState(0);
+  const [speed, setSpeed] = useState(28); // px/sec, a little slow by default
+  const [slowDown, setSlowDown] = useState(false);
+  const trackRef = useRef(null);
+  const contentRef = useRef(null); // measure Block A width
+  const rafRef = useRef(null);
+  const lastTimeRef = useRef(null);
 
+  useEffect(() => setIsMounted(true), []);
+
+  // Measure content width and update on resize
   useEffect(() => {
-    setIsMounted(true);
+    const measure = () => {
+      if (contentRef.current) {
+        setContentWidth(contentRef.current.offsetWidth);
+      }
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
   }, []);
 
-  // Duplicate payments for seamless looping
-  const duplicatedPayments = [
-    ...payments,
-    ...payments,
-    ...payments,
-    ...payments,
-    ...payments,
-  ];
+  // Slightly adapt speed to screen size but keep it slow
+  useEffect(() => {
+    const updateSpeed = () => {
+      const base =
+        22 + Math.min(10, Math.max(0, (window.innerWidth - 360) / 160));
+      setSpeed(base);
+    };
+    updateSpeed();
+    window.addEventListener("resize", updateSpeed);
+    return () => window.removeEventListener("resize", updateSpeed);
+  }, []);
 
-  // Calculate animation duration based on number of items (2 seconds per item)
-  const animationDuration = payments.length * 20;
+  // Animation loop
+  useEffect(() => {
+    if (!isMounted || !contentWidth) return;
 
-  // Handle animation completion to reset position
-  const handleAnimationComplete = () => {
-    setAnimationKey((prev) => prev + 1); // Force re-render to reset animation
-  };
+    const animate = (time) => {
+      if (lastTimeRef.current == null) {
+        lastTimeRef.current = time;
+      }
+      const delta = time - lastTimeRef.current; // ms
+      lastTimeRef.current = time;
+      const pps = slowDown ? speed * 0.5 : speed;
+      const deltaPx = (pps * delta) / 1000;
+
+      setPosition((prev) => {
+        let next = prev - deltaPx;
+        if (next <= -contentWidth) {
+          next += contentWidth; // wrap seamlessly by one block width
+        }
+        return next;
+      });
+
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    rafRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      lastTimeRef.current = null;
+    };
+  }, [isMounted, contentWidth, speed, slowDown]);
+
+  // Build a single block of items (A). We repeat it twice for seamless loop.
+  const Block = ({ prefix = "a" }) => (
+    <div
+      ref={prefix === "a" ? contentRef : null}
+      className="flex items-center h-full"
+    >
+      {payments.map((payment, index) => (
+        <div
+          key={`${prefix}-${index}`}
+          className="flex items-center gap-4 flex-shrink-0 h-[100%] pl-4 py-1.5 pr-1.5 mx-3 bg-[#eaeaf1] rounded-[20px]"
+        >
+          <div className="flex flex-col justify-center h-full">
+            <p
+              className="font-bold text-lg"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              {payment.amount}
+            </p>
+            <p
+              className="text-sm text-gray-600"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+              {payment.name}
+            </p>
+            {payment.flag && (
+              <div className=" w-10 h-6 mt-2 flex items-center justify-center overflow-hidden ">
+                <img
+                  src={payment.flag}
+                  alt={`${payment.name} flag`}
+                  className="w-full h-full object-cover rounded-sm"
+                />
+              </div>
+            )}
+          </div>
+          <div className=" h-[180px] w-[130px] flex items-center rounded-[20px] overflow-hidden">
+            <img
+              src={payment.certificate}
+              alt="Payment Certificate"
+              className="w-full h-full object-cover rounded-md"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <div className="relative w-full overflow-hidden">
@@ -95,71 +184,24 @@ export const PaymentSlider = () => {
       <div className="absolute left-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-r from-white via-white/80 to-transparent" />
       <div className="absolute right-0 top-0 w-16 h-full z-10 pointer-events-none bg-gradient-to-l from-white via-white/80 to-transparent" />
 
-      <div className="overflow-hidden rounded-lg bg-gray-50 h-[190px]">
-        {isMounted && (
-          <motion.div
-            key={animationKey} // Reset animation on key change
-            className="flex items-center h-full"
-            animate={{
-              x: [
-                "0%",
-                `-${
-                  100 * (payments.length / duplicatedPayments.length) * 100
-                }%`,
-              ],
-            }}
-            transition={{
-              x: {
-                duration: animationDuration,
-                ease: "linear",
-                repeat: 0, // Run once, reset via key change
-              },
-            }}
-            onAnimationComplete={handleAnimationComplete}
-          >
-            {duplicatedPayments.map((payment, index) => (
-              <motion.div
-                key={index}
-                className="flex items-center gap-4 flex-shrink-0 h-[100%] pl-4 py-1.5 pr-1.5 mx-3 bg-[#eaeaf1] rounded-[20px]"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="flex flex-col justify-center h-full">
-                  <p
-                    className="font-bold text-lg"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {payment.amount}
-                  </p>
-                  <p
-                    className="text-sm text-gray-600"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {payment.name}
-                  </p>
-
-                  {payment.flag && (
-                    <div className=" w-10 h-6 mt-2 flex items-center justify-center overflow-hidden ">
-                      <img
-                        src={payment.flag}
-                        alt={`${payment.name} flag`}
-                        className="w-full h-full object-cover rounded-sm"
-                      />
-                    </div>
-                  )}
-                </div>
-                <div className=" h-[180px] w-[130px] flex items-center rounded-[20px] overflow-hidden">
-                  <img
-                    src={payment.certificate}
-                    alt="Payment Certificate"
-                    className="w-full h-full object-cover rounded-md"
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
+      <div
+        className="overflow-hidden rounded-lg bg-gray-50 h-[190px]"
+        onMouseEnter={() => setSlowDown(true)}
+        onMouseLeave={() => setSlowDown(false)}
+      >
+        <div
+          ref={trackRef}
+          className="flex items-center h-full"
+          style={{
+            transform: `translateX(${position}px)`,
+            willChange: "transform",
+          }}
+        >
+          {/* Block A */}
+          <Block prefix="a" />
+          {/* Block B (duplicate) */}
+          <Block prefix="b" />
+        </div>
       </div>
     </div>
   );

@@ -18,7 +18,9 @@ import LightningStackCards from "../components/Step5";
 import { PaymentSlider } from "../components/CertificatesSlider";
 import SuccessfulTraders from "../components/SuccessfulTraders";
 import Certificates from "../components/Certificates";
-
+import { Star } from "lucide-react";
+import { IoIosStar } from "react-icons/io";
+import { FaStar } from "react-icons/fa";
 export const tableData = {
   rapid: {
     7500: {
@@ -866,7 +868,7 @@ export default function Hero() {
       >
         {/* Main Content */}
         <div className="max-w-5xl mx-auto text-center flex flex-col items-center justify-center mt-4 sm:mt-6 md:mt-8 lg:mt-10">
-          <motion.img
+          {/* <motion.img
             src="/4.7.svg"
             alt="4.7 Rating"
             className="mb-3 sm:mb-4 md:mb-5 w-auto h-8 sm:h-10"
@@ -875,7 +877,19 @@ export default function Hero() {
             viewport={{ once: false }}
             transition={{ duration: 0.6 }}
             style={{ marginTop: "60px" }}
-          ></motion.img>
+          ></motion.img> */}
+
+          <div className="flex flex-col border border-[#DE00DE] rounded-full items-center gap-1.5 p-2.5 px-6 mt-[70px] mb-6">
+            <div className="flex items-center gap-2.5">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <FaStar className="text-[#DE00DE] text-[13px]" />
+              ))}
+            </div>
+
+            <p className=" text-[13px] font-semibold text-pink-50 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg font-inter">
+              Rated 4.7/5 by over 3,500+ traders on Trustpilot
+            </p>
+          </div>
 
           {/* Hero Heading */}
           <div className="text-center mb-3 sm:mb-4 md:mb-5">
@@ -960,7 +974,7 @@ export default function Hero() {
                 />
               </svg>
               <span className="text-black text-xs md:text-base whitespace-nowrap">
-                20% Profit Share from Challenge
+                20% Profit Share From Challenge
               </span>
             </motion.div>
 

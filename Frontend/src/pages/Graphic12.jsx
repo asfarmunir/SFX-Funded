@@ -1656,9 +1656,8 @@ export default function Graphic() {
             Trusted by Over <span className="text-fuchsia-600">8,000+</span>{" "}
             Traders World Wide
           </h1>
-
+          {/* 
           <div className="relative overflow-hidden w-full mt-6 mb-8 sm:mt-8 sm:mb-10 md:mt-12 md:mb-14 lg:mt-16 lg:mb-20">
-            {/* Blur Overlays */}
             <div
               className="absolute left-0 top-0 h-full w-24 z-10 pointer-events-none"
               style={{
@@ -1674,7 +1673,6 @@ export default function Graphic() {
               }}
             />
 
-            {/* Scrolling Container */}
             <div className="whitespace-nowrap animate-scroll flex items-center gap-12">
               {[...Array(2)].map((_, index) => (
                 <div key={index} className="flex items-center gap-12 px-4">
@@ -1700,7 +1698,6 @@ export default function Graphic() {
               ))}
             </div>
 
-            {/* Tailwind custom animation */}
             <style jsx>{`
               @keyframes scroll {
                 0% {
@@ -1714,8 +1711,64 @@ export default function Graphic() {
                 animation: scroll 5s linear infinite;
               }
             `}</style>
-          </div>
+          </div> */}
+          <div className="relative overflow-hidden w-full mt-6 mb-8 sm:mt-8 sm:mb-10 md:mt-12 md:mb-14 lg:mt-16 lg:mb-20">
+            {/* Blur Overlays */}
+            {/* <div
+            className="absolute left-0 top-0 h-full w-24 z-10 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to right, rgba(255,255,255,0.6), transparent)",
+            }}
+          />
+          <div
+            className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to left, rgba(255,255,255,0.6), transparent)",
+            }}
+          /> */}
+            {/* Scrolling Container */}
+            <div className="whitespace-nowrap mx-auto  justify-center animate-scroll flex items-center gap-12">
+              {[...Array(1)].map((_, index) => (
+                <div key={index} className="flex items-center gap-12 px-4">
+                  {[
+                    { src: "/mw.png", alt: "Marketwatch" },
+                    { src: "/ms.png", alt: "MSN" },
+                    { src: "/bb.png", alt: "Bloomberg" },
+                    { src: "/nd.png", alt: "Nasdaq" },
+                    { src: "/bz.png", alt: "Benzinga" },
+                  ].map((brand, i) => (
+                    <div
+                      key={i}
+                      className="h-16 w-40 flex items-center justify-center"
+                    >
+                      <img
+                        src={brand.src}
+                        alt={brand.alt}
+                        className="h-full max-w-full object-contain"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
 
+            {/* Tailwind custom animation */}
+            {/* <style jsx>{`
+            @keyframes scroll {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+            .animate-scroll {
+              animation: scroll 5s linear infinite;
+            }
+          `}</style> */}
+          </div>
           {/* Stats Cards Container */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* LEFT COLUMN */}

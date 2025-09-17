@@ -1455,7 +1455,7 @@ export default function InstantFunding() {
 
         <div className="relative overflow-hidden w-full mt-6 mb-8 sm:mt-8 sm:mb-10 md:mt-12 md:mb-14 lg:mt-16 lg:mb-20">
           {/* Blur Overlays */}
-          <div
+          {/* <div
             className="absolute left-0 top-0 h-full w-24 z-10 pointer-events-none"
             style={{
               background:
@@ -1468,11 +1468,10 @@ export default function InstantFunding() {
               background:
                 "linear-gradient(to left, rgba(255,255,255,0.6), transparent)",
             }}
-          />
-
+          /> */}
           {/* Scrolling Container */}
-          <div className="whitespace-nowrap animate-scroll flex items-center gap-12">
-            {[...Array(2)].map((_, index) => (
+          <div className="whitespace-nowrap mx-auto  justify-center animate-scroll flex items-center gap-12">
+            {[...Array(1)].map((_, index) => (
               <div key={index} className="flex items-center gap-12 px-4">
                 {[
                   { src: "/mw.png", alt: "Marketwatch" },
@@ -1483,7 +1482,7 @@ export default function InstantFunding() {
                 ].map((brand, i) => (
                   <div
                     key={i}
-                    className="h-10 w-32 flex items-center justify-center"
+                    className="h-16 w-40 flex items-center justify-center"
                   >
                     <img
                       src={brand.src}

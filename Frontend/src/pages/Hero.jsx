@@ -356,9 +356,9 @@ export const pricingData = {
     2500: { original: 49, discounted: 25 },
     5000: { original: 109, discounted: 55 },
     10000: { original: 149, discounted: 75 },
-    20000: { original: 239, discounted: 119 },
-    40000: { original: 359, discounted: 179 },
-    80000: { original: 599, discounted: 299 },
+    20000: { original: 275, discounted: 138 },
+    40000: { original: 413, discounted: 207 },
+    80000: { original: 689, discounted: 245 },
   },
 };
 // Define account sizes for each program
@@ -1278,7 +1278,7 @@ export default function Hero() {
 
         <div className="relative overflow-hidden w-full mt-6 mb-8 sm:mt-8 sm:mb-10 md:mt-12 md:mb-14 lg:mt-16 lg:mb-20">
           {/* Blur Overlays */}
-          <div
+          {/* <div
             className="absolute left-0 top-0 h-full w-24 z-10 pointer-events-none"
             style={{
               background:
@@ -1291,11 +1291,10 @@ export default function Hero() {
               background:
                 "linear-gradient(to left, rgba(255,255,255,0.6), transparent)",
             }}
-          />
-
+          /> */}
           {/* Scrolling Container */}
-          <div className="whitespace-nowrap animate-scroll flex items-center gap-12">
-            {[...Array(2)].map((_, index) => (
+          <div className="whitespace-nowrap mx-auto  justify-center animate-scroll flex items-center gap-12">
+            {[...Array(1)].map((_, index) => (
               <div key={index} className="flex items-center gap-12 px-4">
                 {[
                   { src: "/mw.png", alt: "Marketwatch" },
@@ -1306,7 +1305,7 @@ export default function Hero() {
                 ].map((brand, i) => (
                   <div
                     key={i}
-                    className="h-10 w-32 flex items-center justify-center"
+                    className="h-16 w-40 flex items-center justify-center"
                   >
                     <img
                       src={brand.src}

@@ -1293,7 +1293,7 @@ export default function Hero() {
             }}
           /> */}
           {/* Scrolling Container */}
-          <div className="whitespace-nowrap mx-auto  justify-center animate-scroll flex items-center gap-12">
+          <div className="md:flex whitespace-nowrap mx-auto  justify-center animate-scroll hidden items-center gap-12">
             {[...Array(1)].map((_, index) => (
               <div key={index} className="flex items-center gap-12 px-4">
                 {[
@@ -1317,6 +1317,30 @@ export default function Hero() {
               </div>
             ))}
           </div>
+          {[...Array(1)].map((_, index) => (
+            <div
+              key={index}
+              className="flex md:hidden items-center justify-evenly flex-wrap gap-4 "
+            >
+              {[
+                { src: "/ms.png", alt: "MSN" },
+                { src: "/bb.png", alt: "Bloomberg" },
+                { src: "/nd.png", alt: "Nasdaq" },
+                { src: "/bz.png", alt: "Benzinga" },
+              ].map((brand, i) => (
+                <div
+                  key={i}
+                  className="h-20 w-28 flex items-center justify-center"
+                >
+                  <img
+                    src={brand.src}
+                    alt={brand.alt}
+                    className="h-full max-w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
 
           {/* Tailwind custom animation */}
           {/* <style jsx>{`
@@ -1460,7 +1484,7 @@ export default function Hero() {
 
         <div className="px-4 sm:px-6 max-w-full overflow-hidden">
           {/* Program Selection Tiles */}
-          <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 sm:gap-4 mt-6">
+          <div className="grid grid-cols-1 sm:flex sm:flex-wrap justify-center gap-3 sm:gap-4 mt-6">
             <button
               className={`w-full sm:w-[180px] ${
                 selectedProgram === "rapid"

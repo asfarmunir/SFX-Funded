@@ -21,6 +21,7 @@ import Certificates from "../components/Certificates";
 import { Star } from "lucide-react";
 import { IoIosStar } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
+import MobileTestimonials from "../components/MobileTestimonials";
 export const tableData = {
   rapid: {
     7500: {
@@ -461,6 +462,52 @@ export const rightColumnTestimonials = [
     text: "I recently completed the prop trading challenge with SFX Funded and was fortunate to pass on my first attempt. The challenge had clear guidelines and excellent support from the team. I had not used MatchTrader before but found it easy to navigate after watching a few short videos and looking around the platform. The backend of SFX Funded was also easy to navigate and showed me clearly where I was standing during my challenge and verification phases.The payout process is efficient, and I received my first money within 48 hours of making the payout request.",
   },
 ];
+export const testimonials = [
+  {
+    id: 1,
+    name: "Liam Carter",
+    flag: "USA",
+    rating: 5,
+    text: "I only trade instant funded accounts. The firm has good offerings for anyone interested in instant funded accounts. More expensive then challenge accounts but well worth the money IMO. The platform is user-friendly and the execution is lightning fast.",
+  },
+  {
+    id: 2,
+    name: "Emily T.",
+    flag: "GB",
+    rating: 5,
+    text: "I purchased the Two Step Challenge 10k from SFX Funded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with SFX Funded.",
+  },
+  {
+    id: 3,
+    name: "Pierre L.",
+    flag: "FRANCE",
+    rating: 5,
+    text: "Easy and fast payout progess. From requested to funds in my account all within 48 hours. The support team is always responsive and helpful. I'm impressed with how smooth the entire process has been from start to finish.",
+  },
+  {
+    id: 4,
+    name: "James R.",
+    flag: "AUS",
+    rating: 5,
+    text: "I was not sure about joining SFX Funded because of that. But after buying one account now I am glad to know SFX Funded is better. I take nearly 2 months to pass both levels because I dont want to break any rules and now I am funded. I have not yet claimed a payout yet but will try first time after one or two more trades. Thank you sfx funded.",
+  },
+  {
+    id: 5,
+    name: "Ravi K.",
+    flag: "IND",
+    rating: 5,
+    text: "This is my first time with a prop firm ever and they made it so easy for me. Helpful support team and good trading platform. The evaluation process was straightforward and the rules are clearly explained. I feel confident trading with them and would recommend to other traders.",
+  },
+
+  {
+    id: 7,
+    name: "Ahmed M.",
+    flag: "UAE",
+    rating: 5,
+    text: "I purchased the Two Step Challenge 10k from SFX Funded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with SFX Funded.",
+  },
+];
+
 export default function Hero() {
   const mobileContainerRef = useRef(null);
   const { scrollYProgress: mobileScrollProgress } = useScroll({
@@ -677,58 +724,6 @@ export default function Hero() {
     },
   ];
 
-  const testimonials = [
-    {
-      id: 1,
-      name: "Pierre L.",
-      flag: "FRANCE",
-      rating: 5,
-      text: "Easy and fast payout progess. From requested to funds in my account all within 48 hours.",
-    },
-    {
-      id: 2,
-      name: "Liam Carter",
-      flag: "USA",
-      rating: 5,
-      text: "I only trade instant funded accounts. The firm has good offerings for anyone interested in instant funded accounts. More expensive then challenge accounts but well worth the money IMO",
-    },
-    {
-      id: 3,
-      name: "Emily T.",
-      flag: "GB",
-      rating: 5,
-      text: "I purchased the Two Step Challenge 10k from SFX Funded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with SFX Funded.",
-    },
-    {
-      id: 4,
-      name: "James R.",
-      flag: "AUS",
-      rating: 5,
-      text: "I had some bad experiences with other firms before so I was not sure about joining SFX Funded because of that. But after buying one account now I am glad to know SFX Funded is better. I take nearly 2 months to pass both levels because I dont want to break any rules and now I am funded. I have not yet claimed a payout yet but will try first time after one or two more trades. Thank you sfx funded.",
-    },
-    {
-      id: 5,
-      name: "Ravi K.",
-      flag: "IND",
-      rating: 5,
-      text: "This is my first time with a prop firm ever and they made it so easy for me. Helpful support team and good trading platform.",
-    },
-    {
-      id: 6,
-      name: "Peter S.",
-      flag: "GERMANY",
-      rating: 5,
-      text: "I recently completed the prop trading challenge with SFX Funded and was fortunate to pass on my first attempt. The challenge had clear guidelines and excellent support from the team. I had not used MatchTrader before but found it easy to navigate after watching a few short videos and looking around the platform. The backend of SFX Funded was also easy to navigate and showed me clearly where I was standing during my challenge and verification phases.The payout process is efficient, and I received my first money within 48 hours of making the payout request.Becoming a funded trader with SFX Funded overall has been a smooth experience and for any trader looking to prove their skills and get funded, I highly recommend SFX Funded.",
-    },
-    {
-      id: 7,
-      name: "Ahmed M.",
-      flag: "UAE",
-      rating: 5,
-      text: "I purchased the Two Step Challenge 10k from SFX Funded because the company offers such great conditions at an unbeatable price. The 90% profit split makes the company very attractive. The customer support is very quick & helpful. The speed and trade execution is also very fast & reliable. Very satisfied with SFX Funded.",
-    },
-  ];
-
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -755,15 +750,21 @@ export default function Hero() {
   //   ...testimonials.slice(5, 7),
   // ];
 
-  const mobileTestimonials = [
-    ...testimonials,
-    ...testimonials,
-    ...testimonials,
-  ];
+  // Removed mobileTestimonials - using testimonials directly in carousel
 
-  // Animation controls
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const animationRef = useRef(null);
+  // Carousel state for mobile testimonials
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+  const carouselRef = useRef(null);
+
+  // Calculate drag constraints based on testimonials count
+  useEffect(() => {
+    if (carouselRef.current) {
+      const cardWidth = 320; // approximate card width + gap
+      const maxDrag = -(testimonials.length - 1) * cardWidth;
+      setDragConstraints({ left: maxDrag, right: 0 });
+    }
+  }, [testimonials.length]);
 
   // Add this useEffect to detect mobile screens
   useEffect(() => {
@@ -771,35 +772,12 @@ export default function Hero() {
       setIsMobile(window.innerWidth < 768);
     };
 
-    // Check initially
     checkMobile();
-
-    // Add resize listener
     window.addEventListener("resize", checkMobile);
-
-    // Cleanup
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
-  // Animation loop
-  useEffect(() => {
-    const animate = () => {
-      setScrollPosition((prev) => (prev + (isMobile ? 0.05 : 0.05)) % 100);
-      animationRef.current = requestAnimationFrame(animate);
-    };
 
-    animationRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, []);
-
-  const slideUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-  };
+  // Removed unused slideUp variant
 
   // Render stars based on rating
   const renderStars = (rating) => {
@@ -859,18 +837,11 @@ export default function Hero() {
 
   // Calculate transform for each column based on scroll position
   // Update your getTransform function
-  const getTransform = (columnIndex) => {
-    const offset = (scrollPosition + columnIndex * 15) % 100;
+  // Removed unused getTransform - columns are static now
 
-    // This ensures the animation is seamless by showing 200% of the content
-    return `translateY(-${offset}%)`;
-  };
+  // Removed unused isMounted state
 
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  // Removed payments array - handled by PaymentSlider component
 
   const payments = [
     {
@@ -926,7 +897,7 @@ export default function Hero() {
   ];
 
   // Duplicate the payments for seamless looping
-  const duplicatedPayments = [...payments, ...payments];
+  // Removed duplicatedPayments - not needed
 
   return (
     <div className="font-inter w-full">
@@ -2666,39 +2637,8 @@ export default function Hero() {
             </h2>
           </div>
 
-          {/* Mobile Testimonial Column (Visible on small screens) */}
-          <div className="block md:hidden relative h-96 overflow-hidden">
-            <div
-              className="absolute w-full space-y-6"
-              style={{
-                transform: `translateY(-${(scrollPosition * 0.25) % 100}%)`,
-              }}
-            >
-              {mobileTestimonials.map((testimonial, index) => (
-                <div
-                  key={`mobile-${testimonial.id}-${index}`}
-                  className="bg-white p-6 rounded-lg shadow-lg"
-                  style={{
-                    background: "rgba(255, 255, 255, 0.8)",
-                    backdropFilter: "blur(24px)",
-                  }}
-                >
-                  {renderStars(testimonial.rating)}
-                  <div className="mb-4">{highlightText(testimonial.text)}</div>
-                  <div className="flex items-center">
-                    <span className="font-medium mr-2">{testimonial.name}</span>
-                    <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded">
-                      <img
-                        src={`/${testimonial.flag}.svg`}
-                        alt={testimonial.flag}
-                        className="w-full h-full object-cover"
-                      />
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Mobile Testimonial Carousel (Visible on small screens) */}
+          <MobileTestimonials />
 
           {/* Desktop 3-Column Testimonial Layout (Hidden on small screens) */}
           <div className="hidden md:grid md:grid-cols-3 gap-8 relative">

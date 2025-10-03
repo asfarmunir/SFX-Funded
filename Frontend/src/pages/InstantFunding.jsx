@@ -18,6 +18,7 @@ import {
 } from "./Hero";
 import SuccessfulTraders from "../components/SuccessfulTraders";
 import Certificates from "../components/Certificates";
+import MobileTestimonials from "../components/MobileTestimonials";
 
 export default function InstantFunding() {
   // Define account sizes for each program (renamed to avoid conflict)
@@ -1869,38 +1870,7 @@ export default function InstantFunding() {
           </div>
 
           {/* Mobile Testimonial Column (Visible on small screens) */}
-          <div className="block md:hidden relative h-96 overflow-hidden">
-            <div
-              className="absolute w-full space-y-6"
-              style={{
-                transform: `translateY(-${(scrollPosition * 0.25) % 100}%)`,
-              }}
-            >
-              {mobileTestimonials.map((testimonial, index) => (
-                <div
-                  key={`mobile-${testimonial.id}-${index}`}
-                  className="bg-white p-6 rounded-lg shadow-lg"
-                  style={{
-                    background: "rgba(255, 255, 255, 0.8)",
-                    backdropFilter: "blur(24px)",
-                  }}
-                >
-                  {renderStars(testimonial.rating)}
-                  <div className="mb-4">{highlightText(testimonial.text)}</div>
-                  <div className="flex items-center">
-                    <span className="font-medium mr-2">{testimonial.name}</span>
-                    <span className="w-6 h-4 flex items-center justify-center bg-gray-100 rounded">
-                      <img
-                        src={`/${testimonial.flag}.svg`}
-                        alt={testimonial.flag}
-                        className="w-full h-full object-cover"
-                      />
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <MobileTestimonials />
 
           {/* Desktop 3-Column Testimonial Layout (Hidden on small screens) */}
           <div className="hidden md:grid md:grid-cols-3 gap-8 relative">

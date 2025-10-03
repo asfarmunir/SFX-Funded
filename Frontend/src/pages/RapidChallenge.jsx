@@ -1409,6 +1409,31 @@ export default function RapidChallenge() {
             ))}
           </div>
 
+          {[...Array(1)].map((_, index) => (
+            <div
+              key={index}
+              className="flex md:hidden items-center justify-evenly flex-wrap gap-4 "
+            >
+              {[
+                { src: "/ms.png", alt: "MSN" },
+                { src: "/bb.png", alt: "Bloomberg" },
+                { src: "/nd.png", alt: "Nasdaq" },
+                { src: "/bz.png", alt: "Benzinga" },
+              ].map((brand, i) => (
+                <div
+                  key={i}
+                  className="h-20 w-28 flex items-center justify-center"
+                >
+                  <img
+                    src={brand.src}
+                    alt={brand.alt}
+                    className="h-full max-w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+
           {/* Tailwind custom animation */}
           {/* <style jsx>{`
             @keyframes scroll {

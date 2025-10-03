@@ -478,7 +478,7 @@ export default function Graphic() {
               }}
               transition={{ duration: 0.4, delay: 0.3 }}
             >
-              2-STEP
+              2-STEP <span className="text-white">CHALLENGE</span>
             </motion.h1>
           </div>
 
@@ -676,7 +676,7 @@ export default function Graphic() {
         </div>
       </div> */}
 
-      <div className="pb-12  px-4 sm:px-6 md:px-8 bg-gray-50">
+      <div className="py-12   px-4 sm:px-6 md:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
             {/* Left Side Text */}
@@ -1963,10 +1963,10 @@ export default function Graphic() {
             </div>
 
             {/* Platform Section */}
-            <div className="mb-16 mt-16 px-4">
+            <div className="mb-16 mt-16 md:px-4">
               {/* Heading */}
               <motion.h2
-                className="text-center text-[19.4px] md:text-4xl lg:text-5xl font-bold mb-4"
+                className="text-center text-[24.4px] md:text-4xl lg:text-5xl font-bold mb-4"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}

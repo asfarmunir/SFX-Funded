@@ -1619,10 +1619,10 @@ export default function RapidChallenge() {
           </div>
 
           {/* Platform Section */}
-          <div className="mb-16 mt-16 px-4">
+          <div className="mb-16 mt-16 md:px-4">
             {/* Heading */}
             <motion.h2
-              className="text-center text-[19.4px] md:text-4xl lg:text-5xl font-bold mb-4"
+              className="text-center text-[24.4px] md:text-4xl lg:text-5xl font-bold mb-4"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
